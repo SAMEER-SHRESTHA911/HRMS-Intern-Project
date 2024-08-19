@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path:'',
     component:PrivateComponent
-  }
+  },
+  { path: 'profile-details', loadChildren: () => import('./profile-details/profile-details.module').then(m => m.ProfileDetailsModule) }
 
 ];
 

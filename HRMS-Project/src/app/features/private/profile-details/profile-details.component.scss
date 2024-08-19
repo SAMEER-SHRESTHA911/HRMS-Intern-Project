@@ -1,0 +1,37 @@
+.profile-grid {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+
+  .profile-img {
+    padding: 1rem;
+    img {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    button {
+      width: 8rem;
+    }
+  }
+
+  .profile-detial {
+    padding: 1rem;
+    grid-column: 2 / -1;
+  }
+}
+.action-btn {
+  margin-left: auto;
+  padding: 1rem;
+  width: 150px;
+}
+
+@media screen and (max-width: 480px) {
+  .profile-grid {
+    grid-template-rows: 1fr;
+    .profile-detial {
+      padding: 1rem;
+      grid-column: 1/1;
+    }
+  }
+}
