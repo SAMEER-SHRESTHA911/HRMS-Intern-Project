@@ -4,15 +4,20 @@ import { PrivateComponent } from './private.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:PrivateComponent
+    path: '',
+    component: PrivateComponent,
   },
-  { path: 'staff-registration', loadChildren: () => import('./staff-registration/staff-registration.module').then(m => m.StaffRegistrationModule) }
-
+  {
+    path: 'staff-registration',
+    loadChildren: () =>
+      import('./staff-registration/staff-registration.module').then(
+        (m) => m.StaffRegistrationModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PrivateRoutingModule { }
+export class PrivateRoutingModule {}
