@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './navbar.component';
+import { SidebarComponent } from './sidebar.component';
 
 const routes: Routes = [
-  // { path: '', component: NavbarComponent }
+  // { path: '', component: SidebarComponent }
+
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class NavbarRoutingModule { }
+export class SidebarRoutingModule { }

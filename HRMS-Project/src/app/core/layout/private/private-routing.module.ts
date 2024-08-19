@@ -9,11 +9,16 @@ const routes: Routes = [
         (m) => m.PrivateModule
       ),
   },
-  {
-    path: 'navbar',
-    loadChildren: () =>
-      import('./navbar/navbar.module').then((m) => m.NavbarModule),
-  },
+  // {
+  //   path: 'sidebar',
+  //   loadChildren: () =>
+  //     import('./sidebar/sidebar.module').then((m) => m.SidebarModule),
+  // },
+  // {
+  //   path: 'navbar',
+  //   loadChildren: () =>
+  //     import('./navbar/navbar.module').then((m) => m.NavbarModule),
+  // },
 ];
 
 @NgModule({

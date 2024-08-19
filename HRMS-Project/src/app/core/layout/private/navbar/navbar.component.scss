@@ -4,11 +4,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 16px; // Add padding to create a gap from the screen edges
+    padding: 0 16px; 
   
     .logo img {
-      max-height: 50px; // Adjust the logo height
-      width: auto; // Maintain aspect ratio
+      max-height: 50px;
+      width: auto; 
     }
   
     .profile {
@@ -22,21 +22,21 @@
     .profile-icon {
       font-size: 36px;
       height: 36px;
-      width : 36px; // Adjust the icon size
+      width : 36px;
     }
   }
   
   @media (max-width: 768px) {
     .nav-container {
-      padding: 0 12px; // Reduce padding on smaller screens
+      padding: 0 12px;
     }
   
     .logo img {
-      max-height: 40px; // Adjust the logo size for smaller screens
+      max-height: 40px;
     }
   
     .profile-icon {
-      font-size: 32px; // Adjust the icon size for smaller screens
+      font-size: 32px; 
     }
   }
   
