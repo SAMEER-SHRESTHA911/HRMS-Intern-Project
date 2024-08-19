@@ -5,9 +5,10 @@ import { StaffRegistrationRoutingModule } from './staff-registration-routing.mod
 import { StaffRegistrationComponent } from './staff-registration.component';
 import { MaterialsModule } from '../../../materials/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddStaffComponent } from './add-staff/add-staff.component';
 
 @NgModule({
-  declarations: [StaffRegistrationComponent],
+  declarations: [StaffRegistrationComponent, AddStaffComponent],
   imports: [
     CommonModule,
     StaffRegistrationRoutingModule,
