@@ -9,9 +9,7 @@ import { EffectsModule } from '@ngrx/effects';
 // import { SidebarComponent } from './sharable/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

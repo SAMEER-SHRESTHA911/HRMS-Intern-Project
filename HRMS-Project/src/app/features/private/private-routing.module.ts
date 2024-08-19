@@ -6,7 +6,8 @@ const routes: Routes = [
   {
     path:'',
     component:PrivateComponent
-  }
+  },
+  { path: 'staff-registration', loadChildren: () => import('./staff-registration/staff-registration.module').then(m => m.StaffRegistrationModule) }
 
 ];
 
