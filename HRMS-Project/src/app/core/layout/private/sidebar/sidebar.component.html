@@ -2,14 +2,14 @@
     <mat-drawer mode="side" opened class="sidebar">
       <nav>
         <ul>
-          <li><a routerLink="ATTENDANCE">Attendance</a></li>
-          <li><a routerLink="LEAVE_APPLICATION_STATUS">Leave Application and Status</a></li>
-          <li><a routerLink="APPLY_FOR_LEAVE">Apply for Leave</a></li>
-          <li><a routerLink="ADD_NEW_EMPLOYEES">Add New Employees</a></li>
-          <li><a routerLink="EMPLOYEE_DETAILS">Employee Details</a></li>
-          <li><a routerLink="POLICIES">Policies</a></li>
+          <!-- <li><a routerLink="ATTENDANCE">Attendance</a></li> -->
+          <li><a [routerLink]="route_constant.apply_leave">Leave Application and Status</a></li>
+          <!-- <li><a routerLink="APPLY_FOR_LEAVE">Apply for Leave</a></li> -->
+          <li><a [routerLink]="route_constant.add_employee">Add New Employees</a></li>
+          <!-- <li><a routerLink="EMPLOYEE_DETAILS">Employee Details</a></li> -->
+          <li><a [routerLink]="route_constant.policies">Policies</a></li>
         </ul>
       </nav>
-    </mat-drawer>
+    </mat-drawer> 
   </mat-drawer-container>
   
