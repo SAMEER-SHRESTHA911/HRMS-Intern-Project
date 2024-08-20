@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -10,8 +13,9 @@ body {
 }
 *,
 *::after,
-*::before{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*::before {
+  box-sizing: border-box;
+  border-style: none;
+  margin: 0;
+  padding: 0;
 }

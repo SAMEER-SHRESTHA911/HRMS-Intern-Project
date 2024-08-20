@@ -14,8 +14,6 @@ const routes: Routes = [
         (m) => m.ProfileDetailsModule
       ),
   },
-
-  { path: '', component: PrivateComponent },
   {
     path: 'staff-registration',
     loadChildren: () =>
