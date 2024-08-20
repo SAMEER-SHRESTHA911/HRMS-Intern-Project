@@ -13,8 +13,9 @@ body {
 }
 *,
 *::after,
-*::before{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*::before {
+  box-sizing: border-box;
+  border-style: none;
+  margin: 0;
+  padding: 0;
 }

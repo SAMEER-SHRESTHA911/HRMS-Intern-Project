@@ -14,13 +14,23 @@ const routes: Routes = [
         (m) => m.ProfileDetailsModule
       ),
   },
-
-  { path: '', component: PrivateComponent },
   {
     path: 'staff-registration',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
+    path: 'leave-apply',
+    loadChildren: () =>
+      import('./leave-apply/leave-apply.module').then(
+        (m) => m.LeaveApplyModule
       ),
   },
 ];

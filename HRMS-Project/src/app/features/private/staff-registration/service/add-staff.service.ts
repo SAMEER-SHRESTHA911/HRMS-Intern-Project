@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AddStaffService {
-  private apiUrl = 'staffdetails.json';
+  private apiUrl = 'http://localhost:3000/Users';
   constructor(private http: HttpClient) {}
-  getStaff(): Observable<StaffDetails[]> {
-    return this.http.get<StaffDetails[]>(this.apiUrl);
+  postStaff(staff: StaffDetails): Observable<StaffDetails> {
+    return this.http.post<StaffDetails>(this.apiUrl, staff);
   }
 }
