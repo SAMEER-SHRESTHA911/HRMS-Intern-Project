@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AddStaffService } from '../service/add-staff.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { StaffList } from './model/staff-list';
 
 @Component({
   selector: 'app-staff-list',
@@ -15,6 +14,7 @@ export class StaffListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadStaffList();
+    this.dataSource = new MatTableDataSource();
   }
 
   loadStaffList() {
