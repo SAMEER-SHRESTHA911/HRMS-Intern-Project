@@ -12,10 +12,14 @@ import { AddStaffService } from '../service/add-staff.service';
   styleUrl: './add-staff.component.scss',
 })
 export class AddStaffComponent implements OnInit {
+  hide = true;
   registrationForm!: FormGroup;
   picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
   constructor(private fb: FormBuilder, private apiService: AddStaffService) {}
   ngOnInit() {
+    this.initializeForm();
+  }
+  initializeForm() {
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required]],
       midName: ['', [Validators.required]],
@@ -28,14 +32,12 @@ export class AddStaffComponent implements OnInit {
       startDate: ['', [Validators.required]],
       department: ['', [Validators.required]],
       role: ['', [Validators.required]],
-      designation: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
-  hide = signal(true);
   clickEvent(event: MouseEvent) {
-    this.hide.set(!this.hide());
+    this.hide = !this.hide;
     event.stopPropagation();
   }
   onSubmit() {
