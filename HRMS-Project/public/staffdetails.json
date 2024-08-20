@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "midName": "A.",
+      "lastName": "Doe",
+      "gender": "male",
+      "dob": "1990-01-01",
+      "address": "123 Main St",
+      "nationality": "American",
+      "citizenshipNumber": "123456789",
+      "startDate": "2023-08-01",
+      "department": "angular",
+      "role": "developer",
+      "designation": "Senior Developer",
+      "email": "john.doe@example.com",
+      "password": "securepassword"
+    }
+  ]
+}

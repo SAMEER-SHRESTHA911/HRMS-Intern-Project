@@ -4,6 +4,7 @@ import {
   MatDatepickerControl,
   MatDatepickerPanel,
 } from '@angular/material/datepicker';
+import { AddStaffService } from '../service/add-staff.service';
 
 @Component({
   selector: 'app-add-staff',
@@ -13,11 +14,11 @@ import {
 export class AddStaffComponent implements OnInit {
   registrationForm!: FormGroup;
   picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private apiService: AddStaffService) {}
   ngOnInit() {
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required]],
-      midName: [''],
+      midName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       dob: ['', [Validators.required]],
@@ -47,5 +48,11 @@ export class AddStaffComponent implements OnInit {
       this.registrationForm.markAllAsTouched();
     }
   }
+  getData() {
+    this.apiService.getStaff().subscribe((data) => {
+      console.log(data);
+    });
+  }
+
   clearErrors() {}
 }
