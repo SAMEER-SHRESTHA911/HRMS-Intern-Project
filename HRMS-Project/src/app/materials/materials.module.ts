@@ -17,6 +17,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -43,18 +45,10 @@ import { MatSortModule } from '@angular/material/sort';
     MatSelectModule,
     MatButtonModule,
     MatGridListModule,
-    MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule,
     FormsModule,
-    MatGridListModule,
     MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDialogModule,
     MatDialogActions,
     MatNativeDateModule,
     MatPaginatorModule,
@@ -63,6 +57,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatSidenavModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
 })
 export class MaterialsModule {}

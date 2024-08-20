@@ -1,0 +1,47 @@
+<div class="leaveApplyForm">
+    <form [formGroup]="leaveApplyForm" (ngSubmit)="onSubmit()">
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="department">
+                <mat-option *ngFor="let department of departments" [value]="department">
+                    {{department}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Leave Type</mat-label>
+            <mat-select formControlName="leaveType">
+                <mat-option *ngFor="let leavetype of leaveTypeArray" [value]="leavetype">
+                    {{leavetype}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Leave Date From</mat-label>
+            <input matInput [matDatepicker]="picker1" formControlName="leaveDateFrom"/>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Leave Date To</mat-label>
+            <input matInput [matDatepicker]="picker2" formControlName="leaveDateTo"/>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        
+        
+        <mat-form-field appearance="outline">
+            <mat-label>Reason For Leave</mat-label>
+            <textarea matInput formControlName = "reason" placeholder="Enter your reason for leave" maxlength="200" rows="4">
+            </textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="!leaveApplyForm.valid">
+            Submit
+          </button>
+    </form>
+</div>
