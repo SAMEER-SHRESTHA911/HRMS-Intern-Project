@@ -22,6 +22,11 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
     path: 'leave-apply',
     loadChildren: () =>
       import('./leave-apply/leave-apply.module').then(

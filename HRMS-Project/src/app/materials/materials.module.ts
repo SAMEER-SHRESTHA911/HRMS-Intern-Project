@@ -13,9 +13,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -29,6 +32,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatButtonModule,
     MatDialogActions,
+    MatNativeDateModule,
+    MatPaginatorModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -45,6 +50,13 @@ import { MatNativeDateModule } from '@angular/material/core';
     FormsModule,
     MatCardModule,
     MatDialogActions,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
     MatSidenavModule,
     MatNativeDateModule,
     ReactiveFormsModule,
