@@ -9,10 +9,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+;
+
 
 
 @NgModule({
-  declarations: [PublicComponent, LoginComponent],
+  declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent,  ],
   imports: [CommonModule,
   PublicRoutingModule,
   FlexLayoutModule,
@@ -21,6 +26,8 @@ import {MatCardModule} from '@angular/material/card';
   MatInputModule,
   MatButtonModule,
   MatCardModule,
+  ReactiveFormsModule
+
 ],
 })
 export class PublicModule {}
