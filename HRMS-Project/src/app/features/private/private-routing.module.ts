@@ -21,6 +21,11 @@ const routes: Routes = [
         (m) => m.StaffRegistrationModule
       ),
   },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
 ];
 
 @NgModule({
