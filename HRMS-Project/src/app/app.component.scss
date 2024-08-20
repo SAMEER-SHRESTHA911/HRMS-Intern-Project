@@ -1,16 +1,14 @@
-.body-container{
-    // display: flex;
-    // flex-direction: row;
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    
-    .sidebar-container{
-        outline: 1px solid red;
-        grid-row-start: span 3;
-    }
-    .router-container{
-        outline: 1px solid green;
-        grid-column: 2/-1;
-        grid-row-start: span 3;
-    }
+.body-container {
+  // display: flex;
+  // flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  .sidebar-container {
+    grid-row-start: span 3;
+  }
+  .router-container {
+    grid-column: 2/-1;
+    grid-row-start: span 3;
+  }
 }

@@ -5,6 +5,7 @@ import {
   MatDatepickerPanel,
 } from '@angular/material/datepicker';
 import { AddStaffService } from '../service/add-staff.service';
+import { StaffDetails } from '../model/add-staff';
 
 @Component({
   selector: 'app-add-staff',
@@ -15,6 +16,7 @@ export class AddStaffComponent implements OnInit {
   hide = true;
   registrationForm!: FormGroup;
   picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
+  addStaffService: any;
   constructor(private fb: FormBuilder, private apiService: AddStaffService) {}
   ngOnInit() {
     this.initializeForm();
@@ -42,19 +44,22 @@ export class AddStaffComponent implements OnInit {
   }
   onSubmit() {
     if (this.registrationForm.valid) {
-      const formData = this.registrationForm.value;
-      console.log('Form Submitted:', formData);
       alert('Form submitted sucessfully');
       this.registrationForm.reset();
     } else {
       this.registrationForm.markAllAsTouched();
     }
   }
-  getData() {
-    this.apiService.getStaff().subscribe((data) => {
-      console.log(data);
-    });
+  postEmployeeData() {
+    const formData: StaffDetails = this.registrationForm.value;
+
+    this.addStaffService.postStaff(formData).subscribe({});
   }
+  // getData() {
+  //   this.apiService.getStaff().subscribe((data) => {
+  //     console.log(data);
+  //   });
+  // }
 
   clearErrors() {}
 }

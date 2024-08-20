@@ -13,6 +13,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [],
@@ -26,6 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     MatDialogActions,
+    MatNativeDateModule,
+    MatPaginatorModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -50,6 +56,13 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatDialogModule,
     MatDialogActions,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
   ],
 })
 export class MaterialsModule {}
