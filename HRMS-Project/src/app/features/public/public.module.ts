@@ -12,7 +12,7 @@ import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
-  declarations: [PublicComponent, LoginComponent],
+  declarations: [PublicComponent],
   imports: [CommonModule,
   PublicRoutingModule,
   FlexLayoutModule,

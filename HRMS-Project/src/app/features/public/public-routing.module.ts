@@ -5,16 +5,21 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:PublicComponent
+    path: '',
+    component: PublicComponent,
   },
+  // {
+  //   path:'login', component : LoginComponent
+  // },
   {
-    path:'login', component : LoginComponent
+    path: 'login',
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PublicRoutingModule { }
+export class PublicRoutingModule {}
