@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NavbarModule } from './core/layout/private/navbar/navbar.module';
 import { SidebarModule } from './core/layout/private/sidebar/sidebar.module';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { SidebarModule } from './core/layout/private/sidebar/sidebar.module';
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
