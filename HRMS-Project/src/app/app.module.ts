@@ -10,9 +10,7 @@ import { NavbarModule } from './core/layout/private/navbar/navbar.module';
 import { SidebarModule } from './core/layout/private/sidebar/sidebar.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     NavbarModule,
