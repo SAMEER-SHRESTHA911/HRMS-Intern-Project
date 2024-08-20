@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './features/public/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -14,14 +15,9 @@ const routes: Routes = [
         (m) => m.PrivateModule
       ),
   },
-
   {
-    path: 'aditya',
-    loadChildren: () =>
-      import('./core/layout/private/private.module').then(
-        (m) => m.PrivateModule
-      ),
-  },
+    path: '**', component: NotFoundComponent
+  }
 ];
 
 @NgModule({

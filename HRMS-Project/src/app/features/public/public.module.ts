@@ -9,10 +9,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
-  declarations: [PublicComponent, LoginComponent],
+  declarations: [PublicComponent, LoginComponent, NotFoundComponent],
   imports: [CommonModule,
   PublicRoutingModule,
   FlexLayoutModule,

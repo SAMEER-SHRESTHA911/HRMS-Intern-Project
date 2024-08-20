@@ -5,6 +5,7 @@
   grid-template-columns: repeat(6, 1fr);
 
   .sidebar-container {
+    outline: 1px solid red;
     grid-row-start: span 3;
   }
   .router-container {
