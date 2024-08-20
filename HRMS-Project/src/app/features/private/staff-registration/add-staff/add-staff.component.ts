@@ -1,5 +1,9 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  MatDatepickerControl,
+  MatDatepickerPanel,
+} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-add-staff',
@@ -8,10 +12,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddStaffComponent implements OnInit {
   registrationForm!: FormGroup;
+  picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
   constructor(private fb: FormBuilder) {}
   ngOnInit() {
     this.registrationForm = this.fb.group({
-      id: ['', [Validators.required, Validators.email]],
       firstName: ['', [Validators.required]],
       midName: [''],
       lastName: ['', [Validators.required]],
@@ -37,7 +41,10 @@ export class AddStaffComponent implements OnInit {
     if (this.registrationForm.valid) {
       const formData = this.registrationForm.value;
       console.log('Form Submitted:', formData);
+      alert('Form submitted sucessfully');
       this.registrationForm.reset();
+    } else {
+      this.registrationForm.markAllAsTouched();
     }
   }
   clearErrors() {}

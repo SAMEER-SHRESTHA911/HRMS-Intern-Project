@@ -69,13 +69,14 @@
     </div>
 
     <div>
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Enter DOB</mat-label>
         <input matInput formControlName="dob" [matDatepicker]="picker" />
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker">
-          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-        </mat-datepicker-toggle>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error
           *ngIf="
@@ -142,18 +143,15 @@
     </div>
 
     <div>
-      <mat-form-field class="example-full-width">
-        <mat-label>Choose Start Date</mat-label>
-        <input
-          matInput
-          formControlName="startDate"
-          [matDatepicker]="startPicker"
-        />
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Enter start date</mat-label>
+        <input matInput formControlName="startDate" [matDatepicker]="picker1" />
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="startPicker">
-          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-        </mat-datepicker-toggle>
-        <mat-datepicker #startPicker></mat-datepicker>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
         <mat-error
           *ngIf="
             registrationForm.get('startDate')?.touched &&
@@ -166,7 +164,7 @@
     </div>
 
     <div>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Department</mat-label>
         <mat-select formControlName="department">
           <mat-option value="angular">Angular</mat-option>
@@ -186,7 +184,7 @@
     </div>
 
     <div>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Role</mat-label>
         <mat-select formControlName="role">
           <mat-option value="developer">Developer</mat-option>
@@ -247,7 +245,7 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input
           matInput
