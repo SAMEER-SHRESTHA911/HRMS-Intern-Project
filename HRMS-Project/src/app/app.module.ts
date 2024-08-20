@@ -18,6 +18,9 @@ import { SidebarModule } from './core/layout/private/sidebar/sidebar.module';
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
+
+
+
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

@@ -14,6 +14,14 @@ const routes: Routes = [
         (m) => m.PrivateModule
       ),
   },
+
+  {
+    path: 'aditya',
+    loadChildren: () =>
+      import('./core/layout/private/private.module').then(
+        (m) => m.PrivateModule
+      ),
+  },
 ];
 
 @NgModule({
