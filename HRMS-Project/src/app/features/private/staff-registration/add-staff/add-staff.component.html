@@ -1,4 +1,4 @@
-<button (click)="getData()">Create Data</button>
+<!-- <button (click)="getData()">Get Data</button> -->
 <div class="form-container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
@@ -206,25 +206,6 @@
 
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Enter Designation</mat-label>
-        <input
-          matInput
-          formControlName="designation"
-          placeholder="Designation"
-        />
-        <mat-error
-          *ngIf="
-            registrationForm.get('designation')?.touched &&
-            registrationForm.get('designation')?.hasError('required')
-          "
-        >
-          Designation is required.
-        </mat-error>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
         <input matInput formControlName="email" placeholder="pat@example.com" />
         <mat-error
@@ -251,16 +232,16 @@
         <input
           matInput
           formControlName="password"
-          [type]="hide() ? 'password' : 'text'"
+          [type]="hide ? 'password' : 'text'"
         />
         <button
           mat-icon-button
           matSuffix
           (click)="clickEvent($event)"
           [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide()"
+          [attr.aria-pressed]="hide"
         >
-          <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
         <mat-error
           *ngIf="

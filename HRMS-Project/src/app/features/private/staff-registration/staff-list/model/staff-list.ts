@@ -1,5 +1,5 @@
-export interface StaffDetails {
-  id: number | undefined;
+export interface StaffList {
+  id: number;
   firstName: string;
   midName: string;
   lastName: string;
@@ -7,7 +7,7 @@ export interface StaffDetails {
   dob: string;
   address: string;
   nationality: string;
-  citizenshipNumber: number;
+  citizenshipNumber: string;
   startDate: string;
   department: string;
   role: string;
