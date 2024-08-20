@@ -4,8 +4,17 @@ import {
   MatDatepickerControl,
   MatDatepickerPanel,
 } from '@angular/material/datepicker';
-import { AddStaffService } from '../service/add-staff.service';
-import { StaffDetails } from '../model/add-staff';
+import { AddStaffService } from './service/add-staff.service';
+import { StaffDetails } from './model/add-staff';
+import { select, Store } from '@ngrx/store';
+import { addStaff } from './store/add-staff.actions';
+import { Observable } from 'rxjs';
+import {
+  selectAllStaff,
+  selectStaffLoading,
+  selectStaffError,
+} from './store/add-staff.selector';
+import { StaffState } from './store/add-staff.state';
 
 @Component({
   selector: 'app-add-staff',
@@ -16,8 +25,15 @@ export class AddStaffComponent implements OnInit {
   hide = true;
   registrationForm!: FormGroup;
   picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
-  addStaffService: any;
-  constructor(private fb: FormBuilder, private apiService: AddStaffService) {}
+  staff$: Observable<StaffDetails[]> = this.store.pipe(select(selectAllStaff));
+  loading$: Observable<boolean> = this.store.pipe(select(selectStaffLoading));
+  error$: Observable<string | null> = this.store.pipe(select(selectStaffError));
+
+  constructor(
+    private fb: FormBuilder,
+    private apiService: AddStaffService,
+    private store: Store<StaffState>
+  ) {}
   ngOnInit() {
     this.initializeForm();
   }
@@ -42,24 +58,14 @@ export class AddStaffComponent implements OnInit {
     this.hide = !this.hide;
     event.stopPropagation();
   }
-  onSubmit() {
+  onSubmit(): void {
     if (this.registrationForm.valid) {
-      alert('Form submitted sucessfully');
+      const staffDetails: StaffDetails = this.registrationForm.value;
+
+      this.store.dispatch(addStaff({ staff: staffDetails }));
       this.registrationForm.reset();
     } else {
-      this.registrationForm.markAllAsTouched();
+      console.log('Form is not valid');
     }
   }
-  postEmployeeData() {
-    const formData: StaffDetails = this.registrationForm.value;
-
-    this.addStaffService.postStaff(formData).subscribe({});
-  }
-  // getData() {
-  //   this.apiService.getStaff().subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
-
-  clearErrors() {}
 }

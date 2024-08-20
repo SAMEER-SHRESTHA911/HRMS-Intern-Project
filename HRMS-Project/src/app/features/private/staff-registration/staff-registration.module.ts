@@ -7,6 +7,10 @@ import { MaterialsModule } from '../../../materials/materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddStaffComponent } from './add-staff/add-staff.component';
 import { StaffListComponent } from './staff-list/staff-list.component';
+import { StoreFeatureModule, StoreModule, StoreRootModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StaffEffects } from './add-staff/store/add-staff.effects';
+import { staffReducer } from './add-staff/store/add-staff.reducer';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,8 @@ import { StaffListComponent } from './staff-list/staff-list.component';
     MaterialsModule,
     ReactiveFormsModule,
     FormsModule,
+    StoreModule.forFeature('staff', staffReducer),
+    EffectsModule.forFeature([StaffEffects]),
   ],
 })
 export class StaffRegistrationModule {}
