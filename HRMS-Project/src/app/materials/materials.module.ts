@@ -13,6 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -37,19 +40,14 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatButtonModule,
     MatGridListModule,
-    MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule,
     FormsModule,
-    MatGridListModule,
     MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDialogModule,
     MatDialogActions,
+    MatSidenavModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
 })
 export class MaterialsModule {}

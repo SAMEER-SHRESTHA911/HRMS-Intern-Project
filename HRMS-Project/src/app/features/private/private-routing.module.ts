@@ -21,6 +21,13 @@ const routes: Routes = [
         (m) => m.StaffRegistrationModule
       ),
   },
+  {
+    path: 'leave-apply',
+    loadChildren: () =>
+      import('./leave-apply/leave-apply.module').then(
+        (m) => m.LeaveApplyModule
+      ),
+  },
 ];
 
 @NgModule({
