@@ -8,6 +8,15 @@ const routes: Routes = [
     component: PrivateComponent,
   },
   {
+    path: 'profile-details',
+    loadChildren: () =>
+      import('./profile-details/profile-details.module').then(
+        (m) => m.ProfileDetailsModule
+      ),
+  },
+
+  { path: '', component: PrivateComponent },
+  {
     path: 'staff-registration',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
