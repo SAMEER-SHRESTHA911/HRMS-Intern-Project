@@ -5,4 +5,5 @@ export const ROUTE_CONSTANT={
     employee_details : 'employee_details',
     policies : 'policies',
     emplpoyee_details : 'employee_details',
+    dashboard: 'dashboard'
 }
