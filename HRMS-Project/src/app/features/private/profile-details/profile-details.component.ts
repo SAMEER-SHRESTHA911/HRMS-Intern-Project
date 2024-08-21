@@ -23,12 +23,12 @@ export class ProfileDetailsComponent implements OnInit {
     });
   }
   get fullName() {
-    return `${this.profileDetails[0].firstName} ${this.profileDetails[0].midName} ${this.profileDetails[0].lastName}`
+    return `${this.profileDetails[0].firstName} ${this.profileDetails[0].midName} ${this.profileDetails[0].lastName}`;
   }
   openDialog() {
     this.matDialog.open(ProfileEditComponent, {
       width: '500px',
-      height: '600px',
+      // height: '700px',
     });
   }
 }

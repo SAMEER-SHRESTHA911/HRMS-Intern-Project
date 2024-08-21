@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-edit',
@@ -10,21 +10,20 @@ export class ProfileEditComponent {
   constructor(private fb: FormBuilder) {}
 
   editProfileForm = this.fb.group({
-    firstName: '',
-    midName: '',
-    lastName: '',
-    gender: '',
-    dob: '',
-    address: '',
-    nationality: '',
-    citizenshipNumber: '',
-    department: '',
-    role: '',
-    email: '',
+    firstName: ['', Validators.required],
+    midName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    gender: ['', Validators.required],
+    dob: ['', Validators.required],
+    address: ['', Validators.required],
+    nationality: ['', Validators.required],
+    email: ['', Validators.required, Validators.email],
+    // citizenshipNumber: ['',Validators.required],
+    // department: ['',Validators.required],
+    // role: ['',Validators.required],
   });
 
-  onSubmit():void{
-    console.log("submitted form", this.editProfileForm.value);
-    
+  onSubmit(): void {
+    console.log('submitted form', this.editProfileForm.value);
   }
 }
