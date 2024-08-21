@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid){
     this.auth.login(this.loginForm.value).subscribe(
       (result)=>{
-        this.router.navigate(['admin']);
+        this.router.navigate(['admin/dashboard']);
       },
       (err:Error)=>{
         alert(err.message);
