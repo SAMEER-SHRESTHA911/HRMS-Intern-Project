@@ -1,4 +1,4 @@
-<div class="login-container">
+<!-- <div class="login-container">
   <div class="login-form">
 
     <mat-card>
@@ -6,10 +6,12 @@
         <img src="logo.png" alt="Logo">
       </div>
 
-        <form fxFlex="stretch" [formGroup]="logiinForm" (ngSubmit)="onSubmit()">
+        <form fxFlex="stretch" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <mat-form-field>
             <input matInput placeholder="Username" formControlName="email"/>
         </mat-form-field>
+        <small class="form-text text danger w-500">Please enter email</small>
+
 
         <mat-form-field>
           <input matInput type="password" placeholder="Password" formControlName="password" />
@@ -26,4 +28,37 @@
 
     </mat-card>
   </div>
+</div> -->
+
+<div class="login-container">
+  <div class="login-form">
+    <mat-card>
+      <div class="logo-container">
+        <img src="logo.png" alt="Logo">
+      </div>
+
+      <form fxFlex="stretch" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="email" />
+        </mat-form-field>
+
+        <small *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched" class="form-text">Enter valid email</small>
+
+
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" />
+        </mat-form-field>
+
+        <small *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched" class="form-text">Enter valid Password</small>
+
+        <div class="forgot-password">
+          <a href="#" routerLink="../forget-password">Forgot Password?</a>
+        </div>
+
+        <button mat-button type="submit" class="button">Log In</button>
+      </form>
+    </mat-card>
+  </div>
 </div>
+

@@ -6,10 +6,10 @@
     background: #f2f4f7;
   
     form {
-      background-color: white; // White background for the form
-      padding: 30px; // Add padding for inner spacing
-      border-radius: 20px; // Rounded corners
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Light shadow for depth
+      background-color: white; 
+      padding: 30px; 
+      border-radius: 20px; 
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
       display: flex;
       flex-direction: column;
       gap: 20px;
@@ -29,12 +29,12 @@
         text-transform: none;
         font-weight: bold; 
         color: white;
-        background-color: #90caf9; // Light blue by default
-        transition: background-color 0.3s ease; // Smooth transition between states
+        background-color: #90caf9; 
+        transition: background-color 0.3s ease; 
         cursor: pointer;
       
         &:hover {
-          background-color: #42a5f5; // Darker blue on hover
+          background-color: #42a5f5; 
         }
       
         &:disabled {
