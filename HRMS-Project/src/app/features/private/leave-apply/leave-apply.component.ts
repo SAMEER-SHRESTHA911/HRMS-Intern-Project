@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LeaveApplyBody } from './types/types';
+import { Store } from '@ngrx/store';
+import { submitLeaveForm } from './store/leave.actions';
 
 @Component({
   selector: 'app-leave-apply',
@@ -10,26 +13,43 @@ import { Router } from '@angular/router';
 export class LeaveApplyComponent implements OnInit {
   
   leaveApplyForm!: FormGroup;
-  
-  departments: string[] = ['Angular', '.NET'];
-  leaveTypeArray : string[] = ['Half', 'Full']
 
-  constructor(private fb: FormBuilder, private router:Router) {}
+  minDate : Date = new Date();
+
+  departments: string[] = ['Angular', '.NET'];
+  leaveTypeArray: string[] = ['Sick', 'Annual', 'Other'];
+  dayLeaveTypeArray : string[] = ['First Half', 'Second Half', 'Full Day'];
+
+  constructor(
+    private store: Store,
+    private fb: FormBuilder,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.initApplyForm();
   }
-  
+
   initApplyForm() {
     this.leaveApplyForm = this.fb.group({
-      reason: ['', Validators.required],
-      leaveType: ['', Validators.required ],
-      leaveDateFrom: ['', Validators.required],
-      leaveDateTo: ['', Validators.required],
+      reasonForLeave: ['', Validators.required],
+      leaveType: ['', Validators.required],
+      leaveFrom: ['', Validators.required],
+      leaveTo: ['', Validators.required],
       department: ['', Validators.required],
+      dayLeave: ['', Validators.required]
     });
   }
   onSubmit() {
-    this.router.navigate(['/login'])
+    if (this.leaveApplyForm.valid) {
+      console.log(this.leaveApplyForm.value)
+      const formValue = this.leaveApplyForm.value;
+      this.store.dispatch(submitLeaveForm({ leaveData : formValue}))
+      this.router.navigate(['/admin/leave-apply']);
+      this.resetForm();
+    }
+  }
+  resetForm(){
+    this.leaveApplyForm.reset()
   }
 }
