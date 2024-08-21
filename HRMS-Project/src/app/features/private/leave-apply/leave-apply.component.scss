@@ -1,51 +1,55 @@
 .leaveApplyForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #f2f4f7;
+  margin: auto;
+
+  form {
+    background-color: white; // White background for the form
+    padding: 30px; // Add padding for inner spacing
+    border-radius: 20px; // Rounded corners
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Light shadow for depth
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background: #f2f4f7;
-  
-    form {
-      background-color: white; // White background for the form
-      padding: 30px; // Add padding for inner spacing
-      border-radius: 20px; // Rounded corners
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Light shadow for depth
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 400px;
-      width: 100%;
-      margin: 0 auto;
-    }
-  
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .form-row {
+    display: flex;
+    gap: 20px;
+  }
     mat-form-field {
       width: 100%;
     }
-  
+
     button {
-        align-self: center;
-        padding: 10px 20px;
-        border-radius: 30px;
-        text-transform: none;
-        font-weight: bold; 
-        color: white;
-        background-color: #90caf9; // Light blue by default
-        transition: background-color 0.3s ease; // Smooth transition between states
-        cursor: pointer;
-      
-        &:hover {
-          background-color: #42a5f5; // Darker blue on hover
-        }
-      
-        &:disabled {
-          background-color: #bdbdbd; 
-          color: #fff; 
-          cursor: not-allowed; 
-        }
+      align-self: center;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-transform: none;
+      font-weight: bold;
+      color: white;
+      background-color: #90caf9; 
+      transition: background-color 0.3s ease; 
+      cursor: pointer;
+
+      &:hover {
+        background-color: #42a5f5;
       }
-      
-      textarea{
-        resize: none;
+
+      &:disabled {
+        background-color: #bdbdbd;
+        color: #fff;
+        cursor: not-allowed;
       }
-  }
+    }
+
+    textarea {
+      resize: none;
+    }
   
+}

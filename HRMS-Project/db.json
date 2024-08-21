@@ -16,5 +16,26 @@
       "email": "john.doe@example.com",
       "password": "securepassword"
     }
+  ],
+  "leaveApply": [
+    {
+      "employeeId": 8,
+      "leaveFrom": "2024-08-17",
+      "leaveTo": "2024-08-20",
+      "leaveType": 3,
+      "dayLeave": 3,
+      "reasonForLeave": "string",
+      "leaveRequestStatus": 3,
+      "id": "22ca"
+    },
+    {
+      "id": "0139",
+      "reasonForLeave": "sadas",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-20T18:15:00.000Z",
+      "leaveTo": "2024-08-20T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "First Half"
+    }
   ]
 }
