@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { OnIdentifyEffects } from '@ngrx/effects';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -11,18 +10,25 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
- logiinForm = new FormGroup({
-  email : new FormControl(''),
-  password : new FormControl(''),
- });
+ loginForm!: FormGroup;
 
- constructor(private auth: AuthService, private router:Router) {}
+ constructor(private auth: AuthService, private router:Router, private fb:FormBuilder) {}
 
- ngOnInit(): void {}
+ ngOnInit(): void {
+  this.loginForm = this.fb.group({
+    email:['',[Validators.required, Validators.email]],
+    password:['',[Validators.required, Validators.minLength(6)]]
+  })
+ }
 
  onSubmit() : void {
-  if(this.logiinForm.valid){
-    this.auth.login(this.logiinForm.value).subscribe(
+  //  if(this.loginForm.valid){
+  // console.log(this.loginForm.value);
+  //  }else{
+  //   //...
+  //  }
+    if(this.loginForm.valid){
+    this.auth.login(this.loginForm.value).subscribe(
       (result)=>{
         this.router.navigate(['admin']);
       },
@@ -33,3 +39,4 @@ export class LoginComponent implements OnInit {
   }
  }
 }
+
