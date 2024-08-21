@@ -1,7 +1,7 @@
 export interface StaffDetails {
   id: number | undefined;
   firstName: string;
-  midName: string;
+  middleName: string;
   lastName: string;
   phoneNumber: number;
   gender: string;

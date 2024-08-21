@@ -19,7 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [],
   imports: [
@@ -34,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogActions,
     MatNativeDateModule,
     MatPaginatorModule,
+    MatMenuModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -60,6 +61,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSidenavModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatMenuModule,
   ],
 })
 export class MaterialsModule {}

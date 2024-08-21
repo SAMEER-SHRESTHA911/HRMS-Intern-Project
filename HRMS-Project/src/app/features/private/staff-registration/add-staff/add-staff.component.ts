@@ -50,7 +50,7 @@ export class AddStaffComponent implements OnInit {
 
       this.store.dispatch(addStaff({ staff: staffDetails }));
     } else {
-      console.log('Form is not valid');
+      this.registrationForm.markAllAsTouched();
     }
   }
   selectorInitializer(): void {

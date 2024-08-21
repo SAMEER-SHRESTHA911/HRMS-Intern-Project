@@ -10,7 +10,7 @@ export class FormService {
   initializeForm(): void {
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required]],
-      midName: ['', [Validators.required]],
+      middleName: ['', []],
       lastName: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
       gender: ['', [Validators.required]],

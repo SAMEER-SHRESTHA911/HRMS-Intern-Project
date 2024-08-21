@@ -9,10 +9,10 @@ export interface StaffList {
   address: string;
   nationality: string;
   citizenshipNumber: string;
-  startDate: string;
+  startDate?: string;
   department: string;
   role: string;
-  email?: string;
-  password: string;
+  email: string;
+  password?: string;
   actions: any;
 }
