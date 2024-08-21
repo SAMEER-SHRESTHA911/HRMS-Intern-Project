@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { AddStaffService } from '../service/add-staff.service';
+import { AddStaffService } from '../service/api/add-staff.service';
 import {
   addStaff,
   addStaffSuccess,
@@ -8,12 +8,14 @@ import {
 } from './add-staff.actions';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { FormService } from '../service/form/form.service';
 
 @Injectable()
 export class StaffEffects {
   constructor(
     private actions$: Actions,
-    private addStaffService: AddStaffService
+    private addStaffService: AddStaffService,
+    private formService: FormService
   ) {}
   addStaff$ = createEffect(() =>
     this.actions$.pipe(
@@ -25,5 +27,17 @@ export class StaffEffects {
         )
       )
     )
+  );
+  addStaffSucess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(addStaffSuccess),
+        map(({ staff }) => {
+          this.formService.resetForm();
+        })
+      ),
+    {
+      dispatch: false,
+    }
   );
 }

@@ -11,15 +11,16 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate : [authGuard],
+    // canActivate : [authGuard],
     loadChildren: () =>
       import('./core/layout/private/private.module').then(
         (m) => m.PrivateModule
       ),
   },
   {
-    path: '**', component: NotFoundComponent
-  }
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
