@@ -1,7 +1,7 @@
 {
-  "Users": [
+  "users": [
     {
-      "id": 1,
+      "id": "1",
       "firstName": "John",
       "midName": "A.",
       "lastName": "Doe",
@@ -15,6 +15,70 @@
       "role": "developer",
       "email": "john.doe@example.com",
       "password": "securepassword"
+    },
+    {
+      "id": "82f5",
+      "firstName": "Celeste",
+      "midName": "Harding Norton",
+      "lastName": "Wiley",
+      "gender": "male",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Nulla incididunt id ",
+      "nationality": "Reprehenderit id p",
+      "citizenshipNumber": "972",
+      "startDate": "2005-11-01T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "vefysyb@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "e6dd",
+      "firstName": "Kenneth",
+      "midName": "Gabriel Pena",
+      "lastName": "Branch",
+      "gender": "female",
+      "dob": "2024-08-11T18:15:00.000Z",
+      "address": "Ut assumenda possimu",
+      "nationality": "Sed in amet officii",
+      "citizenshipNumber": "945",
+      "startDate": "2000-06-19T18:15:00.000Z",
+      "department": "flutter",
+      "role": "tester",
+      "email": "zobonakyra@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "0b61",
+      "firstName": "Galena",
+      "midName": "Macon Tillman",
+      "lastName": "Albert",
+      "gender": "male",
+      "dob": "2024-08-05T18:15:00.000Z",
+      "address": "Nam pariatur Incidu",
+      "nationality": "Quia adipisci reicie",
+      "citizenshipNumber": "863",
+      "startDate": "2001-04-17T18:15:00.000Z",
+      "department": "flutter",
+      "role": "tester",
+      "email": "mecotuw@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "8e5e",
+      "firstName": "Abhisha ",
+      "midName": "Lee Haley",
+      "lastName": "Sharma ",
+      "gender": "female",
+      "dob": "2024-08-12T18:15:00.000Z",
+      "address": "Cupiditate odio aute",
+      "nationality": "Aut molestiae blandi",
+      "citizenshipNumber": "326",
+      "startDate": "1991-09-14T18:15:00.000Z",
+      "department": "angular",
+      "role": "developer",
+      "email": "hezamez@mailinator.com",
+      "password": "Pa$$w0rd!"
     }
   ]
 }

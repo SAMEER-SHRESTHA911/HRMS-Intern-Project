@@ -1,22 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { SidebarRoutingModule } from './sidebar-routing.module';
 import { SidebarComponent } from './sidebar.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidebarRoutingModule } from './sidebar-routing.module';
 
+import { MaterialsModule } from '../../../materials/materials.module';
 
 @NgModule({
-  declarations: [
-    SidebarComponent
-  ],
-  imports: [
-    CommonModule,
-    SidebarRoutingModule,
-    MatButtonModule,
-    MatSidenavModule
-  ],
-  exports : [ SidebarComponent]
+  declarations: [SidebarComponent],
+  imports: [CommonModule, SidebarRoutingModule, MaterialsModule],
+  exports: [SidebarComponent],
 })
-export class SidebarModule { }
+export class SidebarModule {}

@@ -12,7 +12,8 @@
         />
         <mat-error
           *ngIf="
-            registrationForm.get('firstName')?.touched &&
+            (registrationForm.get('firstName')?.touched ||
+              registrationForm.get('firstName')?.dirty) &&
             registrationForm.get('firstName')?.hasError('required')
           "
         >
@@ -207,7 +208,12 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Enter your email</mat-label>
-        <input matInput formControlName="email" placeholder="pat@example.com" />
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="pat@example.com"
+        />
         <mat-error
           *ngIf="
             registrationForm.get('email')?.touched &&
@@ -235,9 +241,10 @@
           [type]="hide ? 'password' : 'text'"
         />
         <button
+          type="button"
           mat-icon-button
           matSuffix
-          (click)="clickEvent($event)"
+          (click)="hide = !hide"
           [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="hide"
         >

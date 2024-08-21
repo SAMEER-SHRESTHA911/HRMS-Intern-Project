@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AddStaffService } from '../service/add-staff.service';
+import { AddStaffService } from '../add-staff/service/api/add-staff.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 
