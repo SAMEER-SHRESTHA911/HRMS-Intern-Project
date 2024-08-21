@@ -5,7 +5,8 @@ import { PrivateComponent } from './private.component';
 const routes: Routes = [
   {
     path: '',
-    component: PrivateComponent,
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   },
   {
     path: 'profile-details',
