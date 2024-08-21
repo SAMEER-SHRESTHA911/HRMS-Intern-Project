@@ -6,9 +6,11 @@ constructor(private auth :AuthService, private router: Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-   ):boolean {
-    if(this.auth.isLoggedIn()){
-      this.router.navigate(['login']);
+   )
+  :boolean 
+  {
+    if(!this.auth.isLoggedIn()){
+      this.router.navigate(['']);
       return false;
     }
     return this.auth.isLoggedIn();
