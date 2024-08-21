@@ -1,8 +1,9 @@
 export interface StaffList {
   id: number;
   firstName: string;
-  midName: string;
+  middleName: string;
   lastName: string;
+  phoneNumber: number;
   gender: string;
   dob: string;
   address: string;
@@ -11,6 +12,7 @@ export interface StaffList {
   startDate: string;
   department: string;
   role: string;
-  email: string;
+  email?: string;
   password: string;
+  actions: any;
 }

@@ -3,6 +3,7 @@ export interface StaffDetails {
   firstName: string;
   midName: string;
   lastName: string;
+  phoneNumber: number;
   gender: string;
   dob: string;
   address: string;

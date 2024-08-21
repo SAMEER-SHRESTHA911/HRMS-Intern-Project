@@ -12,6 +12,7 @@ export class FormService {
       firstName: ['', [Validators.required]],
       midName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
       gender: ['', [Validators.required]],
       dob: ['', [Validators.required]],
       address: ['', [Validators.required]],
