@@ -1,3 +1,12 @@
+<section class="flex justify-end m-5">
+  <button
+    mat-flat-button
+    [color]="!checkedIn ? 'primary' : 'warn'"
+    (click)="openCheckInDialog()"
+  >
+    {{ !checkedIn ? "Check-In" : "Check-Out" }}
+  </button>
+</section>
 <section class="m-5 grid grid-cols-4 gap-4">
   <mat-card appearance="outlined" class="pb-4">
     <mat-card-header>
