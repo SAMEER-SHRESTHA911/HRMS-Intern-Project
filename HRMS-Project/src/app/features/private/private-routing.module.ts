@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full',
+    component: DashboardComponent,
   },
   {
     path: 'profile-details',
@@ -31,6 +31,20 @@ const routes: Routes = [
     loadChildren: () =>
       import('./leave-apply/leave-apply.module').then(
         (m) => m.LeaveApplyModule
+      ),
+  },
+  {
+    path: 'staff_management',
+    loadChildren: () =>
+      import('./staff-registration/staff-registration.module').then(
+        (m) => m.StaffRegistrationModule
+      ),
+  },
+  {
+    path: 'policies',
+    loadChildren: () =>
+      import('./staff-registration/staff-registration.module').then(
+        (m) => m.StaffRegistrationModule
       ),
   },
 ];
