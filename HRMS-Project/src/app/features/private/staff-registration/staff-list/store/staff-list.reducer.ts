@@ -1,6 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialState } from './staff-list.state';
 import {
+  deleteStaffDetails,
+  deleteStaffDetailsFailure,
+  deleteStaffDetailsSucess,
   loadStaffList,
   loadStaffListFailure,
   loadStaffListSuccess,
@@ -18,9 +21,23 @@ export const staffListReducer = createReducer(
     staff,
     loading: false,
   })),
-  on(loadStaffListFailure, (state, { error }) => ({
+
+  on(loadStaffListSuccess, (state, { staff }) => ({
     ...state,
+    staff,
     loading: false,
+  })),
+  on(deleteStaffDetails, (state) => ({
+    ...state,
+    loading: true,
+  })),
+  on(deleteStaffDetailsSucess, (state, { id }) => ({
+    ...state,
+    staff: state.staff.filter((staff) => staff.id !== id),
+    error: null,
+  })),
+  on(deleteStaffDetailsFailure, (state, { error }) => ({
+    ...state,
     error,
   }))
 );
