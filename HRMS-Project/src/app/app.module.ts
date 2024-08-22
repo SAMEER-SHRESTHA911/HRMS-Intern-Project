@@ -7,6 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
+import { AuthService } from './features/public/services/services/auth.service';
+import { AuthGuard } from './features/public/guards/guards/auth.guard';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { provideHttpClient } from '@angular/common/http';
     EffectsModule.forRoot([]),
 
   ],
-  providers: [provideAnimationsAsync(), provideHttpClient()],
+  providers: [provideAnimationsAsync(), provideHttpClient(),AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
