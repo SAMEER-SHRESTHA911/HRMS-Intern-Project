@@ -1,23 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "firstName": "John",
-      "midName": "A.",
-      "lastName": "Doe",
-      "gender": "male",
-      "dob": "1990-01-01",
-      "phoneNumber": "9866783940",
-      "address": "123 Main St",
-      "nationality": "American",
-      "citizenshipNumber": "123456789",
-      "startDate": "2023-08-01",
-      "department": "angular",
-      "role": "developer",
-      "email": "john.doe@example.com",
-      "password": "securepassword"
-    },
-    {
       "id": "82f5",
       "firstName": "Celeste",
       "midName": "Harding Norton",
@@ -165,6 +148,25 @@
       "leaveTo": "2024-08-21T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    }
+  ],
+  "loggedInUser": [
+    {
+      "id": "82f5",
+      "firstName": "Celeste",
+      "midName": "Harding Norton",
+      "lastName": "Wiley",
+      "phoneNumber": "9866787740",
+      "gender": "male",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Nulla incididunt id ",
+      "nationality": "Reprehenderit id p",
+      "citizenshipNumber": "972",
+      "startDate": "2005-11-01T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "vefysyb@mailinator.com",
+      "password": "Pa$$w0rd!"
     }
   ]
 }
