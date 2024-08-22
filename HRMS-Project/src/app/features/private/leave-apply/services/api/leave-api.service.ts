@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LeaveApplyBody } from '../../types/types';
+import { LeaveApplyBody } from '../../types/leave-apply';
 
 @Injectable({
   providedIn: 'root',
