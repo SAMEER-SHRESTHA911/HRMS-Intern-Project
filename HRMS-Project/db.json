@@ -166,5 +166,15 @@
       "department": "Angular",
       "dayLeave": "First Half"
     }
+  ],
+  "leaveTable": [
+    {
+      "no": 1,
+      "fromDate": "2024-1-28",
+      "toDate": "2024-1-30",
+      "duration": 5,
+      "reason": "Vacation",
+      "status": "Approved"
+    }
   ]
 }

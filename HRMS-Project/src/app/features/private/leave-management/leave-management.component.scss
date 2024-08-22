@@ -74,6 +74,7 @@ mat-card {
   align-items: center;
   justify-content: center;
   gap: 25px;
+  padding-right: 10px;
 
   .header-number {
     display: flex;
@@ -104,10 +105,12 @@ mat-card {
   }
   .header-title {
     display: flex;
-    // border: 2px solid blue;
+    color : #0d47a1;
   }
 }
 .mat-mdc-card-title{
     text-align: center;
-    // padding-bottom: ;
+}
+.third-row{
+  margin-top: 20px;
 }

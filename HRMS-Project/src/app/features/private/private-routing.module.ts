@@ -33,16 +33,15 @@ const routes: Routes = [
         (m) => m.LeaveApplyModule
       ),
   },
-  { path: 'leave-management', loadChildren: () => import('./leave-management/leave-management.module').then(m => m.LeaveManagementModule) },
   {
-    path: 'staff_management',
+    path: 'leave-management',
     loadChildren: () =>
-      import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule
+      import('./leave-management/leave-management.module').then(
+        (m) => m.LeaveManagementModule
       ),
   },
   {
-    path: 'policies',
+    path: 'staff_management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
