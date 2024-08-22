@@ -22,17 +22,15 @@ export class LoginComponent implements OnInit {
  }
 
  onSubmit() : void {
-  //  if(this.loginForm.valid){
-  // console.log(this.loginForm.value);
-  //  }else{
-  //   //...
-  //  }
+   if(this.loginForm.valid){
+  console.log(this.loginForm.value);
+   }
     if(this.loginForm.valid){
     this.auth.login(this.loginForm.value).subscribe(
       (result)=>{
-        this.router.navigate(['admin']);
+        this.router.navigate(['admin/dashboard']);
       },
-      (err:Error)=>{
+      (err)=>{
         alert(err.message);
       }
     );

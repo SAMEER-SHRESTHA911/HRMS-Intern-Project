@@ -11,9 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-;
-
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -28,6 +25,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
+
   ],
 })
 export class PublicModule {}
