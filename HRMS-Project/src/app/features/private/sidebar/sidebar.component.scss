@@ -1,6 +1,8 @@
 .sidebar-container {
   display: flex;
   height: 88vh;
+  position: fixed;
+  top: 75px;
 }
 
 .sidebar {
