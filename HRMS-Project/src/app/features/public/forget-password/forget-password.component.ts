@@ -9,8 +9,6 @@ import { AuthService } from '../services/services/auth.service';
 export class ForgetPasswordComponent implements OnInit {
   forgetPasswordForm!: FormGroup;
 
-  forgetPasswordForm!: FormGroup;
-
   constructor(private fb: FormBuilder, private authService: AuthService) {}
 
   ngOnInit(): void {
