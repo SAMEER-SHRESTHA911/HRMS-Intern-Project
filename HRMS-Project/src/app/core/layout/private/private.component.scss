@@ -1,16 +1,15 @@
 .body-container{
-    // display: flex;
-    // flex-direction: row;
     display: grid;
     grid-template-columns: repeat(6,1fr);
+    padding-top: 75px;
     
     .sidebar-container{
-        outline: 1px solid red;
         grid-row-start: span 3;
     }
     .router-container{
-        outline: 1px solid green;
         grid-column: 2/-1;
         grid-row-start: span 3;
+        height: calc(100vh - 75px);
+        overflow: auto;
     }
 }
