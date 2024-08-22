@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { LeaveApplyBody, LeaveApplyResponse } from '../types/types';
+import { LeaveApplyBody, LeaveApplyResponse } from '../types/leave-apply';
 import {
   leaveApply,
   submitLeaveForm,

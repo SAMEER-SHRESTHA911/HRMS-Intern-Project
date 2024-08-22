@@ -4,9 +4,9 @@
 }
 
 .sidebar {
-  // width: 270px;
+  width: 240px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
   overflow: hidden;
 
   nav {
@@ -32,7 +32,6 @@
   }
 }
 
-// Responsive design
 @media (max-width: 768px) {
   .sidebar {
     width: 200px;
@@ -47,15 +46,13 @@
 @media (max-width: 480px) {
   .sidebar {
     width: 100%;
-    //   top: 0;
-    //   left: 0;
     height: auto;
     background-color: #f7f7f7;
 
     nav {
       ul {
         display: flex;
-        flex-direction: column; // Stack links vertically
+        flex-direction: column; 
       }
     }
   }
