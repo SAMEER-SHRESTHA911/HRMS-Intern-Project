@@ -135,23 +135,6 @@
       "role": "developer",
       "email": "radufejic@mailinator.com",
       "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "f812",
-      "firstName": "Levi",
-      "middleName": "Darrel Franco",
-      "lastName": "Mcknight",
-      "phoneNumber": 210,
-      "gender": "male",
-      "dob": "2024-08-18T18:15:00.000Z",
-      "address": "Laborum et enim labo",
-      "nationality": "Ipsum unde ut nihil ",
-      "citizenshipNumber": "189",
-      "startDate": "2010-12-24T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "manager",
-      "email": "vedicale@mailinator.com",
-      "password": "Pa$$w0rd!"
     }
   ],
   "leaveApply": [

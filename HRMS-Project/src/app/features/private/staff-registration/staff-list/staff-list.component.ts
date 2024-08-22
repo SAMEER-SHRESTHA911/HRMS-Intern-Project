@@ -11,7 +11,7 @@ import {
   selectStaffListError,
   selectStaffListLoading,
 } from './store/staff-list.selector';
-import { loadStaffList } from './store/staff-list.actions';
+import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
 
 @Component({
   selector: 'app-staff-list',
@@ -26,15 +26,15 @@ export class StaffListComponent implements OnInit {
   displayedColumns: (keyof StaffList)[] = [
     'id',
     'firstName',
-    'middleName',
+    // 'middleName',
     'lastName',
     'phoneNumber',
-    'gender',
-    'dob',
+    // 'gender',
+    // 'dob',
     'address',
     'nationality',
-    'citizenshipNumber',
-    'startDate',
+    // 'citizenshipNumber',
+    // 'startDate',
     'department',
     'role',
     'email',
@@ -55,9 +55,14 @@ export class StaffListComponent implements OnInit {
   onAdd() {
     this.router.navigate(['/add-staff']);
   }
-  onEditStaffDetails() {}
-  onDeleteStaffDetails() {}
-  onViewStaffDetails() {}
+  onEditStaffDetails(): void {}
+  onViewStaffDetails(): void {}
+
+  onDeleteStaffDetails(id: number): void {
+    if (confirm('Are you sure you want to delete this member?')) {
+      this.store.dispatch(deleteStaffDetails({ id }));
+    }
+  }
   applyFilter(event: Event) {
     if (this.dataSource) {
       const filterValue = (event.target as HTMLInputElement).value;

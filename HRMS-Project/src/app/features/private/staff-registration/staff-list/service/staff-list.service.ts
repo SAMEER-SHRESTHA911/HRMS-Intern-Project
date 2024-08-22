@@ -12,4 +12,7 @@ export class StaffListService {
   getStaffList(): Observable<StaffList[]> {
     return this.http.get<StaffList[]>(this.apiUrl);
   }
+  deleteStaff(id: number): Observable<StaffList> {
+    return this.http.delete<StaffList>(`${this.apiUrl}/${id}`);
+  }
 }
