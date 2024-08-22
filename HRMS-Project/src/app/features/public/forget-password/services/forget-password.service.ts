@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,5 +9,10 @@ export class ForgetPasswordService {
 
   private apiUrl ='';
 
-  constructor() { }
+  constructor(private http : HttpClient ) {}
+
+  sendPasswordResetLink(email:string):Observable<any>{
+    const url = `${this.apiUrl}`;
+    return this.http.post(url,{email});
+  }
 }

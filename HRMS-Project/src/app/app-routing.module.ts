@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./core/layout/public/public.module').then((m) => m.PublicModule),
+      import('./core/layout/public/public.module').then(
+        (m) => m.PublicModule),
   },
   {
     path: 'admin',
