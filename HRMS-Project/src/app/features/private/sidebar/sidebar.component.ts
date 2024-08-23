@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 // import { ADD_NEW_EMPLOYEES, APPLY_FOR_LEAVE, ATTENDANCE, EDIT_EMPLOYEE_DETAILS, EMPLOYEE_DETAILS, LEAVE_APPLICATION_STATUS, POLICIES, REMOVE_EMPLOYEES } from '../../../../shared/constants/routes.constant';
 import { ROUTE_CONSTANT } from '../../../shared/constants/routes.constant';
 
@@ -8,7 +8,10 @@ import { ROUTE_CONSTANT } from '../../../shared/constants/routes.constant';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  
   showFiller = true;
-
+  
+  readonly panelOpenState = signal(false);
+  
   route_constant = ROUTE_CONSTANT;
 }

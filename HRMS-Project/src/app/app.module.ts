@@ -7,18 +7,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { provideHttpClient } from '@angular/common/http';
-import { AuthService } from './features/public/services/services/auth.service';
+import { DialogComponent } from './shared/components/dialog/dialog.component';import { AuthService } from './features/public/services/services/auth.service';
 import { AuthGuard } from './features/public/guards/guards/auth.guard';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-
   ],
   providers: [provideAnimationsAsync(), provideHttpClient(),AuthService, AuthGuard],
   bootstrap: [AppComponent],

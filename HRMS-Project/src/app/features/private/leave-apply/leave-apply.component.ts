@@ -45,10 +45,13 @@ export class LeaveApplyComponent implements OnInit {
       console.log(this.leaveApplyForm.value)
       const formValue = this.leaveApplyForm.value;
       this.store.dispatch(submitLeaveForm({ leaveData : formValue}))
-      this.router.navigate(['/admin/leave-apply']);
-      this.resetForm();
+      this.router.navigate(['/admin/dashboard']);
     }
   }
+  ngOnDestroy(): void {
+    this.resetForm();  
+  }
+
   resetForm(){
     this.leaveApplyForm.reset()
   }

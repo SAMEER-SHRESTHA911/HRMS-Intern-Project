@@ -1,14 +1,15 @@
 import { createAction, props } from '@ngrx/store';
 import { StaffList } from '../model/staff-list';
+import { StaffDetails } from '../../add-staff/model/add-staff';
 
 export const loadStaffList = createAction('[Staff List] Load StaffList');
 export const deleteStaffDetails = createAction(
   '[Staff List] delete StaffListDetails',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 export const editStaffDetails = createAction(
   '[Staff List] edit StaffListDetails',
-  props<{ id: number }>()
+  props<{ id: string | number; staff: StaffDetails }>()
 );
 
 export const loadStaffListSuccess = createAction(
@@ -22,7 +23,7 @@ export const loadStaffListFailure = createAction(
 );
 export const deleteStaffDetailsSucess = createAction(
   '[Staff List] delete StaffListDetails Sucess',
-  props<{ id: number }>()
+  props<{ id: number | string }>()
 );
 export const deleteStaffDetailsFailure = createAction(
   '[Staff List] delete StaffListDetails Failure',
@@ -30,7 +31,7 @@ export const deleteStaffDetailsFailure = createAction(
 );
 export const editStaffDetailsSucess = createAction(
   '[Staff List] edit StaffListDetails Sucess',
-  props<{ staff: StaffList }>()
+  props<{ id: string | number }>()
 );
 export const editStaffDetailsFailure = createAction(
   '[Staff List] edit StaffListDetails Failure',

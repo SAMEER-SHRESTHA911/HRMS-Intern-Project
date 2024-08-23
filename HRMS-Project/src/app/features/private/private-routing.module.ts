@@ -33,7 +33,13 @@ const routes: Routes = [
         (m) => m.LeaveApplyModule
       ),
   },
-  { path: 'leave-management', loadChildren: () => import('./leave-management/leave-management.module').then(m => m.LeaveManagementModule) },
+  {
+    path: 'leave-management',
+    loadChildren: () =>
+      import('./leave-management/leave-management.module').then(
+        (m) => m.LeaveManagementModule
+      ),
+  },
   {
     path: 'staff_management',
     loadChildren: () =>

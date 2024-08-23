@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { StaffListService } from './service/staff-list.service';
@@ -12,6 +12,8 @@ import {
   selectStaffListLoading,
 } from './store/staff-list.selector';
 import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-staff-list',
@@ -23,6 +25,10 @@ export class StaffListComponent implements OnInit {
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   dataSource!: MatTableDataSource<StaffList>;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  sort!: MatSort;
   displayedColumns: (keyof StaffList)[] = [
     'id',
     'firstName',
@@ -51,11 +57,17 @@ export class StaffListComponent implements OnInit {
     this.selectorInitializer();
     this.store.dispatch(loadStaffList());
   }
-
-  onAdd() {
-    this.router.navigate(['/add-staff']);
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
-  onEditStaffDetails(): void {}
+
+  // onAdd() {
+  //   this.router.navigate(['/add-staff']);
+  // }
+  onEditStaffDetails(id: number): void {
+    this.router.navigate(['/admin/staff-registration/edit-staff', id]);
+  }
   onViewStaffDetails(): void {}
 
   onDeleteStaffDetails(id: number): void {
