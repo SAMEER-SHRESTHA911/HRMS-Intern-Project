@@ -178,5 +178,27 @@
       "reason": "Vacation",
       "status": "Approved"
     }
+  ],
+  "dashboard": [
+    {
+      "user": 1,
+      "totalCheckedIn": "30",
+      "totalWorkingFromHome": "12",
+      "staffsOnLeaveToday": {
+        "total": "3",
+        "staffs": [
+          { "name": "Ram Raja", "department": "Angular" },
+          { "name": "Sita Devi", "department": "Java" },
+          { "name": "Tajesh Hamal", "department": "Admin" }
+        ]
+      },
+      "staffsOnLeaveTomorrow": {
+        "total": "2",
+        "staffs": [
+          { "name": "Sita Devi", "department": "Java" },
+          { "name": "Tajesh Hamal", "department": "Admin" }
+        ]
+      }
+    }
   ]
 }
