@@ -1,15 +1,5 @@
 <div class="main-container">
-  <div class="first-row">
-    <h6>Welcome username!</h6>
-    <button
-      mat-flat-button
-      [color]="!checkedIn ? 'primary' : 'warn'"
-      (click)="openCheckInDialog()"
-    >
-      {{ !checkedIn ? "Check-In" : "Check-Out" }}
-    </button>
-  </div>
-
+  <app-checking-in></app-checking-in>
   <div class="second-row">
     <div class="leave-details">
       <mat-card appearance="outlined">
@@ -85,7 +75,7 @@
       </mat-card>
     </div>
   </div>
-  <div class="container">
+  <div class="w-full">
     <app-leave-stats></app-leave-stats>
   </div>
 </div>

@@ -6,10 +6,11 @@ import { DashboardComponent } from './dashboard.component';
 import { MatCardModule } from '@angular/material/card';
 import { MaterialsModule } from '../../../materials/materials.module';
 import { LeaveStatsComponent } from './leave-stats/leave-stats.component';
+import { CheckingInComponent } from './checking-in/checking-in.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, LeaveStatsComponent],
+  declarations: [DashboardComponent, LeaveStatsComponent, CheckingInComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
