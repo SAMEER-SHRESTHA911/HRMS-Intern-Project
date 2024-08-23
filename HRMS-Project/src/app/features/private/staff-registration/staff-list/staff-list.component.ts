@@ -52,10 +52,12 @@ export class StaffListComponent implements OnInit {
     this.store.dispatch(loadStaffList());
   }
 
-  onAdd() {
-    this.router.navigate(['/add-staff']);
+  // onAdd() {
+  //   this.router.navigate(['/add-staff']);
+  // }
+  onEditStaffDetails(id: number): void {
+    this.router.navigate(['/admin/staff-registration/edit-staff', id]);
   }
-  onEditStaffDetails(): void {}
   onViewStaffDetails(): void {}
 
   onDeleteStaffDetails(id: number): void {

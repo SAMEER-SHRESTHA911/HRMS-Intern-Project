@@ -8,6 +8,8 @@ import {
   deleteStaffDetails,
   deleteStaffDetailsFailure,
   deleteStaffDetailsSucess,
+  editStaffDetails,
+  editStaffDetailsFailure,
   loadStaffList,
 } from './staff-list.actions';
 
@@ -44,7 +46,23 @@ export class StaffListEffects {
     )
   );
 
-  editStaffDeails$ = createEffect;
+  editStaffDeails$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(editStaffDetails),
+      mergeMap(({ id, staff }) =>
+        this.staffListService.updateStaff(id, staff).pipe(
+          map(() => StaffListActions.editStaffDetailsSucess({ id })),
+          catchError((error) =>
+            of(
+              editStaffDetailsFailure({
+                error: error.message,
+              })
+            )
+          )
+        )
+      )
+    )
+  );
   constructor(
     private actions$: Actions,
     private staffListService: StaffListService

@@ -4,10 +4,14 @@ import {
   deleteStaffDetails,
   deleteStaffDetailsFailure,
   deleteStaffDetailsSucess,
+  editStaffDetails,
+  editStaffDetailsFailure,
+  editStaffDetailsSucess,
   loadStaffList,
   loadStaffListFailure,
   loadStaffListSuccess,
 } from './staff-list.actions';
+import { state } from '@angular/animations';
 
 export const staffListReducer = createReducer(
   initialState,
@@ -22,9 +26,9 @@ export const staffListReducer = createReducer(
     loading: false,
   })),
 
-  on(loadStaffListSuccess, (state, { staff }) => ({
+  on(loadStaffListFailure, (state, { error }) => ({
     ...state,
-    staff,
+    error,
     loading: false,
   })),
   on(deleteStaffDetails, (state) => ({
@@ -38,6 +42,21 @@ export const staffListReducer = createReducer(
   })),
   on(deleteStaffDetailsFailure, (state, { error }) => ({
     ...state,
+    error,
+  })),
+  on(editStaffDetails, (state) => ({
+    ...state,
+    loading: true,
+  })),
+  on(editStaffDetailsSucess, (state, { id }) => ({
+    ...state,
+    staff: state.staff.filter((staff) => staff.id !== id),
+    loading: false,
+    error: null,
+  })),
+  on(editStaffDetailsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
     error,
   }))
 );
