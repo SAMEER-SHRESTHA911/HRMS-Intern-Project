@@ -12,7 +12,6 @@ export class LeaveApplyApiService {
   constructor(private http: HttpClient) {}
 
   addLeaveRequest(body: LeaveApplyBody): Observable<LeaveApplyBody> {
-    console.log('So i am inside post Boss!');
     return this.http.post<LeaveApplyBody>(this.leaveApplyApiUrl, body);
   }
 }

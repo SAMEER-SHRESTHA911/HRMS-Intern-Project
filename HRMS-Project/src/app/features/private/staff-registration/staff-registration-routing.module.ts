@@ -9,6 +9,10 @@ const routes: Routes = [
   { path: 'add-staff', component: AddStaffComponent },
   { path: 'staff-list', component: StaffListComponent },
   { path: '', component: StaffListComponent },
+  {
+    path: 'edit-staff/:id',
+    component: AddStaffComponent,
+  },
 ];
 
 @NgModule({

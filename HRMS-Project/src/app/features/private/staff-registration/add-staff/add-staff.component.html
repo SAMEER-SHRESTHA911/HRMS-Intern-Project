@@ -1,4 +1,8 @@
-<!-- <button (click)="getData()">Get Data</button> -->
+<div class="form-header">
+  <div class="form-title">
+    <h4>Registration Form</h4>
+  </div>
+</div>
 <div class="form-container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
@@ -255,7 +259,7 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div>
+    <div *ngIf="!isEditMode">
       <mat-form-field appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input
@@ -295,7 +299,7 @@
     </div>
 
     <div class="example-button-row">
-      <button mat-flat-button>Register</button>
+      <button mat-flat-button>Submit</button>
     </div>
   </form>
 </div>
