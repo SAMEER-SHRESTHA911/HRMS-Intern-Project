@@ -148,6 +148,24 @@
       "leaveTo": "2024-08-21T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    },
+    {
+      "id": "cc27",
+      "reasonForLeave": "asdsa",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-22T18:15:00.000Z",
+      "leaveTo": "2024-08-22T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "c77a",
+      "reasonForLeave": "Be fasfasf",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-22T18:15:00.000Z",
+      "leaveTo": "2024-08-24T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "Second Half"
     }
   ],
   "loggedInUser": [
@@ -171,12 +189,22 @@
   ],
   "leaveTable": [
     {
-      "no": 1,
-      "fromDate": "2024-1-28",
-      "toDate": "2024-1-30",
-      "duration": 5,
-      "reason": "Vacation",
-      "status": "Approved"
+      "leaveFrom": "2024-1-28",
+      "leaveTo": "2024-1-30",
+      "reasonForLeave": "Sick with fever",
+      "dayLeave": "First Half",
+      "leaveType": "Sick",
+      "leaveRequestStatus": "Pending",
+      "id": "7be0"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
     }
   ],
   "dashboard": [
