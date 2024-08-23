@@ -59,3 +59,44 @@
     }
   }
 }
+.sidebar-row{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+mat-accordion {
+  mat-expansion-panel {
+    mat-expansion-panel-header {
+      .mat-panel-title {
+        color: #31a1f7; 
+
+        &:hover {
+          color: #007bb5; 
+        }
+      }
+    }
+    
+    .mat-expansion-panel-body {
+      color: #31a1f7; 
+
+      &:hover {
+        color: #007bb5; 
+      }
+    }
+  }
+}
+
+
+.sidebar-row {
+  color: #31a1f7;
+
+  &:hover {
+    color: #007bb5;
+  }
+
+  mat-icon {
+    color: inherit; 
+  }
+}

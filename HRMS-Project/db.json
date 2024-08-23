@@ -149,5 +149,34 @@
       "department": "Angular",
       "dayLeave": "First Half"
     }
+  ],
+  "loggedInUser": [
+    {
+      "id": "82f5",
+      "firstName": "Celeste",
+      "midName": "Harding Norton",
+      "lastName": "Wiley",
+      "phoneNumber": "9866787740",
+      "gender": "male",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Nulla incididunt id ",
+      "nationality": "Reprehenderit id p",
+      "citizenshipNumber": "972",
+      "startDate": "2005-11-01T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "vefysyb@mailinator.com",
+      "password": "Pa$$w0rd!"
+    }
+  ],
+  "leaveTable": [
+    {
+      "no": 1,
+      "fromDate": "2024-1-28",
+      "toDate": "2024-1-30",
+      "duration": 5,
+      "reason": "Vacation",
+      "status": "Approved"
+    }
   ]
 }
