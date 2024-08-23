@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LeavePoliciesComponent } from './leave-policies/leave-policies.component';
-import { HrPoliciesComponent } from './hr-policies/hr-policies.component';
-import { CompanyPoliciesComponent } from './company-policies/company-policies.component';
 
+import { PoliciesRoutingModule } from './policies-routing.module';
+import { PoliciesComponent } from './policies.component';
+import { HRComponent } from './components/hr/hr.component';
+import { CompanyComponent } from './components/company/company.component';
+import { LeaveComponent } from './components/leave/leave.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
   declarations: [
-    LeavePoliciesComponent,
-    HrPoliciesComponent,
-    CompanyPoliciesComponent
+    PoliciesComponent,
+    HRComponent,
+    CompanyComponent,
+    LeaveComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PoliciesRoutingModule,
+    MatExpansionModule
   ]
 })
 export class PoliciesModule { }

@@ -1,0 +1,64 @@
+
+mat-accordion {
+  padding: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+
+
+  mat-expansion-panel {
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+    mat-expansion-panel-header {
+      padding: 16px;
+      background-color: #f5f5f5;
+
+
+      mat-panel-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+
+
+    .mat-expansion-panel-content {
+      padding: 16px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+
+    p {
+      margin: 0;
+      padding-top: 8px;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  mat-accordion {
+    padding: 8px;
+
+    mat-expansion-panel {
+      margin-bottom: 8px;
+
+      mat-expansion-panel-header {
+        padding: 8px;
+      }
+
+      .mat-expansion-panel-content {
+        padding: 8px;
+        font-size: 14px;
+      }
+    }
+  }
+}

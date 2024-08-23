@@ -1,0 +1,8 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let policy of companyPolicies">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{ policy.title }}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>{{ policy.content }}</p>
+  </mat-expansion-panel>
+</mat-accordion>

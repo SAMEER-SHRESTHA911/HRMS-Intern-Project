@@ -40,11 +40,12 @@ const routes: Routes = [
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule),
   },
-  { path: 'policy',
+  { path: 'policies',
     loadChildren: () =>
-      import('./policy/policy.module').then(
-      (m) => m.PolicyModule)
+      import('./policies/policies.module').then(
+      (m) => m.PoliciesModule),
   },
+  { path: 'policies', loadChildren: () => import('./policies/policies.module').then(m => m.PoliciesModule) },
 
 ];
 
