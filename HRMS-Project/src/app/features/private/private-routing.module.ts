@@ -38,16 +38,14 @@ const routes: Routes = [
     path: 'staff_management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule
-      ),
+        (m) => m.StaffRegistrationModule),
   },
-  {
-    path: 'policies',
+  { path: 'policy',
     loadChildren: () =>
-      import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule
-      ),
+      import('./policy/policy.module').then(
+      (m) => m.PolicyModule)
   },
+
 ];
 
 @NgModule({
