@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { leaveTableData } from '../types/leave-table';
+import { LeaveTableData } from '../types/leave-table';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LeaveTableService {
 
   }
 
-  getLeaveTableData():Observable<leaveTableData>{
-    return this.http.get<leaveTableData>(this.apiUrl);
+  getLeaveTableData():Observable<LeaveTableData[]>{
+    return this.http.get<LeaveTableData[]>(this.apiUrl);
   }
 }

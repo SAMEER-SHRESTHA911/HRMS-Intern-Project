@@ -1,9 +1,10 @@
 
-export interface leaveTableData{
-    no: number,
-    fromDate : string,
-    toDate : string,
-    duration : number,
-    reason : string,
-    status : string
+export interface LeaveTableData{
+    leaveFrom: string,
+    leaveTo: string,
+    leaveType: string,
+    dayLeave: string,
+    reasonForLeave : string,
+    leaveRequestStatus : string
+    id?:number;
 }
