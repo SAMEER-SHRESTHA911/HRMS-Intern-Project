@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { LEAVE_TABLE_DATA } from './leave-table.actions';
-import { LeaveTableService } from '../services/leave-table.service';
+import { LeaveTableService } from '../../services/leave-table.service';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import * as LeaveTableDataActions from './leave-table.actions';
 

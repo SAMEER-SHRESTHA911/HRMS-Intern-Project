@@ -46,7 +46,7 @@
                     <span class="spacing">
                         {{element.leaveRequestStatus}} 
                         <button>
-                            <mat-icon *ngIf="element.leaveRequestStatus === 'Pending'" mat-button (click)="onEdit()">
+                            <mat-icon *ngIf="element.leaveRequestStatus === 'Pending'" mat-button (click)="onEdit(element.id)">
                                 edit
                             </mat-icon>
                         </button>

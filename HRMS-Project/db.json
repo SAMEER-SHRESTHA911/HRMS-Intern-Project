@@ -279,5 +279,14 @@
         ]
       }
     }
+  ],
+  "leaveAvailableData":[
+    {
+      "totalLeaveTaken" : 10,
+      "totalLeaveAvailable" : 4,
+      "annualLeaveAvailable" : 1,
+      "sickLeaveAvailable" : 2,
+      "otherLeaveAvailable" : 1
+    }
   ]
 }

@@ -4,8 +4,8 @@ import { LeaveTableService } from '../../services/leave-table.service';
 import { LeaveTableData } from '../../types/leave-table';
 import { Observable, of } from 'rxjs';
 import { select, Store } from '@ngrx/store';
-import { selectLeaveData, selectLeaveDataError, selectLeaveDataLoading } from '../../store/leave-table-selectors';
-import { LEAVE_TABLE_DATA } from '../../store/leave-table.actions';
+import { selectLeaveData, selectLeaveDataError, selectLeaveDataLoading } from '../../store/leave-table/leave-table-selectors';
+import { LEAVE_TABLE_DATA } from '../../store/leave-table/leave-table.actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -48,7 +48,7 @@ export class LeaveTableComponent implements OnInit {
     this.error$ = this.store.pipe(select(selectLeaveDataError));
 
   }
-  onEdit(){
+  onEdit(id:number){
     this.router.navigate(['/admin/leave-apply'])
   }
 }

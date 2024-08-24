@@ -7,9 +7,11 @@ import { MaterialsModule } from '../../../materials/materials.module';
 import { LeaveTableComponent } from './components/leave-table/leave-table.component';
 import { ROUTE_CONSTANT } from '../../../shared/constants/routes.constant';
 import { StoreModule, StoreRootModule } from '@ngrx/store';
-import { leaveTableReducer } from './store/leave-table-reducer';
+import { leaveTableReducer } from './store/leave-table/leave-table-reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { LeaveTableEffects } from './store/leave-table-effects';
+import { LeaveTableEffects } from './store/leave-table/leave-table-effects';
+import { LeaveAvailableReducer } from './store/leave-available/leave-available.reducer';
+import { LeaveAvailableEffects } from './store/leave-available/leave-available.effects';
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { LeaveTableEffects } from './store/leave-table-effects';
     LeaveManagementRoutingModule,
     MaterialsModule,
     StoreModule.forFeature('leaveTableData', leaveTableReducer),
-    EffectsModule.forFeature([  LeaveTableEffects ])
+    StoreModule.forFeature('availableLeaveData', LeaveAvailableReducer),
+    EffectsModule.forFeature([  LeaveTableEffects,LeaveAvailableEffects ])
   ]
 })
 export class LeaveManagementModule { }
