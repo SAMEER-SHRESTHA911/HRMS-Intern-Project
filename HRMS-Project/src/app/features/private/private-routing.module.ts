@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrivateComponent } from './private.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PrivateComponent,
+    component: DashboardComponent,
   },
   {
     path: 'profile-details',
@@ -14,10 +14,34 @@ const routes: Routes = [
         (m) => m.ProfileDetailsModule
       ),
   },
-
-  { path: '', component: PrivateComponent },
   {
     path: 'staff-registration',
+    loadChildren: () =>
+      import('./staff-registration/staff-registration.module').then(
+        (m) => m.StaffRegistrationModule
+      ),
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
+    path: 'leave-apply',
+    loadChildren: () =>
+      import('./leave-apply/leave-apply.module').then(
+        (m) => m.LeaveApplyModule
+      ),
+  },
+  {
+    path: 'leave-management',
+    loadChildren: () =>
+      import('./leave-management/leave-management.module').then(
+        (m) => m.LeaveManagementModule
+      ),
+  },
+  {
+    path: 'staff_management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule

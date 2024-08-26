@@ -1,3 +1,8 @@
+<div class="form-header">
+  <div class="form-title">
+    <h4>Registration Form</h4>
+  </div>
+</div>
 <div class="form-container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
@@ -11,7 +16,8 @@
         />
         <mat-error
           *ngIf="
-            registrationForm.get('firstName')?.touched &&
+            (registrationForm.get('firstName')?.touched ||
+              registrationForm.get('firstName')?.dirty) &&
             registrationForm.get('firstName')?.hasError('required')
           "
         >
@@ -26,8 +32,8 @@
         <input
           matInput
           type="text"
-          formControlName="midName"
-          placeholder="Midname"
+          formControlName="middleName"
+          placeholder="MiddleName"
         />
       </mat-form-field>
     </div>
@@ -43,11 +49,32 @@
         />
         <mat-error
           *ngIf="
-            registrationForm.get('lastName')?.touched &&
+            (registrationForm.get('lastName')?.touched ||
+              registrationForm.get('lastName')?.dirty) &&
             registrationForm.get('lastName')?.hasError('required')
           "
         >
           Last Name is required.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter phone Number</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="phoneNumber"
+          placeholder="Enter phoneNumber"
+        />
+        <mat-error
+          *ngIf="
+            (registrationForm.get('phoneNumber')?.touched ||
+              registrationForm.get('phoneNumber')?.dirty) &&
+            registrationForm.get('phoneNumber')?.hasError('required')
+          "
+        >
+          Enter valid phoneNumber
         </mat-error>
       </mat-form-field>
     </div>
@@ -60,7 +87,8 @@
       </mat-radio-group>
       <mat-error
         *ngIf="
-          registrationForm.get('gender')?.touched &&
+          (registrationForm.get('gender')?.touched ||
+            registrationForm.get('gender')?.dirty) &&
           registrationForm.get('gender')?.hasError('required')
         "
       >
@@ -80,7 +108,8 @@
         <mat-datepicker #picker></mat-datepicker>
         <mat-error
           *ngIf="
-            registrationForm.get('dob')?.touched &&
+            (registrationForm.get('dob')?.touched ||
+              registrationForm.get('dob')?.dirty) &&
             registrationForm.get('dob')?.hasError('required')
           "
         >
@@ -95,7 +124,8 @@
         <input matInput formControlName="address" placeholder="Address*" />
         <mat-error
           *ngIf="
-            registrationForm.get('address')?.touched &&
+            (registrationForm.get('address')?.touched ||
+              registrationForm.get('address')?.dirty) &&
             registrationForm.get('address')?.hasError('required')
           "
         >
@@ -114,7 +144,8 @@
         />
         <mat-error
           *ngIf="
-            registrationForm.get('nationality')?.touched &&
+            (registrationForm.get('nationality')?.touched ||
+              registrationForm.get('nationality')?.dirty) &&
             registrationForm.get('nationality')?.hasError('required')
           "
         >
@@ -133,7 +164,8 @@
         />
         <mat-error
           *ngIf="
-            registrationForm.get('citizenshipNumber')?.touched &&
+            (registrationForm.get('citizenshipNumber')?.touched ||
+              registrationForm.get('citizenshipNumber')?.dirty) &&
             registrationForm.get('citizenshipNumber')?.hasError('required')
           "
         >
@@ -154,7 +186,8 @@
         <mat-datepicker #picker1></mat-datepicker>
         <mat-error
           *ngIf="
-            registrationForm.get('startDate')?.touched &&
+            (registrationForm.get('startDate')?.touched ||
+              registrationForm.get('startDate')?.dirty) &&
             registrationForm.get('startDate')?.hasError('required')
           "
         >
@@ -174,7 +207,8 @@
         </mat-select>
         <mat-error
           *ngIf="
-            registrationForm.get('department')?.touched &&
+            (registrationForm.get('department')?.touched ||
+              registrationForm.get('department')?.dirty) &&
             registrationForm.get('department')?.hasError('required')
           "
         >
@@ -194,7 +228,8 @@
         </mat-select>
         <mat-error
           *ngIf="
-            registrationForm.get('role')?.touched &&
+            (registrationForm.get('role')?.touched ||
+              registrationForm.get('role')?.dirty) &&
             registrationForm.get('role')?.hasError('required')
           "
         >
@@ -205,38 +240,18 @@
 
     <div>
       <mat-form-field appearance="outline">
-        <mat-label>Enter Designation</mat-label>
+        <mat-label>Enter your email</mat-label>
         <input
           matInput
-          formControlName="designation"
-          placeholder="Designation"
+          type="email"
+          formControlName="email"
+          placeholder="pat@example.com"
         />
-        <mat-error
-          *ngIf="
-            registrationForm.get('designation')?.touched &&
-            registrationForm.get('designation')?.hasError('required')
-          "
-        >
-          Designation is required.
-        </mat-error>
-      </mat-form-field>
-    </div>
 
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter your email</mat-label>
-        <input matInput formControlName="email" placeholder="pat@example.com" />
         <mat-error
           *ngIf="
-            registrationForm.get('email')?.touched &&
-            registrationForm.get('email')?.hasError('required')
-          "
-        >
-          Email is required.
-        </mat-error>
-        <mat-error
-          *ngIf="
-            registrationForm.get('email')?.touched &&
+            (registrationForm.get('email')?.touched ||
+              registrationForm.get('email')?.dirty) &&
             registrationForm.get('email')?.hasError('email')
           "
         >
@@ -244,26 +259,28 @@
         </mat-error>
       </mat-form-field>
     </div>
-    <div>
+    <div *ngIf="!isEditMode">
       <mat-form-field appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input
           matInput
           formControlName="password"
-          [type]="hide() ? 'password' : 'text'"
+          [type]="hide ? 'password' : 'text'"
         />
         <button
+          type="button"
           mat-icon-button
           matSuffix
-          (click)="clickEvent($event)"
+          (click)="hide = !hide"
           [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide()"
+          [attr.aria-pressed]="hide"
         >
-          <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
         </button>
         <mat-error
           *ngIf="
-            registrationForm.get('password')?.touched &&
+            (registrationForm.get('password')?.touched ||
+              registrationForm.get('password')?.dirty) &&
             registrationForm.get('password')?.hasError('required')
           "
         >
@@ -271,7 +288,8 @@
         </mat-error>
         <mat-error
           *ngIf="
-            registrationForm.get('password')?.touched &&
+            (registrationForm.get('password')?.touched ||
+              registrationForm.get('password')?.dirty) &&
             registrationForm.get('password')?.hasError('minlength')
           "
         >

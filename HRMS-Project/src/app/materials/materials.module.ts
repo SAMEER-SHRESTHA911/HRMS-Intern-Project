@@ -1,61 +1,70 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule, } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
-import { FormsModule } from '@angular/forms';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgModule } from '@angular/core';
+
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    MatToolbarModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatDialogActions,
+    MatExpansionModule,
     MatIconModule,
     MatInputModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
     MatRadioModule,
-    MatDatepickerModule,
     MatSelectModule,
-    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
     CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatDialogActions,
+    MatDialogModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatInputModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatPaginatorModule,
     MatRadioModule,
-    MatDatepickerModule,
     MatSelectModule,
-    MatButtonModule,
-  ],
-    CommonModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatDialogActions,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-  ],
-  exports: [
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDialogModule,
-    MatDialogActions,
+    MatSidenavModule,
+    MatSortModule,
+    MatTableModule,
+    ReactiveFormsModule,
   ],
 })
 export class MaterialsModule {}
