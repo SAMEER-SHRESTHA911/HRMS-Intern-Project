@@ -169,6 +169,24 @@
       "role": "tester",
       "email": "kogim@mailinator.com",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": 655,
+      "firstName": "Willa",
+      "middleName": "Colton Sanford",
+      "lastName": "Maxwell",
+      "phoneNumber": 259,
+      "gender": "others",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Dolore totam sed dol",
+      "nationality": "Consequatur dolor au",
+      "citizenshipNumber": "618",
+      "startDate": "2020-08-11T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "qacyf@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
     }
   ],
   "leaveApply": [
@@ -296,28 +314,26 @@
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular" },
-          { "name": "Sita Devi", "department": "Java" },
-          { "name": "Tajesh Hamal", "department": "Admin" }
+          { "name": "Ram Raja", "department": "Angular", "image": "" },
+          { "name": "Sita Devi", "department": "Java", "image": "" },
+          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
         ]
       },
       "staffsOnLeaveTomorrow": {
         "total": 2,
         "staffs": [
-          { "name": "Sita Devi", "department": "Java" },
-          { "name": "Tajesh Hamal", "department": "Admin" }
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       }
-    }
-  ],
-  "leaveAvailableData": [
-    {
-      "totalLeaveTaken": 10,
-      "totalLeaveAvailable": 4,
-      "annualLeaveAvailable": 1,
-      "sickLeaveAvailable": 2,
-      "otherLeaveAvailable": 1,
-      "id": "30f9"
     }
   ]
 }
