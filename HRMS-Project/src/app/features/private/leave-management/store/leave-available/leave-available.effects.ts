@@ -18,7 +18,6 @@ export class LeaveAvailableEffects {
         mergeMap(()=> 
         this.leaveTableService.getLeaveAvailableData().pipe(
             map((availableLeaveData) => {
-                console.log('Fetched Available Data:',availableLeaveData);
                 return FETCH_AVAILABLE_LEAVE_DATA_SUCCESS({ availableLeaveData: availableLeaveData[0] });
             }),
             catchError((error)=> 

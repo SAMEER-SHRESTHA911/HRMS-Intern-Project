@@ -18,7 +18,6 @@ export class LeaveTableEffects {
       mergeMap(() =>
         this.leaveTableService.getLeaveTableData().pipe(
           map((leaveData) =>{
-            console.log('Fetched Leave Data:', leaveData);
             return LeaveTableDataActions.LEAVE_TABLE_DATA_SUCCESS({ leaveData })
           }
           ),

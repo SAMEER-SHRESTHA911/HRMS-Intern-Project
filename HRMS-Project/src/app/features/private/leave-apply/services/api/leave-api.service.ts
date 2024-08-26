@@ -14,4 +14,7 @@ export class LeaveApplyApiService {
   addLeaveRequest(body: LeaveApplyBody): Observable<LeaveApplyBody> {
     return this.http.post<LeaveApplyBody>(this.leaveApplyApiUrl, body);
   }
+  fetchEditLeaveData(id: string | number): Observable<LeaveApplyBody> {
+    return this.http.get<LeaveApplyBody>(`${this.leaveApplyApiUrl}/${id}`);
+  }
 }

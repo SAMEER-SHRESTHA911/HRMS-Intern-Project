@@ -10,11 +10,10 @@ export class LeaveTableService {
 
   private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
   private fetchLeaveDataStatus = "http://localhost:3000/leaveAvailableData";
-  private editLeaveApplySttaus = "http://localhost:3000/leaveApply"
+  
 
   constructor(private http:HttpClient) { 
   }
-
   editLeaveApplyStatus(){}
 
   getLeaveAvailableData():Observable<LeaveAvailableData[]>{

@@ -6,6 +6,7 @@ import { select, Store } from '@ngrx/store';
 import { FETCH_AVAILABLE_LEAVE_DATA } from './store/leave-available/leave-available.actions';
 import { Observable, of } from 'rxjs';
 import { selectAvailableLeave, selectAvailableLeaveError, selectAvailableLeaveLoading } from './store/leave-available/leave-available.selector';
+import { LeaveFormService } from '../leave-apply/services/form/leave-form.service';
 
 @Component({
   selector: 'app-leave-management',
@@ -18,7 +19,7 @@ export class LeaveManagementComponent implements OnInit{
   loading$ : Observable<boolean> = of(false);
   error$ : Observable<string|null> =of(null);
  
-  constructor(private router:Router, private store:Store){}
+  constructor(private router:Router, private store:Store, private leaveFormService: LeaveFormService){}
 
   ngOnInit(): void {
     this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA());
@@ -27,16 +28,14 @@ export class LeaveManagementComponent implements OnInit{
 
   initializer(): void{
     this.availableLeaveData$ = this.store.pipe(select(selectAvailableLeave));
-    this.availableLeaveData$.subscribe(data => {
-      console.log(data)
-    })
-    console.log('This is the available  leave data', this.availableLeaveData$)
+    this.availableLeaveData$.subscribe()
 
     this.loading$ = this.store.pipe(select(selectAvailableLeaveLoading));
     this.error$ = this.store.pipe(select(selectAvailableLeaveError));
   }
 
   routeToLeaveApply(): void{
+    // this.leaveFormService.changeEditMode();
     this.router.navigate(['admin/leave-apply']);
   }
 }
