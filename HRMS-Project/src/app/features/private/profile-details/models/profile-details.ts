@@ -1,7 +1,7 @@
 export interface ProfileDetails {
   id: string;
   firstName: string;
-  midName: string;
+  midName: string | undefined;
   lastName: string;
   gender: string;
   dob: string;
