@@ -16,7 +16,7 @@
                 <mat-card-header>
                     <div class="detail-header">
                         <div class="header-number blue-background">
-                            <mat-card-title>10 <br>
+                            <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveTaken }} <br>
                                 <span class="size-600 padl5">DAYS</span>
                             </mat-card-title>
                         </div>
@@ -34,7 +34,7 @@
                     <mat-card-title-group>
                         <div class="detail-header">
                             <div class="header-number green-background">
-                                <mat-card-title>5 <br>
+                                <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveAvailable }} <br>
                                     <span class="size-600 padl5">DAYS</span>
                                 </mat-card-title>
                             </div>
@@ -50,6 +50,5 @@
     <div class="third-row">
         <app-leave-table></app-leave-table>
     </div>
-
 
 </div>

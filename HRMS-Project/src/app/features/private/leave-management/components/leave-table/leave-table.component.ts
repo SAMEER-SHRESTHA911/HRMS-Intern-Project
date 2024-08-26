@@ -41,14 +41,11 @@ export class LeaveTableComponent implements OnInit {
     this.store.pipe(select(selectLeaveData))
     .subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      console.log(this.dataSource)
-      console.log(data)
     })
     this.loading$ = this.store.pipe(select(selectLeaveDataLoading));
     this.error$ = this.store.pipe(select(selectLeaveDataError));
-
   }
   onEdit(id:number){
-    this.router.navigate(['/admin/leave-apply'])
+    this.router.navigate(['/admin/leave-apply', {id}]);
   }
 }

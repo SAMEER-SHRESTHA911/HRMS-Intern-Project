@@ -13,7 +13,6 @@ export const leaveTableReducer = createReducer(
     loading: true,
   })),
   on(LEAVE_TABLE_DATA_SUCCESS, (state, { leaveData }) => {
-    console.log(leaveData);
     return {
       ...state,
       leaveDataTable: leaveData,

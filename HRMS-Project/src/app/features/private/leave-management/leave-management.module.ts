@@ -25,7 +25,8 @@ import { LeaveAvailableEffects } from './store/leave-available/leave-available.e
     MaterialsModule,
     StoreModule.forFeature('leaveTableData', leaveTableReducer),
     StoreModule.forFeature('availableLeaveData', LeaveAvailableReducer),
-    EffectsModule.forFeature([  LeaveTableEffects,LeaveAvailableEffects ])
+    EffectsModule.forFeature([  LeaveTableEffects ]),
+    EffectsModule.forFeature([  LeaveAvailableEffects ])
   ]
 })
 export class LeaveManagementModule { }
