@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LeaveComponent } from './leave.component';
+import { PolicyListComponent } from './policy-list.component';
 
-describe('LeaveComponent', () => {
-  let component: LeaveComponent;
-  let fixture: ComponentFixture<LeaveComponent>;
+describe('PolicyListComponent', () => {
+  let component: PolicyListComponent;
+  let fixture: ComponentFixture<PolicyListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LeaveComponent]
+      declarations: [PolicyListComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LeaveComponent);
+    fixture = TestBed.createComponent(PolicyListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,33 +1,30 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Policy } from '../models/policy.model';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+
 @Injectable({
   providedIn: 'root'
 })
-export class PolicyService {
-  private policies: Policy[] = [
-    { id: 1, title: 'Annual Leave', content: 'Details about annual leave...', category: 'leave' },
-    { id: 2, title: 'Sick Leave', content: 'Details about sick leave...', category: 'leave' },
-    { id: 3, title: 'Code of Conduct', content: 'Company code of conduct...', category: 'hr' },
-    { id: 4, title: 'Health and Safety', content: 'Company health and safety guidelines...', category: 'company' }
-  ];
 
-  getPolicies(category: string): Observable<Policy[]> {
-    return of(this.policies.filter(policy => policy.category === category));
-  }
+export class PolicyService{
 
-  addPolicy(policy: Policy): void {
-    this.policies.push({ ...policy, id: this.policies.length + 1 });
-  }
+private apiUrl ='';
+  constructor(private http:HttpClient){}
 
-  editPolicy(updatedPolicy: Policy): void {
-    const index = this.policies.findIndex(policy => policy.id === updatedPolicy.id);
-    if (index > -1) {
-      this.policies[index] = updatedPolicy;
-    }
-  }
-
-  deletePolicy(id: number): void {
-    this.policies = this.policies.filter(policy => policy.id !== id);
-  }
+getPolicies():Observable<any[]>{
+  return this.http.get<any[]>(`${this.apiUrl}/policies`);
 }
+getPolicy(id:string):Observable<any[]>{
+  return this.http.get<any>(`${this.apiUrl}/policies/${id}`);
+}
+addPolicy(policy:any):Observable<any>{
+  return this.http.post<any>(`${this.apiUrl}/policies`,policy);
+}
+updatePolicy(id:string,policy:any):Observable<any>{
+  return this.http.put<any>(`${this.apiUrl}/policies/${id}`,policy);
+}
+deletePolicy(id:string):Observable<any>{
+  return this.http.delete<any>(`${this.apiUrl}/policies/${id}`);
+}
+}
+

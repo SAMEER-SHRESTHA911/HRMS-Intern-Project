@@ -3,23 +3,37 @@ import { CommonModule } from '@angular/common';
 
 import { PoliciesRoutingModule } from './policies-routing.module';
 import { PoliciesComponent } from './policies.component';
-import { HRComponent } from './components/hr/hr.component';
-import { CompanyComponent } from './components/company/company.component';
-import { LeaveComponent } from './components/leave/leave.component';
+import { PolicyListComponent } from './components/policy-list/policy-list.component';
+import { PolicyFormComponent } from './components/policy-form/policy-form.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { BrowserModule } from '@angular/platform-browser';
+import {  HttpClientModule } from '@angular/common/http';
+import { MatInput } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
     PoliciesComponent,
-    HRComponent,
-    CompanyComponent,
-    LeaveComponent
+    PolicyListComponent,
+    PolicyFormComponent,
+
+
   ],
   imports: [
     CommonModule,
     PoliciesRoutingModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule,
+    MatLabel,
+    MatFormField,
+    // BrowserModule,
+    HttpClientModule,
+    MatInput,
+    MatButtonModule,
+
   ]
 })
 export class PoliciesModule { }

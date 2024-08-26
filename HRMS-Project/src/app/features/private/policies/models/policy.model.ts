@@ -1,5 +1,5 @@
 export interface Policy{
-  id? : number;
+  id : string;
   category: string;
   title : string;
   content : string;
