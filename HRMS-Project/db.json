@@ -29,7 +29,7 @@
       "citizenshipNumber": "9727",
       "startDate": "2005-11-01T18:15:00.000Z",
       "department": "angular",
-      "role": "designer",
+      "role": "tester",
       "email": "sid@ailinator.com",
       "password": "Pa$$w0rd!",
       "id": "825"
@@ -103,7 +103,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 951,
+      "id": "951",
       "firstName": "Harlan",
       "middleName": "Shea Davidson",
       "lastName": "Mcneil",
@@ -120,7 +120,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 553,
+      "id": "553",
       "firstName": "Jena",
       "middleName": "Vivian Wall",
       "lastName": "Oneal",
@@ -137,7 +137,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 289,
+      "id": "289",
       "firstName": "Eric",
       "middleName": "Phoebe Malone",
       "lastName": "Conway",
@@ -154,7 +154,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 683,
+      "id": "683",
       "firstName": "Dane",
       "middleName": "Rina Johnson",
       "lastName": "Mosley",
@@ -264,31 +264,62 @@
       "totalCheckedIn": 30,
       "totalOfficeCheckedIn": 20,
       "totalWorkingFromHome": 12,
-
       "leaveRequests": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       },
-
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       },
       "staffsOnLeaveTomorrow": {
         "total": 2,
         "staffs": [
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
-      }
+      },
+      "id": "37b1"
     }
   ]
 }

@@ -4,16 +4,16 @@ import { DashboardState } from './dashboad.state';
 export const dashboardDataState =
   createFeatureSelector<DashboardState>('dashboard');
 
-export const dashboard = createSelector(
+export const selectDashboard = createSelector(
   dashboardDataState,
   (state: DashboardState) => state.dashboard
 );
 
-export const dashboardDataLoading = createSelector(
+export const selectDashboardDataLoading = createSelector(
   dashboardDataState,
   (state: DashboardState) => state.loading
 );
-export const dashboadDataError = createSelector(
+export const selectDashboadDataError = createSelector(
   dashboardDataState,
   (state: DashboardState) => state.error
 );
