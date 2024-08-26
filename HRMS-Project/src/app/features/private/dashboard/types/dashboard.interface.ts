@@ -17,4 +17,5 @@ export interface Dashboard {
   leaveRequests: LeaveRequests;
   staffsOnLeaveToday: LeaveRequests;
   staffsOnLeaveTomorrow: LeaveRequests;
+  id?: string;
 }

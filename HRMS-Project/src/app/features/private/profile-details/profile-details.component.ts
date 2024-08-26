@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { ProfileService } from './profile.service';
+import { ProfileService } from './services/profile.service';
 import { ProfileDetails } from './models/profile-details';
 @Component({
   selector: 'app-profile-details',

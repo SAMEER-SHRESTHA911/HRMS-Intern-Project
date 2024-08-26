@@ -9,6 +9,6 @@ export const loadDashboardSuccess = createAction(
 );
 
 export const loadDashboardFailure = createAction(
-  '[Load Dashboard] Load Dashboard Success',
+  '[Load Dashboard] Load Dashboard Failure',
   props<{ error: string }>()
 );
