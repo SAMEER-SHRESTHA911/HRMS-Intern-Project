@@ -44,11 +44,12 @@ export class StaffListComponent implements OnInit {
     'department',
     'role',
     'email',
+
     'actions',
   ];
 
   constructor(
-    private staffListService: StaffListService,
+    // private staffListService: StaffListService,
     private router: Router,
     private store: Store<StaffListState>
   ) {}
@@ -68,7 +69,12 @@ export class StaffListComponent implements OnInit {
   onEditStaffDetails(id: number): void {
     this.router.navigate(['/admin/staff-registration/edit-staff', id]);
   }
-  onViewStaffDetails(): void {}
+  onViewStaffDetails(id: number | string): void {
+    this.router.navigate([`/admin/profile-details`, id]);
+  }
+  onAddNewEmployee(): void {
+    this.router.navigate(['/admin/staff-registration/add-staff']);
+  }
 
   onDeleteStaffDetails(id: number): void {
     if (confirm('Are you sure you want to delete this member?')) {

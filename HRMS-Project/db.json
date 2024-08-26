@@ -169,6 +169,24 @@
       "role": "tester",
       "email": "kogim@mailinator.com",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": 655,
+      "firstName": "Willa",
+      "middleName": "Colton Sanford",
+      "lastName": "Maxwell",
+      "phoneNumber": 259,
+      "gender": "others",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Dolore totam sed dol",
+      "nationality": "Consequatur dolor au",
+      "citizenshipNumber": "618",
+      "startDate": "2020-08-11T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "qacyf@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
     }
   ],
   "leaveApply": [
@@ -264,29 +282,59 @@
       "totalCheckedIn": 30,
       "totalOfficeCheckedIn": 20,
       "totalWorkingFromHome": 12,
-
       "leaveRequests": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       },
-
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       },
       "staffsOnLeaveTomorrow": {
         "total": 2,
         "staffs": [
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       }
     }

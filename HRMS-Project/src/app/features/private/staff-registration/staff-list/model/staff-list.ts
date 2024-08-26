@@ -14,5 +14,6 @@ export interface StaffList {
   role: string;
   email: string;
   password?: string;
+  confirmPassword?: string;
   actions: any;
 }
