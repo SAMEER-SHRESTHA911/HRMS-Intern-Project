@@ -1,91 +1,83 @@
 <div class="main-container">
-  <div class="first-row">
-    <h6>Welcome username!</h6>
-    <button
-      mat-flat-button
-      [color]="!checkedIn ? 'primary' : 'warn'"
-      (click)="openCheckInDialog()"
-    >
-      {{ !checkedIn ? "Check-In" : "Check-Out" }}
-    </button>
-  </div>
-
-  <div class="second-row">
-    <div class="leave-details">
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <div class="detail-header">
-            <div class="header-number green-background">
-              <mat-card-title
-                >10 <br />
-                <span class="size-600 padl5">STAFFS</span>
-              </mat-card-title>
-            </div>
-            <div class="header-title">
-              <mat-card-title>Total Checked In</mat-card-title>
-            </div>
-          </div>
-        </mat-card-header>
-      </mat-card>
-    </div>
-
-    <div class="leave-details">
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <div class="detail-header">
-            <div class="header-number green-background">
-              <mat-card-title
-                >10 <br />
-                <span class="size-600 padl5">STAFFS</span>
-              </mat-card-title>
-            </div>
-            <div class="header-title">
-              <mat-card-title>Office Checked In</mat-card-title>
-            </div>
-          </div>
-        </mat-card-header>
-      </mat-card>
-    </div>
-
-    <div class="leave-details">
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <div class="detail-header">
-            <div class="header-number green-background">
-              <mat-card-title
-                >10 <br />
-                <span class="size-600 padl5">STAFFS</span>
-              </mat-card-title>
-            </div>
-            <div class="header-title">
-              <mat-card-title>Working From Home</mat-card-title>
-            </div>
-          </div>
-        </mat-card-header>
-      </mat-card>
-    </div>
-
-    <div class="leave-details">
-      <mat-card appearance="outlined">
-        <mat-card-header>
-          <mat-card-title-group>
+  <app-checking-in></app-checking-in>
+  <div *ngIf="dashboard$ | async as dashboard">
+    <div class="second-row">
+      <div class="leave-details">
+        <mat-card appearance="outlined">
+          <mat-card-header>
             <div class="detail-header">
-              <div class="header-number red-background">
+              <div class="header-number green-background">
                 <mat-card-title
-                  >2 <br />
+                  >{{ dashboard[0].totalCheckedIn }} <br />
                   <span class="size-600 padl5">STAFFS</span>
                 </mat-card-title>
               </div>
               <div class="header-title">
-                <mat-card-title>On Leave Today</mat-card-title>
+                <mat-card-title>Total Checked In</mat-card-title>
               </div>
             </div>
-          </mat-card-title-group>
-        </mat-card-header>
-      </mat-card>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+      <div class="leave-details">
+        <mat-card appearance="outlined">
+          <mat-card-header>
+            <div class="detail-header">
+              <div class="header-number green-background">
+                <mat-card-title
+                  >{{ dashboard[0].totalOfficeCheckedIn }} <br />
+                  <span class="size-600 padl5">STAFFS</span>
+                </mat-card-title>
+              </div>
+              <div class="header-title">
+                <mat-card-title>Office Checked In</mat-card-title>
+              </div>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+      <div class="leave-details">
+        <mat-card appearance="outlined">
+          <mat-card-header>
+            <div class="detail-header">
+              <div class="header-number green-background">
+                <mat-card-title
+                  >{{ dashboard[0].totalWorkingFromHome }} <br />
+                  <span class="size-600 padl5">STAFFS</span>
+                </mat-card-title>
+              </div>
+              <div class="header-title">
+                <mat-card-title>Working From Home</mat-card-title>
+              </div>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </div>
+
+      <div class="leave-details">
+        <mat-card appearance="outlined">
+          <mat-card-header>
+            <mat-card-title-group>
+              <div class="detail-header">
+                <div class="header-number red-background">
+                  <mat-card-title
+                    >{{ dashboard[0].staffsOnLeaveToday.total }}<br />
+                    <span class="size-600 padl5">STAFFS</span>
+                  </mat-card-title>
+                </div>
+                <div class="header-title">
+                  <mat-card-title>On Leave Today</mat-card-title>
+                </div>
+              </div>
+            </mat-card-title-group>
+          </mat-card-header>
+        </mat-card>
+      </div>
     </div>
-  </div>
-  <div class="container">
-    <app-leave-stats></app-leave-stats>
+    <div class="w-full">
+      <app-leave-stats></app-leave-stats>
+    </div>
   </div>
 </div>
