@@ -1,9 +1,9 @@
-import { LeaveTableData } from "../types/leave-table";
+import { LeaveTableData } from "../../types/leave-table";
 
 export interface LeaveTableState{
     leaveDataTable : LeaveTableData[];
     loading: boolean;
-    error: string | null;
+    error: string|null;
 }
 
 export const initialState: LeaveTableState={

@@ -8,3 +8,12 @@ export interface LeaveTableData{
     leaveRequestStatus : string
     id?:number;
 }
+
+export interface LeaveAvailableData {
+    totalLeaveTaken : number,
+    totalLeaveAvailable : number,
+    annualLeaveAvailable : number,
+    sickLeaveAvailable : number,
+    otherLeaveAvailable : number,
+    id?: string
+}

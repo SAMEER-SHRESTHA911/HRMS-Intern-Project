@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LeaveTableData } from '../types/leave-table';
+import { LeaveTableData } from '../../types/leave-table';
 
 export const LEAVE_TABLE_DATA = createAction('[ leave table ] get data');
 export const LEAVE_TABLE_DATA_SUCCESS = createAction(

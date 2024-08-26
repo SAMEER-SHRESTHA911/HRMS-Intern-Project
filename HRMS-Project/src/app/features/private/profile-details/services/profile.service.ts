@@ -6,7 +6,7 @@ import { ProfileDetails } from '../models/profile-details';
 @Injectable({
   providedIn: 'root',
 })
-export class ProfileService {
+export class ProfileDetiailsService {
   private baseUrl = 'http://localhost:3000/';
   constructor(private http: HttpClient) {}
 
