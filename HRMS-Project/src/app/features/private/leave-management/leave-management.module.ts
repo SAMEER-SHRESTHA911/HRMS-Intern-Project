@@ -12,12 +12,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { LeaveTableEffects } from './store/leave-table/leave-table-effects';
 import { LeaveAvailableReducer } from './store/leave-available/leave-available.reducer';
 import { LeaveAvailableEffects } from './store/leave-available/leave-available.effects';
+import { LeaveApproveRejectComponent } from './components/leave-approve-reject/leave-approve-reject.component';
 
 
 @NgModule({
   declarations: [
     LeaveManagementComponent,
-    LeaveTableComponent
+    LeaveTableComponent,
+    LeaveApproveRejectComponent
   ],
   imports: [
     CommonModule,

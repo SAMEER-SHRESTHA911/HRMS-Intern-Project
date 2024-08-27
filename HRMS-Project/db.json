@@ -184,7 +184,7 @@
     },
     {
       "id": "0139",
-      "reasonForLeave": "sadas",  
+      "reasonForLeave": "sadas",
       "leaveType": "Sick",
       "leaveFrom": "2024-08-20T18:15:00.000Z",
       "leaveTo": "2024-08-20T18:15:00.000Z",
@@ -225,6 +225,14 @@
       "leaveFrom": "2024-08-25T18:15:00.000Z",
       "leaveTo": "2024-08-26T18:15:00.000Z",
       "department": "Angular",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "dc95",
+      "reasonForLeave": "Sick with fever",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-26T18:15:00.000Z",
+      "leaveTo": "2024-08-26T18:15:00.000Z",
       "dayLeave": "First Half"
     }
   ],
@@ -323,16 +331,31 @@
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular" },
-          { "name": "Sita Devi", "department": "Java" },
-          { "name": "Tajesh Hamal", "department": "Admin" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular"
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java"
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin"
+          }
         ]
       },
       "staffsOnLeaveTomorrow": {
         "total": 2,
         "staffs": [
-          { "name": "Sita Devi", "department": "Java" },
-          { "name": "Tajesh Hamal", "department": "Admin" }
+          {
+            "name": "Sita Devi",
+            "department": "Java"
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin"
+          }
         ]
       }
     }
