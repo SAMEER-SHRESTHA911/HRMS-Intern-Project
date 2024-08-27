@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileDetiailsService } from './services/profile.service';
 import { ProfileDetails } from './models/profile-details';
 import { Observable, of } from 'rxjs';

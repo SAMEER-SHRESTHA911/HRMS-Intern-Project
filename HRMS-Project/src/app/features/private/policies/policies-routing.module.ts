@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PoliciesComponent } from './policies.component';
 
-const routes: Routes = [{ path: '', component: PoliciesComponent }];
+const routes: Routes = [{ path: '', component: PoliciesComponent },
+  { path: 'edit-policy/:id', component: PoliciesComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class PoliciesRoutingModule { }
+  
