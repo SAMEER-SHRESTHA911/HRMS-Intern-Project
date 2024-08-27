@@ -1,0 +1,22 @@
+section {
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+
+  button {
+    margin: 8px;
+    min-width: 100px;
+  }
+
+  button:first-of-type {
+    float: left;
+  }
+
+  button:last-of-type {
+    float: right;
+  }
+}

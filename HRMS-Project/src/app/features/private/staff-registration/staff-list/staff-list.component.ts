@@ -14,6 +14,9 @@ import {
 import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DialogData } from '../../../../shared/components/model/dialog.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-staff-list',
@@ -51,7 +54,8 @@ export class StaffListComponent implements OnInit {
   constructor(
     // private staffListService: StaffListService,
     private router: Router,
-    private store: Store<StaffListState>
+    private store: Store<StaffListState>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -63,9 +67,6 @@ export class StaffListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  // onAdd() {
-  //   this.router.navigate(['/add-staff']);
-  // }
   onEditStaffDetails(id: number): void {
     this.router.navigate(['/admin/staff-registration/edit-staff', id]);
   }
@@ -77,9 +78,21 @@ export class StaffListComponent implements OnInit {
   }
 
   onDeleteStaffDetails(id: number): void {
-    if (confirm('Are you sure you want to delete this member?')) {
-      this.store.dispatch(deleteStaffDetails({ id }));
-    }
+    const dialogData: DialogData = {
+      titleArray: ['Are you sure you want to delete?'],
+      buttonArray: [
+        { label: 'No', action: 'no' },
+        { label: 'Yes', action: 'yes' },
+      ],
+    };
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: dialogData,
+    });
+    dialogRef.componentInstance.buttonClick.subscribe((action) => {
+      if (action === 'yes') {
+        this.store.dispatch(deleteStaffDetails({ id }));
+      }
+    });
   }
   applyFilter(event: Event) {
     if (this.dataSource) {

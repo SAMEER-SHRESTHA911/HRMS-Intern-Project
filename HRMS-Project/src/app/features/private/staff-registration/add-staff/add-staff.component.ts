@@ -103,8 +103,6 @@ export class AddStaffComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.registrationForm);
-
     if (this.registrationForm.valid) {
       const staffDetails: StaffDetails = {
         ...this.registrationForm.value,
@@ -123,6 +121,9 @@ export class AddStaffComponent implements OnInit {
     } else {
       this.registrationForm.markAllAsTouched();
     }
+  }
+  onCancelEdit(): void {
+    this.router.navigate(['/admin/staff-registration/staff-list']);
   }
   selectorInitializer(): void {
     this.staff$ = this.store.pipe(select(selectAllStaff));
