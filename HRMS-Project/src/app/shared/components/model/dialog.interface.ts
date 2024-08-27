@@ -1,6 +1,7 @@
 export interface DialogButton {
   label: string;
-  action: string;
+  type: 'primary' | 'warning';
+  action: () => void;
 }
 export interface DialogData {
   titleArray: string[];
