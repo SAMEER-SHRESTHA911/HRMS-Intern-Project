@@ -1,14 +1,15 @@
+@if (leaveApplyForm) {
 <div class="leaveApplyForm">
     <form [formGroup]="leaveApplyForm" (ngSubmit)="onSubmit()">
 
         <!-- <mat-form-field appearance="outline">
-            <mat-label>Department</mat-label>
-            <mat-select formControlName="department">
-                <mat-option *ngFor="let department of departments" [value]="department">
-                    {{department}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field> -->
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="department">
+                    <mat-option *ngFor="let department of departments" [value]="department">
+                        {{department}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
 
         <div class="form-row">
             <mat-form-field appearance="outline">
@@ -34,22 +35,14 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Leave Date From</mat-label>
-                <input 
-                    matInput [matDatepicker]="picker1" 
-                    formControlName="leaveFrom" 
-                    [min]="minDate" 
-                />
+                <input matInput [matDatepicker]="picker1" formControlName="leaveFrom" [min]="minDate" />
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                 <mat-datepicker #picker1></mat-datepicker>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label>Leave Date To</mat-label>
-                <input 
-                    matInput [matDatepicker]="picker2" 
-                    formControlName="leaveTo" 
-                    [min]="minDate" 
-                />
+                <input matInput [matDatepicker]="picker2" formControlName="leaveTo" [min]="minDate" />
                 <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                 <mat-datepicker #picker2></mat-datepicker>
             </mat-form-field>
@@ -58,13 +51,9 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Reason For Leave</mat-label>
-            <textarea 
-                matInput formControlName="reasonForLeave" 
-                placeholder="Enter your reason for leave"
-                maxlength="200" 
-                rows="4"
-            >
-            </textarea>
+            <textarea matInput formControlName="reasonForLeave" placeholder="Enter your reason for leave"
+                maxlength="200" rows="4">
+                </textarea>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit" [disabled]="!leaveApplyForm.valid">
@@ -72,3 +61,4 @@
         </button>
     </form>
 </div>
+}

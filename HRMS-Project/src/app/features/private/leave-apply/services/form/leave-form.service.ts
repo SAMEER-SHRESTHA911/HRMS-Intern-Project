@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root',
 })
 export class LeaveFormService {
-  private  editLeaveApplyStatus = 'http://localhost:3000/leaveApply';
+  private  editLeaveApplyStatus = 'http://localhost:3000/leaveTable';
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
   isEditMode: boolean = false;
