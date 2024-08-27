@@ -314,9 +314,21 @@
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
         ]
       },
       "staffsOnLeaveTomorrow": {
@@ -334,6 +346,38 @@
           }
         ]
       }
+    }
+  ],
+  "policies": [
+    {
+      "id": 777,
+      "title": " Company leave Policies",
+      "category": "Sick-Leave",
+      "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
+    },
+    {
+      "id": "123",
+      "title": " Company leave Policies",
+      "category": "Annual Leave",
+      "content": "Employees are entitled to 20 days of paid annual leave each year. This leave can be used for vacations, personal time off, or any other personal reasons. We encourage all employees to utilize this time to rest and recharge."
+    },
+    {
+      "id": "345",
+      "title": " Company leave Policies",
+      "category": "Maternity Leave",
+      "content": "Female employees are entitled to 90 days of paid maternity leave to cover the period before and after childbirth. This leave ensures that new mothers have the necessary time to care for their newborns and recover physically and emotionally."
+    },
+    {
+      "id": "23c",
+      "title": " Company leave Policies",
+      "category": "Paternity Leave",
+      "content": "Male employees are entitled to 10 days of paid paternity leave to support their partners during childbirth. This leave allows fathers to be present during this critical time and help with the initial care of the newborn."
+    },
+    {
+      "id": "q3e",
+      "title": " Company leave Policies",
+      "category": "Bereavement Leave",
+      "content": "Employees are entitled to 5 days of paid bereavement leave in the unfortunate event of the loss of a close family member. This leave provides time to grieve and manage personal matters during a difficult time."
     }
   ]
 }
