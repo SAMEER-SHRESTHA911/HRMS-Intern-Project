@@ -350,9 +350,18 @@
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          { "name": "Ram Raja", "department": "Angular", "image": "" },
-          { "name": "Sita Devi", "department": "Java", "image": "" },
-          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
+          {
+            "name": "Ram Raja",
+            "department": "Angular", "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java", "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin", "image": ""
+          }
         ]
       },
       "staffsOnLeaveTomorrow": {
@@ -367,16 +376,6 @@
             "name": "Tajesh Hamal",
             "department": "Admin",
             "image": ""
-          }
-        ]
-      }
-          {
-            "name": "Sita Devi",
-            "department": "Java"
-          },
-          {
-            "name": "Tajesh Hamal",
-            "department": "Admin"
           }
         ]
       }
