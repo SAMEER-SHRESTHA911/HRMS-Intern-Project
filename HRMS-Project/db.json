@@ -184,7 +184,7 @@
     },
     {
       "id": "0139",
-      "reasonForLeave": "sadas",
+      "reasonForLeave": "sadas",  
       "leaveType": "Sick",
       "leaveFrom": "2024-08-20T18:15:00.000Z",
       "leaveTo": "2024-08-20T18:15:00.000Z",
@@ -256,6 +256,33 @@
       "leaveType": "Sick",
       "leaveRequestStatus": "Pending",
       "id": "7be0"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
     },
     {
       "leaveFrom": "2024-2-28",
