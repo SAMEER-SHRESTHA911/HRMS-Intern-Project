@@ -81,17 +81,24 @@ export class StaffListComponent implements OnInit {
     const dialogData: DialogData = {
       titleArray: ['Are you sure you want to delete?'],
       buttonArray: [
-        { label: 'No', action: 'no' },
-        { label: 'Yes', action: 'yes' },
+        {
+          label: 'Cancel',
+          type: 'warning',
+          action: () => {
+            return;
+          },
+        },
+        {
+          label: 'Confirm',
+          type: 'primary',
+          action: () => {
+            this.store.dispatch(deleteStaffDetails({ id }));
+          },
+        },
       ],
     };
-    const dialogRef = this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogComponent, {
       data: dialogData,
-    });
-    dialogRef.componentInstance.buttonClick.subscribe((action) => {
-      if (action === 'yes') {
-        this.store.dispatch(deleteStaffDetails({ id }));
-      }
     });
   }
   applyFilter(event: Event) {
