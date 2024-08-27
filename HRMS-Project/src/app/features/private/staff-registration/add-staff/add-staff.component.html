@@ -381,9 +381,13 @@
         </mat-error>
       </mat-form-field>
     </div>
-
-    <div class="example-button-row">
-      <button mat-flat-button>Submit</button>
+    <div class="buttons">
+      <div class="example-button-row">
+        <button mat-flat-button>Submit</button>
+      </div>
+      <div *ngIf="isEditMode" class="example-button-row">
+        <button mat-flat-button (click)="onCancelEdit()">Cancel</button>
+      </div>
     </div>
   </form>
 </div>
