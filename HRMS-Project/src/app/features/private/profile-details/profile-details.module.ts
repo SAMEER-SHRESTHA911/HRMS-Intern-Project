@@ -6,6 +6,10 @@ import { MaterialsModule } from '../../../materials/materials.module';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileDetailsComponent } from './profile-details.component';
+import { profileDetailsReducer } from './store/profile-details.reducer';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProfileDetailsEffect } from './store/profile-details.effect';
 
 @NgModule({
   declarations: [ProfileDetailsComponent, ProfileEditComponent],
@@ -14,6 +18,8 @@ import { ProfileDetailsComponent } from './profile-details.component';
     ReactiveFormsModule,
     ProfileDetailsRoutingModule,
     MaterialsModule,
+    StoreModule.forFeature('profileDetails', profileDetailsReducer),
+    EffectsModule.forFeature([ProfileDetailsEffect]),
   ],
 })
 export class ProfileDetailsModule {}

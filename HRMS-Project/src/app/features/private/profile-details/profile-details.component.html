@@ -1,28 +1,32 @@
+<div *ngIf="loading$ | async">Loading...</div>
 <div class="profile-grid">
   <mat-card class="profile-img">
     <img mat-card-image src="avatar.png" alt="Photo of a Shiba Inu" />
-    <mat-card-content class="font-bold">{{ fullName }}</mat-card-content>
-    <mat-card-content class="font-medium">{{
-      profileDetails[0].department
-    }}</mat-card-content>
+    <mat-card-content class="font-bold">Full Name</mat-card-content>
+    <mat-card-content class="font-medium"> Department </mat-card-content>
   </mat-card>
-
-  <mat-card class="profile-detial">
-    <p>First Name: {{ profileDetails[0].firstName }}</p>
-    <p>Middle Name: {{ profileDetails[0].midName }}</p>
-    <p>Last Name: {{ profileDetails[0].lastName }}</p>
-    <p>Gender: {{ profileDetails[0].gender }}</p>
-    <p>Email: {{ profileDetails[0].email }}</p>
-    <p>Address: {{ profileDetails[0].address }}</p>
-    <p>Date of Birth: {{ profileDetails[0].dob }}</p>
-    <p>Citizenship No.: {{ profileDetails[0].citizenshipNumber }}</p>
-    <p>Starting Date: {{ profileDetails[0].startDate }}</p>
-    <p>Department: {{ profileDetails[0].department }}</p>
-    <p>Role: {{ profileDetails[0].role }}</p>
-  </mat-card>
-</div>
-<div class="action-btn">
-  <button mat-flat-button color="primary" [routerLink]="['/admin/staff-registration/add-staff',profileDetails[0].id]">
-    Edit Profile
-  </button>
+  <div *ngIf="profileDetails$ | async as profileDetails">
+    <mat-card class="profile-detial" *ngFor="let profile of profileDetails">
+      <p>First Name: {{ profile.firstName }}</p>
+      <p>Middle Name: {{ profile.midName }}</p>
+      <p>Last Name: {{ profile.lastName }}</p>
+      <p>Gender: {{ profile.gender }}</p>
+      <p>Email: {{ profile.email }}</p>
+      <p>Address: {{ profile.address }}</p>
+      <p>Date of Birth: {{ profile.dob }}</p>
+      <p>Citizenship No.: {{ profile.citizenshipNumber }}</p>
+      <p>Starting Date: {{ profile.startDate }}</p>
+      <p>Department: {{ profile.department }}</p>
+      <p>Role: {{ profile.role }}</p>
+    </mat-card>
+  </div>
+  <div class="action-btn">
+    <button
+      mat-flat-button
+      color="primary"
+      [routerLink]="['/admin/staff-registration/edit-staff', profileId]"
+    >
+      Edit Profile
+    </button>
+  </div>
 </div>
