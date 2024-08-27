@@ -6,9 +6,7 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   border-radius: 8px;
-  height: 600px;
   max-width: calc(100% - 40px);
-  margin-left: 300px;
   overflow: hidden;
 
   .Employee-list-header {
@@ -80,7 +78,6 @@
 
     table {
       width: 100%;
-      min-width: 600px;
 
       th.mat-header-cell,
       td.mat-cell {
@@ -124,7 +121,6 @@
   }
 
   .table-container {
-    margin-left: 200px;
     padding: 8px;
 
     .mat-form-field {
@@ -168,7 +164,6 @@
     margin-left: 150px;
     padding: 6px;
     .mat-form-field {
-      // width: 100%;
       margin-bottom: 15px;
 
       input {

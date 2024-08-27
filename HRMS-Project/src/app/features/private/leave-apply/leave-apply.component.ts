@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { submitLeaveForm } from './store/leave-apply-submit/leave.actions';
-import { of, switchMap } from 'rxjs';
+import { filter, Subject, takeUntil } from 'rxjs';
 import { LeaveFormService } from './services/form/leave-form.service';
 import { GET_EDIT_LEAVE_DATA } from './store/leave-apply-form/leave-edit.action';
 
@@ -12,9 +12,8 @@ import { GET_EDIT_LEAVE_DATA } from './store/leave-apply-form/leave-edit.action'
   templateUrl: './leave-apply.component.html',
   styleUrl: './leave-apply.component.scss',
 })
-export class LeaveApplyComponent implements OnInit {
-  leaveApplyForm!: FormGroup;
-  isEditMode?: boolean;
+export class LeaveApplyComponent implements OnInit, OnDestroy {
+  leaveApplyForm?: FormGroup;
   leaveId: string | number | null = null;
 
   minDate: Date = new Date();
@@ -23,73 +22,85 @@ export class LeaveApplyComponent implements OnInit {
   leaveTypeArray: string[] = ['Sick', 'Annual', 'Other'];
   dayLeaveTypeArray: string[] = ['First Half', 'Second Half', 'Full Day'];
 
+  #destroy$: Subject<void> = new Subject<void>();
+
   constructor(
     private store: Store,
     private router: Router,
     private route: ActivatedRoute,
     private leaveEditService: LeaveFormService,
-    private leaveFormService : LeaveFormService
+    private leaveFormService: LeaveFormService
   ) {}
 
   ngOnInit(): void {
-    this.leaveApplyForm = this.leaveEditService.buildForm();
-    this.initializeEditMode();
-    this.isEditMode = this.leaveFormService.getEditMode()
-    console.log(this.isEditMode)
-  }
-
-  onSubmit(): void {
-    if (this.leaveApplyForm.valid) {
-      const formValue = this.leaveApplyForm.value;
-
-      if (this.isEditMode && this.leaveId !== null) {
-        const updatedLeaveData = {
-          ...formValue,
-          leaveRequestStatus: 3,
-        };
-        this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));
-      } 
-      else {
-        console.log(formValue)
-        this.store.dispatch(submitLeaveForm({ leaveData: formValue }));
-      }
-
-      this.router.navigate(['/admin/dashboard']);
-    }
-  }
-
-  private initializeEditMode(): void {
-    this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          const id = params.get('id');
-          this.isEditMode = !!id;
-          this.leaveId = id;
-
-          if (this.isEditMode && this.leaveId !== null) {
-            this.loadEditData(this.leaveId);
-          }
-          return of(null);
-        })
-      )
-      .subscribe();
-  }
-
-  private loadEditData(leaveId: number | string): void {
-    this.leaveEditService.fetchEditLeaveData(leaveId).subscribe((data) => {
-      if (data) {
-        this.leaveEditService.patchData(this.leaveApplyForm, data);
-        console.log(data)
-      }
-    });
+    this.#buildForm();
+    console.log(this.isEditMode);
+    this.loadEditData(this.editId);
   }
 
   ngOnDestroy(): void {
+    this.#destroy$.next();
+    this.#destroy$.complete();
     this.resetForm();
     this.leaveFormService.resetEditMode();
   }
 
+  get editId(): string | undefined {
+    return this.route.snapshot.params[' id'];
+  }
+
+  get isEditMode(): boolean {
+    return this.leaveFormService.getEditMode();
+  }
+
+  onSubmit(): void {
+    if (this.leaveApplyForm?.invalid) {
+      return;
+    }
+    const formValue = this.leaveApplyForm?.value;
+    const formValueSubmit = {
+      reasonForLeave: formValue.reasonForLeave,
+      leaveType: formValue.leaveType,
+      leaveFrom: '',
+      leaveTo: '2024-08-24T18:15:00.000Z',
+      department: 'Angular',
+      dayLeave: 'Second Half',
+    };
+    
+    if (this.isEditMode && this.leaveId !== null) {
+      this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));
+    } else {
+      console.log(formValue);
+      this.store.dispatch(submitLeaveForm({ leaveData: formValue }));
+    }
+
+    this.router.navigate(['/admin/dashboard']);
+  }
+
+  private loadEditData(leaveId?: string): void {
+    console.log(leaveId);
+    if (!leaveId) {
+      return;
+    }
+    this.leaveEditService
+      .fetchEditLeaveData(leaveId)
+      .pipe(
+        filter((data) => !!data),
+        takeUntil(this.#destroy$)
+      )
+      .subscribe((data) => {
+        if (this.leaveApplyForm) {
+          this.leaveEditService.patchData(this.leaveApplyForm, data);
+          console.log(data);
+        }
+      });
+  }
+
   resetForm() {
-    this.leaveApplyForm.reset();
+    this.leaveApplyForm?.reset();
+  }
+
+  #buildForm(): void {
+    this.leaveApplyForm = this.leaveEditService.buildForm();
   }
 }
