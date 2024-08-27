@@ -99,7 +99,12 @@
     <div>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Enter DOB</mat-label>
-        <input matInput formControlName="dob" [matDatepicker]="picker" />
+        <input
+          matInput
+          formControlName="dob"
+          [matDatepicker]="picker"
+          [max]="maxDate"
+        />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
           matIconSuffix
@@ -133,7 +138,37 @@
         </mat-error>
       </mat-form-field>
     </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <!-- <mat-label>Address</mat-label> -->
+        <mat-label>Country</mat-label>
+        <mat-select>
+          <mat-option value="option">Nepal</mat-option>
+          <mat-option value="option">America</mat-option>
+          <mat-option value="option">Australia</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <mat-select>
+          <mat-option value="option">Kathmandu</mat-option>
+          <mat-option value="option">Chicago</mat-option>
+          <mat-option value="option">NewYork</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
+    <!-- <mat-option value="option">
+          <mat-label>City</mat-label>
+          <mat-select>
+            <mat-option value="option">Kathmandu</mat-option>
+            <mat-option value="option">Chicago</mat-option>
+            <mat-option value="option">NewYork</mat-option>
+          </mat-select></mat-option
+        </mat-select>
+          > -->
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Enter Nationality</mat-label>
@@ -177,7 +212,12 @@
     <div>
       <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>Enter start date</mat-label>
-        <input matInput formControlName="startDate" [matDatepicker]="picker1" />
+        <input
+          matInput
+          formControlName="startDate"
+          [matDatepicker]="picker1"
+          [max]="maxStartDate"
+        />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
           matIconSuffix
@@ -265,17 +305,19 @@
         <input
           matInput
           formControlName="password"
-          [type]="hide ? 'password' : 'text'"
+          [type]="passwordHide ? 'password' : 'text'"
         />
         <button
           type="button"
           mat-icon-button
           matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
+          (click)="passwordHide = !passwordHide"
+          [attr.aria-label]="'passwordHide'"
+          [attr.aria-pressed]="passwordHide"
         >
-          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          <mat-icon>{{
+            passwordHide ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </button>
         <mat-error
           *ngIf="
@@ -297,9 +339,55 @@
         </mat-error>
       </mat-form-field>
     </div>
-
-    <div class="example-button-row">
-      <button mat-flat-button>Submit</button>
+    <div *ngIf="!isEditMode">
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm your password</mat-label>
+        <input
+          matInput
+          formControlName="confirmPassword"
+          [type]="confirmPasswordHide ? 'password' : 'text'"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="confirmPasswordHide = !confirmPasswordHide"
+          [attr.aria-label]="'confirmPasswordHide'"
+          [attr.aria-pressed]="confirmPasswordHide"
+        >
+          <mat-icon>{{
+            confirmPasswordHide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+        <mat-error
+          *ngIf="
+            (registrationForm.get('confirmPassword')?.touched ||
+              registrationForm.get('confirmPassword')?.dirty) &&
+            registrationForm.get('confirmPassword')?.hasError('required')
+          "
+        >
+          Confirm Password is required.
+        </mat-error>
+        <mat-error
+          *ngIf="
+            (registrationForm.get('confirmPassword')?.touched ||
+              registrationForm.get('confirmPassword')?.dirty) &&
+            registrationForm
+              .get('confirmPassword')
+              ?.hasError('passwordMismatch')
+          "
+        >
+          Passwords do not match.
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="buttons">
+      <div class="example-button-row">
+        <button mat-flat-button>Submit</button>
+      </div>
+      <div *ngIf="isEditMode" class="example-button-row">
+        <button mat-flat-button (click)="onCancelEdit()">Cancel</button>
+      </div>
     </div>
   </form>
 </div>

@@ -1,5 +1,15 @@
-<section>
-  Are you sure?
-  <button mat-flat-button color="warn">Cancel</button>
-  <button mat-flat-button color="primary">Check-Out</button>
-</section>
+<div class="dialogbox-container">
+  <div class="title-container">
+    <header>
+      <h3 *ngFor="let title of TitleArray">{{ title }}</h3>
+    </header>
+  </div>
+  <div class="buttons-container">
+    <button
+      *ngFor="let button of ButtonArray"
+      (click)="onButtonClick(button.action)"
+    >
+      {{ button.label }}
+    </button>
+  </div>
+</div>

@@ -5,18 +5,20 @@ import { NavbarRoutingModule } from './navbar-routing.module';
 import { NavbarComponent } from './navbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatMenu, MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    NavbarComponent
-  ],
+  declarations: [NavbarComponent],
   imports: [
     CommonModule,
     NavbarRoutingModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenu,
+    MatButtonModule,
+    MatMenuModule,
   ],
-  exports: [ NavbarComponent ]
+  exports: [NavbarComponent],
 })
-export class NavbarModule { }
+export class NavbarModule {}

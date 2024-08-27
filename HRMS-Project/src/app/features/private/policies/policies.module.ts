@@ -1,25 +1,39 @@
-
-import {MatExpansionModule} from '@angular/material/expansion';
-import { HrPoliciesComponent } from './policies/hr-policies/hr-policies.component';
-import { LeavePoliciesComponent } from './policies/leave-policies/leave-policies.component';
-import { ComapanyPoliciesComponent } from './policies/comapany-policies/comapany-policies.component';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { PoliciesRoutingModule } from './policies-routing.module';
+import { PoliciesComponent } from './policies.component';
+import { PolicyListComponent } from './components/policy-list/policy-list.component';
+import { PolicyFormComponent } from './components/policy-form/policy-form.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { FormsModule } from '@angular/forms';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { BrowserModule } from '@angular/platform-browser';
+import {  HttpClientModule } from '@angular/common/http';
+import { MatInput } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
-  declarations : [
-    HrPoliciesComponent,
-    LeavePoliciesComponent,
-    ComapanyPoliciesComponent,
+  declarations: [
+    PoliciesComponent,
+    PolicyListComponent,
+    PolicyFormComponent,
 
 
   ],
-  imports :[
-    MatExpansionModule
+  imports: [
+    CommonModule,
+    PoliciesRoutingModule,
+    MatExpansionModule,
+    FormsModule,
+    MatLabel,
+    MatFormField,
+    // BrowserModule,
+    HttpClientModule,
+    MatInput,
+    MatButtonModule,
+
   ]
 })
-
-export class PoliciesModule {}
-
-
-
+export class PoliciesModule { }

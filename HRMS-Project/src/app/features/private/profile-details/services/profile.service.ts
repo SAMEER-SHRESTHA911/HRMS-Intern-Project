@@ -6,12 +6,12 @@ import { ProfileDetails } from '../models/profile-details';
 @Injectable({
   providedIn: 'root',
 })
-export class ProfileService {
-  private baseUrl = 'http://localhost:3000/';
+export class ProfileDetiailsService {
+  private baseUrl = 'http://localhost:3000/loggedInUser';
   constructor(private http: HttpClient) {}
 
   getProfileDetails(): Observable<ProfileDetails[]> {
-    return this.http.get<ProfileDetails[]>(`${this.baseUrl}users`);
+    return this.http.get<ProfileDetails[]>(this.baseUrl);
   }
 
   updateProfile(data: ProfileDetails) {

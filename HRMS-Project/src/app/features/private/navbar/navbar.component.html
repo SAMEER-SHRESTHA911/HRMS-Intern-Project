@@ -5,8 +5,19 @@
     </a>
   </div>
   <div class="profile">
-    <a [routerLink]="['/admin/profile-details']">
-      <mat-icon class="profile-icon">account_circle </mat-icon>
-    </a>
+    <!-- <a [routerLink]="['/admin/profile-details']"> -->
+    <mat-icon
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="profile-icon cursor-pointer"
+      >account_circle
+    </mat-icon>
+    <!-- </a> -->
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/admin/profile-details']">
+        Profile
+      </button>
+      <button mat-menu-item>Log Out</button>
+    </mat-menu>
   </div>
 </div>

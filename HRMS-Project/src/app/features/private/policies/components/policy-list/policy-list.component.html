@@ -1,0 +1,15 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let policy of policies">
+    <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{policy.title}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{policy.category}}
+    </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>{{policy.content}}</p>
+    <button mat-button (click)="deletePolicy(policy.id)">Delete</button>
+  </mat-expansion-panel>
+</mat-accordion>
+

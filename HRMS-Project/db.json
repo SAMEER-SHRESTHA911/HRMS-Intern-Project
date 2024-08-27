@@ -35,23 +35,6 @@
       "id": "825"
     },
     {
-      "id": "217",
-      "firstName": "Hedley",
-      "middleName": "Graiden Burks",
-      "lastName": "Cervantes",
-      "phoneNumber": 587,
-      "gender": "male",
-      "dob": "2024-08-12T18:15:00.000Z",
-      "address": "Est recusandae Aut ",
-      "nationality": "Duis qui autem dolor",
-      "citizenshipNumber": "76",
-      "startDate": "2019-12-21T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "tester",
-      "email": "wuperi@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
       "id": "568",
       "firstName": "Quon",
       "middleName": "Carson Ware",
@@ -169,6 +152,42 @@
       "role": "tester",
       "email": "kogim@mailinator.com",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": 655,
+      "firstName": "Willa",
+      "middleName": "Colton Sanford",
+      "lastName": "Maxwell",
+      "phoneNumber": 259,
+      "gender": "others",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Dolore totam sed dol",
+      "nationality": "Consequatur dolor au",
+      "citizenshipNumber": "618",
+      "startDate": "2020-08-11T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "qacyf@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": 499,
+      "firstName": "Allegra",
+      "middleName": "Cynthia Hurley",
+      "lastName": "Lynch",
+      "phoneNumber": 837,
+      "gender": "others",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Pariatur Id cupidat",
+      "nationality": "Non impedit amet s",
+      "citizenshipNumber": "759",
+      "startDate": "1974-10-27T18:30:00.000Z",
+      "department": "dotnet",
+      "role": "manager",
+      "email": "luwaxinyx@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
     }
   ],
   "leaveApply": [
@@ -331,23 +350,26 @@
       "staffsOnLeaveToday": {
         "total": 3,
         "staffs": [
-          {
-            "name": "Ram Raja",
-            "department": "Angular"
-          },
-          {
-            "name": "Sita Devi",
-            "department": "Java"
-          },
-          {
-            "name": "Tajesh Hamal",
-            "department": "Admin"
-          }
+          { "name": "Ram Raja", "department": "Angular", "image": "" },
+          { "name": "Sita Devi", "department": "Java", "image": "" },
+          { "name": "Tajesh Hamal", "department": "Admin", "image": "" }
         ]
       },
       "staffsOnLeaveTomorrow": {
         "total": 2,
         "staffs": [
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
+        ]
+      }
           {
             "name": "Sita Devi",
             "department": "Java"
