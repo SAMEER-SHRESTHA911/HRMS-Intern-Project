@@ -29,7 +29,7 @@
       "citizenshipNumber": "9727",
       "startDate": "2005-11-01T18:15:00.000Z",
       "department": "angular",
-      "role": "designer",
+      "role": "tester",
       "email": "sid@ailinator.com",
       "password": "Pa$$w0rd!",
       "id": "825"
@@ -184,7 +184,7 @@
     },
     {
       "id": "0139",
-      "reasonForLeave": "sadas",
+      "reasonForLeave": "sadas",  
       "leaveType": "Sick",
       "leaveFrom": "2024-08-20T18:15:00.000Z",
       "leaveTo": "2024-08-20T18:15:00.000Z",
@@ -265,44 +265,76 @@
       "leaveType": "Annual",
       "leaveRequestStatus": "Rejected",
       "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
     }
   ],
   "dashboard": [
     {
       "user": 1,
-      "totalCheckedIn": "30",
-      "totalWorkingFromHome": "12",
-      "staffsOnLeaveToday": {
-        "total": "3",
+      "totalCheckedIn": 30,
+      "totalOfficeCheckedIn": 20,
+      "totalWorkingFromHome": 12,
+      "leaveRequests": {
+        "total": 3,
         "staffs": [
           {
             "name": "Ram Raja",
-            "department": "Angular"
+            "department": "Angular",
+            "image": ""
           },
           {
             "name": "Sita Devi",
-            "department": "Java"
+            "department": "Java",
+            "image": ""
           },
           {
             "name": "Tajesh Hamal",
-            "department": "Admin"
+            "department": "Admin",
+            "image": ""
           }
+        ]
+      },
+      "staffsOnLeaveToday": {
+        "total": 3,
+        "staffs": [
+          { "name": "Ram Raja", "department": "Angular" },
+          { "name": "Sita Devi", "department": "Java" },
+          { "name": "Tajesh Hamal", "department": "Admin" }
         ]
       },
       "staffsOnLeaveTomorrow": {
-        "total": "2",
+        "total": 2,
         "staffs": [
-          {
-            "name": "Sita Devi",
-            "department": "Java"
-          },
-          {
-            "name": "Tajesh Hamal",
-            "department": "Admin"
-          }
+          { "name": "Sita Devi", "department": "Java" },
+          { "name": "Tajesh Hamal", "department": "Admin" }
         ]
-      },
-      "id": "e366"
+      }
     }
   ],
   "leaveAvailableData": [

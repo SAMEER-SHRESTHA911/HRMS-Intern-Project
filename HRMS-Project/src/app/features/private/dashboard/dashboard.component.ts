@@ -1,21 +1,29 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
+import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Dashboard } from './types/dashboard.interface';
+import { select, Store } from '@ngrx/store';
+import { DashboardState } from './store/dashboad.state';
+import { selectDashboard } from './store/dashboard.selector';
+import { loadDashboard } from './store/dashboard.actions';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
-  constructor(private matDialog: MatDialog) {}
-  checkedIn: boolean = true;
+export class DashboardComponent implements OnInit {
+  dashboard$: Observable<Dashboard[]> = of([]);
+  loading$: Observable<boolean> = of(false);
+  error$: Observable<string | null> = of(null);
+  constructor(private store: Store<DashboardState>) {}
 
-  openCheckInDialog() {
-    this.matDialog.open(DialogComponent, {
-      width: '500px',
-      height: '200px',
-      data: { message: 'Hello from the dialog!' },
-    });
+  selectorInitilizer(): void {
+    this.dashboard$ = this.store.select(selectDashboard);
+    // this.dashboard$.subscribe((data) => console.log(data));
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(loadDashboard());
+    this.selectorInitilizer();
   }
 }
