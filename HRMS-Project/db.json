@@ -245,6 +245,14 @@
       "leaveTo": "2024-08-26T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    },
+    {
+      "id": "dc95",
+      "reasonForLeave": "Sick with fever",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-26T18:15:00.000Z",
+      "leaveTo": "2024-08-26T18:15:00.000Z",
+      "dayLeave": "First Half"
     }
   ],
   "loggedInUser": [
@@ -275,6 +283,33 @@
       "leaveType": "Sick",
       "leaveRequestStatus": "Pending",
       "id": "7be0"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
     },
     {
       "leaveFrom": "2024-2-28",
@@ -335,6 +370,26 @@
           }
         ]
       }
+          {
+            "name": "Sita Devi",
+            "department": "Java"
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin"
+          }
+        ]
+      }
+    }
+  ],
+  "leaveAvailableData": [
+    {
+      "totalLeaveTaken": 10,
+      "totalLeaveAvailable": 4,
+      "annualLeaveAvailable": 1,
+      "sickLeaveAvailable": 2,
+      "otherLeaveAvailable": 1,
+      "id": "30f9"
     }
   ]
 }
