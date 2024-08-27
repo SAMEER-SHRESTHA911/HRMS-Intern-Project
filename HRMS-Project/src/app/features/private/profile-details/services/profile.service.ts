@@ -2,21 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProfileDetails } from '../models/profile-details';
-
+import { baseUrl } from '../../../../shared/constants/global.constants';
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileDetiailsService {
-  private baseUrl = 'http://localhost:3000/loggedInUser';
   constructor(private http: HttpClient) {}
 
   getProfileDetails(): Observable<ProfileDetails[]> {
-    return this.http.get<ProfileDetails[]>(this.baseUrl);
+    return this.http.get<ProfileDetails[]>(`${baseUrl}loggedInUser`);
   }
 
   updateProfile(data: ProfileDetails) {
     return this.http.patch<ProfileDetails[]>(
-      `${this.baseUrl}/users/${data.id}`,
+      `${baseUrl}users/${data.id}`,
       data
     );
   }
