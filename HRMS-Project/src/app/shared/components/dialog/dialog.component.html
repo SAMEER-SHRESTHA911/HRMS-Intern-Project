@@ -1,12 +1,13 @@
 <div class="dialogbox-container">
   <div class="title-container">
     <header>
-      <h3 *ngFor="let title of TitleArray">{{ title }}</h3>
+      <p *ngFor="let title of data.titleArray">{{ title }}</p>
     </header>
   </div>
   <div class="buttons-container">
     <button
-      *ngFor="let button of ButtonArray"
+      *ngFor="let button of data.buttonArray"
+      [ngClass]="button.type"
       (click)="onButtonClick(button.action)"
     >
       {{ button.label }}
