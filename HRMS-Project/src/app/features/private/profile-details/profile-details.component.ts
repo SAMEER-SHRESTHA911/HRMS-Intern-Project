@@ -1,40 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileDetiailsService } from './services/profile.service';
 import { ProfileDetails } from './models/profile-details';
+import { Observable, of } from 'rxjs';
+import { ProfileDetailsState } from './store/profile-details.state';
+import { Store } from '@ngrx/store';
+import {
+  selectProfileDetails,
+  selectProfileDetailsDataError,
+  selectProfileDetailsDataLoading,
+} from './store/profile-details.selector';
+import { loadProfileDetailsAction } from './store/profile-details.action';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.scss',
 })
 export class ProfileDetailsComponent implements OnInit {
-  profileDetails: ProfileDetails[] = [];
+  profileId: string | null = null;
+  profileDetails$: Observable<ProfileDetails[]> = of([]);
+  loading$: Observable<boolean> = of(false);
+  error$: Observable<string | null> = of(null);
   constructor(
-    private matDialog: MatDialog,
-    private profileDetailsService: ProfileDetiailsService
+    private profileDetailsService: ProfileDetiailsService,
+    private store: Store<ProfileDetailsState>
   ) {}
 
-  ngOnInit(): void {
-    this.profileDetailsService.getProfileDetails().subscribe({
+  selectorInitializer(): void {
+    this.profileDetails$ = this.store.select(selectProfileDetails);
+    this.profileDetails$.subscribe({
       next: (data: ProfileDetails[]) => {
-        this.profileDetails = data;
+        data ? (this.profileId = data[0].id) : null;
+        console.log(this.profileId);
       },
     });
   }
-  get fullName() {
-    return `${this.profileDetails[0].firstName} ${
-      this.profileDetails[0].midName ?? ''
-    } ${this.profileDetails[0].lastName}`;
+
+  ngOnInit(): void {
+    this.store.dispatch(loadProfileDetailsAction());
+    this.selectorInitializer();
   }
-  // openDialog() {
-  //   this.matDialog.open(ProfileEditComponent, {
-  //     width: '500px',
-  //     // height: '700px',
-  //   });
-  // }
-  // openEditPage() {
-  //   this.profileService.updateProfile(this.profileDetails)
-  //   console.log('edit');
-  // }
+
 }
