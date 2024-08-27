@@ -3,5 +3,4 @@ export interface Policy{
   category: string;
   title : string;
   content : string;
-
 }

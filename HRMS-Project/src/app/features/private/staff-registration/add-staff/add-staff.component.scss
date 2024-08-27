@@ -74,19 +74,19 @@ form {
     margin-right: 8px;
   }
   .mat-mdc-form-field-infix {
-    height: 36px; // Ensure height matches
+    height: 36px;
     display: flex;
     align-items: center;
 
     .mat-mdc-icon-button {
       height: 36px;
-      width: 36px; // Ensure icon button is of the same height
+      width: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       i {
-        font-size: 20px; // Adjust icon size if needed
+        font-size: 20px;
       }
     }
 
@@ -315,13 +315,13 @@ form {
     margin-right: 8px;
   }
   .mat-mdc-form-field-infix {
-    height: 36px; // Ensure height matches
+    height: 36px;
     display: flex;
     align-items: center;
 
     .mat-mdc-icon-button {
       height: 36px;
-      width: 36px; // Ensure icon button is of the same height
+      width: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
