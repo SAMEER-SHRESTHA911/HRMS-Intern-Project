@@ -1,23 +1,6 @@
 {
   "users": [
     {
-      "firstName": "Abhisha",
-      "middleName": "",
-      "lastName": "Sharma",
-      "phoneNumber": 986843459,
-      "gender": "female",
-      "dob": "1990-01-01",
-      "address": "Kathmandu",
-      "nationality": "German",
-      "citizenshipNumber": "123456789",
-      "startDate": "2023-08-01",
-      "department": "angular",
-      "role": "developer",
-      "email": "Abhisha322@gmail.com",
-      "password": "securepassword",
-      "id": "1"
-    },
-    {
       "firstName": "Siddhartha",
       "middleName": "",
       "lastName": "Sakya",
@@ -33,23 +16,6 @@
       "email": "sid@ailinator.com",
       "password": "Pa$$w0rd!",
       "id": "825"
-    },
-    {
-      "id": "568",
-      "firstName": "Quon",
-      "middleName": "Carson Ware",
-      "lastName": "Love",
-      "phoneNumber": 109,
-      "gender": "female",
-      "dob": "2024-08-12T18:15:00.000Z",
-      "address": "Aut rerum dolore lor",
-      "nationality": "Et quia ut cum iste ",
-      "citizenshipNumber": "344",
-      "startDate": "1990-11-19T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "tester",
-      "email": "likiqib@mailinator.com",
-      "password": "Pa$$w0rd!"
     },
     {
       "id": "166",
@@ -83,57 +49,6 @@
       "department": "dotnet",
       "role": "manager",
       "email": "tizuruvep@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "951",
-      "firstName": "Harlan",
-      "middleName": "Shea Davidson",
-      "lastName": "Mcneil",
-      "phoneNumber": 201,
-      "gender": "male",
-      "dob": "2024-08-18T18:15:00.000Z",
-      "address": "Amet et ut veniam ",
-      "nationality": "Eos officia quisqua",
-      "citizenshipNumber": "363",
-      "startDate": "1990-01-13T18:15:00.000Z",
-      "department": "flutter",
-      "role": "developer",
-      "email": "xicybol@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "553",
-      "firstName": "Jena",
-      "middleName": "Vivian Wall",
-      "lastName": "Oneal",
-      "phoneNumber": 131,
-      "gender": "others",
-      "dob": "2024-08-12T18:15:00.000Z",
-      "address": "Dolorum sunt aut dol",
-      "nationality": "Esse amet ut simil",
-      "citizenshipNumber": "249",
-      "startDate": "2013-03-03T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "tester",
-      "email": "ryfemu@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "289",
-      "firstName": "Eric",
-      "middleName": "Phoebe Malone",
-      "lastName": "Conway",
-      "phoneNumber": 465,
-      "gender": "female",
-      "dob": "2024-08-06T18:15:00.000Z",
-      "address": "Rerum enim dolore re",
-      "nationality": "Ut possimus irure f",
-      "citizenshipNumber": "159",
-      "startDate": "1982-08-03T18:30:00.000Z",
-      "department": "flutter",
-      "role": "tester",
-      "email": "rugoqohufi@mailinator.com",
       "password": "Pa$$w0rd!"
     },
     {
@@ -186,6 +101,60 @@
       "department": "dotnet",
       "role": "manager",
       "email": "luwaxinyx@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": 813,
+      "firstName": "Sameer",
+      "middleName": "Phoebe Murphy",
+      "lastName": "Patterson",
+      "phoneNumber": 315,
+      "gender": "male",
+      "dob": "2006-08-08T18:15:00.000Z",
+      "address": "Dolores debitis elig",
+      "nationality": "Quasi nostrum omnis ",
+      "citizenshipNumber": "335",
+      "startDate": "1997-06-29T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "manager",
+      "email": "gaqukaw@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": 787,
+      "firstName": "Emi",
+      "middleName": "Indigo Glenn",
+      "lastName": "Mcfadden",
+      "phoneNumber": 419,
+      "gender": "female",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Ex consequatur sed ",
+      "nationality": "Quia enim modi quis ",
+      "citizenshipNumber": "143",
+      "startDate": "2016-07-30T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "jypepibul@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": 737,
+      "firstName": "Nadine",
+      "middleName": "Murphy Peck",
+      "lastName": "Walls",
+      "phoneNumber": 888,
+      "gender": "male",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Natus harum doloribu",
+      "nationality": "Excepturi id conseq",
+      "citizenshipNumber": "360",
+      "startDate": "1977-09-21T18:30:00.000Z",
+      "department": "qa",
+      "role": "tester",
+      "email": "pybawyke@mailinator.com",
       "password": "Pa$$w0rd!",
       "confirmPassword": "Pa$$w0rd!"
     }
@@ -379,16 +348,6 @@
             "name": "Tajesh Hamal",
             "department": "Admin",
             "image": ""
-          }
-        ]
-      }
-          {
-            "name": "Sita Devi",
-            "department": "Java"
-          },
-          {
-            "name": "Tajesh Hamal",
-            "department": "Admin"
           }
         ]
       }

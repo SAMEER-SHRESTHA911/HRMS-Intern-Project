@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { DialogButton } from '../model/dialog.interface';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { DialogButton, DialogData } from '../model/dialog.interface';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -7,11 +8,15 @@ import { DialogButton } from '../model/dialog.interface';
   styleUrl: './dialog.component.scss',
 })
 export class DialogComponent {
-  @Input() TitleArray: string[] = [];
-  @Input() ButtonArray: DialogButton[] = [];
-  @Output() buttonClick = new EventEmitter<string>();
-  constructor() {}
-  onButtonClick(action: string) {
-    this.buttonClick.emit(action);
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public readonly data: DialogData,
+    private dialogRef: MatDialogRef<DialogComponent>
+  ) {
+    console.log(this.data);
+  }
+
+  onButtonClick(action: () => void) {
+    action();
+    this.dialogRef.close();
   }
 }
