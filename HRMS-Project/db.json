@@ -18,6 +18,23 @@
       "id": "825"
     },
     {
+      "id": "217",
+      "firstName": "Hedley",
+      "middleName": "Graiden Burks",
+      "lastName": "Cervantes",
+      "phoneNumber": 587,
+      "gender": "male",
+      "dob": "2024-08-12T18:15:00.000Z",
+      "address": "Est recusandae Aut ",
+      "nationality": "Duis qui autem dolor",
+      "citizenshipNumber": "76",
+      "startDate": "2019-12-21T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "wuperi@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
       "id": "166",
       "firstName": "Aidan",
       "middleName": "Hyatt Kelly",
@@ -69,7 +86,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 655,
+      "id": "655",
       "firstName": "Willa",
       "middleName": "Colton Sanford",
       "lastName": "Maxwell",
@@ -83,24 +100,6 @@
       "department": "dotnet",
       "role": "tester",
       "email": "qacyf@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "confirmPassword": "Pa$$w0rd!"
-    },
-    {
-      "id": 499,
-      "firstName": "Allegra",
-      "middleName": "Cynthia Hurley",
-      "lastName": "Lynch",
-      "phoneNumber": 837,
-      "gender": "others",
-      "dob": "2006-08-07T18:15:00.000Z",
-      "address": "Pariatur Id cupidat",
-      "nationality": "Non impedit amet s",
-      "citizenshipNumber": "759",
-      "startDate": "1974-10-27T18:30:00.000Z",
-      "department": "dotnet",
-      "role": "manager",
-      "email": "luwaxinyx@mailinator.com",
       "password": "Pa$$w0rd!",
       "confirmPassword": "Pa$$w0rd!"
     },
@@ -214,14 +213,6 @@
       "leaveTo": "2024-08-26T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
-    },
-    {
-      "id": "dc95",
-      "reasonForLeave": "Sick with fever",
-      "leaveType": "Sick",
-      "leaveFrom": "2024-08-26T18:15:00.000Z",
-      "leaveTo": "2024-08-26T18:15:00.000Z",
-      "dayLeave": "First Half"
     }
   ],
   "loggedInUser": [
@@ -252,33 +243,6 @@
       "leaveType": "Sick",
       "leaveRequestStatus": "Pending",
       "id": "7be0"
-    },
-    {
-      "leaveFrom": "2024-2-28",
-      "leaveTo": "2024-2-30",
-      "reasonForLeave": "Vacation",
-      "dayLeave": "Full Day",
-      "leaveType": "Annual",
-      "leaveRequestStatus": "Rejected",
-      "id": "b496"
-    },
-    {
-      "leaveFrom": "2024-2-28",
-      "leaveTo": "2024-2-30",
-      "reasonForLeave": "Vacation",
-      "dayLeave": "Full Day",
-      "leaveType": "Annual",
-      "leaveRequestStatus": "Rejected",
-      "id": "b496"
-    },
-    {
-      "leaveFrom": "2024-2-28",
-      "leaveTo": "2024-2-30",
-      "reasonForLeave": "Vacation",
-      "dayLeave": "Full Day",
-      "leaveType": "Annual",
-      "leaveRequestStatus": "Rejected",
-      "id": "b496"
     },
     {
       "leaveFrom": "2024-2-28",
@@ -365,7 +329,7 @@
   ],
   "policies": [
     {
-      "id": 777,
+      "id": "777",
       "title": " Company leave Policies",
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
@@ -375,24 +339,6 @@
       "title": " Company leave Policies",
       "category": "Annual Leave",
       "content": "Employees are entitled to 20 days of paid annual leave each year. This leave can be used for vacations, personal time off, or any other personal reasons. We encourage all employees to utilize this time to rest and recharge."
-    },
-    {
-      "id": "345",
-      "title": " Company leave Policies",
-      "category": "Maternity Leave",
-      "content": "Female employees are entitled to 90 days of paid maternity leave to cover the period before and after childbirth. This leave ensures that new mothers have the necessary time to care for their newborns and recover physically and emotionally."
-    },
-    {
-      "id": "23c",
-      "title": " Company leave Policies",
-      "category": "Paternity Leave",
-      "content": "Male employees are entitled to 10 days of paid paternity leave to support their partners during childbirth. This leave allows fathers to be present during this critical time and help with the initial care of the newborn."
-    },
-    {
-      "id": "q3e",
-      "title": " Company leave Policies",
-      "category": "Bereavement Leave",
-      "content": "Employees are entitled to 5 days of paid bereavement leave in the unfortunate event of the loss of a close family member. This leave provides time to grieve and manage personal matters during a difficult time."
     }
   ]
 }
