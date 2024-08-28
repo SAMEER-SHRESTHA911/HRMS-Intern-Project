@@ -23,9 +23,7 @@ export class LeaveApproveRejectComponent implements OnInit{
 
   initializeStore(){
     this.store.dispatch(FETCH_LEAVE_REQUEST_lIST());
-     this.store.select(selectLeaveRequestList).subscribe(
-      data => console.log(data)
-     )
+    this.requestList$ =  this.store.select(selectLeaveRequestList)
   }
   
 }

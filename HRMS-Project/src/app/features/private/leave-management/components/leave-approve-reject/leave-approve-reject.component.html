@@ -1,19 +1,21 @@
-@for(leave of requestList$ | async; track leave){
-    <mat-card>
-        <div class="main-container">
-            <div class="leave-info-card">
-                <div class="leave-info-header">
-                    <div class="first-row">
-                        <div class="reason">
-                            <p class="bold">leave.</p>
-                        </div>
+<div class="main-container">
+
+    @for(leave of requestList$ | async; track leave){
+        <mat-card>
+            <div class="main-card-container">
+                <div class="leave-info-card">
+                    <div class="leave-info-header">
+                        <div class="first-row">
+                            <div class="reason">
+                                <p class="bold">{{leave.reason}}</p>
+                            </div>
                         <div class="options">
                             <mat-icon>more_vert</mat-icon>
                         </div>
                     </div>
                     <div class="second-row">
-                        <div class="fromDate clr-666">Nov 21, 2024 -</div>
-                        <div class="toDate clr-666"> Nov 28, 2024</div>
+                        <div class="fromDate clr-666">{{leave.leaveFrom}} -</div>
+                        <div class="toDate clr-666"> {{leave.leaveTo}}</div>
                     </div>
                 </div>
                 <div class="leave-info-body">
@@ -21,10 +23,10 @@
                         <img src="" alt="pic">
                         <div class="profile">
                             <div class="profile-name clr-333">
-                                Sameer Shrestha
+                                {{leave.name}}
                             </div>
                             <div class="employee-id">
-                                Employee ID: ANG007
+                                Employee ID: {{leave.employeeId}}
                             </div>
                         </div>
                         <div class="days-left">
@@ -32,7 +34,7 @@
                                 Days Left
                             </div>
                             <div class="days-number clr-999">
-                                12/21
+                                {{leave.daysLeft}}
                             </div>
                         </div>
                     </div>
@@ -45,3 +47,4 @@
         </div>
     </mat-card>
 }
+</div>
