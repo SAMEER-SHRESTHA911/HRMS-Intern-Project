@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 
 export class PolicyService{
 
-private apiUrl ='';
+private apiUrl ='http://localhost:3000';
   constructor(private http:HttpClient){}
 
 getPolicies():Observable<any[]>{

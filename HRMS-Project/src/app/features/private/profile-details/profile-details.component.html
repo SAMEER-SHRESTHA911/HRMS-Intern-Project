@@ -6,25 +6,25 @@
     <mat-card-content class="font-medium"> Department </mat-card-content>
   </mat-card>
   <div *ngIf="profileDetails$ | async as profileDetails">
-    <mat-card class="profile-detial" *ngFor="let profile of profileDetails">
-      <p>First Name: {{ profile.firstName }}</p>
-      <p>Middle Name: {{ profile.midName }}</p>
-      <p>Last Name: {{ profile.lastName }}</p>
-      <p>Gender: {{ profile.gender }}</p>
-      <p>Email: {{ profile.email }}</p>
-      <p>Address: {{ profile.address }}</p>
-      <p>Date of Birth: {{ profile.dob }}</p>
-      <p>Citizenship No.: {{ profile.citizenshipNumber }}</p>
-      <p>Starting Date: {{ profile.startDate }}</p>
-      <p>Department: {{ profile.department }}</p>
-      <p>Role: {{ profile.role }}</p>
+    <mat-card class="profile-detial">
+      <p>First Name: {{ profileDetails.firstName }}</p>
+      <p>Middle Name: {{ profileDetails.midName }}</p>
+      <p>Last Name: {{ profileDetails.lastName }}</p>
+      <p>Gender: {{ profileDetails.gender }}</p>
+      <p>Email: {{ profileDetails.email }}</p>
+      <p>Address: {{ profileDetails.address }}</p>
+      <p>Date of Birth: {{ profileDetails.dob }}</p>
+      <p>Citizenship No.: {{ profileDetails.citizenshipNumber }}</p>
+      <p>Starting Date: {{ profileDetails.startDate }}</p>
+      <p>Department: {{ profileDetails.department }}</p>
+      <p>Role: {{ profileDetails.role }}</p>
     </mat-card>
   </div>
   <div class="action-btn">
     <button
       mat-flat-button
       color="primary"
-      [routerLink]="['/admin/staff-registration/edit-staff', profileId]"
+      (click)="onEditProfileDetails(825)"
     >
       Edit Profile
     </button>

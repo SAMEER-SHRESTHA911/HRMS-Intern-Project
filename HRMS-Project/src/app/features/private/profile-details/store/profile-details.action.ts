@@ -2,12 +2,13 @@ import { createAction, props } from '@ngrx/store';
 import { ProfileDetails } from '../models/profile-details';
 
 export const loadProfileDetailsAction = createAction(
-  '[Load Profile] Load Profile Detail'
+  '[Load Profile] Load Profile Detail',
+  props<{ profileId: string }>()
 );
 
 export const loadProfileDetailsActionSuccess = createAction(
   '[Load Profile] Load Profile Success',
-  props<{ profileDetails: ProfileDetails[] }>()
+  props<{ profileDetails: ProfileDetails }>()
 );
 
 export const loadProfileDetailsActionFailure = createAction(

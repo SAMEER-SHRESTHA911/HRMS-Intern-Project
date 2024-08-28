@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LeaveAvailableData, LeaveTableData } from '../types/leave-table';
+import { LeaveAvailableData, LeaveTableData } from '../../types/leave-table';
 
 @Injectable({
   providedIn: 'root'

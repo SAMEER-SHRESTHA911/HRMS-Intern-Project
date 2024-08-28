@@ -9,7 +9,7 @@ import { Policy } from '../../models/policy.model';
   styleUrls: ['./policy-form.component.scss']
 })
 export class PolicyFormComponent implements OnInit {
-  policy: Policy = { id: '', title: '', category: '', content: '' };
+  policy: Policy = { id: '0', title: '', category: '', content: '' };
   isEditMode = false;
 
   constructor(
