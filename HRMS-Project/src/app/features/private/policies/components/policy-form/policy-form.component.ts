@@ -29,14 +29,13 @@ export class PolicyFormComponent implements OnInit {
   }
 
   savePolicy(): void {
-    console.log('hi');
     if (this.isEditMode) {
       this.policyService.updatePolicy(this.policy.id.toString(), this.policy).subscribe(() => {
-        this.router.navigate(['/policies']);
+        this.router.navigate(['admin/policies/policy-list']);
       });
     } else {
       this.policyService.addPolicy(this.policy).subscribe(() => {
-        this.router.navigate(['/policies']);
+        this.router.navigate(['admin/policies/policy-list']);
       });
     }
   }
