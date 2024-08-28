@@ -6,6 +6,23 @@ export interface LeaveTableData {
   reasonForLeave: string;
   leaveRequestStatus: string;
   id?: number;
+  employeeId?: number;
+  employeeName?: string;
+  departmentId?: number;
+  department?: string;
+  phoneNumber?: string;
+  totalLeaveDuration?: number;
+}
+
+export interface LeaveTableResponse {
+  result: number;
+  message: string;
+  data: {
+    skip: number;
+    take: number;
+    count: number;
+    employeeLeaveRequestResponse: LeaveTableData[];
+  };
 }
 
 export interface LeaveAvailableData {

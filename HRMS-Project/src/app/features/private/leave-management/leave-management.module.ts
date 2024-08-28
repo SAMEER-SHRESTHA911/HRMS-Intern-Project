@@ -15,7 +15,6 @@ import { LeaveApproveRejectComponent } from './components/leave-approve-reject/l
 import { LeaveRequestListReducer } from './store/leave-confirmation/leave-confirmation.reducer';
 import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confirmation.effects';
 
-
 @NgModule({
   declarations: [
     LeaveManagementComponent,
@@ -26,6 +25,7 @@ import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confi
     CommonModule,
     LeaveManagementRoutingModule,
     MaterialsModule,
+    
     StoreModule.forFeature('leaveTableData', leaveTableReducer),
     StoreModule.forFeature('availableLeaveData', LeaveAvailableReducer),
     StoreModule.forFeature('leaveRequestList', LeaveRequestListReducer),

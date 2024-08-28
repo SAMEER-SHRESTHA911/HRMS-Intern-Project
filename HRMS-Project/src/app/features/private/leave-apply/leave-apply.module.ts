@@ -7,7 +7,7 @@ import { MaterialsModule } from '../../../materials/materials.module';
 import { EffectsModule } from '@ngrx/effects';
 import { LeaveEffects } from './store/leave-apply-submit/leave.effects';
 import { LeaveEditEffect } from './store/leave-apply-form/leave-edit.effects';
-import { StoreModule, StoreRootModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { leaveReducer } from './store/leave-apply-submit/leave.reducer';
 import { LeaveEditReducer } from './store/leave-apply-form/leave-edit.reducer';
 

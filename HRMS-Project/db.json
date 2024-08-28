@@ -213,6 +213,30 @@
       "leaveTo": "2024-08-26T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    },
+    {
+      "id": "ac68",
+      "reasonForLeave": "asdas",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-28T18:15:00.000Z",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "0304",
+      "reasonForLeave": "dasdsad",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "36f0",
+      "reasonForLeave": "SNACKBAR TEST",
+      "leaveType": "Other",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": "Second Half"
     }
   ],
   "loggedInUser": [
@@ -336,46 +360,72 @@
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
     }
   ],
-  "requestList":[
+  "requestList": [
     {
       "id": "123",
-      "reason":"Trip",
-      "leaveFrom":"2024-08-17",
-      "leaveTo":"2024-08-20",
-      "status":"Pending",
-      "name":"Sameer Shrestha",
-      "daysLeft":"12/21",
-      "employeeId":"AN007"
+      "reason": "Trip",
+      "leaveFrom": "2024-08-17",
+      "leaveTo": "2024-08-20",
+      "status": "Pending",
+      "name": "Sameer Shrestha",
+      "daysLeft": "12/21",
+      "employeeId": "AN007"
     },
     {
       "id": "456",
-      "reason":"Fever",
-      "leaveFrom":"2024-07-17",
-      "leaveTo":"2024-08-18",
-      "status":"Pending",
-      "name":"Siddhartha Shakya",
-      "daysLeft":"2/21",
-      "employeeId":"AN002"
+      "reason": "Fever",
+      "leaveFrom": "2024-07-17",
+      "leaveTo": "2024-08-18",
+      "status": "Pending",
+      "name": "Siddhartha Shakya",
+      "daysLeft": "2/21",
+      "employeeId": "AN002"
     },
     {
       "id": "789",
-      "reason":"Puja",
-      "leaveFrom":"2024-08-20",
-      "leaveTo":"2024-08-22",
-      "status":"Pending",
-      "name":"Aaditya Jha",
-      "daysLeft":"10/21",
-      "employeeId":"AN006"
+      "reason": "Puja",
+      "leaveFrom": "2024-08-20",
+      "leaveTo": "2024-08-22",
+      "status": "Pending",
+      "name": "Aaditya Jha",
+      "daysLeft": "10/21",
+      "employeeId": "AN006"
     },
     {
       "id": "7809",
-      "reason":"Exam",
-      "leaveFrom":"2024-08-20",
-      "leaveTo":"2024-09-12",
-      "status":"Pending",
-      "name":"Abhisha Sharma",
-      "daysLeft":"1/21",
-      "employeeId":"AN001"
+      "reason": "Exam",
+      "leaveFrom": "2024-08-20",
+      "leaveTo": "2024-09-12",
+      "status": "Pending",
+      "name": "Abhisha Sharma",
+      "daysLeft": "1/21",
+      "employeeId": "AN001"
     }
-  ]
+  ],
+  "GetEmployeeLeaveRequestList": {
+    "result": 0,
+    "message": "Hello! I am just checking the snackbar",
+    "data": {
+      "skip": 0,
+      "take": 0,
+      "count": 0,
+      "employeeLeaveRequestResponse": [
+        {
+          "id": 127,
+          "employeeId": 127,
+          "employeeName": "Sameer Shrestha",
+          "leaveType": "Sick",
+          "departmentId": 2,
+          "department": "Angular",
+          "phoneNumber": "9846765553",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 6
+        }
+      ]
+    }
+  }
 }

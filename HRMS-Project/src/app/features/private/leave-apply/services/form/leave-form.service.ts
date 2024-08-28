@@ -19,7 +19,6 @@ export class LeaveFormService {
       leaveType: ['', Validators.required],
       leaveFrom: ['', Validators.required],
       leaveTo: ['', Validators.required],
-      // department: ['', Validators.required],
       dayLeave: ['', Validators.required],
     });
   }
@@ -45,7 +44,6 @@ export class LeaveFormService {
       leaveType: data.leaveType,
       leaveFrom: new Date(data.leaveFrom),
       leaveTo: new Date(data.leaveTo),
-      // department: 'Angular', // Adjust this as per actual data
       dayLeave: data.dayLeave,
     });
   }
