@@ -10,14 +10,16 @@ import { provideHttpClient } from '@angular/common/http';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { AuthService } from './features/public/services/services/auth.service';
 import { AuthGuard } from './features/public/guards/guards/auth.guard';
+import { MaterialsModule } from './materials/materials.module';
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
+    MaterialsModule,
   ],
   providers: [
     provideAnimationsAsync(),

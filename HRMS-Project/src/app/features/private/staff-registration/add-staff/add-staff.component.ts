@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, of, switchMap } from 'rxjs';
 import { StaffDetails } from './model/add-staff';
@@ -25,9 +30,12 @@ import { StaffListService } from '../staff-list/service/staff-list.service';
   styleUrl: './add-staff.component.scss',
 })
 export class AddStaffComponent implements OnInit {
-  hide = true;
+  passwordHide = true;
+  confirmPasswordHide = true;
   isEditMode: boolean = false;
   staffId: number | string | null = null;
+  maxDate!: Date;
+  maxStartDate!: Date;
 
   picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
   staff$: Observable<StaffDetails[]> = of([]);
@@ -52,8 +60,20 @@ export class AddStaffComponent implements OnInit {
     this.formService.initializeForm();
     this.selectorInitializer();
     this.initializeEditMode();
+    this.setMaxDateForDob();
+    this.setMaxStartDate();
   }
-
+  setMaxDateForDob(): void {
+    const today = new Date();
+    this.maxDate = new Date(
+      today.getFullYear() - 18,
+      today.getMonth(),
+      today.getDate()
+    );
+  }
+  setMaxStartDate(): void {
+    this.maxStartDate = new Date();
+  }
   getRandomNumber(): number {
     return Math.floor(100 + Math.random() * 900);
   }
@@ -101,6 +121,9 @@ export class AddStaffComponent implements OnInit {
     } else {
       this.registrationForm.markAllAsTouched();
     }
+  }
+  onCancelEdit(): void {
+    this.router.navigate(['/admin/staff-registration/staff-list']);
   }
   selectorInitializer(): void {
     this.staff$ = this.store.pipe(select(selectAllStaff));

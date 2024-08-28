@@ -14,6 +14,9 @@ import {
 import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DialogData } from '../../../../shared/components/model/dialog.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-staff-list',
@@ -44,13 +47,15 @@ export class StaffListComponent implements OnInit {
     'department',
     'role',
     'email',
+
     'actions',
   ];
 
   constructor(
-    private staffListService: StaffListService,
+    // private staffListService: StaffListService,
     private router: Router,
-    private store: Store<StaffListState>
+    private store: Store<StaffListState>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -62,18 +67,39 @@ export class StaffListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  // onAdd() {
-  //   this.router.navigate(['/add-staff']);
-  // }
   onEditStaffDetails(id: number): void {
     this.router.navigate(['/admin/staff-registration/edit-staff', id]);
   }
-  onViewStaffDetails(): void {}
+  onViewStaffDetails(id: number | string): void {
+    this.router.navigate([`/admin/profile-details`, id]);
+  }
+  onAddNewEmployee(): void {
+    this.router.navigate(['/admin/staff-registration/add-staff']);
+  }
 
   onDeleteStaffDetails(id: number): void {
-    if (confirm('Are you sure you want to delete this member?')) {
-      this.store.dispatch(deleteStaffDetails({ id }));
-    }
+    const dialogData: DialogData = {
+      titleArray: ['Are you sure you want to delete?'],
+      buttonArray: [
+        {
+          label: 'Cancel',
+          type: 'warning',
+          action: () => {
+            return;
+          },
+        },
+        {
+          label: 'Confirm',
+          type: 'primary',
+          action: () => {
+            this.store.dispatch(deleteStaffDetails({ id }));
+          },
+        },
+      ],
+    };
+    this.dialog.open(DialogComponent, {
+      data: dialogData,
+    });
   }
   applyFilter(event: Event) {
     if (this.dataSource) {

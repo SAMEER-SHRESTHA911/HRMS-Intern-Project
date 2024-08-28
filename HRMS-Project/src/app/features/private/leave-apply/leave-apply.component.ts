@@ -58,7 +58,15 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       return;
     }
     const formValue = this.leaveApplyForm?.value;
-
+    const formValueSubmit = {
+      reasonForLeave: formValue.reasonForLeave,
+      leaveType: formValue.leaveType,
+      leaveFrom: '',
+      leaveTo: '2024-08-24T18:15:00.000Z',
+      department: 'Angular',
+      dayLeave: 'Second Half',
+    };
+    
     if (this.isEditMode && this.leaveId !== null) {
       this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));
     } else {
@@ -70,15 +78,17 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   private loadEditData(leaveId?: string): void {
-    console.log(leaveId)
+    console.log(leaveId);
     if (!leaveId) {
       return;
     }
-    this.leaveEditService.fetchEditLeaveData(leaveId)
+    this.leaveEditService
+      .fetchEditLeaveData(leaveId)
       .pipe(
-         filter((data) => !!data),
-        takeUntil(this.#destroy$),
-      ).subscribe((data) => {
+        filter((data) => !!data),
+        takeUntil(this.#destroy$)
+      )
+      .subscribe((data) => {
         if (this.leaveApplyForm) {
           this.leaveEditService.patchData(this.leaveApplyForm, data);
           console.log(data);
