@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
+import { LeaveApplyBody } from '../../types/leave-apply';
 import {
-  leaveApply,
   submitLeaveForm,
   submitLeaveFormFail,
   submitLeaveFormSuccess,
 } from '../leave-apply-submit/leave.actions';
-import { catchError, map, mergeMap, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { LeaveApplyApiService } from '../../services/api/leave-api.service';
 
 @Injectable()

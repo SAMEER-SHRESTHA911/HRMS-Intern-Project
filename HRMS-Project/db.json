@@ -340,5 +340,47 @@
       "category": "Annual Leave",
       "content": "Employees are entitled to 20 days of paid annual leave each year. This leave can be used for vacations, personal time off, or any other personal reasons. We encourage all employees to utilize this time to rest and recharge."
     }
+  ],
+  "requestList":[
+    {
+      "id": "123",
+      "reason":"Trip",
+      "leaveFrom":"2024-08-17",
+      "leaveTo":"2024-08-20",
+      "status":"Pending",
+      "name":"Sameer Shrestha",
+      "daysLeft":"12/21",
+      "employeeId":"AN007"
+    },
+    {
+      "id": "456",
+      "reason":"Fever",
+      "leaveFrom":"2024-07-17",
+      "leaveTo":"2024-08-18",
+      "status":"Pending",
+      "name":"Siddhartha Shakya",
+      "daysLeft":"2/21",
+      "employeeId":"AN002"
+    },
+    {
+      "id": "789",
+      "reason":"Puja",
+      "leaveFrom":"2024-08-20",
+      "leaveTo":"2024-08-22",
+      "status":"Pending",
+      "name":"Aaditya Jha",
+      "daysLeft":"10/21",
+      "employeeId":"AN006"
+    },
+    {
+      "id": "7809",
+      "reason":"Exam",
+      "leaveFrom":"2024-08-20",
+      "leaveTo":"2024-09-12",
+      "status":"Pending",
+      "name":"Abhisha Sharma",
+      "daysLeft":"1/21",
+      "employeeId":"AN001"
+    }
   ]
 }
