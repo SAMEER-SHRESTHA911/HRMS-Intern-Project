@@ -5,7 +5,7 @@ import { ProfileDetailsState } from './store/profile-details.state';
 import { Store } from '@ngrx/store';
 import { selectProfileDetails } from './store/profile-details.selector';
 import { loadProfileDetailsAction } from './store/profile-details.action';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
@@ -18,7 +18,8 @@ export class ProfileDetailsComponent implements OnInit {
   error$: Observable<string | null> = of(null);
   constructor(
     private store: Store<ProfileDetailsState>,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   selectorInitializer(): void {
@@ -34,5 +35,9 @@ export class ProfileDetailsComponent implements OnInit {
       loadProfileDetailsAction({ profileId: this.paramProfileId ?? '' })
     );
     console.log(this.paramProfileId);
+  }
+
+  onEditProfileDetails(id: string | number): void {
+    this.router.navigate(['/admin/profile-details/edit-profile', id]);
   }
 }
