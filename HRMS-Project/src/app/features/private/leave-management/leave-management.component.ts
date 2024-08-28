@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaveTableService } from './services/leave-table.service';
+import { LeaveTableService } from './services/leave-table/leave-table.service';
 import { LeaveAvailableData, LeaveTableData } from './types/leave-table';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
