@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    // canActivate : [AuthGuard],
+    canActivate : [AuthGuard],
     loadChildren: () =>
       import('./core/layout/private/private.module').then(
         (m) => m.PrivateModule

@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   background-color: #f2f4f7;
-  max-width: 1200px; /* Ensures a good fit on laptop screens */
-  margin: 0 auto; /* Centers the container on the page */
+  height: 100%;
 
   .first-row {
     display: flex;
@@ -14,7 +13,7 @@
 
     h6 {
       margin: 0;
-      font-size: 1.25rem; /* Adjust font size for better visibility */
+      font-size: 1.25rem;
     }
 
     .button-container {
@@ -22,14 +21,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px 20px; /* Add padding for better touch target size */
+        padding: 10px 20px;
       }
     }
   }
 
   mat-accordion {
     mat-expansion-panel {
-      margin-bottom: 15px; /* Increased margin for better separation */
+      margin-bottom: 15px;
 
       .policy-content {
         display: flex;
@@ -38,7 +37,7 @@
 
         p {
           margin: 0;
-          font-size: 1rem; /* Adjust font size for readability */
+          font-size: 1rem;
         }
 
         .button-group {
@@ -46,8 +45,8 @@
           justify-content: flex-end;
           button {
             margin-left: 10px;
-            padding: 5px 10px; /* Add padding for touch targets */
-            font-size: 0.875rem; /* Adjust button font size */
+            padding: 5px 10px;
+            font-size: 0.875rem;
           }
         }
       }
@@ -55,7 +54,7 @@
   }
 }
 
-/* Responsive styling */
+
 @media (max-width: 1024px) {
   .main-container {
     padding: 15px;
@@ -63,7 +62,7 @@
 
   .first-row {
     h6 {
-      font-size: 1.125rem; /* Slightly smaller for tablets */
+      font-size: 1.125rem;
     }
 
     .button-container {
@@ -102,7 +101,7 @@
 
     h6 {
       font-size: 1rem;
-      margin-bottom: 10px; /* Space between title and button */
+      margin-bottom: 10px; 
     }
 
     .button-container {
