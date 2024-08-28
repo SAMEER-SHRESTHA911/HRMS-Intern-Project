@@ -10,7 +10,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
+import {
+  MatNativeDateModule,
+  provideNativeDateAdapter,
+} from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
@@ -19,7 +22,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [],
@@ -37,7 +40,8 @@ import { NgModule } from '@angular/core';
     MatRadioModule,
     MatSelectModule,
     MatToolbarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDividerModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -65,6 +69,7 @@ import { NgModule } from '@angular/core';
     MatSortModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatDividerModule,
   ],
 })
 export class MaterialsModule {}

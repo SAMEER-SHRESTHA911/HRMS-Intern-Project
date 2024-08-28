@@ -104,7 +104,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 813,
+      "id": "813",
       "firstName": "Sameer",
       "middleName": "Phoebe Murphy",
       "lastName": "Patterson",
@@ -122,7 +122,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 787,
+      "id": "787",
       "firstName": "Emi",
       "middleName": "Indigo Glenn",
       "lastName": "Mcfadden",
@@ -140,7 +140,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 737,
+      "id": "737",
       "firstName": "Nadine",
       "middleName": "Murphy Peck",
       "lastName": "Walls",
@@ -314,7 +314,8 @@
             "image": ""
           }
         ]
-      }
+      },
+      "id": "2563"
     }
   ],
   "leaveAvailableData": [
@@ -333,12 +334,6 @@
       "title": " Company leave Policies",
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
-    },
-    {
-      "id": "123",
-      "title": " Company leave Policies",
-      "category": "Annual Leave",
-      "content": "Employees are entitled to 20 days of paid annual leave each year. This leave can be used for vacations, personal time off, or any other personal reasons. We encourage all employees to utilize this time to rest and recharge."
     }
   ],
   "requestList":[
