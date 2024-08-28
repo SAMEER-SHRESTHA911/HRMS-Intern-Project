@@ -44,15 +44,24 @@ const routes: Routes = [
     path: 'staff_management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule),
+        (m) => m.StaffRegistrationModule
+      ),
   },
-  { path: 'policies',
+  {
+    path: 'policies',
     loadChildren: () =>
-      import('./policies/policies.module').then(
-      (m) => m.PoliciesModule),
+      import('./policies/policies.module').then((m) => m.PoliciesModule),
   },
-  { path: 'policies', loadChildren: () => import('./policies/policies.module').then(m => m.PoliciesModule) },
-
+  {
+    path: 'policies',
+    loadChildren: () =>
+      import('./policies/policies.module').then((m) => m.PoliciesModule),
+  },
+  // {
+  //   path: 'attandance',
+  //   loadChildren: () =>
+  //     import('./attandance/attandance.module').then((m) => m.AttandanceModule),
+  // },
 ];
 
 @NgModule({

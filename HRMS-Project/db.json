@@ -35,23 +35,6 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": "269",
-      "firstName": "Amshu",
-      "middleName": "Eaton Carver",
-      "lastName": "Putali",
-      "phoneNumber": 408,
-      "gender": "male",
-      "dob": "2047-11-18T18:15:00.000Z",
-      "address": "Nesciunt cumque omn",
-      "nationality": "Ad id aperiam fugiat",
-      "citizenshipNumber": "35",
-      "startDate": "2017-10-18T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "manager",
-      "email": "tizuruvep@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
       "id": "683",
       "firstName": "Dane",
       "middleName": "Rina Johnson",
@@ -69,7 +52,7 @@
       "password": "Pa$$w0rd!"
     },
     {
-      "id": 655,
+      "id": "655",
       "firstName": "Willa",
       "middleName": "Colton Sanford",
       "lastName": "Maxwell",
@@ -87,7 +70,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 499,
+      "id": "499",
       "firstName": "Allegra",
       "middleName": "Cynthia Hurley",
       "lastName": "Lynch",
@@ -105,7 +88,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 813,
+      "id": "813",
       "firstName": "Sameer",
       "middleName": "Phoebe Murphy",
       "lastName": "Patterson",
@@ -123,7 +106,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 787,
+      "id": "787",
       "firstName": "Emi",
       "middleName": "Indigo Glenn",
       "lastName": "Mcfadden",
@@ -141,7 +124,7 @@
       "confirmPassword": "Pa$$w0rd!"
     },
     {
-      "id": 737,
+      "id": "737",
       "firstName": "Nadine",
       "middleName": "Murphy Peck",
       "lastName": "Walls",
@@ -157,6 +140,116 @@
       "email": "pybawyke@mailinator.com",
       "password": "Pa$$w0rd!",
       "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "783",
+      "firstName": "Holly",
+      "middleName": "Vanna Kaufman",
+      "lastName": "Marquez",
+      "phoneNumber": 417,
+      "gender": "others",
+      "dob": "2006-08-08T18:15:00.000Z",
+      "address": "Et aut aut eos aut l",
+      "nationality": "Aut laboriosam veni",
+      "citizenshipNumber": "995",
+      "startDate": "1998-04-13T18:15:00.000Z",
+      "department": "angular",
+      "role": "developer",
+      "email": "dijyxur@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": 459,
+      "firstName": "Iona",
+      "middleName": "Cameron Branch",
+      "lastName": "Burks",
+      "phoneNumber": 367,
+      "gender": "male",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Nostrud pariatur Ea",
+      "nationality": "Dolorem minim nemo b",
+      "citizenshipNumber": "495",
+      "startDate": "1997-08-12T18:15:00.000Z",
+      "department": "angular",
+      "role": "developer",
+      "email": "dabody@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    }
+  ],
+  "attandance-details": [
+    {
+      "SN": 1,
+      "Name": "John Doe",
+      "CheckedInTime": "2024-08-28T09:15:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:45:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "7875"
+    },
+    {
+      "SN": 2,
+      "Name": "Jane Smith",
+      "CheckedInTime": "2024-08-28T09:05:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:35:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "a0bf"
+    },
+    {
+      "SN": 3,
+      "Name": "Michael Johnson",
+      "CheckedInTime": "2024-08-28T09:30:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8,
+      "Actions": "View",
+      "id": "a1aa"
+    },
+    {
+      "SN": 4,
+      "Name": "Emily Davis",
+      "CheckedInTime": "2024-08-28T08:55:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:25:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "212b"
+    },
+    {
+      "SN": 5,
+      "Name": "William Brown",
+      "CheckedInTime": "2024-08-28T09:20:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T18:00:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "954e"
+    },
+    {
+      "SN": 6,
+      "Name": "Sophia Wilson",
+      "CheckedInTime": "2024-08-28T10:00:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Absent",
+      "WorkedHours": 0,
+      "Actions": "View",
+      "id": "7ece"
     }
   ],
   "leaveApply": [
@@ -350,7 +443,8 @@
             "image": ""
           }
         ]
-      }
+      },
+      "id": "6bca"
     }
   ],
   "leaveAvailableData": [
