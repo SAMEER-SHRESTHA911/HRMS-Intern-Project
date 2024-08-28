@@ -17,9 +17,9 @@ export class PolicyListComponent implements OnInit {
     content : 'string'
     }];
   panelOpenState: any
-  router!: Router;
 
-  constructor(private policyService:PolicyService){}
+  constructor(private policyService:PolicyService , private router: Router) { }
+
 
   ngOnInit(): void {
       this.policyService.getPolicies().subscribe(data=>{
@@ -27,7 +27,7 @@ export class PolicyListComponent implements OnInit {
       });
   }
   editPolicy(id:string):void{
-    this.router.navigate(['/edit-policies', id]);
+    this.router.navigate(['admin/policies/edit-policy', id]);
   }
 
   deletePolicy(id:string):void{
@@ -36,6 +36,6 @@ export class PolicyListComponent implements OnInit {
   });
  }
  routeToPolicyForm(){
-  this.router.navigate(['/policies']);
+  this.router.navigate(['admin/policies/policy-form']);
 }
 }

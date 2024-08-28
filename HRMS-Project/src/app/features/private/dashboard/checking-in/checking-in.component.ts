@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { DialogData } from '../../../../shared/components/model/dialog.interface';
 
 @Component({
   selector: 'app-checking-in',
@@ -9,13 +10,23 @@ import { DialogComponent } from '../../../../shared/components/dialog/dialog.com
 })
 export class CheckingInComponent {
   checkedIn: boolean = true;
-  constructor(private matDialog: MatDialog) {}
+  constructor(private dialog: MatDialog) {}
 
   openCheckInDialog() {
-    this.matDialog.open(DialogComponent, {
-      width: '500px',
-      height: '200px',
-      data: { message: 'Hello from the dialog!' },
+    const dialogData: DialogData = {
+      titleArray: ['Are you sure?'],
+      buttonArray: [
+        {
+          label: 'Cancel',
+          type: 'warning',
+          action: () => {
+            return;
+          },
+        },
+      ],
+    };
+    this.dialog.open(DialogComponent, {
+      data: dialogData,
     });
   }
 }
