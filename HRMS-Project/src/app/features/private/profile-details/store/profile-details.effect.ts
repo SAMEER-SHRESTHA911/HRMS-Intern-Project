@@ -13,8 +13,8 @@ export class ProfileDetailsEffect {
   loadProfileDetails$ = createEffect(() =>
     this.action$.pipe(
       ofType(loadProfileDetailsAction),
-      mergeMap(() =>
-        this.profileDetailsService.getProfileDetails().pipe(
+      mergeMap(({ profileId }) =>
+        this.profileDetailsService.getProfileDetails(profileId).pipe(
           map((profileDetails) =>
             loadProfileDetailsActionSuccess({ profileDetails })
           ),
