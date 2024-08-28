@@ -8,7 +8,7 @@ export const addPolicy =createAction('[Policy] Add Policy', props<{policy:any}>(
 export const addPolicySuccess = createAction ('[Policy] Add Policy Sucess', props<{policy:any}>());
 export const addPolicyFailure = createAction ('[Policy] Add Policy Failure',props<{error:any}>());
 
-export const updatePolicy =createAction('[Policy] Update Policy',props<{policy:any}>());
+export const updatePolicy =createAction('[Policy] Update Policy',props<{id:string,policy:any}>());
 export const updatePolicySuccess=createAction('[Policy] Update Policy', props<{policy:any}>());
 export const updatePolicyFailure=createAction('[Policy] Update Policy Failure',props<{error:any}>());
 

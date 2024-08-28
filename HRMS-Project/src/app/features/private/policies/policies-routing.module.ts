@@ -1,9 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PoliciesComponent } from './policies.component';
+import { PolicyFormComponent } from './components/policy-form/policy-form.component';
+import { PolicyListComponent } from './components/policy-list/policy-list.component';
 
-const routes: Routes = [{ path: '', component: PoliciesComponent },
-  { path: 'edit-policy/:id', component: PoliciesComponent },
+const routes: Routes = [
+
+  {
+    path: '',
+    component: PolicyListComponent
+  },
+  {
+    path:'policy-list',
+    component: PolicyListComponent
+  },
+  {
+    path: 'policy-form',
+    component: PolicyFormComponent
+  },
+  {
+    path: 'edit-policy/:id',
+    component: PolicyFormComponent
+  },
 ];
 
 @NgModule({
@@ -11,4 +29,3 @@ const routes: Routes = [{ path: '', component: PoliciesComponent },
   exports: [RouterModule]
 })
 export class PoliciesRoutingModule { }
-  
