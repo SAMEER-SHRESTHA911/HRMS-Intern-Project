@@ -1,10 +1,13 @@
 <section *ngIf="dashboard$ | async as dashboard">
-  <div *ngFor="let data of dashboard" class="w-full grid grid-cols-3 gap-4">
+  <div
+    *ngFor="let data of dashboard"
+    class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4"
+  >
     <!-- Staffs on LEAVE TODAY -->
     <section class="min-h-96 bg-white rounded-lg">
-      <div class="flex justify-between pt-3 px-4">
+      <div class="flex justify-between pt-4 px-4">
         <p>Pending Leave Requests ({{ data.leaveRequests.total }})</p>
-        <a href="">View All</a>
+        <a [routerLink]="['/admin/leave-management']">View All</a>
       </div>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
         <section
@@ -23,7 +26,7 @@
     </section>
     <!-- Staffs on LEAVE Today -->
     <section class="min-h-96 bg-white rounded-lg">
-      <p class="pt-4 pl-4">
+      <p class="pt-4 px-4">
         Staffs on Leave Today ({{ data.staffsOnLeaveToday.total }})
       </p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
@@ -42,7 +45,7 @@
       </div>
     </section>
     <section class="min-h-96 bg-white rounded-lg">
-      <p class="pt-3 pl-4">
+      <p class="pt-4 px-4">
         Staffs on Leave Tomorrow ({{ data.staffsOnLeaveTomorrow.total }})
       </p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">

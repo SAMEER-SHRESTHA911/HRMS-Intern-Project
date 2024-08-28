@@ -12,6 +12,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {  HttpClientModule } from '@angular/common/http';
 import { MatInput } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     MatInput,
     MatButtonModule,
+    MatIcon
 
   ]
 })

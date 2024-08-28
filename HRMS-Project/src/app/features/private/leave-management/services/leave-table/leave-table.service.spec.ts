@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LeaveTableService } from './leave-table.service';
+import { LeaveTableService } from './leave-table.service'
 
 describe('LeaveTableService', () => {
   let service: LeaveTableService;

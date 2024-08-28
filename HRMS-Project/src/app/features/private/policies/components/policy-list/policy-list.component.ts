@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PolicyService } from '../../service/policy.service';
 import { PoliciesComponent } from '../../policies.component';
 import { Policy } from '../../models/policy.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-policy-list',
@@ -16,6 +17,7 @@ export class PolicyListComponent implements OnInit {
     content : 'string'
     }];
   panelOpenState: any
+  router!: Router;
 
   constructor(private policyService:PolicyService){}
 
@@ -24,10 +26,16 @@ export class PolicyListComponent implements OnInit {
         this.policies=data;
       });
   }
+  editPolicy(id:string):void{
+    this.router.navigate(['/edit-policies', id]);
+  }
 
-deletePolicy(id:string):void{
+  deletePolicy(id:string):void{
   this.policyService.deletePolicy(id).subscribe(()=>{
     this.policies=this.policies.filter(policy=>policy.id!=id);
   });
+ }
+ routeToPolicyForm(){
+  this.router.navigate(['/policies']);
 }
 }
