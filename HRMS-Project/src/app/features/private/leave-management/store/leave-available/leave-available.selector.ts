@@ -1,5 +1,4 @@
 import {
-  createFeature,
   createFeatureSelector,
   createSelector,
 } from '@ngrx/store';

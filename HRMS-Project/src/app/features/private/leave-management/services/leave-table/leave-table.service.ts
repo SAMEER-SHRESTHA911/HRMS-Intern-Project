@@ -1,14 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LeaveAvailableData, LeaveTableData } from '../../types/leave-table';
+import { map, Observable } from 'rxjs';
+import { LeaveAvailableData, LeaveTableData, LeaveTableResponse } from '../../types/leave-table';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeaveTableService {
 
-  private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
+  //previous API_URL
+  // private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
+  private fetchEmployeeLeaveRequestResponse = "http://localhost:3000/GetEmployeeLeaveRequestList";
   private fetchLeaveDataStatus = "http://localhost:3000/leaveAvailableData";
   
 
@@ -20,7 +22,12 @@ export class LeaveTableService {
     return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
   }
 
-  getLeaveTableData():Observable<LeaveTableData[]>{
-    return this.http.get<LeaveTableData[]>(this.fetchLeaveApiUrl);
+  getLeaveTableData(): Observable<{ message: string; leaveData : LeaveTableData[]}>{
+    return this.http.get<LeaveTableResponse>(this.fetchEmployeeLeaveRequestResponse).pipe(
+      map(response => ({
+        message: response.message,
+        leaveData : response.data.employeeLeaveRequestResponse
+      }))
+    );
   }
 }

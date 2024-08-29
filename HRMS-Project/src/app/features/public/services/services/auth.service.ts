@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   sendPasswordResetLink: any;
+
   constructor(private router: Router) {}
 
   setToken(token: string): void {
@@ -31,6 +32,6 @@ export class AuthService {
       this.setToken('abcdefghijklmnopqrstuvwxyz');
       return of({ name: 'TechnoFex', email: 'admin@gmail.com' });
     }
-    return throwError(new Error('Failed to login'));
+    return throwError(() => new Error('Failed to login'));
   }
 }
