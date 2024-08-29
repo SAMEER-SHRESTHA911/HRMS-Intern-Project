@@ -13,12 +13,15 @@ import { StaffEffects } from './add-staff/store/add-staff.effects';
 import { staffReducer } from './add-staff/store/add-staff.reducer';
 import { StaffListEffects } from './staff-list/store/staff-list.effects';
 import { staffListReducer } from './staff-list/store/staff-list.reducer';
+import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
+// import { ProfileDetailsModule } from '../profile-details/profile-details.module';
 
 @NgModule({
   declarations: [
     StaffRegistrationComponent,
     AddStaffComponent,
     StaffListComponent,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { staffListReducer } from './staff-list/store/staff-list.reducer';
     MaterialsModule,
     ReactiveFormsModule,
     FormsModule,
+    // ProfileDetailsModule,
     StoreModule.forFeature('staff', staffReducer),
     StoreModule.forFeature('staffList', staffListReducer),
     EffectsModule.forFeature([StaffEffects, StaffListEffects]),

@@ -13,7 +13,7 @@ constructor(private auth :AuthService, private router: Router){}
   :boolean
   {
     if(!this.auth.isLoggedIn()){
-      this.router.navigate(['']);
+      this.router.navigate(['admin/dashboard']);
       return false;
     }
     return true;

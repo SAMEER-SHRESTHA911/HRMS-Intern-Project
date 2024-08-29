@@ -1,28 +1,32 @@
+<div *ngIf="loading$ | async">Loading...</div>
 <div class="profile-grid">
   <mat-card class="profile-img">
     <img mat-card-image src="avatar.png" alt="Photo of a Shiba Inu" />
-    <mat-card-content class="font-bold">{{ fullName }}</mat-card-content>
-    <mat-card-content class="font-medium">{{
-      profileDetails[0].department
-    }}</mat-card-content>
+    <mat-card-content class="font-bold">Full Name</mat-card-content>
+    <mat-card-content class="font-medium"> Department </mat-card-content>
   </mat-card>
-
-  <mat-card class="profile-detial">
-    <p>First Name: {{ profileDetails[0].firstName }}</p>
-    <p>Middle Name: {{ profileDetails[0].midName }}</p>
-    <p>Last Name: {{ profileDetails[0].lastName }}</p>
-    <p>Gender: {{ profileDetails[0].gender }}</p>
-    <p>Email: {{ profileDetails[0].email }}</p>
-    <p>Address: {{ profileDetails[0].address }}</p>
-    <p>Date of Birth: {{ profileDetails[0].dob }}</p>
-    <p>Citizenship No.: {{ profileDetails[0].citizenshipNumber }}</p>
-    <p>Starting Date: {{ profileDetails[0].startDate }}</p>
-    <p>Department: {{ profileDetails[0].department }}</p>
-    <p>Role: {{ profileDetails[0].role }}</p>
-  </mat-card>
-</div>
-<div class="action-btn">
-  <button mat-flat-button color="primary" (click)="openDialog()">
-    Edit Profile
-  </button>
+  <div *ngIf="profileDetails$ | async as profileDetails">
+    <mat-card class="profile-detial">
+      <p>First Name: {{ profileDetails.firstName }}</p>
+      <p>Middle Name: {{ profileDetails.midName }}</p>
+      <p>Last Name: {{ profileDetails.lastName }}</p>
+      <p>Gender: {{ profileDetails.gender }}</p>
+      <p>Email: {{ profileDetails.email }}</p>
+      <p>Address: {{ profileDetails.address }}</p>
+      <p>Date of Birth: {{ profileDetails.dob }}</p>
+      <p>Citizenship No.: {{ profileDetails.citizenshipNumber }}</p>
+      <p>Starting Date: {{ profileDetails.startDate }}</p>
+      <p>Department: {{ profileDetails.department }}</p>
+      <p>Role: {{ profileDetails.role }}</p>
+    </mat-card>
+  </div>
+  <div class="action-btn">
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="onEditProfileDetails(825)"
+    >
+      Edit Profile
+    </button>
+  </div>
 </div>

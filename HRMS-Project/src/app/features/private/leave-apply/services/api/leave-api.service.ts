@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LeaveApplyBody } from '../../types/types';
+import { LeaveApplyBody } from '../../types/leave-apply';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,9 @@ export class LeaveApplyApiService {
   constructor(private http: HttpClient) {}
 
   addLeaveRequest(body: LeaveApplyBody): Observable<LeaveApplyBody> {
-    console.log('So i am inside post Boss!');
     return this.http.post<LeaveApplyBody>(this.leaveApplyApiUrl, body);
+  }
+  fetchEditLeaveData(id: string | number): Observable<LeaveApplyBody> {
+    return this.http.get<LeaveApplyBody>(`${this.leaveApplyApiUrl}/${id}`);
   }
 }

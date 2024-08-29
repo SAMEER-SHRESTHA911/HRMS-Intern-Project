@@ -1,140 +1,161 @@
 {
   "users": [
     {
-      "id": "1",
-      "firstName": "John",
-      "midName": "A.",
-      "lastName": "Doe",
+      "firstName": "Siddhartha",
+      "middleName": "",
+      "lastName": "Sakya",
+      "phoneNumber": 9866887711,
       "gender": "male",
-      "dob": "1990-01-01",
-      "phoneNumber": "9866783940",
-      "address": "123 Main St",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "America",
       "nationality": "American",
-      "citizenshipNumber": "123456789",
-      "startDate": "2023-08-01",
-      "department": "angular",
-      "role": "developer",
-      "email": "john.doe@example.com",
-      "password": "securepassword"
-    },
-    {
-      "id": "82f5",
-      "firstName": "Celeste",
-      "midName": "Harding Norton",
-      "lastName": "Wiley",
-      "phoneNumber": "9866787740",
-      "gender": "male",
-      "dob": "2024-08-13T18:15:00.000Z",
-      "address": "Nulla incididunt id ",
-      "nationality": "Reprehenderit id p",
-      "citizenshipNumber": "972",
+      "citizenshipNumber": "9727",
       "startDate": "2005-11-01T18:15:00.000Z",
-      "department": "flutter",
-      "role": "manager",
-      "email": "vefysyb@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "e6dd",
-      "firstName": "Kenneth",
-      "midName": "Gabriel Pena",
-      "lastName": "Branch",
-      "phoneNumber": "9866753940",
-      "gender": "female",
-      "dob": "2024-08-11T18:15:00.000Z",
-      "address": "Ut assumenda possimu",
-      "nationality": "Sed in amet officii",
-      "citizenshipNumber": "945",
-      "startDate": "2000-06-19T18:15:00.000Z",
-      "department": "flutter",
-      "role": "tester",
-      "email": "zobonakyra@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "0b61",
-      "firstName": "Galena",
-      "midName": "Macon Tillman",
-      "lastName": "Albert",
-      "phoneNumber": "9653783940",
-      "gender": "male",
-      "dob": "2024-08-05T18:15:00.000Z",
-      "address": "Nam pariatur Incidu",
-      "nationality": "Quia adipisci reicie",
-      "citizenshipNumber": "863",
-      "startDate": "2001-04-17T18:15:00.000Z",
-      "department": "flutter",
-      "role": "tester",
-      "email": "mecotuw@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "8e5e",
-      "firstName": "Abhisha ",
-      "midName": "Lee Haley",
-      "lastName": "Sharma ",
-      "phoneNumber": "9866843459",
-      "gender": "female",
-      "dob": "2024-08-12T18:15:00.000Z",
-      "address": "Cupiditate odio aute",
-      "nationality": "Aut molestiae blandi",
-      "citizenshipNumber": "326",
-      "startDate": "1991-09-14T18:15:00.000Z",
       "department": "angular",
-      "role": "developer",
-      "email": "hezamez@mailinator.com",
-      "password": "Pa$$w0rd!"
+      "role": "tester",
+      "email": "sid@ailinator.com",
+      "password": "Pa$$w0rd!",
+      "id": "825"
     },
     {
-      "id": "a107",
-      "firstName": "Vivien",
-      "midName": "Simone Vasquez",
-      "lastName": "Fitzgerald",
-      "phoneNumber": 6596363636,
-      "gender": "female",
-      "dob": "2024-08-11T18:15:00.000Z",
-      "address": "Ut laudantium esse",
-      "nationality": "Numquam qui placeat",
-      "citizenshipNumber": "105",
-      "startDate": "1989-08-10T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "manager",
-      "email": "vonog@mailinator.com",
-      "password": "Pa$$w0rd!"
-    },
-    {
-      "id": "5377",
-      "firstName": "Kieran",
-      "midName": "Luke Shannon",
-      "lastName": "Strong",
-      "phoneNumber": 4176464646,
+      "id": "217",
+      "firstName": "Hedley",
+      "middleName": "Graiden Burks",
+      "lastName": "Cervantes",
+      "phoneNumber": 587,
       "gender": "male",
       "dob": "2024-08-12T18:15:00.000Z",
-      "address": "Omnis qui nisi accus",
-      "nationality": "Deleniti error susci",
-      "citizenshipNumber": "2",
-      "startDate": "1999-02-10T18:15:00.000Z",
+      "address": "Est recusandae Aut ",
+      "nationality": "Duis qui autem dolor",
+      "citizenshipNumber": "76",
+      "startDate": "2019-12-21T18:15:00.000Z",
       "department": "dotnet",
       "role": "tester",
-      "email": "vipalovex@mailinator.com",
+      "email": "wuperi@mailinator.com",
       "password": "Pa$$w0rd!"
     },
     {
-      "id": "f0a5",
-      "firstName": "Nissim",
-      "midName": "Lewis Hinton",
-      "lastName": "Dixon",
-      "phoneNumber": 280,
-      "gender": "male",
-      "dob": "2024-08-13T18:15:00.000Z",
-      "address": "Blanditiis libero mo",
-      "nationality": "Dolores laborum dolo",
-      "citizenshipNumber": "844",
-      "startDate": "1999-07-31T18:15:00.000Z",
-      "department": "dotnet",
-      "role": "developer",
-      "email": "radufejic@mailinator.com",
+      "id": "166",
+      "firstName": "Aidan",
+      "middleName": "Hyatt Kelly",
+      "lastName": "Mcknight",
+      "phoneNumber": 302,
+      "gender": "female",
+      "dob": "2024-08-12T18:15:00.000Z",
+      "address": "Velit sint sequi sit",
+      "nationality": "Consectetur sit fu",
+      "citizenshipNumber": "719",
+      "startDate": "1986-04-01T18:15:00.000Z",
+      "department": "flutter",
+      "role": "tester",
+      "email": "tepa@mailinator.com",
       "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "269",
+      "firstName": "Amshu",
+      "middleName": "Eaton Carver",
+      "lastName": "Putali",
+      "phoneNumber": 408,
+      "gender": "male",
+      "dob": "2047-11-18T18:15:00.000Z",
+      "address": "Nesciunt cumque omn",
+      "nationality": "Ad id aperiam fugiat",
+      "citizenshipNumber": "35",
+      "startDate": "2017-10-18T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "manager",
+      "email": "tizuruvep@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "683",
+      "firstName": "Dane",
+      "middleName": "Rina Johnson",
+      "lastName": "Mosley",
+      "phoneNumber": 508,
+      "gender": "female",
+      "dob": "2024-08-12T18:15:00.000Z",
+      "address": "Harum quas adipisci ",
+      "nationality": "Nisi eu neque culpa",
+      "citizenshipNumber": "953",
+      "startDate": "1984-08-26T18:30:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "kogim@mailinator.com",
+      "password": "Pa$$w0rd!"
+    },
+    {
+      "id": "655",
+      "firstName": "Willa",
+      "middleName": "Colton Sanford",
+      "lastName": "Maxwell",
+      "phoneNumber": 259,
+      "gender": "others",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Dolore totam sed dol",
+      "nationality": "Consequatur dolor au",
+      "citizenshipNumber": "618",
+      "startDate": "2020-08-11T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "tester",
+      "email": "qacyf@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "813",
+      "firstName": "Sameer",
+      "middleName": "Phoebe Murphy",
+      "lastName": "Patterson",
+      "phoneNumber": 315,
+      "gender": "male",
+      "dob": "2006-08-08T18:15:00.000Z",
+      "address": "Dolores debitis elig",
+      "nationality": "Quasi nostrum omnis ",
+      "citizenshipNumber": "335",
+      "startDate": "1997-06-29T18:15:00.000Z",
+      "department": "dotnet",
+      "role": "manager",
+      "email": "gaqukaw@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "787",
+      "firstName": "Emi",
+      "middleName": "Indigo Glenn",
+      "lastName": "Mcfadden",
+      "phoneNumber": 419,
+      "gender": "female",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Ex consequatur sed ",
+      "nationality": "Quia enim modi quis ",
+      "citizenshipNumber": "143",
+      "startDate": "2016-07-30T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "jypepibul@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
+    },
+    {
+      "id": "737",
+      "firstName": "Nadine",
+      "middleName": "Murphy Peck",
+      "lastName": "Walls",
+      "phoneNumber": 888,
+      "gender": "male",
+      "dob": "2006-08-07T18:15:00.000Z",
+      "address": "Natus harum doloribu",
+      "nationality": "Excepturi id conseq",
+      "citizenshipNumber": "360",
+      "startDate": "1977-09-21T18:30:00.000Z",
+      "department": "qa",
+      "role": "tester",
+      "email": "pybawyke@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "confirmPassword": "Pa$$w0rd!"
     }
   ],
   "leaveApply": [
@@ -165,6 +186,154 @@
       "leaveTo": "2024-08-21T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    },
+    {
+      "id": "cc27",
+      "reasonForLeave": "asdsa",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-22T18:15:00.000Z",
+      "leaveTo": "2024-08-22T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "c77a",
+      "reasonForLeave": "Be fasfasf",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-22T18:15:00.000Z",
+      "leaveTo": "2024-08-24T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "Second Half"
+    },
+    {
+      "id": "72e0",
+      "reasonForLeave": "dasdsa",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-25T18:15:00.000Z",
+      "leaveTo": "2024-08-26T18:15:00.000Z",
+      "department": "Angular",
+      "dayLeave": "First Half"
+    }
+  ],
+  "loggedInUser": [
+    {
+      "id": "82f5",
+      "firstName": "Celeste",
+      "midName": "Harding Norton",
+      "lastName": "Wiley",
+      "phoneNumber": "9866787740",
+      "gender": "male",
+      "dob": "2024-08-13T18:15:00.000Z",
+      "address": "Nulla incididunt id ",
+      "nationality": "Reprehenderit id p",
+      "citizenshipNumber": "972",
+      "startDate": "2005-11-01T18:15:00.000Z",
+      "department": "flutter",
+      "role": "manager",
+      "email": "vefysyb@mailinator.com",
+      "password": "Pa$$w0rd!"
+    }
+  ],
+  "leaveTable": [
+    {
+      "leaveFrom": "2024-1-28",
+      "leaveTo": "2024-1-30",
+      "reasonForLeave": "Sick with fever",
+      "dayLeave": "First Half",
+      "leaveType": "Sick",
+      "leaveRequestStatus": "Pending",
+      "id": "7be0"
+    },
+    {
+      "leaveFrom": "2024-2-28",
+      "leaveTo": "2024-2-30",
+      "reasonForLeave": "Vacation",
+      "dayLeave": "Full Day",
+      "leaveType": "Annual",
+      "leaveRequestStatus": "Rejected",
+      "id": "b496"
+    }
+  ],
+  "dashboard": [
+    {
+      "user": 1,
+      "totalCheckedIn": 30,
+      "totalOfficeCheckedIn": 20,
+      "totalWorkingFromHome": 12,
+      "leaveRequests": {
+        "total": 3,
+        "staffs": [
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
+        ]
+      },
+      "staffsOnLeaveToday": {
+        "total": 3,
+        "staffs": [
+          {
+            "name": "Ram Raja",
+            "department": "Angular",
+            "image": ""
+          },
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
+        ]
+      },
+      "staffsOnLeaveTomorrow": {
+        "total": 2,
+        "staffs": [
+          {
+            "name": "Sita Devi",
+            "department": "Java",
+            "image": ""
+          },
+          {
+            "name": "Tajesh Hamal",
+            "department": "Admin",
+            "image": ""
+          }
+        ]
+      },
+      "id": "6b45"
+    }
+  ],
+  "leaveAvailableData": [
+    {
+      "totalLeaveTaken": 10,
+      "totalLeaveAvailable": 4,
+      "annualLeaveAvailable": 1,
+      "sickLeaveAvailable": 2,
+      "otherLeaveAvailable": 1,
+      "id": "30f9"
+    }
+  ],
+  "policies": [
+    {
+      "id": "777",
+      "title": " Company leave Policies",
+      "category": "Sick-Leave",
+      "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
     }
   ]
 }

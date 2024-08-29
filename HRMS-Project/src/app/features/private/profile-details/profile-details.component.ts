@@ -1,34 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
-import { ProfileService } from './profile.service';
 import { ProfileDetails } from './models/profile-details';
+import { Observable, of } from 'rxjs';
+import { ProfileDetailsState } from './store/profile-details.state';
+import { Store } from '@ngrx/store';
+import { selectProfileDetails } from './store/profile-details.selector';
+import { loadProfileDetailsAction } from './store/profile-details.action';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.scss',
 })
 export class ProfileDetailsComponent implements OnInit {
-  profileDetails: ProfileDetails[] = [];
+  paramProfileId: string | null = null;
+  profileDetails$: Observable<ProfileDetails> = of();
+  loading$: Observable<boolean> = of(false);
+  error$: Observable<string | null> = of(null);
   constructor(
-    private matDialog: MatDialog,
-    private profileService: ProfileService
+    private store: Store<ProfileDetailsState>,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
+  selectorInitializer(): void {
+    this.profileDetails$ = this.store.select(selectProfileDetails);
+    this.profileDetails$.subscribe((data) => console.log(data));
+  }
+
   ngOnInit(): void {
-    this.profileService.getProfileDetails().subscribe({
-      next: (data: ProfileDetails[]) => {
-        this.profileDetails = data;
-      },
-    });
+    this.selectorInitializer();
+    this.paramProfileId = this.route.snapshot.params['id'];
+    console.log(this.paramProfileId);
+    this.store.dispatch(
+      loadProfileDetailsAction({ profileId: this.paramProfileId ?? '' })
+    );
+    console.log(this.paramProfileId);
   }
-  get fullName() {
-    return `${this.profileDetails[0].firstName} ${this.profileDetails[0].midName} ${this.profileDetails[0].lastName}`;
-  }
-  openDialog() {
-    this.matDialog.open(ProfileEditComponent, {
-      width: '500px',
-      // height: '700px',
-    });
+
+  onEditProfileDetails(id: string | number): void {
+    this.router.navigate(['/admin/profile-details/edit-profile', id]);
   }
 }

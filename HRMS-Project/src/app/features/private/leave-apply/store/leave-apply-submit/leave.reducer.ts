@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { LeaveApplyBody } from '../types/types';
+import { LeaveApplyBody } from '../../types/leave-apply';
 import {
   submitLeaveForm,
   submitLeaveFormFail,

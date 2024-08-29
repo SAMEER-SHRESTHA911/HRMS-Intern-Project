@@ -1,0 +1,54 @@
+<div class="main-container">
+
+    <div class="first-row">
+        <h6>Leave Application</h6>
+        <div class="button-container">
+            <button mat-button color="primary" (click)="routeToLeaveApply()">
+                <mat-icon>add</mat-icon>
+                Leave Request
+            </button>
+        </div>
+    </div>
+
+    <div class="second-row">
+        <div class="leave-details">
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <div class="detail-header">
+                        <div class="header-number blue-background">
+                            <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveTaken }} <br>
+                                <span class="size-600 padl5">DAYS</span>
+                            </mat-card-title>
+                        </div>
+                        <div class="header-title">
+                            <mat-card-title>Total Leaves Taken</mat-card-title>
+                        </div>
+                    </div>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
+        <div class="leave-details">
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <div class="detail-header">
+                            <div class="header-number green-background">
+                                <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveAvailable }} <br>
+                                    <span class="size-600 padl5">DAYS</span>
+                                </mat-card-title>
+                            </div>
+                            <div class="header-title">
+                                <mat-card-title>Available Leaves</mat-card-title>
+                            </div>
+                        </div>
+                    </mat-card-title-group>
+                </mat-card-header>
+            </mat-card>
+        </div>
+    </div>
+    <div class="third-row">
+        <app-leave-table></app-leave-table>
+    </div>
+
+</div>

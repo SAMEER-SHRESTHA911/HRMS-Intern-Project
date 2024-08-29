@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { StaffListService } from './service/staff-list.service';
@@ -12,6 +12,11 @@ import {
   selectStaffListLoading,
 } from './store/staff-list.selector';
 import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { DialogData } from '../../../../shared/components/model/dialog.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-staff-list',
@@ -23,6 +28,10 @@ export class StaffListComponent implements OnInit {
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   dataSource!: MatTableDataSource<StaffList>;
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+  sort!: MatSort;
   displayedColumns: (keyof StaffList)[] = [
     'id',
     'firstName',
@@ -38,30 +47,59 @@ export class StaffListComponent implements OnInit {
     'department',
     'role',
     'email',
+
     'actions',
   ];
 
   constructor(
-    private staffListService: StaffListService,
+    // private staffListService: StaffListService,
     private router: Router,
-    private store: Store<StaffListState>
+    private store: Store<StaffListState>,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.selectorInitializer();
     this.store.dispatch(loadStaffList());
   }
-
-  onAdd() {
-    this.router.navigate(['/add-staff']);
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
-  onEditStaffDetails(): void {}
-  onViewStaffDetails(): void {}
+
+  onEditStaffDetails(id: number): void {
+    this.router.navigate(['/admin/staff-registration/edit-staff', id]);
+  }
+  onViewStaffDetails(id: number | string): void {
+    this.router.navigate([`/admin/profile-details`, id]);
+  }
+  onAddNewEmployee(): void {
+    this.router.navigate(['/admin/staff-registration/add-staff']);
+  }
 
   onDeleteStaffDetails(id: number): void {
-    if (confirm('Are you sure you want to delete this member?')) {
-      this.store.dispatch(deleteStaffDetails({ id }));
-    }
+    const dialogData: DialogData = {
+      titleArray: ['Are you sure you want to delete?'],
+      buttonArray: [
+        {
+          label: 'Cancel',
+          type: 'warning',
+          action: () => {
+            return;
+          },
+        },
+        {
+          label: 'Confirm',
+          type: 'primary',
+          action: () => {
+            this.store.dispatch(deleteStaffDetails({ id }));
+          },
+        },
+      ],
+    };
+    this.dialog.open(DialogComponent, {
+      data: dialogData,
+    });
   }
   applyFilter(event: Event) {
     if (this.dataSource) {

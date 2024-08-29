@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LeaveApplyBody } from '../types/types';
+import { LeaveApplyBody } from '../../types/leave-apply';
 
 export const leaveApply = '[Leave Apply] Submit Leave Form';
 export const leaveApplySuccess = '[Leave Apply]  Submit Leave Form Success';

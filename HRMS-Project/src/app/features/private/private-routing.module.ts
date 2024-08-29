@@ -34,19 +34,25 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'staff_management',
+    path: 'leave-management',
     loadChildren: () =>
-      import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule
+      import('./leave-management/leave-management.module').then(
+        (m) => m.LeaveManagementModule
       ),
   },
   {
-    path: 'policies',
+    path: 'staff_management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
-        (m) => m.StaffRegistrationModule
-      ),
+        (m) => m.StaffRegistrationModule),
   },
+  { path: 'policies',
+    loadChildren: () =>
+      import('./policies/policies.module').then(
+      (m) => m.PoliciesModule),
+  },
+  { path: 'policies', loadChildren: () => import('./policies/policies.module').then(m => m.PoliciesModule) },
+
 ];
 
 @NgModule({

@@ -1,0 +1,14 @@
+<div class="flex w-full justify-between mb-4">
+  <p class="hidden sm:block">Welcome username!</p>
+  <div class="flex flex-1 sm:flex-none">
+    <button
+      class="flex-1"
+      mat-flat-button
+      [color]="!checkedIn ? 'primary' : 'warn'"
+      (click)="openCheckInDialog()"
+    >
+      {{ !checkedIn ? "Check-In" : "Check-Out" }}
+    </button>
+  </div>
+</div>
+
