@@ -16,7 +16,7 @@
                 <mat-label>Day Leave Type</mat-label>
                 <mat-select formControlName="dayLeave">
                     <mat-option *ngFor="let leave of dayLeaveTypeArray" [value]="leave">
-                        {{leave}}
+                        {{leave.value}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -25,7 +25,7 @@
                 <mat-label>Leave Type</mat-label>
                 <mat-select formControlName="leaveType">
                     <mat-option *ngFor="let leaveType of leaveTypeArray" [value]="leaveType">
-                        {{leaveType}}
+                        {{leaveType.value}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

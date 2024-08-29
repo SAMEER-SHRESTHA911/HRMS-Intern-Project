@@ -245,6 +245,20 @@
       "leaveFrom": "2024-08-28T18:15:00.000Z",
       "leaveTo": "2024-08-29T18:15:00.000Z",
       "dayLeave": "Full Day"
+    },
+    {
+      "id": "8395",
+      "reasonForLeave": "Sick",
+      "leaveType": {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": {
+        "key": 1,
+        "value": "FirstHalf"
+      }
     }
   ],
   "loggedInUser": [
@@ -467,21 +481,39 @@
     }
   },
   "DayLeave": {
-      "result": 2,
-      "message": "Displaying All Day Leave",
-      "data": [
-        {
-          "key": 1,
-          "value": "FirstHalf"
-        },
-        {
-          "key": 2,
-          "value": "SecondHalf"
-        },
-        {
-          "key": 3,
-          "value": "FullDay"
-        }
-      ]
-    }
+    "result": 2,
+    "message": "Displaying All Day Leave",
+    "data": [
+      {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      {
+        "key": 3,
+        "value": "FullDay"
+      }
+    ]
+  },
+  "LeaveType": {
+    "result": 2,
+    "message": "Displaying All Leave Types",
+    "data": [
+      {
+        "key": 1,
+        "value": "Sick Leave"
+      },
+      {
+        "key": 2,
+        "value": "Annual Leave"
+      },
+      {
+        "key": 3,
+        "value": "Other Leaves"
+      }
+    ]
+  }
 }

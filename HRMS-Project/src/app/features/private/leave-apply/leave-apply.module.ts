@@ -12,6 +12,8 @@ import { leaveReducer } from './store/leave-apply-submit/leave.reducer';
 import { LeaveEditReducer } from './store/leave-apply-form/leave-edit.reducer';
 import { DayLeaveDropdownEffects } from '../../../shared/store/day-leave-dropdown/day-leave.effects';
 import { FetchDayLeaveReducer } from '../../../shared/store/day-leave-dropdown/day-leave.reducer';
+import { LeaveTypeDropdownEffects } from '../../../shared/store/leave-type-dropdown/leave-type.effects';
+import { FetchLeaveTypeReducer } from '../../../shared/store/leave-type-dropdown/leave-type.reducer';
 
 
 @NgModule({
@@ -25,9 +27,11 @@ import { FetchDayLeaveReducer } from '../../../shared/store/day-leave-dropdown/d
     EffectsModule.forFeature([LeaveEffects]),
     EffectsModule.forFeature([LeaveEditEffect]),
     EffectsModule.forFeature([DayLeaveDropdownEffects]),
-    StoreModule.forFeature('dayLeaveDropdown', FetchDayLeaveReducer),
+    EffectsModule.forFeature([LeaveTypeDropdownEffects]),
     StoreModule.forFeature('leaveApply', leaveReducer),
-    StoreModule.forFeature('leaveEdit', LeaveEditReducer)
+    StoreModule.forFeature('leaveEdit', LeaveEditReducer),
+    StoreModule.forFeature('leaveTypeDropDown', FetchLeaveTypeReducer),
+    StoreModule.forFeature('dayLeaveDropdown', FetchDayLeaveReducer)
   ]
 })
 export class LeaveApplyModule { }
