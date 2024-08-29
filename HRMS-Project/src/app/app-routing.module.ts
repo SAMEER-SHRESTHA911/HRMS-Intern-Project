@@ -18,7 +18,7 @@ const routes: Routes = [
         (m) => m.PrivateModule
       ),
   },
-  
+
   {
     path: '**',
     component: NotFoundComponent,
