@@ -451,6 +451,12 @@
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
     }
   ],
+  "checkIn": [
+    {
+      "reason": "I am working form Home",
+      "workLocation": "Home"
+    }
+  ],
   "requestList": [
     {
       "id": "123",

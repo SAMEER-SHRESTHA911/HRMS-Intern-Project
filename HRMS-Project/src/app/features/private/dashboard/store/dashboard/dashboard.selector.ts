@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { DashboardState } from './dashboad.state';
+import { DashboardState } from './dashboard.state';
 
 export const dashboardDataState =
   createFeatureSelector<DashboardState>('dashboard');
