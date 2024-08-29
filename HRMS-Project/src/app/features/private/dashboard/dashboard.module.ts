@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { dashboardReducer } from './store/dashboard.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffect } from './store/dashboard.effect';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DashboardComponent, LeaveStatsComponent, CheckingInComponent],
@@ -19,6 +20,7 @@ import { DashboardEffect } from './store/dashboard.effect';
     DashboardRoutingModule,
     MatCardModule,
     MaterialsModule,
+    HttpClientModule,
     StoreModule.forFeature('dashboard', dashboardReducer),
     EffectsModule.forFeature([DashboardEffect]),
   ],

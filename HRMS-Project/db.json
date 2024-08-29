@@ -237,6 +237,14 @@
       "leaveFrom": "2024-08-28T18:15:00.000Z",
       "leaveTo": "2024-08-30T18:15:00.000Z",
       "dayLeave": "Second Half"
+    },
+    {
+      "id": "c232",
+      "reasonForLeave": "Sad",
+      "leaveType": "Annual",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": "Full Day"
     }
   ],
   "loggedInUser": [
@@ -422,6 +430,36 @@
           "leaveTo": "2024-6-9",
           "dayLeave": "Full Day",
           "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 6
+        },
+        {
+          "id": 128,
+          "employeeId": 127,
+          "employeeName": "Sameer Shrestha",
+          "leaveType": "Sick",
+          "departmentId": 2,
+          "department": "Angular",
+          "phoneNumber": "9846765553",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 6
+        },
+        {
+          "id": 129,
+          "employeeId": 127,
+          "employeeName": "Sameer Shrestha",
+          "leaveType": "Sick",
+          "departmentId": 2,
+          "department": "Angular",
+          "phoneNumber": "9846765553",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Trip",
           "leaveRequestStatus": "Pending",
           "totalLeaveDuration": 6
         }

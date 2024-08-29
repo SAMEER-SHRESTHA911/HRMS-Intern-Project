@@ -23,7 +23,7 @@ import { AuthGuard } from './features/public/guards/guards/auth.guard';
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([authInterceptor])),
+    // provideHttpClient(withInterceptors([authInterceptor])),
     AuthService,
     AuthGuard,
   ],

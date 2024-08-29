@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { LeaveRequestList } from "../../types/leave-table";
+import {  LeaveRequestList } from "../../types/leave-table";
 
 export const FETCH_LEAVE_REQUEST_lIST = createAction(
     '[Leave Request] Fetch Leave Request List',
