@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './dashboad.state';
+import { initialState } from './dashboard.state';
 import {
   loadDashboard,
   loadDashboardFailure,
