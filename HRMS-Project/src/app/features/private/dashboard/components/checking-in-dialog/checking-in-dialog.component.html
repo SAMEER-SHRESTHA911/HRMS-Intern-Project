@@ -1,20 +1,29 @@
-<div class="overflow-auto p-4 border border-gray-300 rounded-md shadow-lg">
-  <h2 class="text-xl font-bold mb-4">Check-In to Work</h2>
-  <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
-    <div class="mb-4">
-      <label class="block mb-2 font-medium">Work Location</label>
-      <div class="flex items-center space-x-4">
-        <label class="flex items-center">
-          <input
+<p class="bg-blue-500 text-white p-6 font-normal">
+  You are about to <span class="font-bold">Check-In!</span> Please provide
+  required details:
+</p>
+<div
+  class="dialog overflow-auto px-6 pb-6 rounded-md shadow-lg border border-t-4 border-blue-500"
+>
+  <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()" class="mt-5">
+    <div>
+      <label class="block font-medium"
+        >Select Your Work Location for Today</label
+      >
+      <div class="flex justify-around items-center my-8">
+        <label
+          class="flex items-center font-medium peer-checked/draft:text-sky-500"
+        >
+          <mat-radio-button
             type="radio"
             formControlName="workLocation"
             value="1"
-            class="mr-2"
+            class="mr-2 peer/draft"
           />
-          At Office
+          Work From Office
         </label>
-        <label class="flex items-center">
-          <input
+        <label class="flex items-center font-medium">
+          <mat-radio-button
             type="radio"
             formControlName="workLocation"
             value="2"
@@ -48,7 +57,7 @@
             checkInForm.get('remarks')?.dirty) &&
           checkInForm.get('remarks')?.hasError('required')
         "
-        class="text-red-500 text-sm mt-1"
+        class="text-red-500 text-sm mt-3"
       >
         Remarks are required!
       </p>
@@ -63,9 +72,10 @@
       </button>
       <button
         type="submit"
+        (click)="onSubmit()"
         class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
       >
-        Confirm
+        Check-In
       </button>
     </div>
   </form>

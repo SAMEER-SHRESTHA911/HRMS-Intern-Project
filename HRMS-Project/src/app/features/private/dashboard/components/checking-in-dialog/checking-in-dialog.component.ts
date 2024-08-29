@@ -35,6 +35,9 @@ export class CheckingInDialogComponent {
     //   const checkInFormRemarks: CheckInDetails = {
     //     ...this.checkInForm.value,
     //   };
+    //   console.log(checkInFormRemarks);
+    //   this.dialogRef.close(true);
     // }
+    console.log('clicked');
   }
 }

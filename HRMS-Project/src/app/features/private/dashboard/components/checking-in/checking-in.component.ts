@@ -25,6 +25,6 @@ export class CheckingInComponent {
     });
   }
   ngOnInit(): void {
-    this.openCheckInDialog();
+    // this.openCheckInDialog();
   }
 }
