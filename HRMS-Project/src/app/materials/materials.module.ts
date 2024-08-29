@@ -19,10 +19,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -42,6 +43,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatToolbarModule,
     MatExpansionModule,
     MatDividerModule,
+    MatSnackBarModule
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -70,6 +72,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTableModule,
     ReactiveFormsModule,
     MatDividerModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialsModule {}

@@ -58,14 +58,14 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       return;
     }
     const formValue = this.leaveApplyForm?.value;
-    const formValueSubmit = {
-      reasonForLeave: formValue.reasonForLeave,
-      leaveType: formValue.leaveType,
-      leaveFrom: '',
-      leaveTo: '2024-08-24T18:15:00.000Z',
-      department: 'Angular',
-      dayLeave: 'Second Half',
-    };
+    // const formValueSubmit = {
+    //   reasonForLeave: formValue.reasonForLeave,
+    //   leaveType: formValue.leaveType,
+    //   leaveFrom: '',
+    //   leaveTo: '2024-08-24T18:15:00.000Z',
+    //   department: 'Angular',
+    //   dayLeave: 'Second Half',
+    // };
     
     if (this.isEditMode && this.leaveId !== null) {
       this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));

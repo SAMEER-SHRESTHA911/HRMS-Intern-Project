@@ -14,9 +14,9 @@ constructor(private auth :AuthService, private router: Router){}
   {
     if(!this.auth.isLoggedIn()){
       this.router.navigate(['admin/dashboard']);
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 }
 
