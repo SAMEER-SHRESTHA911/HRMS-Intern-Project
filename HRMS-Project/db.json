@@ -158,6 +158,75 @@
       "confirmPassword": "Pa$$w0rd!"
     }
   ],
+  "AttandanceList": [
+    {
+      "SN": 1,
+      "Name": "John Doe",
+      "CheckedInTime": "2024-08-28T09:15:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:45:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View"
+    },
+    {
+      "SN": 2,
+      "Name": "Jane Smith",
+      "CheckedInTime": "2024-08-28T09:05:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:35:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View"
+    },
+    {
+      "SN": 3,
+      "Name": "Michael Johnson",
+      "CheckedInTime": "2024-08-28T09:30:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.0,
+      "Actions": "View"
+    },
+    {
+      "SN": 4,
+      "Name": "Emily Davis",
+      "CheckedInTime": "2024-08-28T08:55:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:25:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View"
+    },
+    {
+      "SN": 5,
+      "Name": "William Brown",
+      "CheckedInTime": "2024-08-28T09:20:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T18:00:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View"
+    },
+    {
+      "SN": 6,
+      "Name": "Sophia Wilson",
+      "CheckedInTime": "2024-08-28T10:00:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Absent",
+      "WorkedHours": 0,
+      "Actions": "View"
+    }
+  ],
+
   "leaveApply": [
     {
       "employeeId": 8,

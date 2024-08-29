@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { StaffState } from '../../store/add-staff.state';
 import { Store } from '@ngrx/store';
 import { Route, Router } from '@angular/router';
+// import { ResponseType } from '../../../../../../shared/models/response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +17,10 @@ export class AddStaffService {
     private store: Store<StaffState>,
     private route: Router
   ) {}
+  // postStaff(staff: StaffDetails): Observable<ResponseType<StaffDetails>> {
+  //   this.route.navigate(['/admin/staff-registration/staff-list']);
+  //   return this.http.post<ResponseType<StaffDetails>>(this.apiUrl, staff);
+  // }
   postStaff(staff: StaffDetails): Observable<StaffDetails> {
     this.route.navigate(['/admin/staff-registration/staff-list']);
     return this.http.post<StaffDetails>(this.apiUrl, staff);
