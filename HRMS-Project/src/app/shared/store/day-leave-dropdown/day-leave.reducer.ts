@@ -2,7 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { initialState } from "./day-leave.state";
 import { FETCH_DAY_LEAVE_DROPDOWN, FETCH_DAY_LEAVE_DROPDOWN_FAILURE, FETCH_DAY_LEAVE_DROPDOWN_SUCCESS } from "./day-leave.actions";
 
-export const fetchDayLeaveReducer = createReducer(
+export const FetchDayLeaveReducer = createReducer(
     initialState,
     on(FETCH_DAY_LEAVE_DROPDOWN, (state)=> ({
         ...state,

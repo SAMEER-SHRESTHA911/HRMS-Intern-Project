@@ -10,7 +10,8 @@ export class LeaveTableService {
 
   //previous API_URL
   // private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
-  private fetchEmployeeLeaveRequestResponse = "http://localhost:3000/GetEmployeeLeaveRequestList";
+  // private fetchEmployeeLeaveRequestResponse = "http://localhost:3000/GetEmployeeLeaveRequestList";
+  private fetchEmployeeLeaveRequestResponse = "https://53x7mkhh-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
   private fetchLeaveDataStatus = "http://localhost:3000/leaveAvailableData";
   
 

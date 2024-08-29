@@ -1,14 +1,13 @@
-export interface DayLeaveState {
+export interface DayLeaveDropDownState {
     dayLeaveDropdown : DayLeaveDropdown[];
     loading: boolean;
     error:  string|null;
-
 }
 export interface DayLeaveDropdown{
     key: number;
     value : string;
 }
-export const initialState : DayLeaveState= {
+export const initialState : DayLeaveDropDownState= {
     dayLeaveDropdown : [],
     loading: false,
     error: null

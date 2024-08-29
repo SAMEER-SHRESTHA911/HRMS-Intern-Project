@@ -465,5 +465,23 @@
         }
       ]
     }
-  }
+  },
+  "DayLeave": {
+      "result": 2,
+      "message": "Displaying All Day Leave",
+      "data": [
+        {
+          "key": 1,
+          "value": "FirstHalf"
+        },
+        {
+          "key": 2,
+          "value": "SecondHalf"
+        },
+        {
+          "key": 3,
+          "value": "FullDay"
+        }
+      ]
+    }
 }
