@@ -1,0 +1,96 @@
+<div class="table-container">
+  <div class="attendance-list-header">
+    <div class="form-title">
+      <h4>Attendance Details</h4>
+    </div>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Search <mat-icon>search</mat-icon></mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Enter name"
+      #input
+    />
+  </mat-form-field>
+
+  <div class="table-data-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="SN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>SN</th>
+        <td mat-cell *matCellDef="let element">{{ element.SN }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="CheckedInTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Checked In Time
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.CheckedInTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="CheckedInStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Checked In Status
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.CheckedInStatus }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="CheckedOutTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Checked Out Time
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.CheckedOutTime }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="CheckedOutStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Checked Out Status
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.CheckedOutStatus }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="PresentAbsent">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Present/Absent
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.PresentAbsent }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="WorkedHours">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Worked Hours</th>
+        <td mat-cell *matCellDef="let element">{{ element.WorkedHours }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            aria-label="View"
+            (click)="onViewAttendanceDetails()"
+          >
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of records"
+  ></mat-paginator>
+</div>
