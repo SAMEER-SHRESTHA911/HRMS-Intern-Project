@@ -2,13 +2,13 @@
   <mat-drawer mode="side" opened class="sidebar">
     <nav>
       <ul>
-
-        <li><a [routerLink]="route_constant.dashboard">
+        <li>
+          <a [routerLink]="route_constant.dashboard">
             <span class="sidebar-row">
               <mat-icon>dashboard</mat-icon>
               Dashboard
             </span>
-            
+
             <!-- <mat-accordion>
               <mat-expansion-panel hideToggle>
                 <p>This is the primary content of the panel.</p>
@@ -29,11 +29,11 @@
                 </div>
               </mat-expansion-panel>
             </mat-accordion> -->
-
           </a>
         </li>
 
-        <li><a [routerLink]="route_constant['staff-management']">
+        <li>
+          <a [routerLink]="route_constant['staff-management']">
             <span class="sidebar-row">
               <mat-icon>folder_shared</mat-icon>
               Staff Management
@@ -41,7 +41,8 @@
           </a>
         </li>
 
-        <li><a [routerLink]="route_constant['leave-management']">
+        <li>
+          <a [routerLink]="route_constant['leave-management']">
             <span class="sidebar-row">
               <mat-icon>settings_applications</mat-icon>
               Leave Management
@@ -49,30 +50,32 @@
           </a>
         </li>
 
-        <li><a [routerLink]="route_constant['leave-apply']">
+        <li>
+          <a [routerLink]="route_constant['leave-apply']">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
-                Application Status
+              Application Status
             </span>
           </a>
         </li>
 
-        <li><a [routerLink]="route_constant['add-employee']">
+        <li>
+          <a [routerLink]="route_constant['attendance-details']">
             <span class="sidebar-row">
-              <mat-icon>person_add</mat-icon>
-              Add New Employee
+              <mat-icon>Attendance</mat-icon>
+              Attendance Details
             </span>
           </a>
         </li>
 
-        <li><a [routerLink]="route_constant['policies']">
+        <li>
+          <a [routerLink]="route_constant['policies']">
             <span class="sidebar-row">
               <mat-icon>policy</mat-icon>
               Policies
             </span>
           </a>
         </li>
-
       </ul>
     </nav>
   </mat-drawer>
