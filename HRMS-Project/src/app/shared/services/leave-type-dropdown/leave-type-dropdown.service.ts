@@ -7,7 +7,8 @@ import { LeaveTypeDropDownResponse } from '../../store/leave-type-dropdown/leave
   providedIn: 'root',
 })
 export class LeaveTypeDropdownService {
-  private apiUrl = `http://localhost:3000/LeaveType`;
+  // private apiUrl = `http://localhost:3000/LeaveType`;
+  private apiUrl = `http://localhost:5262/apigateway/attendanceLeave/EnumData/GetAllLeaveType`;
 
   constructor(private http: HttpClient) {}
 

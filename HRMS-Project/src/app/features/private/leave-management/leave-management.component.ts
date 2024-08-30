@@ -18,6 +18,7 @@ export class LeaveManagementComponent implements OnInit{
   loading$ : Observable<boolean> = of(false);
   error$ : Observable<string|null> =of(null);
   
+  leaveType : number = 0;
  
   constructor(private router:Router, private store:Store, private leaveFormService: LeaveFormService){}
 
@@ -32,6 +33,7 @@ export class LeaveManagementComponent implements OnInit{
 
     this.loading$ = this.store.pipe(select(selectAvailableLeaveLoading));
     this.error$ = this.store.pipe(select(selectAvailableLeaveError));
+    
   }
 
   routeToLeaveApply(): void{
