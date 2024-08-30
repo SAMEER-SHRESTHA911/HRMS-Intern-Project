@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { type CheckInDetails } from '../../types/check-in.interface';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResponseType } from '../../../../../shared/models/response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -29,8 +30,8 @@ export class CheckingInService {
   //Api-------------
   postCheckInStatus(
     checkInDetails: CheckInDetails
-  ): Observable<CheckInDetails> {
-    return this.http.post<CheckInDetails>(this.apiUrl, checkInDetails);
+  ): Observable<ResponseType<CheckInDetails>> {
+    return this.http.post<ResponseType<CheckInDetails>>(this.apiUrl, checkInDetails);
   }
 
   getCheckInStatus(): Observable<CheckInDetails> {

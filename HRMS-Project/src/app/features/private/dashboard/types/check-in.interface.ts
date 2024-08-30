@@ -4,6 +4,7 @@ export interface CheckInDetails {
 }
 
 export interface CheckInDetailsResponse {
-  message: string;
   result: number;
+  message: string;
+  data: string;
 }
