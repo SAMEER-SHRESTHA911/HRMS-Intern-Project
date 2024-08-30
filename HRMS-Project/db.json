@@ -496,152 +496,48 @@
       "title": " Company leave Policies",
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
-    }
-  ],
-  "checkInDetails": [
-    {
-      "reason": "I am working form Home",
-      "workLocation": "Home",
-      "id": "5d57"
     },
     {
-      "id": "0fc2",
-      "remarks": "sdsdsdsds",
-      "workLocation": "2"
-    }
-  ],
-  "requestList": [
-    {
-      "id": "123",
-      "reason": "Trip",
-      "leaveFrom": "2024-08-17",
-      "leaveTo": "2024-08-20",
-      "status": "Pending",
-      "name": "Sameer Shrestha",
-      "daysLeft": "12/21",
-      "employeeId": "AN007"
+      "id": "0",
+      "title": "Company Leave Policies",
+      "category": "Sick Leave",
+      "content": "aidfjdfbighsa  sgjsfsdnf sdjfnowghsjvnbsnv  sgnsjfbwufhs vn DFGjdfbsv jSBifgsdbvvn cx vjaifbn vv"
     },
     {
-      "id": "456",
-      "reason": "Fever",
-      "leaveFrom": "2024-07-17",
-      "leaveTo": "2024-08-18",
-      "status": "Pending",
-      "name": "Siddhartha Shakya",
-      "daysLeft": "2/21",
-      "employeeId": "AN002"
+      "id": "0",
+      "title": "Sdna",
+      "category": "snfd",
+      "content": "skndasklalsd\n\n\n"
     },
     {
-      "id": "789",
-      "reason": "Puja",
-      "leaveFrom": "2024-08-20",
-      "leaveTo": "2024-08-22",
-      "status": "Pending",
-      "name": "Aaditya Jha",
-      "daysLeft": "10/21",
-      "employeeId": "AN006"
+      "id": "0",
+      "title": "dfs",
+      "category": "sdfsf",
+      "content": "sdfsdfsdfsdf"
     },
     {
-      "id": "7809",
-      "reason": "Exam",
-      "leaveFrom": "2024-08-20",
-      "leaveTo": "2024-09-12",
-      "status": "Pending",
-      "name": "Abhisha Sharma",
-      "daysLeft": "1/21",
-      "employeeId": "AN001"
+      "id": "0",
+      "title": "yuiui",
+      "category": "tyuyujk",
+      "content": "yi6olrkjfkjk"
+    },
+    {
+      "id": "0",
+      "title": "djfnsdfgnsd",
+      "category": "skngeofgnefn",
+      "content": "sjdifkdmnbdfgsfgm "
+    },
+    {
+      "id": "0",
+      "title": "terggdfg",
+      "category": "dfgdfg",
+      "content": "dfgdfgdfg"
+    },
+    {
+      "id": "0",
+      "title": "were",
+      "category": "rere",
+      "content": "erer"
     }
-  ],
-  "GetEmployeeLeaveRequestList": {
-    "result": 0,
-    "message": "Hello! I am just checking the snackbar",
-    "data": {
-      "skip": 0,
-      "take": 0,
-      "count": 0,
-      "employeeLeaveRequestResponse": [
-        {
-          "id": 127,
-          "employeeId": 127,
-          "employeeName": "Sameer Shrestha",
-          "leaveType": "Sick",
-          "departmentId": 2,
-          "department": "Angular",
-          "phoneNumber": "9846765553",
-          "leaveFrom": "2024-6-6",
-          "leaveTo": "2024-6-9",
-          "dayLeave": "Full Day",
-          "reasonForLeave": "Sick with fever",
-          "leaveRequestStatus": "Pending",
-          "totalLeaveDuration": 6
-        },
-        {
-          "id": 128,
-          "employeeId": 127,
-          "employeeName": "Sameer Shrestha",
-          "leaveType": "Sick",
-          "departmentId": 2,
-          "department": "Angular",
-          "phoneNumber": "9846765553",
-          "leaveFrom": "2024-6-6",
-          "leaveTo": "2024-6-9",
-          "dayLeave": "Full Day",
-          "reasonForLeave": "Sick with fever",
-          "leaveRequestStatus": "Pending",
-          "totalLeaveDuration": 6
-        },
-        {
-          "id": 129,
-          "employeeId": 127,
-          "employeeName": "Sameer Shrestha",
-          "leaveType": "Sick",
-          "departmentId": 2,
-          "department": "Angular",
-          "phoneNumber": "9846765553",
-          "leaveFrom": "2024-6-6",
-          "leaveTo": "2024-6-9",
-          "dayLeave": "Full Day",
-          "reasonForLeave": "Trip",
-          "leaveRequestStatus": "Pending",
-          "totalLeaveDuration": 6
-        }
-      ]
-    }
-  },
-  "DayLeave": {
-    "result": 2,
-    "message": "Displaying All Day Leave",
-    "data": [
-      {
-        "key": 1,
-        "value": "FirstHalf"
-      },
-      {
-        "key": 2,
-        "value": "SecondHalf"
-      },
-      {
-        "key": 3,
-        "value": "FullDay"
-      }
-    ]
-  },
-  "LeaveType": {
-    "result": 2,
-    "message": "Displaying All Leave Types",
-    "data": [
-      {
-        "key": 1,
-        "value": "Sick Leave"
-      },
-      {
-        "key": 2,
-        "value": "Annual Leave"
-      },
-      {
-        "key": 3,
-        "value": "Other Leaves"
-      }
-    ]
-  }
+  ]
 }

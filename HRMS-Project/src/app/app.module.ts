@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { provideHttpClient  } from '@angular/common/http';
 // import { withInterceptors  } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
