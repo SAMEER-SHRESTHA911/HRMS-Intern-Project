@@ -52,6 +52,7 @@ export class LeaveTableComponent implements OnInit {
 
   selectorInitializer(): void {
     this.store.pipe(select(selectLeaveData)).subscribe((data) => {
+      console.log(data)
       this.dataSource = new MatTableDataSource(data);
     });
     this.loading$ = this.store.pipe(select(selectLeaveDataLoading));

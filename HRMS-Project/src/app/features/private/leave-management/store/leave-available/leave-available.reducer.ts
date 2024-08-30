@@ -11,10 +11,10 @@ export const LeaveAvailableReducer = createReducer(
             error: null
         }
     }),
-    on(FETCH_AVAILABLE_LEAVE_DATA_SUCCESS, (state, { availableLeaveData }) => {
+    on(FETCH_AVAILABLE_LEAVE_DATA_SUCCESS, (state, { leaveBalanceData }) => {
         return {
             ...state,
-            availableData : availableLeaveData,
+            leaveaBalanceData : leaveBalanceData,
             loading: false,
             error: null
         }

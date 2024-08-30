@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { LeaveApplyBody } from '../../types/leave-apply';
 import {
   submitLeaveForm,
   submitLeaveFormFail,
@@ -23,9 +22,9 @@ export class LeaveEffects {
       ofType(submitLeaveForm),
       switchMap((action) =>
         this.leaveService.addLeaveRequest(action.leaveData).pipe(
-          map((leaveData: LeaveApplyBody) => {
+          map(({ message , leaveData}) => {
             this.snackBar.open(
-              'You have applied a leave application',
+              message,
               'Close',
               {
                 horizontalPosition: 'start',

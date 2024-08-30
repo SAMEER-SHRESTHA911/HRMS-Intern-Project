@@ -7,7 +7,7 @@ import { LeaveTypeDropDownResponse } from '../../store/leave-type-dropdown/leave
   providedIn: 'root',
 })
 export class LeaveTypeDropdownService {
-  private apiUrl = `http://localhost:3000/DayLeave`;
+  private apiUrl = `http://localhost:3000/LeaveType`;
 
   constructor(private http: HttpClient) {}
 

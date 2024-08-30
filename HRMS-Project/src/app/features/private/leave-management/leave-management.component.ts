@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LeaveTableService } from './services/leave-table/leave-table.service';
-import { LeaveAvailableData, LeaveTableData } from './types/leave-table';
+import { LeaveBalanceData } from './types/leave-table';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { FETCH_AVAILABLE_LEAVE_DATA } from './store/leave-available/leave-available.actions';
@@ -15,9 +14,10 @@ import { LeaveFormService } from '../leave-apply/services/form/leave-form.servic
 })
 export class LeaveManagementComponent implements OnInit{
 
-  availableLeaveData$ : Observable<LeaveAvailableData> = of();
+  availableLeaveData$ : Observable<LeaveBalanceData[]> = of([]);
   loading$ : Observable<boolean> = of(false);
   error$ : Observable<string|null> =of(null);
+  
  
   constructor(private router:Router, private store:Store, private leaveFormService: LeaveFormService){}
 
