@@ -13,9 +13,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffect } from './store/dashboard/dashboard.effect';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckingInDialogComponent } from './components/checking-in-dialog/checking-in-dialog.component';
+import { postCheckInReducer } from './store/checkin-in/checkin-in.reducer';
+import { CheckInEffects } from './store/checkin-in/checkin-in.effects';
 
 @NgModule({
-  declarations: [DashboardComponent, LeaveStatsComponent, CheckingInComponent, CheckingInDialogComponent],
+  declarations: [
+    DashboardComponent,
+    LeaveStatsComponent,
+    CheckingInComponent,
+    CheckingInDialogComponent,
+  ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -24,6 +31,8 @@ import { CheckingInDialogComponent } from './components/checking-in-dialog/check
     HttpClientModule,
     StoreModule.forFeature('dashboard', dashboardReducer),
     EffectsModule.forFeature([DashboardEffect]),
+    StoreModule.forFeature('checkIn', postCheckInReducer),
+    EffectsModule.forFeature([CheckInEffects]),
   ],
 })
 export class DashboardModule {}

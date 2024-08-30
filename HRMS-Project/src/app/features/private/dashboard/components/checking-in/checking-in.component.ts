@@ -18,13 +18,15 @@ export class CheckingInComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log('Confirmed');
+        console.log(result);
       } else {
-        console.log('Cancelled');
+        console.log(result);
       }
     });
   }
   ngOnInit(): void {
-    // this.openCheckInDialog();
+    if (this.isCheckedIn) {
+      this.openCheckInDialog();
+    }
   }
 }

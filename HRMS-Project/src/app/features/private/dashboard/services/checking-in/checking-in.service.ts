@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { type CheckInDetails } from '../../types/check-in.interface';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  type CheckInDetails,
+  CheckOutDetails,
+} from '../../types/check-in.interface';
 import { ResponseType } from '../../../../../shared/models/response.model';
 
 @Injectable({
@@ -27,14 +30,28 @@ export class CheckingInService {
     this.checkInForm.reset();
   }
 
-  //Api-------------
+  //------For Check-In--------
   postCheckInStatus(
     checkInDetails: CheckInDetails
   ): Observable<ResponseType<CheckInDetails>> {
-    return this.http.post<ResponseType<CheckInDetails>>(this.apiUrl, checkInDetails);
+    return this.http.post<ResponseType<CheckInDetails>>(
+      this.apiUrl,
+      checkInDetails
+    );
   }
 
+  //-----For Check-In-Status----------
   getCheckInStatus(): Observable<CheckInDetails> {
     return this.http.get<CheckInDetails>(this.apiUrl);
+  }
+
+  //------For Check-Out---------
+  postCheckOut(
+    checkOutDetails: CheckOutDetails
+  ): Observable<ResponseType<CheckOutDetails>> {
+    return this.http.post<ResponseType<CheckOutDetails>>(
+      this.apiUrl,
+      checkOutDetails
+    );
   }
 }

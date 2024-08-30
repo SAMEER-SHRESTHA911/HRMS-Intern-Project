@@ -3,6 +3,10 @@ export interface CheckInDetails {
   workLocation: number;
 }
 
+export interface CheckOutDetails {
+  checkOutReason: string;
+}
+
 export interface CheckInDetailsResponse {
   result: number;
   message: string;

@@ -1,5 +1,5 @@
 import {
-  postCheckIn,
+  postCheckInAction,
   postCheckInFailure,
   postCheckInSuccess,
 } from './checkin-in.actions';
@@ -8,19 +8,19 @@ import { createReducer, on } from '@ngrx/store';
 
 export const postCheckInReducer = createReducer(
   initialState,
-  on(postCheckIn, (state) => ({
+  on(postCheckInAction, (state) => ({
     ...state,
     loading: true,
-    error: null,
+    error: '',
   })),
   on(postCheckInSuccess, (state, { data }) => ({
     ...state,
     loading: false,
-    data: data,
+    data,
   })),
   on(postCheckInFailure, (state, { error }) => ({
     ...state,
     loading: false,
-    // error,
+    error,
   }))
 );

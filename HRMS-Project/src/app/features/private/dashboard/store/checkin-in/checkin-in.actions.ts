@@ -4,14 +4,14 @@ import {
 } from './../../types/check-in.interface';
 import { createAction, props } from '@ngrx/store';
 
-export const postCheckIn = createAction(
+export const postCheckInAction = createAction(
   '[CheckIn] Post CheckIn',
   props<{ checkInDetails: CheckInDetails }>()
 );
 
 export const postCheckInSuccess = createAction(
   '[CheckIn Post CheckIn Success]',
-  props<{ data: CheckInDetailsResponse }>()
+  props<{ data: CheckInDetails }>()
 );
 
 export const postCheckInFailure = createAction(

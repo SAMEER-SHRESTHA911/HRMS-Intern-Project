@@ -10,7 +10,10 @@
       <label class="block font-medium"
         >Select Your Work Location for Today</label
       >
-      <div class="flex justify-around items-center my-8">
+      <mat-radio-group
+        formControlName="workLocation"
+        class="flex justify-around items-center my-8"
+      >
         <label
           class="flex items-center font-medium peer-checked/draft:text-sky-500"
         >
@@ -31,7 +34,7 @@
           />
           Work From Home
         </label>
-      </div>
+      </mat-radio-group>
       <p
         *ngIf="
           (checkInForm.get('workLocation')?.touched ||
@@ -72,7 +75,6 @@
       </button>
       <button
         type="submit"
-        (click)="onSubmit()"
         class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
       >
         Check-In

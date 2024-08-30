@@ -1,11 +1,11 @@
 export interface CheckInState {
   checkInData: { result: number; message: string; data: string };
   loading: boolean;
-  error: string | null;
+  error: string;
 }
 
 export const initialState = {
   checkInData: {},
   loading: false,
-  error: null,
+  error: "",
 };
