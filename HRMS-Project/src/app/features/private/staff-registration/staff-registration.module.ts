@@ -14,7 +14,10 @@ import { staffReducer } from './add-staff/store/add-staff.reducer';
 import { StaffListEffects } from './staff-list/store/staff-list.effects';
 import { staffListReducer } from './staff-list/store/staff-list.reducer';
 import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
-// import { ProfileDetailsModule } from '../profile-details/profile-details.module';
+import { countryReducer } from '../../../shared/store/add-staff-dropdowns/country/country.reducer';
+import { CountryEffects } from '../../../shared/store/add-staff-dropdowns/country/country.effects';
+import { DepartmentEffects } from '../../../shared/store/add-staff-dropdowns/department/department.effects';
+import { departmentReducer } from '../../../shared/store/add-staff-dropdowns/department/department.reducer';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,14 @@ import { DialogComponent } from '../../../shared/components/dialog/dialog.compon
     // ProfileDetailsModule,
     StoreModule.forFeature('staff', staffReducer),
     StoreModule.forFeature('staffList', staffListReducer),
-    EffectsModule.forFeature([StaffEffects, StaffListEffects]),
+    EffectsModule.forFeature([
+      StaffEffects,
+      StaffListEffects,
+      CountryEffects,
+      DepartmentEffects,
+    ]),
+    StoreModule.forFeature('country', countryReducer),
+    StoreModule.forFeature('department', departmentReducer),
   ],
 })
 export class StaffRegistrationModule {}

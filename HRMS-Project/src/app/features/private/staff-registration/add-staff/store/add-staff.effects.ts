@@ -22,7 +22,7 @@ export class StaffEffects {
       ofType(addStaff),
       mergeMap(({ staff }) =>
         this.addStaffService.postStaff(staff).pipe(
-          map((newStaff) => addStaffSuccess({ staff: newStaff })),
+          map((newStaff) => addStaffSuccess({ staff: newStaff.data })),
           catchError((error) => of(addStaffFailure({ error })))
         )
       )

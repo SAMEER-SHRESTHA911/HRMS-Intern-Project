@@ -12,6 +12,8 @@ import {
   editStaffDetailsFailure,
   loadStaffList,
 } from './staff-list.actions';
+import { StaffList } from '../model/staff-list';
+import { ResponseType } from '../../../../../shared/models/response.model';
 
 @Injectable()
 export class StaffListEffects {
@@ -20,7 +22,9 @@ export class StaffListEffects {
       ofType(loadStaffList),
       mergeMap(() =>
         this.staffListService.getStaffList().pipe(
-          map((staff) => StaffListActions.loadStaffListSuccess({ staff })),
+          map((staff: ResponseType<StaffList[]>) =>
+            StaffListActions.loadStaffListSuccess({ staff: staff.data })
+          ),
           catchError((error) =>
             of(StaffListActions.loadStaffListFailure({ error: error.message }))
           )
