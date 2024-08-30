@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CheckingInDialogComponent } from './components/checking-in-dialog/checking-in-dialog.component';
 import { postCheckInReducer } from './store/checkin-in/checkin-in.reducer';
 import { CheckInEffects } from './store/checkin-in/checkin-in.effects';
+import { TodaysAttendanceComponent } from './components/todays-attendance/todays-attendance.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CheckInEffects } from './store/checkin-in/checkin-in.effects';
     LeaveStatsComponent,
     CheckingInComponent,
     CheckingInDialogComponent,
+    TodaysAttendanceComponent,
   ],
   imports: [
     CommonModule,
