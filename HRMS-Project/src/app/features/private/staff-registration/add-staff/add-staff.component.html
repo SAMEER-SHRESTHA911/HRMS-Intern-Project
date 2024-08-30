@@ -81,9 +81,9 @@
 
     <div>
       <mat-radio-group aria-label="Select Gender" formControlName="gender">
-        <mat-radio-button value="male">Male</mat-radio-button>
-        <mat-radio-button value="female">Female</mat-radio-button>
-        <mat-radio-button value="others">Others</mat-radio-button>
+        <mat-radio-button value="1">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+        <mat-radio-button value="3">Others</mat-radio-button>
       </mat-radio-group>
       <mat-error
         *ngIf="
@@ -140,12 +140,14 @@
     </div>
     <div>
       <mat-form-field appearance="outline">
-        <!-- <mat-label>Address</mat-label> -->
         <mat-label>Country</mat-label>
-        <mat-select>
-          <mat-option value="option">Nepal</mat-option>
-          <mat-option value="option">America</mat-option>
-          <mat-option value="option">Australia</mat-option>
+        <mat-select [(ngModel)]="selectedCountry" name="country">
+          <mat-option
+            *ngFor="let country of countries$ | async"
+            [value]="country.code"
+          >
+            {{ country.name }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
@@ -160,15 +162,6 @@
       </mat-form-field>
     </div>
 
-    <!-- <mat-option value="option">
-          <mat-label>City</mat-label>
-          <mat-select>
-            <mat-option value="option">Kathmandu</mat-option>
-            <mat-option value="option">Chicago</mat-option>
-            <mat-option value="option">NewYork</mat-option>
-          </mat-select></mat-option
-        </mat-select>
-          > -->
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Enter Nationality</mat-label>
@@ -239,12 +232,15 @@
     <div>
       <mat-form-field appearance="outline">
         <mat-label>Department</mat-label>
-        <mat-select formControlName="department">
-          <mat-option value="angular">Angular</mat-option>
-          <mat-option value="dotnet">DotNet</mat-option>
-          <mat-option value="flutter">Flutter</mat-option>
-          <mat-option value="qa">QA</mat-option>
+        <mat-select [(ngModel)]="selectedDepartments" name="department">
+          <mat-option
+            *ngFor="let department of departments$ | async"
+            [value]="department.id"
+          >
+            {{ department.name }}
+          </mat-option>
         </mat-select>
+
         <mat-error
           *ngIf="
             (registrationForm.get('department')?.touched ||

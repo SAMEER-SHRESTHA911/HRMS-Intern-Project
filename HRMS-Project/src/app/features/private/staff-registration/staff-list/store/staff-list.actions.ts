@@ -3,14 +3,6 @@ import { StaffList } from '../model/staff-list';
 import { StaffDetails } from '../../add-staff/model/add-staff';
 
 export const loadStaffList = createAction('[Staff List] Load StaffList');
-export const deleteStaffDetails = createAction(
-  '[Staff List] delete StaffListDetails',
-  props<{ id: number | string }>()
-);
-export const editStaffDetails = createAction(
-  '[Staff List] edit StaffListDetails',
-  props<{ id: string | number; staff: StaffDetails }>()
-);
 
 export const loadStaffListSuccess = createAction(
   '[Staff List] Load StaffList Success',
@@ -21,6 +13,10 @@ export const loadStaffListFailure = createAction(
   '[Staff List] Load StaffList Failure',
   props<{ error: string }>()
 );
+export const deleteStaffDetails = createAction(
+  '[Staff List] delete StaffListDetails',
+  props<{ id: number | string }>()
+);
 export const deleteStaffDetailsSucess = createAction(
   '[Staff List] delete StaffListDetails Sucess',
   props<{ id: number | string }>()
@@ -28,6 +24,10 @@ export const deleteStaffDetailsSucess = createAction(
 export const deleteStaffDetailsFailure = createAction(
   '[Staff List] delete StaffListDetails Failure',
   props<{ error: string }>()
+);
+export const editStaffDetails = createAction(
+  '[Staff List] edit StaffListDetails',
+  props<{ id: string | number; staff: StaffDetails }>()
 );
 export const editStaffDetailsSucess = createAction(
   '[Staff List] edit StaffListDetails Sucess',

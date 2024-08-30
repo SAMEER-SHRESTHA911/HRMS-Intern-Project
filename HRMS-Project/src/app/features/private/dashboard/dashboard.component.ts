@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Dashboard } from './types/dashboard.interface';
-import { Store } from '@ngrx/store';
-import { DashboardState } from './store/dashboad.state';
-import { selectDashboard } from './store/dashboard.selector';
-import { loadDashboard } from './store/dashboard.actions';
+import { select, Store } from '@ngrx/store';
+import { DashboardState } from './store/dashboard/dashboard.state';
+import { selectDashboard } from './store/dashboard/dashboard.selector';
+import { loadDashboard } from './store/dashboard/dashboard.actions';
 
 @Component({
   selector: 'app-dashboard',
