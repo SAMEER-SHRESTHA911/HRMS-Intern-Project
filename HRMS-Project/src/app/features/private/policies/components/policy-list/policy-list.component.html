@@ -10,7 +10,7 @@
   </div>
 
   <mat-accordion>
-    <mat-expansion-panel *ngFor="let policy of policies">
+    <mat-expansion-panel *ngFor="let policy of policies$ | async">
       <mat-expansion-panel-header>
         <mat-panel-title>
           {{policy.title}}

@@ -1,41 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { PolicyService } from '../../service/policy.service';
-import { PoliciesComponent } from '../../policies.component';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { Policy } from '../../models/policy.model';
+import { PolicyState } from '../../store/policy-list/policy-list.state';
+import * as PolicyActions from '../../store/policy-list/policy-list.action';
+import * as fromPolicy from '../../store/policy-list/policy-list.selector';
 import { Router } from '@angular/router';
+import { selectAllPolicies } from '../../store/policy-list/policy-list.selector';
+import { loadPolicies } from '../../store/policy-list/policy-list.action';
 
 @Component({
   selector: 'app-policy-list',
   templateUrl: './policy-list.component.html',
-  styleUrl: './policy-list.component.scss'
+  styleUrls: ['./policy-list.component.scss']
 })
 export class PolicyListComponent implements OnInit {
-  policies : Policy[]= [{
-    id : "string",
-    category: 'string',
-    title : 'string',
-    content : 'string'
-    }];
-  panelOpenState: any
+  policies$: Observable<Policy[]>;
+  loading$: Observable<boolean>;
+  error$: Observable<string | null>;
 
-  constructor(private policyService:PolicyService , private router: Router) { }
 
+  constructor(private store: Store<PolicyState>, private router: Router) {
+    this.policies$ = this.store.select(selectAllPolicies);
+    this.loading$ = this.store.select(fromPolicy.selectPolicyLoading);
+    this.error$ = this.store.select(fromPolicy.selectPolicyError);
+  }
 
   ngOnInit(): void {
-      this.policyService.getPolicies().subscribe(data=>{
-        this.policies=data;
-      });
+    this.store.dispatch(PolicyActions.loadPolicies());
+    this.policies$.subscribe((data) => console.log(data))
   }
-  editPolicy(id:string):void{
+
+  editPolicy(id: string): void {
     this.router.navigate(['admin/policies/edit-policy', id]);
   }
 
-  deletePolicy(id:string):void{
-  this.policyService.deletePolicy(id).subscribe(()=>{
-    this.policies=this.policies.filter(policy=>policy.id!=id);
-  });
- }
- routeToPolicyForm(){
-  this.router.navigate(['admin/policies/policy-form']);
-}
+  deletePolicy(id: string): void {
+    this.store.dispatch(PolicyActions.deletePolicy({ id }));
+  }
+
+  routeToPolicyForm(): void {
+    this.router.navigate(['admin/policies/policy-form']);
+  }
 }
