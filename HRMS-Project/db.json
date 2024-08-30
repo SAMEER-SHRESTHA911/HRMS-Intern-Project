@@ -168,7 +168,8 @@
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Present",
       "WorkedHours": 8.5,
-      "Actions": "View"
+      "Actions": "View",
+      "id": "fd5c"
     },
     {
       "SN": 2,
@@ -179,7 +180,8 @@
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Present",
       "WorkedHours": 8.5,
-      "Actions": "View"
+      "Actions": "View",
+      "id": "fd12"
     },
     {
       "SN": 3,
@@ -189,8 +191,9 @@
       "CheckedOutTime": "2024-08-28T17:50:00",
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Present",
-      "WorkedHours": 8.0,
-      "Actions": "View"
+      "WorkedHours": 8,
+      "Actions": "View",
+      "id": "2d6e"
     },
     {
       "SN": 4,
@@ -201,7 +204,8 @@
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Present",
       "WorkedHours": 8.5,
-      "Actions": "View"
+      "Actions": "View",
+      "id": "3e1e"
     },
     {
       "SN": 5,
@@ -212,7 +216,8 @@
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Present",
       "WorkedHours": 8.5,
-      "Actions": "View"
+      "Actions": "View",
+      "id": "e8a3"
     },
     {
       "SN": 6,
@@ -223,10 +228,10 @@
       "CheckedOutStatus": "On Time",
       "PresentAbsent": "Absent",
       "WorkedHours": 0,
-      "Actions": "View"
+      "Actions": "View",
+      "id": "7bcd"
     }
   ],
-
   "leaveApply": [
     {
       "employeeId": 8,
@@ -449,6 +454,18 @@
       "title": " Company leave Policies",
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
+    }
+  ],
+  "checkInDetails": [
+    {
+      "reason": "I am working form Home",
+      "workLocation": "Home",
+      "id": "5d57"
+    },
+    {
+      "id": "0fc2",
+      "remarks": "sdsdsdsds",
+      "workLocation": "2"
     }
   ],
   "requestList": [

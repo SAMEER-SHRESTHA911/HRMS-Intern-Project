@@ -6,7 +6,7 @@ import {
   loadDashboardSuccess,
 } from './dashboard.actions';
 import { catchError, map, mergeMap, of } from 'rxjs';
-import { DashboardService } from '../services/dashboard.service';
+import { DashboardService } from '../../services/dashboard/dashboard.service';
 @Injectable()
 export class DashboardEffect {
   loadStaff$ = createEffect(() =>

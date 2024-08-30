@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DashboardState } from '../store/dashboad.state';
 import { Observable, of } from 'rxjs';
-import { Dashboard } from '../types/dashboard.interface';
-import { selectDashboard } from '../store/dashboard.selector';
-import { loadDashboard } from '../store/dashboard.actions';
+import { Dashboard } from '../../types/dashboard.interface';
+import { selectDashboard } from '../../store/dashboard/dashboard.selector';
+import { loadDashboard } from '../../store/dashboard/dashboard.actions';
+import { DashboardState } from '../../store/dashboard/dashboard.state';
 
 @Component({
   selector: 'app-leave-stats',
