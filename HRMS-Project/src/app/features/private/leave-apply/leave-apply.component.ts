@@ -18,6 +18,8 @@ import {
   leaveTypeDropDownLoading,
 } from '../../../shared/store/leave-type-dropdown/leave-type.selector';
 import { LeaveTypeDropdown } from '../../../shared/store/leave-type-dropdown/leave-type.state';
+import { loggedInUser } from '../../../shared/constants/global.constants';
+import { formatDate } from '../../../shared/utils/date-utils';
 
 @Component({
   selector: 'app-leave-apply',
@@ -106,23 +108,30 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       return;
     }
     const formValue = this.leaveApplyForm?.value;
-    // const formValueSubmit = {
-    //   reasonForLeave: formValue.reasonForLeave,
-    //   leaveType: formValue.leaveType,
-    //   leaveFrom: '',
-    //   leaveTo: '2024-08-24T18:15:00.000Z',
-    //   department: 'Angular',
-    //   dayLeave: 'Second Half',
-    // };
+
+    const selectedDayLeave = this.dayLeaveTypeArray.find(item => item.value === formValue.dayLeave.value)?.key;
+    const selectedLeaveType = this.leaveTypeArray.find(item => item.value === formValue.leaveType.value)?.key;
+    const formattedLeaveFrom = formatDate(formValue.leaveFrom);
+    const formattedLeaveTo = formatDate(formValue.leaveTo);
+
+    const formValueSubmit = {
+      employeeId: Number(loggedInUser.id),
+      leaveFrom: formattedLeaveFrom,
+      leaveTo: formattedLeaveTo,
+      leaveType: selectedLeaveType??0,
+      dayLeave: selectedDayLeave??0,
+      reasonForLeave: formValue.reasonForLeave,
+      leaveRequestStatus : 3
+    };
+
 
     if (this.isEditMode && this.leaveId !== null) {
       this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));
     } else {
-      console.log(formValue);
-      this.store.dispatch(submitLeaveForm({ leaveData: formValue }));
+      this.store.dispatch(submitLeaveForm({ leaveData: formValueSubmit }));
     }
 
-    this.router.navigate(['/admin/dashboard']);
+    this.router.navigate(['/admin/leave-management']);
   }
 
   private loadEditData(leaveId?: string): void {

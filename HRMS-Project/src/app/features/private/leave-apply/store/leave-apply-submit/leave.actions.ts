@@ -15,5 +15,5 @@ export const submitLeaveFormSuccess = createAction(
 );
 export const submitLeaveFormFail = createAction(
   leaveApplyFail,
-  props<{ error: any }>()
+  props<{ error: string|null }>()
 );

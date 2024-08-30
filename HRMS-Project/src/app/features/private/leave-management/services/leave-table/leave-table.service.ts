@@ -8,15 +8,8 @@ import { LeaveAvailableData, LeaveTableData, LeaveTableResponse } from '../../ty
 })
 export class LeaveTableService {
 
-  //previous API_URL
-  // private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
-  // private fetchEmployeeLeaveRequestResponse = "http://localhost:3000/GetEmployeeLeaveRequestList";
-  
-  //Jha Ji
-  // private fetchEmployeeLeaveRequestResponse = "https://53x7mkhh-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
-  
-  //Abhisha 
-  private fetchEmployeeLeaveRequestResponse = "https://sgbvkfhd-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
+  private fetchEmployeeLeaveRequestResponse = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId?id=";
+  // private fetchEmployeeLeaveRequestResponse = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
   
   private fetchLeaveDataStatus = "http://localhost:3000/leaveAvailableData";
   
@@ -29,11 +22,11 @@ export class LeaveTableService {
     return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
   }
 
-  getLeaveTableData(): Observable<{ message: string; leaveData : LeaveTableData[]}>{
-    return this.http.get<LeaveTableResponse>(this.fetchEmployeeLeaveRequestResponse).pipe(
+  getLeaveTableData(id: string): Observable<{ message: string; leaveData : LeaveTableData[]}>{
+    return this.http.get<LeaveTableResponse>(`${this.fetchEmployeeLeaveRequestResponse}${id}`).pipe(
       map(response => ({
         message: response.message,
-        leaveData : response.data.employeeLeaveRequestResponse
+        leaveData : response.data
       }))
     );
   }

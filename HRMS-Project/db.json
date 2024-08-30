@@ -333,6 +333,48 @@
         "key": 1,
         "value": "FirstHalf"
       }
+    },
+    {
+      "id": "648e",
+      "reasonForLeave": "samerer",
+      "leaveType": {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 1,
+        "value": "FirstHalf"
+      }
+    },
+    {
+      "id": "169c",
+      "reasonForLeave": "sameer",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
+    },
+    {
+      "id": "685d",
+      "reasonForLeave": "dasdas",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
     }
   ],
   "loggedInUser": [

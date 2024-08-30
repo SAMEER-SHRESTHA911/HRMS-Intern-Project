@@ -17,12 +17,7 @@ export interface LeaveTableData {
 export interface LeaveTableResponse {
   result: number;
   message: string;
-  data: {
-    skip: number;
-    take: number;
-    count: number;
-    employeeLeaveRequestResponse: LeaveTableData[];
-  };
+  data: Array<LeaveTableData>;
 }
 
 export interface LeaveAvailableData {
@@ -42,4 +37,18 @@ export interface LeaveRequestList {
   name: string;
   daysLeft: string;
   employeeId: string;
+}
+
+export interface LeaveBalanceResponse{
+  result: number,
+  message: string,
+  leaveBalanceData: Array<LeaveBalanceData>
+}
+
+export interface  LeaveBalanceData {
+  id:number,
+  employeeId: number,
+  remainingCount: number,
+  totalCount: number,
+  leaveTypeEnum : number
 }

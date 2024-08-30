@@ -16,7 +16,8 @@
                 <mat-card-header>
                     <div class="detail-header">
                         <div class="header-number blue-background">
-                            <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveTaken }} <br>
+                            <!-- <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveTaken }} <br> -->
+                            <mat-card-title>10<br>
                                 <span class="size-600 padl5">DAYS</span>
                             </mat-card-title>
                         </div>
@@ -34,7 +35,8 @@
                     <mat-card-title-group>
                         <div class="detail-header">
                             <div class="header-number green-background">
-                                <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveAvailable }} <br>
+                                <!-- <mat-card-title>{{ (availableLeaveData$|async)?.totalLeaveAvailable }} <br> -->
+                                <mat-card-title>10 <br>
                                     <span class="size-600 padl5">DAYS</span>
                                 </mat-card-title>
                             </div>
@@ -45,6 +47,17 @@
                     </mat-card-title-group>
                 </mat-card-header>
             </mat-card>
+        </div>
+
+        <div class="dropdown">
+            <mat-form-field>
+                <mat-label>Leave Type</mat-label>
+                <mat-select disableRipple>
+                  <mat-option value="1">Sick Leave</mat-option>
+                  <mat-option value="2">Annual Leave</mat-option>
+                  <mat-option value="3">Other Leave</mat-option>
+                </mat-select>
+              </mat-form-field>
         </div>
     </div>
     <div class="third-row">

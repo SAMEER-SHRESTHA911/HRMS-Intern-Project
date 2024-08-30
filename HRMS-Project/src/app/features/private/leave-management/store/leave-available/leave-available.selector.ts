@@ -9,7 +9,7 @@ export const selectAvailableLeaveData =
 
 export const selectAvailableLeave = createSelector(
   selectAvailableLeaveData,
-  (state) => state.availableData
+  (state) => state.leaveBalanceData
 );
 
 export const selectAvailableLeaveLoading = createSelector(

@@ -8,7 +8,8 @@ import { DayLeaveDropDownResponse } from '../../store/day-leave-dropdown/day-lea
 })
 export class DayLeaveDropdownService {
 
-  private dayLeaveDropDownApi = `http://localhost:3000/DayLeave`;
+  // private dayLeaveDropDownApi = `http://localhost:3000/DayLeave`;
+  private dayLeaveDropDownApi = `http://localhost:5262/apigateway/attendanceLeave/EnumData/GetAllDayLeave`;
   constructor(private http: HttpClient) { }
 
   getDayLeaveDropdown(): Observable<DayLeaveDropDownResponse>{

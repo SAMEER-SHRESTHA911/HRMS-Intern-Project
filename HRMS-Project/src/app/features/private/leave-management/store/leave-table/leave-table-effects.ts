@@ -5,25 +5,27 @@ import { LeaveTableService } from '../../services/leave-table/leave-table.servic
 import { catchError, map, mergeMap, of } from 'rxjs';
 import * as LeaveTableDataActions from './leave-table.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { loggedInUser } from '../../../../../shared/constants/global.constants';
 
 @Injectable()
 export class LeaveTableEffects {
   constructor(
     private action$: Actions,
     private leaveTableService: LeaveTableService,
-    private snackBar : MatSnackBar
+    private snackBar: MatSnackBar
   ) {}
 
   loadLeaveTable$ = createEffect(() =>
     this.action$.pipe(
       ofType(LEAVE_TABLE_DATA),
       mergeMap(() =>
-        this.leaveTableService.getLeaveTableData().pipe(
-          map(({ message, leaveData}) =>{
+        this.leaveTableService.getLeaveTableData(loggedInUser.id).pipe(
+          map(({ message, leaveData }) => {
             this.snackBar.open(message, 'Close', { duration: 3000 });
-            return LeaveTableDataActions.LEAVE_TABLE_DATA_SUCCESS({ leaveData });
-          }
-          ),
+            return LeaveTableDataActions.LEAVE_TABLE_DATA_SUCCESS({
+              leaveData,
+            });
+          }),
           catchError((error) =>
             of(
               LeaveTableDataActions.LEAVE_TABLE_DATA_FAILURE({
