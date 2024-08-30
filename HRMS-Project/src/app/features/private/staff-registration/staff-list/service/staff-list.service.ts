@@ -3,15 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StaffList } from '../model/staff-list';
 import { StaffDetails } from '../../add-staff/model/add-staff';
-
+import { apiConstants } from '../../../../../shared/constants/api.constants';
+import { baseUrl } from '../../../../../shared/constants/global.constants';
+import { ResponseType } from '../../../../../shared/models/response.model';
 @Injectable({
   providedIn: 'root',
 })
 export class StaffListService {
-  private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = `${baseUrl}${apiConstants.getEmployeeList}`;
   constructor(private http: HttpClient) {}
-  getStaffList(): Observable<StaffList[]> {
-    return this.http.get<StaffList[]>(this.apiUrl);
+  getStaffList(): Observable<ResponseType<StaffList[]>> {
+    return this.http.get<ResponseType<StaffList[]>>(this.apiUrl);
   }
   deleteStaff(id: number | string): Observable<StaffList> {
     return this.http.delete<StaffList>(`${this.apiUrl}/${id}`);

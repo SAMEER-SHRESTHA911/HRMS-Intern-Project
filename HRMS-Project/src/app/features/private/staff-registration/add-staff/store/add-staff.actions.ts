@@ -13,5 +13,5 @@ export const addStaffSuccess = createAction(
 
 export const addStaffFailure = createAction(
   '[Staff] Add Staff Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );

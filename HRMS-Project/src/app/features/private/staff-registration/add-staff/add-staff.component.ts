@@ -23,6 +23,12 @@ import { StaffState } from './store/add-staff.state';
 import { editStaffDetails } from '../staff-list/store/staff-list.actions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StaffListService } from '../staff-list/service/staff-list.service';
+import { CountryData } from '../../../../shared/models/country.interface';
+import { selectAllCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.selector';
+import { loadCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.actions';
+import { loadDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.actions';
+import { DepartmentData } from '../../../../shared/models/department.interface';
+import { selectAllDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.selector';
 
 @Component({
   selector: 'app-add-staff',
@@ -41,7 +47,11 @@ export class AddStaffComponent implements OnInit {
   staff$: Observable<StaffDetails[]> = of([]);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
+  countries$: Observable<CountryData[]> = of([]);
+  departments$: Observable<DepartmentData[]> = of([]);
 
+  selectedCountry!: string;
+  selectedDepartments!: string;
   get registrationForm(): FormGroup {
     return this.formService.registrationForm;
   }
@@ -62,6 +72,8 @@ export class AddStaffComponent implements OnInit {
     this.initializeEditMode();
     this.setMaxDateForDob();
     this.setMaxStartDate();
+    this.getCountryList();
+    this.getDeparmentList();
   }
   setMaxDateForDob(): void {
     const today = new Date();
@@ -74,8 +86,11 @@ export class AddStaffComponent implements OnInit {
   setMaxStartDate(): void {
     this.maxStartDate = new Date();
   }
-  getRandomNumber(): number {
-    return Math.floor(100 + Math.random() * 900);
+  getDeparmentList(): void {
+    this.store.dispatch(loadDepartments());
+  }
+  getCountryList(): void {
+    this.store.dispatch(loadCountries());
   }
 
   private initializeEditMode(): void {
@@ -106,7 +121,7 @@ export class AddStaffComponent implements OnInit {
     if (this.registrationForm.valid) {
       const staffDetails: StaffDetails = {
         ...this.registrationForm.value,
-        id: this.getRandomNumber(),
+        id: this.staffId,
       };
 
       if (this.isEditMode && this.staffId !== null) {
@@ -129,5 +144,7 @@ export class AddStaffComponent implements OnInit {
     this.staff$ = this.store.pipe(select(selectAllStaff));
     this.loading$ = this.store.pipe(select(selectStaffLoading));
     this.error$ = this.store.pipe(select(selectStaffError));
+    this.countries$ = this.store.select(selectAllCountries);
+    this.departments$ = this.store.select(selectAllDepartments);
   }
 }
