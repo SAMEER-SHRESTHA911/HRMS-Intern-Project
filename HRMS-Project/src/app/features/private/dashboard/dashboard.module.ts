@@ -16,6 +16,10 @@ import { CheckingInDialogComponent } from './components/checking-in-dialog/check
 import { postCheckInReducer } from './store/checkin-in/checkin-in.reducer';
 import { CheckInEffects } from './store/checkin-in/checkin-in.effects';
 import { TodaysAttendanceComponent } from './components/todays-attendance/todays-attendance.component';
+import { todayAttendanceSummaryReducer } from './store/todays-attendance/today-attendance.reducer';
+import { TodayAttendanceSummaryEffect } from './store/todays-attendance/today-attendance.effects';
+import { allUsersPendingLeaveRequestsReducer } from './store/leave-summary/leave-summary.reducer';
+import { allUsersPendingLeaveRequestEffects } from './store/leave-summary/leave -summary.effects';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,16 @@ import { TodaysAttendanceComponent } from './components/todays-attendance/todays
     EffectsModule.forFeature([DashboardEffect]),
     StoreModule.forFeature('checkIn', postCheckInReducer),
     EffectsModule.forFeature([CheckInEffects]),
+    StoreModule.forFeature(
+      'todayAttendanceSummary',
+      todayAttendanceSummaryReducer
+    ),
+    EffectsModule.forFeature([TodayAttendanceSummaryEffect]),
+    StoreModule.forFeature(
+      'allUsersPendingLeaveRequest',
+      allUsersPendingLeaveRequestsReducer
+    ),
+    EffectsModule.forFeature([allUsersPendingLeaveRequestEffects]),
   ],
 })
 export class DashboardModule {}

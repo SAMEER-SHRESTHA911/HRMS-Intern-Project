@@ -10,6 +10,6 @@ export const apiConstants = Object.freeze({
     postCheckIn: '/attendanceLeave/Attendance/CheckIn',
     postCheckOut: '/attendanceLeave/Attendance/CheckOut',
     getTodaysAttendanceSummary:
-      '/attendanceLeave/Attendance/GetCurrentDayAttendanceSummary',
+      '/api/Attendance/GetCurrentDayAttendanceSummary',
   }),
 });

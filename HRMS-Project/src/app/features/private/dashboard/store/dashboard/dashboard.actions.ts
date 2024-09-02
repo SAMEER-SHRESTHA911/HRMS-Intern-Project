@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Dashboard } from '../../types/dashboard.interface';
+import { Dashboard } from '../../types/leave-summary.interface';
 
 export const loadDashboard = createAction('[Load Dashboard] Load Dashboard');
 

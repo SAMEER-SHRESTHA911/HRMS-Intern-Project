@@ -1,10 +1,14 @@
+import {
+  selectAllUsersPendingLeaveRequestDataLoading,
+  selectAllUsersPendingLeaveRequestDataError,
+} from './../../store/leave-summary/leave-summary.selectors';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { Dashboard } from '../../types/dashboard.interface';
-import { selectDashboard } from '../../store/dashboard/dashboard.selector';
-import { loadDashboard } from '../../store/dashboard/dashboard.actions';
-import { DashboardState } from '../../store/dashboard/dashboard.state';
+import { LeaveRequests } from '../../types/leave-summary.interface';
+import { AllUsersPendingLeaveRequestState } from '../../store/leave-summary/leave-summary.state';
+import { selectAllUsersPendingLeaveRequestData } from '../../store/leave-summary/leave-summary.selectors';
+import { FETCH_LEAVE_REQUESTS } from '../../store/leave-summary/leave-summary.actions';
 
 @Component({
   selector: 'app-leave-stats',
@@ -12,16 +16,23 @@ import { DashboardState } from '../../store/dashboard/dashboard.state';
   styleUrl: './leave-stats.component.scss',
 })
 export class LeaveStatsComponent {
-  dashboard$: Observable<Dashboard[]> = of([]);
+  userRole = 'admin';
+  pendingLeaveRequestData$: Observable<LeaveRequests[]> = of([]);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
-  constructor(private store: Store<DashboardState>) {}
+  constructor(private store: Store<AllUsersPendingLeaveRequestState>) {}
 
   selectorInitilizer(): void {
-    this.dashboard$ = this.store.select(selectDashboard);
+    this.pendingLeaveRequestData$ = this.store.select(
+      selectAllUsersPendingLeaveRequestData
+    );
+    this.loading$ = this.store.select(
+      selectAllUsersPendingLeaveRequestDataLoading
+    );
+    this.error$ = this.store.select(selectAllUsersPendingLeaveRequestDataError);
   }
   ngOnInit(): void {
-    this.store.dispatch(loadDashboard());
     this.selectorInitilizer();
+    this.store.dispatch(FETCH_LEAVE_REQUESTS());
   }
 }

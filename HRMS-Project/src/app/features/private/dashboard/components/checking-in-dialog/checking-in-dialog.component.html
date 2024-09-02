@@ -1,18 +1,15 @@
-<p class="bg-blue-500 text-white p-6 font-normal">
-  You are about to <span class="font-bold">Check-In!</span> Please provide
-  required details:
-</p>
+<p class="bg-blue-400 text-white p-5 text-xl font-bold">CHECK-IN!</p>
 <div
-  class="dialog overflow-auto px-6 pb-6 rounded-md shadow-lg border border-t-4 border-blue-500"
+  class="dialog overflow-auto px-6 pb-6 rounded-md shadow-lg border border-t-4 border-blue-400"
 >
-  <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()" class="mt-5">
+  <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
     <div>
       <label class="block font-medium"
         >Select Your Work Location for Today</label
       >
       <mat-radio-group
         formControlName="workLocation"
-        class="flex justify-around items-center my-8"
+        class="flex justify-around items-center my-4"
       >
         <label
           class="flex items-center font-medium peer-checked/draft:text-sky-500"
@@ -43,7 +40,7 @@
         "
         class="text-red-500 text-sm mt-1"
       >
-        Required!
+        Work Location is required!
       </p>
     </div>
     <div class="mb-4">
@@ -60,9 +57,9 @@
             checkInForm.get('remarks')?.dirty) &&
           checkInForm.get('remarks')?.hasError('required')
         "
-        class="text-red-500 text-sm mt-3"
+        class="text-red-500 text-sm pt-4"
       >
-        Remarks are required!
+        Remarks is required!
       </p>
     </div>
     <div class="flex justify-end space-x-4">
