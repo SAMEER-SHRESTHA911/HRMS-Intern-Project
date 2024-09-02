@@ -1,21 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { LeaveRequestList, LeaveRequestListResponse } from '../types/types';
+import { ImageData, ImageResponse, LeaveRequestList, LeaveRequestListResponse } from '../types/types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeaveConfirmationService {
 
-  private baseUrl = "http://localhost:3000/requestList";
+  private apiUrl = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList";
+
+  private imgUrl = "http://localhost:5262/apigateway/user/Document/GetProfilePictureOfEmp?empId="
 
   constructor(private http:HttpClient) { }
 
   fetchRequestList(): Observable<LeaveRequestList[]> {
-    return this.http.get<LeaveRequestListResponse>(this.baseUrl).pipe(
+    return this.http.post<LeaveRequestListResponse>(this.apiUrl,{}).pipe(
       map((response) => {
-        console.log('API responsea', response);
+        console.log('API response', response);
         if (response && response.data && response.data.employeeLeaveRequestResponse) {
           return response.data.employeeLeaveRequestResponse;
         }
@@ -24,4 +26,13 @@ export class LeaveConfirmationService {
     );
   }
   
+  fetchImage(id:string|number):Observable<ImageData>{
+    return this.http.get<ImageResponse>(`${this.imgUrl}${id}`).pipe(
+      map((response) => ({
+          imageDataBase64: response.data.imageDataBase64,
+          imageName: response.data.imageName,
+          employeeId: response.data.employeeId,
+      }))
+    );
+  }
 }

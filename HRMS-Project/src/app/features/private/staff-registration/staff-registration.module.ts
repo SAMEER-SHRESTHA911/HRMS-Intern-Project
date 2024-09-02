@@ -13,11 +13,11 @@ import { StaffEffects } from './add-staff/store/add-staff.effects';
 import { staffReducer } from './add-staff/store/add-staff.reducer';
 import { StaffListEffects } from './staff-list/store/staff-list.effects';
 import { staffListReducer } from './staff-list/store/staff-list.reducer';
-import { DialogComponent } from '../../../shared/components/dialog/dialog.component';
-import { countryReducer } from '../../../shared/store/add-staff-dropdowns/country/country.reducer';
-import { CountryEffects } from '../../../shared/store/add-staff-dropdowns/country/country.effects';
-import { DepartmentEffects } from '../../../shared/store/add-staff-dropdowns/department/department.effects';
-import { departmentReducer } from '../../../shared/store/add-staff-dropdowns/department/department.reducer';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { countryReducer } from '@shared/store/add-staff-dropdowns/country/country.reducer';
+import { CountryEffects } from '@shared/store/add-staff-dropdowns/country/country.effects';
+import { DepartmentEffects } from '@shared/store/add-staff-dropdowns/department/department.effects';
+import { departmentReducer } from '@shared/store/add-staff-dropdowns/department/department.reducer';
 
 @NgModule({
   declarations: [

@@ -6,20 +6,20 @@ import { submitLeaveForm } from './store/leave-apply-submit/leave.actions';
 import { filter, Subject, takeUntil } from 'rxjs';
 import { LeaveFormService } from './services/form/leave-form.service';
 import { GET_EDIT_LEAVE_DATA } from './store/leave-apply-form/leave-edit.action';
-import { DayLeaveDropdown } from '../../../shared/store/day-leave-dropdown/day-leave.state';
-import { FETCH_DAY_LEAVE_DROPDOWN } from '../../../shared/store/day-leave-dropdown/day-leave.actions';
+import { DayLeaveDropdown } from '@shared/store/day-leave-dropdown/day-leave.state';
+import { FETCH_DAY_LEAVE_DROPDOWN } from '@shared/store/day-leave-dropdown/day-leave.actions';
 import {
   DayLeaveDropDownData,
   DayLeaveDropDownLoading,
-} from '../../../shared/store/day-leave-dropdown/day-leave.selectors';
-import { FETCH_LEAVE_TYPE_DROPDOWN } from '../../../shared/store/leave-type-dropdown/leave-type.action';
+} from '@shared/store/day-leave-dropdown/day-leave.selectors';
+import { FETCH_LEAVE_TYPE_DROPDOWN } from '@shared/store/leave-type-dropdown/leave-type.action';
 import {
   LeaveTypeDropDownData,
   leaveTypeDropDownLoading,
-} from '../../../shared/store/leave-type-dropdown/leave-type.selector';
-import { LeaveTypeDropdown } from '../../../shared/store/leave-type-dropdown/leave-type.state';
-import { loggedInUser } from '../../../shared/constants/global.constants';
-import { formatDate } from '../../../shared/utils/date-utils';
+} from '@shared/store/leave-type-dropdown/leave-type.selector';
+import { LeaveTypeDropdown } from '@shared/store/leave-type-dropdown/leave-type.state';
+import { loggedInUser } from '@shared/constants/global.constants';
+import { formatDate } from '@shared/utils/date-utils';
 
 @Component({
   selector: 'app-leave-apply',

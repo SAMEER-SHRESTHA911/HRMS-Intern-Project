@@ -25,5 +25,14 @@ export interface LeaveRequestListData{
     take: number;
     count: number;
     employeeLeaveRequestResponse:  LeaveRequestList[];
-
+}
+export interface ImageResponse{
+  result: number;
+  message: string;
+  data: ImageData;
+}
+export interface ImageData{
+  employeeId: number;
+  imageName: string;
+  imageDataBase64: string;
 }

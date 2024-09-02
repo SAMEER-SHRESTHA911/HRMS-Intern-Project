@@ -50,5 +50,5 @@ export interface  LeaveBalanceData {
   employeeId: number,
   remainingCount: number,
   totalCount: number,
-  leaveTypeEnum : number
+  leaveTypeEnum : string
 }

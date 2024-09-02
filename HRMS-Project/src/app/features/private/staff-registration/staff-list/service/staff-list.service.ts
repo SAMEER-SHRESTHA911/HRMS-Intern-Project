@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StaffList } from '../model/staff-list';
 import { StaffDetails } from '../../add-staff/model/add-staff';
-import { apiConstants } from '../../../../../shared/constants/api.constants';
-import { baseUrl } from '../../../../../shared/constants/global.constants';
-import { ResponseType } from '../../../../../shared/models/response.model';
+import { apiConstants } from '@shared/constants/api.constants';
+import { baseUrl } from '@shared/constants/global.constants';
+import { ResponseType } from '@shared/models/response.model';
 @Injectable({
   providedIn: 'root',
 })

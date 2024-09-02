@@ -6,8 +6,8 @@ import {
   FETCH_LEAVE_REQUEST_lIST_SUCCESS,
 } from './leave-confirmation.actions';
 import { catchError, map, mergeMap, of } from 'rxjs';
-import { LeaveConfirmationService } from '../service/leave-confirmation.service';
-import { LeaveRequestList } from '../types/types';
+import { LeaveConfirmationService } from '../../service/leave-confirmation.service';
+import { LeaveRequestList } from '../../types/types';
 
 @Injectable()
 export class LeaveConfirmationEffects {

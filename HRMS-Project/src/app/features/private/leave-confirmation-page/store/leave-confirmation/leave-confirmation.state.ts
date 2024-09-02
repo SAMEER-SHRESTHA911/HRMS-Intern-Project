@@ -1,4 +1,4 @@
-import { LeaveRequestList } from "../types/types"
+import { LeaveRequestList } from "../../types/types"
 
 
 export interface LeaveRequestListState {

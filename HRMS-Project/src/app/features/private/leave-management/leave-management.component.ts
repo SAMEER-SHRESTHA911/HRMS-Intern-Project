@@ -39,6 +39,9 @@ export class LeaveManagementComponent implements OnInit{
 
   initializer(): void{
     this.availableLeaveData$ = this.store.pipe(select(selectAvailableLeave));
+    this.availableLeaveData$.subscribe(
+      data => console.log(data)
+    );
 
     this.loading$ = this.store.pipe(select(selectAvailableLeaveLoading));
     this.error$ = this.store.pipe(select(selectAvailableLeaveError));
@@ -46,10 +49,21 @@ export class LeaveManagementComponent implements OnInit{
   }
 
   filterLeaveDataInit():void{
+    
+    const leaveTypeMap : { [key:number]:string } = {
+      1: 'Sick',
+      2: 'Annual',
+      3: 'Other',
+    }
+
     this.filteredLeaveData$ = this.leaveTypeDropDown.valueChanges.pipe(
-      startWith(this.leaveTypeDropDown.value),
-      map(value => value??1),
-      switchMap((selectedLeaveType : number) => {
+      startWith(this.leaveTypeDropDown.value??1),
+      map(value => 
+        {
+          const validValue = value??1;
+          return leaveTypeMap[validValue]??'Sick';
+        }),
+      switchMap((selectedLeaveType : string) => {
         return this.availableLeaveData$.pipe(
           map(leaveDataArray => {
             const filteredData = leaveDataArray.find(data => data.leaveTypeEnum == selectedLeaveType);
