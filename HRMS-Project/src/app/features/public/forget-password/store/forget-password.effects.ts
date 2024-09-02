@@ -26,3 +26,4 @@ export class ForgetPasswordEffects {
     private forgetPasswordService: ForgetPasswordService
   ) {}
 }
+
