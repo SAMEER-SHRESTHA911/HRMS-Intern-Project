@@ -3,7 +3,6 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { CheckingInService } from '../../services/checking-in/checking-in.service';
 import { FormGroup } from '@angular/forms';
 import { CheckInDetails } from '../../types/check-in.interface';
-import { MatRadioModule } from '@angular/material/radio';
 import { postCheckInAction } from '../../store/checkin-in/checkin-in.actions';
 import { Store } from '@ngrx/store';
 import { CheckInState } from '../../store/checkin-in/checkin-in.state';
@@ -24,7 +23,7 @@ export class CheckingInDialogComponent {
   }
 
   ngOnInit(): void {
-    this.checkInService.checkInForm;
+    // this.checkInService.checkInForm;
   }
 
   onConfirm(): void {

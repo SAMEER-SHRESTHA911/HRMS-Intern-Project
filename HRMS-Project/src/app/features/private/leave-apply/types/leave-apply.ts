@@ -7,7 +7,6 @@ export interface LeaveApplyBody {
   leaveRequestStatus: number;
   reasonForLeave: string;
 }
-
 export interface LeaveApplyResponse{
     result: number,
     message: string,

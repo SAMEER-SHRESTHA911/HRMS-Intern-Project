@@ -24,6 +24,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -43,7 +45,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatToolbarModule,
     MatExpansionModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -72,7 +76,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTableModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
 })
 export class MaterialsModule {}

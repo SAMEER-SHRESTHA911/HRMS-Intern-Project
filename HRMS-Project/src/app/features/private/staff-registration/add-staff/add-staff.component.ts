@@ -23,12 +23,12 @@ import { StaffState } from './store/add-staff.state';
 import { editStaffDetails } from '../staff-list/store/staff-list.actions';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StaffListService } from '../staff-list/service/staff-list.service';
-import { CountryData } from '../../../../shared/models/country.interface';
-import { selectAllCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.selector';
-import { loadCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.actions';
-import { loadDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.actions';
-import { DepartmentData } from '../../../../shared/models/department.interface';
-import { selectAllDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.selector';
+import { CountryData } from '@shared/models/country.interface';
+import { selectAllCountries } from '@shared/store/add-staff-dropdowns/country/country.selector';
+import { loadCountries } from '@shared/store/add-staff-dropdowns/country/country.actions';
+import { loadDepartments } from '@shared/store/add-staff-dropdowns/department/department.actions';
+import { DepartmentData } from '@shared/models/department.interface';
+import { selectAllDepartments } from '@shared/store/add-staff-dropdowns/department/department.selector';
 
 @Component({
   selector: 'app-add-staff',

@@ -3,7 +3,10 @@
     <nav>
       <ul>
         <li>
-          <a [routerLink]="route_constant.dashboard">
+          <a
+            [routerLink]="route_constant.dashboard"
+            [routerLinkActive]="['is-active']"
+          >
             <span class="sidebar-row">
               <mat-icon>dashboard</mat-icon>
               Dashboard
@@ -33,7 +36,7 @@
         </li>
 
         <li>
-          <a [routerLink]="route_constant['staff-management']">
+          <a [routerLink]="route_constant.staffManagement">
             <span class="sidebar-row">
               <mat-icon>folder_shared</mat-icon>
               Staff Management
@@ -42,7 +45,7 @@
         </li>
 
         <li>
-          <a [routerLink]="route_constant['leave-management']">
+          <a [routerLink]="route_constant.leaveManagement">
             <span class="sidebar-row">
               <mat-icon>settings_applications</mat-icon>
               Leave Management
@@ -51,7 +54,7 @@
         </li>
 
         <li>
-          <a [routerLink]="route_constant['leave-apply']">
+          <a [routerLink]="route_constant.applicationStatus">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
               Application Status
@@ -60,16 +63,16 @@
         </li>
 
         <li>
-          <a [routerLink]="route_constant['attendance-details']">
+          <a [routerLink]="route_constant.attendanceDetails">
             <span class="sidebar-row">
-              <mat-icon>Attendance</mat-icon>
+              <mat-icon>list_alt</mat-icon>
               Attendance Details
             </span>
           </a>
         </li>
 
         <li>
-          <a [routerLink]="route_constant['policies']">
+          <a [routerLink]="route_constant.policies">
             <span class="sidebar-row">
               <mat-icon>policy</mat-icon>
               Policies

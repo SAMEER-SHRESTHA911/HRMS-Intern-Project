@@ -4,10 +4,10 @@ import { StaffDetails } from '../../model/add-staff';
 import { Observable } from 'rxjs';
 import { StaffState } from '../../store/add-staff.state';
 import { Store } from '@ngrx/store';
-import { Route, Router } from '@angular/router';
-import { ResponseType } from '../../../../../../shared/models/response.model';
-import { apiConstants } from '../../../../../../shared/constants/api.constants';
-import { baseUrl } from '../../../../../../shared/constants/global.constants';
+import { Router } from '@angular/router';
+import { ResponseType } from '@shared/models/response.model';
+import { apiConstants } from '@shared/constants/api.constants';
+import { baseUrl } from '@shared/constants/global.constants';
 @Injectable({
   providedIn: 'root',
 })

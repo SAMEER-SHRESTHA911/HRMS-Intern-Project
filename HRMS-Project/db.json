@@ -333,6 +333,48 @@
         "key": 1,
         "value": "FirstHalf"
       }
+    },
+    {
+      "id": "648e",
+      "reasonForLeave": "samerer",
+      "leaveType": {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 1,
+        "value": "FirstHalf"
+      }
+    },
+    {
+      "id": "169c",
+      "reasonForLeave": "sameer",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
+    },
+    {
+      "id": "685d",
+      "reasonForLeave": "dasdas",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
     }
   ],
   "loggedInUser": [
@@ -456,16 +498,41 @@
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
     },
     {
-      "id": "0",
-      "title": "Company Leave Policies",
-      "category": "Sick Leave",
-      "content": "aidfjdfbighsa  sgjsfsdnf sdjfnowghsjvnbsnv  sgnsjfbwufhs vn DFGjdfbsv jSBifgsdbvvn cx vjaifbn vv"
+      "id": "0fc2",
+      "remarks": "sdsdsdsds",
+      "workLocation": "2"
+    }
+  ],
+  "requestList": [
+    {
+      "id": "123",
+      "reason": "Trip",
+      "leaveFrom": "2024-08-17",
+      "leaveTo": "2024-08-20",
+      "status": "Pending",
+      "name": "Sameer Shrestha",
+      "daysLeft": "12/21",
+      "employeeId": "AN007"
     },
     {
-      "id": "0",
-      "title": "Sdna",
-      "category": "snfd",
-      "content": "skndasklalsd\n\n\n"
+      "id": "456",
+      "reason": "Fever",
+      "leaveFrom": "2024-07-17",
+      "leaveTo": "2024-08-18",
+      "status": "Pending",
+      "name": "Siddhartha Shakya",
+      "daysLeft": "2/21",
+      "employeeId": "AN002"
+    },
+    {
+      "id": "789",
+      "reason": "Puja",
+      "leaveFrom": "2024-08-20",
+      "leaveTo": "2024-08-22",
+      "status": "Pending",
+      "name": "Aaditya Jha",
+      "daysLeft": "10/21",
+      "employeeId": "AN006"
     },
     {
       "id": "0",
@@ -497,5 +564,46 @@
       "category": "rere",
       "content": "erer"
     }
-  ]
+  ],
+  "requestList": {
+    "result": 1,
+    "message": "string",
+    "data": {
+      "skip": 0,
+      "take": 0,
+      "count": 0,
+      "employeeLeaveRequestResponse": [
+        {
+          "id": 1,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "phoneNumber": "984574648",
+          "leaveFrom": "2024-8-10",
+          "leaveTo": "2024-8-12",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 3
+        },
+        {
+          "id": 2,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "phoneNumber": "984574648",
+          "leaveFrom": "2024-8-10",
+          "leaveTo": "2024-8-12",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 3
+        }
+      ]
+    }
+  }
 }
