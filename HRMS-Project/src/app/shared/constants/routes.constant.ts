@@ -1,14 +1,14 @@
 export const ROUTE_CONSTANT = {
-  'add-employee': 'staff_management/add-staff',
-  'apply-leave': 'apply_for_leave',
+  'add-employee': 'staff-management/add-staff',
+  'apply-leave': 'apply-for-leave',
   "attendance": 'attendance',
-  'employee-details': 'employee_details',
+  'employee-details': 'employee-details',
   "policies": 'policies',
-  "emplpoyee_details": 'employee_details',
   "dashboard": 'dashboard',
-  'staff-management': 'staff_management',
+  'staff-management': 'staff-management',
   'leave-management': 'leave-management',
   'leave-apply': 'leave-apply',
+  'application-status':'leave-confirmation-page',
   'attendance-details': 'attendance/attendance-details',
 };
 
