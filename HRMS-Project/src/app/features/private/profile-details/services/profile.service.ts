@@ -5,7 +5,7 @@ import { ProfileDetails } from '../models/profile-details';
 import {
   baseUrl,
   loggedInUser,
-} from '../../../../shared/constants/global.constants';
+} from '@shared/constants/global.constants';
 @Injectable({
   providedIn: 'root',
 })

@@ -5,7 +5,7 @@ import { LeaveTableService } from '../../services/leave-table/leave-table.servic
 import { catchError, map, mergeMap, of } from 'rxjs';
 import * as LeaveTableDataActions from './leave-table.actions';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { loggedInUser } from '../../../../../shared/constants/global.constants';
+import { loggedInUser } from '@shared/constants/global.constants';
 
 @Injectable()
 export class LeaveTableEffects {

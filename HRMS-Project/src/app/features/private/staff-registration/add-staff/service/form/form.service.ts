@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { passwordMatchValidator } from '../../../../../../shared/validators/passwordMatch/password-match.validator';
+import { passwordMatchValidator } from '@shared/validators/passwordMatch/password-match.validator';
 
 @Injectable({
   providedIn: 'root',

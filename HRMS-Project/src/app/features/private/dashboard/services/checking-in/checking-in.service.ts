@@ -6,7 +6,7 @@ import {
   type CheckInDetails,
   CheckOutDetails,
 } from '../../types/check-in.interface';
-import { ResponseType } from '../../../../../shared/models/response.model';
+import { ResponseType } from '@shared/models/response.model';
 
 @Injectable({
   providedIn: 'root',

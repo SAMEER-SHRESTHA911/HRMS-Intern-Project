@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { loggedInUser } from '../../../../../shared/constants/global.constants';
+import { loggedInUser } from '@shared/constants/global.constants';
 import { map, Observable } from 'rxjs';
 import {
   LeaveBalanceData,

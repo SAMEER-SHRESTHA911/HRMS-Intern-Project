@@ -30,6 +30,7 @@ import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confi
     StoreModule.forFeature('availableLeaveData', LeaveAvailableReducer),
     StoreModule.forFeature('leaveRequestList', LeaveRequestListReducer),
     EffectsModule.forFeature([LeaveTableEffects, LeaveAvailableEffects, LeaveConfirmationEffects]),
-  ]
+  ],
+  exports:[LeaveApproveRejectComponent]
 })
 export class LeaveManagementModule { }

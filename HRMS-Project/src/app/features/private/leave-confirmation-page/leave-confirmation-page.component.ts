@@ -2,11 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { LeaveRequestList } from './types/types';
 import { Store } from '@ngrx/store';
-import { FETCH_LEAVE_REQUEST_lIST } from './store/leave-confirmation.actions';
-import { selectLeaveRequestList } from './store/leave-confirmation.selector';
+import { FETCH_LEAVE_REQUEST_lIST } from './store/leave-confirmation/leave-confirmation.actions';
+import { selectLeaveRequestList } from './store/leave-confirmation/leave-confirmation.selector';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { LeaveApproveCardComponent } from './components/leave-approve-card/leave-approve-card.component';
 
 @Component({
   selector: 'app-leave-confirmation-page',
@@ -23,7 +26,7 @@ export class LeaveConfirmationPageComponent implements OnInit{
   @ViewChild(MatPaginator) paginator?:MatPaginator;
   @ViewChild(MatSort) sort?: MatSort;
   
-  constructor(private store:Store){}
+  constructor(private store:Store, private router:Router, private dialog:MatDialog){}
  
   ngOnInit(): void {
     this.initializeTableData();
@@ -51,7 +54,15 @@ export class LeaveConfirmationPageComponent implements OnInit{
       })
   }
 
-  onEdit(id:string|number){
-    console.log(id);
+  onView(id:string|number){
+    this.store.select(selectLeaveRequestList).subscribe(leaveRequestList => {
+      const  leaveRequest = leaveRequestList.find(item => item.id === id);
+      if(leaveRequest){
+        console.log(leaveRequest)
+        this.dialog.open(LeaveApproveCardComponent, {
+          data: leaveRequest
+        })
+      }
+    })
   }
 }

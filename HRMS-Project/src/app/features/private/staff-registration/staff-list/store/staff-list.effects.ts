@@ -13,7 +13,7 @@ import {
   loadStaffList,
 } from './staff-list.actions';
 import { StaffList } from '../model/staff-list';
-import { ResponseType } from '../../../../../shared/models/response.model';
+import { ResponseType } from '@shared/models/response.model';
 
 @Injectable()
 export class StaffListEffects {

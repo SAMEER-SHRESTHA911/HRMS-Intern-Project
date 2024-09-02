@@ -14,9 +14,9 @@ import {
 import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { DialogData } from '../../../../shared/components/model/dialog.interface';
+import { DialogData } from '@shared/components/model/dialog.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-staff-list',
