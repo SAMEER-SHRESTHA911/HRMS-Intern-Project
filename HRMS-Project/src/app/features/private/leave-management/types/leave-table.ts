@@ -42,7 +42,7 @@ export interface LeaveRequestList {
 export interface LeaveBalanceResponse{
   result: number,
   message: string,
-  leaveBalanceData: Array<LeaveBalanceData>
+  data: LeaveBalanceData[];
 }
 
 export interface  LeaveBalanceData {
