@@ -1,4 +1,4 @@
-import { Dashboard } from '../../types/dashboard.interface';
+import { Dashboard } from '../../types/leave-summary.interface';
 
 export interface DashboardState {
   dashboard: Dashboard[];

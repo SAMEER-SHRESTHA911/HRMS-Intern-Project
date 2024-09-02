@@ -1,34 +1,62 @@
-<section *ngIf="dashboard$ | async as dashboard">
-  <div
-    *ngFor="let data of dashboard"
-    class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4"
-  >
+<section>
+  <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
     <!-- Staffs on LEAVE TODAY -->
-    <section class="min-h-96 bg-white rounded-lg">
-      <div class="flex justify-between pt-4 px-4">
-        <p>Pending Leave Requests ({{ data.leaveRequests.total }})</p>
-        <a [routerLink]="['/admin/leave-management']">View All</a>
-      </div>
-      <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
-        <section
-          *ngFor="let staff of data.leaveRequests.staffs"
-          class="p-2 pl-4 mb-2 last:mb-0 flex justify-between items-center bg-white rounded-lg"
-        >
-          <div class="flex items-center gap-5">
-            <img class="w-12 rounded-full" src="avatar.png" alt="" />
-            <div class="flex flex-col">
-              <p class="font-medium">{{ staff.name }}</p>
-              <p class="font-light">{{ staff.department }}</p>
-            </div>
+    <section *ngIf="userRole === 'admin'">
+      <section
+        *ngIf="pendingLeaveRequestData$ | async as pendingLeaveRequestData"
+      >
+        <section class="flex flex-col min-h-96 bg-white rounded-lg">
+          <div class="flex justify-between pt-4 px-4">
+            <p>Pending Leave Requests ({{ pendingLeaveRequestData.length }})</p>
+            <a [routerLink]="['/admin/leave-management']">View All</a>
+          </div>
+          <section
+            class="flex-grow flex-1 flex justify-center items-center"
+            *ngIf="pendingLeaveRequestData.length === 0"
+          >
+            No Pending Requests
+          </section>
+          <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
+            <section
+              class="flex justify-center items-center"
+              *ngIf="loading$ | async"
+            >
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </section>
+            <section *ngIf="pendingLeaveRequestData">
+              <section
+                *ngFor="let data of pendingLeaveRequestData"
+                class="p-2 px-4 mb-2 last:mb-0 flex justify-between items-center bg-white rounded-lg"
+              >
+                <div class="flex items-center gap-5 w-full">
+                  <img class="w-12 rounded-full" src="avatar.png" alt="" />
+                  <div class="flex flex-col">
+                    <p class="font-medium">
+                      {{ data.employeeName
+                      }}<span class="ml-2 font-light text-xs"
+                        >({{ data.department }})</span
+                      >
+                    </p>
+                    <p class="font-light text-sm">
+                      {{ data.leaveFrom | date : "MMM d" }} to
+                      {{ data.leaveTo | date : "MMM d" }}
+                    </p>
+                  </div>
+                  <div class="ml-auto">
+                    <p class="bg-[#eef2f5] p-1 px-3 text-sm rounded-md">
+                      {{ data.leaveType }}
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </section>
           </div>
         </section>
-      </div>
+      </section>
     </section>
     <!-- Staffs on LEAVE Today -->
-    <section class="min-h-96 bg-white rounded-lg">
-      <p class="pt-4 px-4">
-        Staffs on Leave Today ({{ data.staffsOnLeaveToday.total }})
-      </p>
+    <!-- <section class="min-h-96 bg-white rounded-lg">
+      <p class="pt-4 px-4">Staffs on Leave Today (2)</p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
         <section
           *ngFor="let staff of data.staffsOnLeaveToday.staffs"
@@ -45,9 +73,7 @@
       </div>
     </section>
     <section class="min-h-96 bg-white rounded-lg">
-      <p class="pt-4 px-4">
-        Staffs on Leave Tomorrow ({{ data.staffsOnLeaveTomorrow.total }})
-      </p>
+      <p class="pt-4 px-4">Staffs on Leave Tomorrow (1)</p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
         <section
           *ngFor="let staff of data.staffsOnLeaveTomorrow.staffs"
@@ -62,6 +88,6 @@
           </div>
         </section>
       </div>
-    </section>
+    </section> -->
   </div>
 </section>
