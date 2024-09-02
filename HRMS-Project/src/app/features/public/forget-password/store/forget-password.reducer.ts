@@ -1,7 +1,7 @@
 // forget-password.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import * as ForgetPasswordActions from './forget-password.action';
-import { ForgetPasswordState, initialForgetPasswordState } from './forget-password.state';
+import {  initialForgetPasswordState } from './forget-password.state';
 
 export const forgetPasswordReducer = createReducer(
   initialForgetPasswordState,

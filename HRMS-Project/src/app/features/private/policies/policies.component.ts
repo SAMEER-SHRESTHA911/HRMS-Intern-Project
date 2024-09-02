@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './policies.component.scss'
 })
 export class PoliciesComponent {
-panelOpenState: any;
+panelOpenState: unknown;
 
 }

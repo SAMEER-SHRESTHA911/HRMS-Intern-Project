@@ -7,7 +7,7 @@ import * as PolicyActions from '../../store/policy-list/policy-list.action';
 import * as fromPolicy from '../../store/policy-list/policy-list.selector';
 import { Router } from '@angular/router';
 import { selectAllPolicies } from '../../store/policy-list/policy-list.selector';
-import { loadPolicies } from '../../store/policy-list/policy-list.action';
+
 
 @Component({
   selector: 'app-policy-list',
