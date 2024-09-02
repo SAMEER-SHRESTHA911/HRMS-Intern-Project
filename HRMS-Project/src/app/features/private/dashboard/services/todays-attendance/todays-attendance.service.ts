@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { type ResponseType } from '../../../../../shared/models/response.model';
 import { type TodayAttendanceSummary } from '../../types/todays-attendance.interface';
 import { apiConstants } from '../../../../../shared/constants/api.constants';
+import { baseUrl } from '../../../../../shared/constants/global.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,10 @@ export class TodaysAttendanceService {
   constructor(private http: HttpClient) {}
 
   getTodaysAttendanceSummary(): Observable<
-    ResponseType<TodayAttendanceSummary>
+    ResponseType<TodayAttendanceSummary[]>
   > {
-    return this.http.get<ResponseType<TodayAttendanceSummary>>(
-      apiConstants.attendance.getTodaysAttendanceSummary
+    return this.http.get<ResponseType<TodayAttendanceSummary[]>>(
+      baseUrl + apiConstants.attendance.getTodaysAttendanceSummary
     );
   }
 }

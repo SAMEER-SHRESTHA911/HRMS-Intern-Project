@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Dashboard } from './types/dashboard.interface';
-import { select, Store } from '@ngrx/store';
+import { Dashboard } from './types/leave-summary.interface';
+import { Store } from '@ngrx/store';
 import { DashboardState } from './store/dashboard/dashboard.state';
 import { selectDashboard } from './store/dashboard/dashboard.selector';
 import { loadDashboard } from './store/dashboard/dashboard.actions';
