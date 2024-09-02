@@ -7,9 +7,9 @@
                     <div class="first-row">
                         <div class="personal-details">
                             <div class="img">
-                                <img src="" alt="pic">
+                                <img [src]="'data:image/jpeg;base64,' + imageData.imageDataBase64" alt="pic">
                             </div>
-                            <div class="bold">
+                            <div class="clr-333">
                                 {{data.employeeName}}
                             </div>
                         </div>
@@ -18,15 +18,15 @@
                         </div> -->
                     </div>
                     <div class="second-row">
-                        <div class="fromDate clr-666">2024-08-06 -</div>
-                        <div class="toDate clr-666">2024-08-10</div>
+                        <div class="fromDate clr-666">{{data.leaveFrom}} -</div>
+                        <div class="toDate clr-666">{{data.leaveTo}}</div>
                     </div>
                 </div>
                 <div class="leave-info-body">
                     <div class="leave-personal-details">
                         <div class="profile">
                             <div class="profile-name clr-333">
-                                Sameer
+                                {{data.reasonForLeave}}
                             </div>
                             <div class="employee-id">
                                 Employee ID: 001
