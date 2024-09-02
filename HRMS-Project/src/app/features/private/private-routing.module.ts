@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ROUTE_CONSTANT } from '../../shared/constants/routes.constant';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'staff_management',
+    path: `${ROUTE_CONSTANT['staff-management']}`,
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
@@ -57,6 +58,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./policies/policies.module').then((m) => m.PoliciesModule),
   },
+  { path: 'leave-confirmation-page', loadChildren: () => import('./leave-confirmation-page/leave-confirmation-page.module').then(m => m.LeaveConfirmationPageModule) },
 ];
 
 @NgModule({

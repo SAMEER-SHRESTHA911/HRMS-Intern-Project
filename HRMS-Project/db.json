@@ -564,5 +564,46 @@
       "category": "rere",
       "content": "erer"
     }
-  ]
+  ],
+  "requestList": {
+    "result": 1,
+    "message": "string",
+    "data": {
+      "skip": 0,
+      "take": 0,
+      "count": 0,
+      "employeeLeaveRequestResponse": [
+        {
+          "id": 1,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "phoneNumber": "984574648",
+          "leaveFrom": "2024-8-10",
+          "leaveTo": "2024-8-12",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 3
+        },
+        {
+          "id": 2,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "phoneNumber": "984574648",
+          "leaveFrom": "2024-8-10",
+          "leaveTo": "2024-8-12",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 3
+        }
+      ]
+    }
+  }
 }

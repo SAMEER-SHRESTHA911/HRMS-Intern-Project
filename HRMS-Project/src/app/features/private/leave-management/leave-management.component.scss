@@ -114,3 +114,35 @@ mat-card {
 .third-row{
   margin-top: 20px;
 }
+.dropdown-container {
+  position: relative;
+  width: fit-content;
+  
+  .custom-dropdown {
+    width: fit-content;
+
+    mat-select {
+      .mat-select-value-text {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    mat-option {
+      display: flex;
+      align-items: center;
+    }
+
+    .mat-form-field-outline {
+      color: rgba(0, 0, 0, 0.54);
+    }
+  }
+
+  mat-form-field {
+    .mat-form-field-wrapper {
+      .mat-form-field-outline-end {
+        border-radius: 4px;
+      }
+    }
+  }
+}
