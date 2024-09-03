@@ -31,6 +31,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   leaveId: string | number | null = null;
 
   minDate: Date = new Date();
+  minDateForLeaveTo :  Date = new Date();
 
   departments: string[] = ['Angular', '.NET'];
   leaveTypeArray: LeaveTypeDropdown[] = [];
@@ -52,6 +53,16 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     this.#buildForm();
     this.loadEditData(this.editId);
     this.getDropDown();
+    
+    this.leaveApplyForm?.get('leaveFrom')?.valueChanges.pipe(
+      takeUntil(this.#destroy$)).subscribe(
+        leaveFromDate => {
+          if(leaveFromDate){
+            this.minDateForLeaveTo = new Date(leaveFromDate);
+            this.leaveApplyForm?.get('leaveTo')?.updateValueAndValidity();
+          }
+        }
+      )
   }
 
   ngOnDestroy(): void {
@@ -79,13 +90,6 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
         this.dayLeaveTypeArray = dayLeaveDropDown;
       });
 
-    this.store
-      .select(DayLeaveDropDownLoading)
-      .pipe(takeUntil(this.#destroy$))
-      .subscribe((loading) => {
-        this.loadingDayLeave = loading;
-      });
-
     this.store.dispatch(FETCH_LEAVE_TYPE_DROPDOWN());
 
     this.store
@@ -93,13 +97,6 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.#destroy$))
       .subscribe((leaveTypeDropDown) => {
         this.leaveTypeArray = leaveTypeDropDown;
-      });
-
-    this.store
-      .select(leaveTypeDropDownLoading)
-      .pipe(takeUntil(this.#destroy$))
-      .subscribe((loading) => {
-        this.loadingLeaveType = loading;
       });
   }
 

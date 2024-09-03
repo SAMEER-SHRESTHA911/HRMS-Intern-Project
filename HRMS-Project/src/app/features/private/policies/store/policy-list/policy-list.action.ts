@@ -15,4 +15,3 @@ export const updatePolicyFailure=createAction('[Policy] Update Policy Failure',p
 export const deletePolicy=createAction('[Policy] Delete Policy',props<{id:string}>());
 export const deletePolicySuccess=createAction('[Policy] Delete Policy Sucess',props<{id:string}>());
 export const deletePolicyFailure=createAction('[Policy] Delete Policy Failure',props<{error:any}>());
-

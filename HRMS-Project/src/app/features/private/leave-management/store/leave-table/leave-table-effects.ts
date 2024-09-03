@@ -21,7 +21,7 @@ export class LeaveTableEffects {
       mergeMap(() =>
         this.leaveTableService.getLeaveTableData(loggedInUser.id).pipe(
           map(({ message, leaveData }) => {
-            this.snackBar.open(message, 'Close', { duration: 3000 });
+            // this.snackBar.open(message, 'Close', { duration: 5000 });
             return LeaveTableDataActions.LEAVE_TABLE_DATA_SUCCESS({
               leaveData,
             });
