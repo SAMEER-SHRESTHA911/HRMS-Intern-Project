@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { loggedInUser } from '@shared/constants/global.constants';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  userId: string | number = 825;
+  userId: string | number = loggedInUser.id;
 }
