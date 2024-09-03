@@ -10,7 +10,7 @@ export interface LeaveApplyBody {
 export interface LeaveApplyResponse{
     result: number,
     message: string,
-    data: boolean
+    data: LeaveApplyBody
 }
 export interface DayLeave {
   id: number;

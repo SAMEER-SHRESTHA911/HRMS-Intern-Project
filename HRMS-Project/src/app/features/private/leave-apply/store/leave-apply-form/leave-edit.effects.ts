@@ -7,7 +7,7 @@ import {
 } from './leave-edit.action';
 import { catchError, map, of, switchMap } from 'rxjs';
 import { LeaveFormService } from '../../services/form/leave-form.service';
-import { LeaveApplyBody } from '../../types/leave-apply';
+import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
@@ -24,7 +24,7 @@ export class LeaveEditEffect {
       ofType(GET_EDIT_LEAVE_DATA),
       switchMap((action) =>
         this.leaveEditService.fetchEditLeaveData(action.id).pipe(
-          map((editLeaveData: LeaveApplyBody) => {
+          map((editLeaveData: LeaveApplyResponse) => {
             this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
             return GET_EDIT_LEAVE_DATA_SUCCESS({ editLeaveData });
           }),
@@ -41,7 +41,7 @@ export class LeaveEditEffect {
         map((action) => {
           this.leaveEditService.patchData(
             this.leaveEditService.buildForm(),
-            action.editLeaveData
+            action.editLeaveData.data
           );
         })
       ),

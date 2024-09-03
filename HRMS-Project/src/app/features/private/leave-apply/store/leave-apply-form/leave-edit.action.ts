@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { LeaveApplyBody } from '../../types/leave-apply';
+import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
 
 export const GET_EDIT_LEAVE_DATA = createAction(
   '[Leave Edit]  Get Edit Leave Data',
@@ -8,7 +8,7 @@ export const GET_EDIT_LEAVE_DATA = createAction(
 );
 export const GET_EDIT_LEAVE_DATA_SUCCESS = createAction(
   '[Leave Edit]  Get Edit Leave Data Success',
-  props<{ editLeaveData: LeaveApplyBody }>()
+  props<{ editLeaveData: LeaveApplyResponse }>()
 );
 export const GET_EDIT_LEAVE_DATA_FAILURE = createAction(
   '[Leave Edit]  Get Edit Leave Data Fail',
