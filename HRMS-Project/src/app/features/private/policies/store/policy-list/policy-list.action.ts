@@ -1,5 +1,4 @@
 import { createAction, props } from "@ngrx/store";
-import { Policy } from "../../models/policy.model";
 
 export const loadPolicies =createAction('[Policy] Load Policies');
 export const loadPoliciesSuccess = createAction('[Policy] Load Policies Success', props<{ policies: any[]}>());

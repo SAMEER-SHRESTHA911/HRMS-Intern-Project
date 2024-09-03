@@ -22,7 +22,7 @@ export class PolicyFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEditMode = true;
-      this.policyService.getPolicy(id).subscribe((data: any) => {
+      this.policyService.getPolicy(id).subscribe((data) => {
         this.policy = data;
       });
     }
