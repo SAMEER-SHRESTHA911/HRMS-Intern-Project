@@ -38,17 +38,20 @@ export class LeaveSummaryService {
     today: DayData
   ): Observable<ResponseType<EmployeeLeaveListResponse[]>> {
     return this.http.post<ResponseType<EmployeeLeaveListResponse[]>>(
-      baseUrl + apiConstants.attendance.getEmployeeAllLeaveRequestList,
+      baseUrl +
+        apiConstants.attendance.getEmployeeLeaveRequestAccordingToDateAndStatus,
       today
     );
   }
 
   //TODO
-  getStaffsOnLeaveTomorrow(): Observable<
-    ResponseType<EmployeeLeaveListResponse[]>
-  > {
-    return this.http.get<ResponseType<EmployeeLeaveListResponse[]>>(
-      baseUrl + apiConstants.attendance.getEmployeeAllLeaveRequestList
+  getStaffsOnLeaveTomorrow(
+    tomorrow: DayData
+  ): Observable<ResponseType<EmployeeLeaveListResponse[]>> {
+    return this.http.post<ResponseType<EmployeeLeaveListResponse[]>>(
+      baseUrl +
+        apiConstants.attendance.getEmployeeLeaveRequestAccordingToDateAndStatus,
+      tomorrow
     );
   }
 }

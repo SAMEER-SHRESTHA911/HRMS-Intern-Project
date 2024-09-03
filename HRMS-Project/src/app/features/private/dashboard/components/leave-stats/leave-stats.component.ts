@@ -4,7 +4,7 @@ import {
 } from './../../store/leave-summary/leave-summary.selectors';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { LeaveRequests } from '../../types/leave-summary.interface';
 import { AllUsersPendingLeaveRequestState } from '../../store/leave-summary/leave-summary.state';
 import { selectAllUsersPendingLeaveRequestData } from '../../store/leave-summary/leave-summary.selectors';
@@ -34,5 +34,13 @@ export class LeaveStatsComponent {
   ngOnInit(): void {
     this.selectorInitilizer();
     this.store.dispatch(FETCH_LEAVE_REQUESTS());
+  }
+  get pendingLeaveCount$(): Observable<number> {
+    return this.pendingLeaveRequestData$.pipe(
+      map(
+        (item) =>
+          item.filter((data) => data.leaveRequestStatus === 'Pending').length
+      )
+    );
   }
 }

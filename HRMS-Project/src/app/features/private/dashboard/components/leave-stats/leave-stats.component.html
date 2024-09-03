@@ -7,17 +7,14 @@
       >
         <section class="flex flex-col min-h-96 bg-white rounded-lg">
           <div class="flex justify-between pt-4 px-4">
-            <p>Pending Leave Requests ({{ pendingLeaveRequestData.length }})</p>
+            <p>Pending Leave Requests ({{ pendingLeaveCount$ | async }})</p>
             <a [routerLink]="['/admin/leave-management']">View All</a>
           </div>
-          @if(pendingLeaveRequestData.length === 0){
-          <section class="flex-grow flex-1 flex justify-center items-center">
-            No Pending Requests
-          </section>
-          } @if(pendingLeaveRequestData.length > 0){
+          @if(pendingLeaveCount$ | async; as data > 0 ){
           <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
-            <section
-              *ngFor="let data of pendingLeaveRequestData"
+            @for(data of pendingLeaveRequestData; track data.id){
+            @if(data.leaveRequestStatus==="Pending"){
+            <div
               class="p-2 px-4 mb-2 last:mb-0 flex justify-between items-center bg-white rounded-lg"
             >
               <div class="flex items-center gap-5 w-full">
@@ -40,13 +37,18 @@
                   </p>
                 </div>
               </div>
-            </section>
+            </div>
+            } }
           </div>
+          }@else{
+          <section class="flex-grow flex-1 flex justify-center items-center">
+            No Pending Requests
+          </section>
           }
         </section>
       </section>
     </section>
-    <!-- Staffs on LEAVE Today -->
+    Staffs on LEAVE Today
     <!-- <section class="min-h-96 bg-white rounded-lg">
       <p class="pt-4 px-4">Staffs on Leave Today (2)</p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
@@ -64,6 +66,7 @@
         </section>
       </div>
     </section>
+    
     <section class="min-h-96 bg-white rounded-lg">
       <p class="pt-4 px-4">Staffs on Leave Tomorrow (1)</p>
       <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
