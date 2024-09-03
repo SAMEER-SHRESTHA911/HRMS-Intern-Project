@@ -1,11 +1,11 @@
-export interface CheckInState {
-  checkInData: { result: number; message: string; data: string };
+export interface CheckedInStatusState {
   loading: boolean;
-  error: string;
+  error: string | null;
+  checkedInStatus: boolean;
 }
 
-export const initialState = {
-  checkInData: {},
+export const initialCheckedInStatusState: CheckedInStatusState = {
   loading: false,
-  error: "",
+  error: null,
+  checkedInStatus: false,
 };

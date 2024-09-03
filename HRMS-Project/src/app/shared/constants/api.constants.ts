@@ -10,6 +10,16 @@ export const apiConstants = Object.freeze({
     postCheckIn: '/attendanceLeave/Attendance/CheckIn',
     postCheckOut: '/attendanceLeave/Attendance/CheckOut',
     getTodaysAttendanceSummary:
-      '/api/Attendance/GetCurrentDayAttendanceSummary',
+      '/attendanceLeave/Attendance/GetCurrentDayAttendanceSummary',
+    getEmployeePendingLeaveRequests:
+      '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestListWithoutFilter',
+    getEmployeeAllLeaveRequestList:
+      '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
+    getEmployeeLeaveRequestAccordingToDateAndStatus:
+      '/attendanceLeave/LeaveRequest/GetLeaveRequestAccordingToDateAndStatus',
+  }),
+
+  employeeDetails: Object.freeze({
+    getEmployeeDetailById: '/user/Employee/GetRegisterEmployeeDetailById',
   }),
 });
