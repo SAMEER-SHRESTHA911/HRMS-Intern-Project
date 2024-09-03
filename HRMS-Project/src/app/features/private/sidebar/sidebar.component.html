@@ -2,15 +2,17 @@
   <mat-drawer mode="side" opened class="sidebar">
     <nav>
       <ul>
-        <li>
+        <li class="power-rangers-activate">
           <a
             [routerLink]="route_constant.dashboard"
-            [routerLinkActive]="['is-active']"
+            routerLinkActive=""
           >
-            <span class="sidebar-row">
+            <span [ngClass]="{'sidebar-row' : true }">
               <mat-icon>dashboard</mat-icon>
               Dashboard
             </span>
+          </a>
+        </li>
 
             <!-- <mat-accordion>
               <mat-expansion-panel hideToggle>
@@ -32,8 +34,6 @@
                 </div>
               </mat-expansion-panel>
             </mat-accordion> -->
-          </a>
-        </li>
 
         <li>
           <a [routerLink]="route_constant.staffManagement">
