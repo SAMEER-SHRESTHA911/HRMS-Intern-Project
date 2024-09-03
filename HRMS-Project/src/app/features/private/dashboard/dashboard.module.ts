@@ -13,8 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffect } from './store/dashboard/dashboard.effect';
 import { HttpClientModule } from '@angular/common/http';
 import { CheckingInDialogComponent } from './components/checking-in-dialog/checking-in-dialog.component';
-import { postCheckInReducer } from './store/checkin-in/checkin-in.reducer';
-import { CheckInEffects } from './store/checkin-in/checkin-in.effects';
+import { checkCheckedInStatusReducer } from './store/checkin-in/checkin-in.reducer';
+import { CheckCheckedInStatusEffects } from './store/checkin-in/checkin-in.effects';
 import { TodaysAttendanceComponent } from './components/todays-attendance/todays-attendance.component';
 import { todayAttendanceSummaryReducer } from './store/todays-attendance/today-attendance.reducer';
 import { TodayAttendanceSummaryEffect } from './store/todays-attendance/today-attendance.effects';
@@ -37,8 +37,8 @@ import { allUsersPendingLeaveRequestEffects } from './store/leave-summary/leave 
     HttpClientModule,
     StoreModule.forFeature('dashboard', dashboardReducer),
     EffectsModule.forFeature([DashboardEffect]),
-    StoreModule.forFeature('checkIn', postCheckInReducer),
-    EffectsModule.forFeature([CheckInEffects]),
+    StoreModule.forFeature('checkedInStatus', checkCheckedInStatusReducer),
+    EffectsModule.forFeature([CheckCheckedInStatusEffects]),
     StoreModule.forFeature(
       'todayAttendanceSummary',
       todayAttendanceSummaryReducer

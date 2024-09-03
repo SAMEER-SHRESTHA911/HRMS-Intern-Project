@@ -3,9 +3,13 @@ import { ProfileDetails } from './models/profile-details';
 import { Observable, of } from 'rxjs';
 import { ProfileDetailsState } from './store/profile-details.state';
 import { Store } from '@ngrx/store';
-import { selectProfileDetails } from './store/profile-details.selector';
-import { loadProfileDetailsAction } from './store/profile-details.action';
+import {
+  selectProfileDetails,
+  selectProfileDetailsDataError,
+  selectProfileDetailsDataLoading,
+} from './store/profile-details.selector';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FETCH_PROFILE_DETAILS_ACTION } from './store/profile-details.action';
 @Component({
   selector: 'app-profile-details',
   templateUrl: './profile-details.component.html',
@@ -13,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileDetailsComponent implements OnInit {
   paramProfileId: string | null = null;
-  profileDetails$: Observable<ProfileDetails> = of();
+  profileDetails$: Observable<ProfileDetails[]> = of();
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   constructor(
@@ -24,6 +28,11 @@ export class ProfileDetailsComponent implements OnInit {
 
   selectorInitializer(): void {
     this.profileDetails$ = this.store.select(selectProfileDetails);
+
+    this.loading$ = this.store.select(selectProfileDetailsDataLoading);
+
+    this.error$ = this.store.select(selectProfileDetailsDataError);
+
     this.profileDetails$.subscribe((data) => console.log(data));
   }
 
@@ -32,9 +41,8 @@ export class ProfileDetailsComponent implements OnInit {
     this.paramProfileId = this.route.snapshot.params['id'];
     console.log(this.paramProfileId);
     this.store.dispatch(
-      loadProfileDetailsAction({ profileId: this.paramProfileId ?? '' })
+      FETCH_PROFILE_DETAILS_ACTION({ profileId: this.paramProfileId ?? '' })
     );
-    console.log(this.paramProfileId);
   }
 
   onEditProfileDetails(id: string | number): void {

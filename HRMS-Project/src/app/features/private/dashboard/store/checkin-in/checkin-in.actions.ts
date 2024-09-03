@@ -1,20 +1,15 @@
-import {
-  CheckInDetails,
-  CheckInDetailsResponse,
-} from './../../types/check-in.interface';
 import { createAction, props } from '@ngrx/store';
 
-export const postCheckInAction = createAction(
-  '[CheckIn] Post CheckIn',
-  props<{ checkInDetails: CheckInDetails }>()
+export const FETCH_CHECKED_IN_STATUS = createAction(
+  '[Checked In Status] Fetch Checked In Status'
 );
 
-export const postCheckInSuccess = createAction(
-  '[CheckIn Post CheckIn Success]',
-  props<{ data: CheckInDetails }>()
+export const FETCH_CHECKED_IN_STATUS_SUCCESS = createAction(
+  '[Checked In Status] Fetch Checked In Status Success',
+  props<{ checkedInStatus: boolean }>()
 );
 
-export const postCheckInFailure = createAction(
-  '[CheckIn] Post CheckIn Failure',
+export const FETCH_CHECKED_IN_STATUS_FAILURE = createAction(
+  '[Checked In Status] Fetch Checked In Status Failure',
   props<{ error: string }>()
 );
