@@ -1,16 +1,16 @@
 export interface ProfileDetails {
-  id: string;
+  id: number;
   firstName: string;
-  midName: string | undefined;
   lastName: string;
-  gender: string;
-  dob: string;
-  address: string;
-  nationality: string;
-  citizenshipNumber: string;
-  startDate: string;
-  department: string;
-  role: string;
+  middleName: string;
+  mobileNo: string;
+  addressId: number;
   email: string;
-  password: string;
+  citizenshipNo: string;
+  dob: string;
+  departmentId: number;
+  role: string;
+  gender: number;
+  nationality: string;
+  startDate: string;
 }

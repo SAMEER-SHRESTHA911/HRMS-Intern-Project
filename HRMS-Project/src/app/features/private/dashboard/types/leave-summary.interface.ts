@@ -31,3 +31,15 @@ export interface EmployeeLeaveListResponse {
   count: number;
   employeeLeaveRequestResponse: LeaveRequests[];
 }
+
+export interface LeaveStatus {
+  id: number;
+  employeeId: number;
+  employeeName: string;
+  leaveFrom: string;
+  leaveTo: string;
+  leaveType: number;
+  dayLeave: number;
+  reasonForLeave: string;
+  leaveRequestStatus: number;
+}
