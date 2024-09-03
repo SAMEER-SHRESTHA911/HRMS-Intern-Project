@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LeaveApplyBody } from '../../types/leave-apply';
+import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,14 +8,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   providedIn: 'root',
 })
 export class LeaveFormService {
-  private  editLeaveApplyStatus = 'http://localhost:3000/leaveTable';
+  private  editLeaveApplyStatus = 'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById?id=';
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
   isEditMode: boolean = false;
 
   buildForm(): FormGroup {
-    return this.fb.group({
-      reasonForLeave: ['', Validators.required],
+    return this.fb.group({    
+      reasonForLeave: ['', [Validators.required, Validators.maxLength(50)]],
       leaveType: ['', Validators.required],
       leaveFrom: ['', Validators.required],
       leaveTo: ['', Validators.required],
@@ -34,11 +34,12 @@ export class LeaveFormService {
   }
 
 
-  fetchEditLeaveData(id: string | number): Observable<LeaveApplyBody> {
-    return this.http.get<LeaveApplyBody>(`${this.editLeaveApplyStatus}/${id}`);
+  fetchEditLeaveData(id: string | number): Observable<LeaveApplyResponse> {
+    return this.http.get<LeaveApplyResponse>(`${this.editLeaveApplyStatus}${id}`);
   }
 
   patchData(form: FormGroup, data: LeaveApplyBody): void {
+    console.log(data)
     form.patchValue({
       reasonForLeave: data.reasonForLeave,
       leaveType: data.leaveType,

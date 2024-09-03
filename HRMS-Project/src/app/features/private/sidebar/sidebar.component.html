@@ -2,11 +2,8 @@
   <mat-drawer mode="side" opened class="sidebar">
     <nav>
       <ul>
-        <li class="power-rangers-activate">
-          <a
-            [routerLink]="route_constant.dashboard"
-            routerLinkActive=""
-          >
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a [routerLink]="route_constant.dashboard">
             <span [ngClass]="{'sidebar-row' : true }">
               <mat-icon>dashboard</mat-icon>
               Dashboard
@@ -14,37 +11,17 @@
           </a>
         </li>
 
-            <!-- <mat-accordion>
-              <mat-expansion-panel hideToggle>
-                <p>This is the primary content of the panel.</p>
-              </mat-expansion-panel>
-              <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-                <mat-expansion-panel-header>
-                  <mat-panel-title> <span class="sidebar-row">
-                    <mat-icon>dashboard</mat-icon>
-                    Dashboard
-                  </span> </mat-panel-title>
-                  
-                </mat-expansion-panel-header>
-                <div>
-                  <ul>
-                    <li><a [routerLink]="route_constant['leave-management']">Leave Management</a></li>
-                    <li><a [routerLink]="route_constant['leave-apply']">Apply Leave</a></li>
-                  </ul>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion> -->
-
-        <li>
-          <a [routerLink]="route_constant.staffManagement">
-            <span class="sidebar-row">
-              <mat-icon>folder_shared</mat-icon>
-              Staff Management
-            </span>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          
+          <a [routerLink]=" route_constant.staffManagement">
+          <span class="sidebar-row">
+            <mat-icon>folder_shared</mat-icon>
+            Staff Management
+          </span>
           </a>
         </li>
 
-        <li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="route_constant.leaveManagement">
             <span class="sidebar-row">
               <mat-icon>settings_applications</mat-icon>
@@ -53,7 +30,7 @@
           </a>
         </li>
 
-        <li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="route_constant.applicationStatus">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
@@ -62,7 +39,7 @@
           </a>
         </li>
 
-        <li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="route_constant.attendanceDetails">
             <span class="sidebar-row">
               <mat-icon>list_alt</mat-icon>
@@ -71,7 +48,7 @@
           </a>
         </li>
 
-        <li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="route_constant.policies">
             <span class="sidebar-row">
               <mat-icon>policy</mat-icon>
