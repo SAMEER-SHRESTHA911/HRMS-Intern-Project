@@ -8,7 +8,7 @@ export const FETCH_PROFILE_DETAILS_ACTION = createAction(
 
 export const FETCH_PROFILE_DETAILS_SUCCESS = createAction(
   '[Fetch Profile] Fetch Profile Details Success',
-  props<{ profileDetails: ProfileDetails[] }>()
+  props<{ profileDetails: ProfileDetails }>()
 );
 
 export const FETCH_PROFILE_DETAILS_FAILURE = createAction(

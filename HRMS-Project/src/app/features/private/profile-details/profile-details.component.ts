@@ -17,7 +17,7 @@ import { FETCH_PROFILE_DETAILS_ACTION } from './store/profile-details.action';
 })
 export class ProfileDetailsComponent implements OnInit {
   paramProfileId: string | null = null;
-  profileDetails$: Observable<ProfileDetails[]> = of();
+  profileDetails$: Observable<ProfileDetails | null> = of(null);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   constructor(
