@@ -7,32 +7,40 @@
                     <div class="first-row">
                         <div class="personal-details">
                             <div class="img">
-                                <img [src]="'data:image/jpeg;base64,' + imageData.imageDataBase64" alt="pic">
-                            </div>
-                            <div class="clr-333">
-                                {{data.employeeName}}
+                                <img *ngIf="(imageData$ | async)?.imageDataBase64 as imageDataBase64" 
+                                     [src]="'data:image/jpeg;base64,' + imageDataBase64" alt="pic">
+                              </div>
+                            <div class="employee-details">
+                                <div class="clr-333 font-24">
+                                    {{data.employeeName}}
+                                </div>
+                                <div class="fromDate clr-666">
+                                    {{data.phoneNumber}}
+                                </div>
                             </div>
                         </div>
-                        <!-- <div class="options">
-                            <mat-icon>more_vert</mat-icon>
-                        </div> -->
+                        <div class="leave-type clr-666">
+                            {{data.leaveType}} Leave <br>
+                            {{data.dayLeave}}
+                        </div>
+
                     </div>
                     <div class="second-row">
-                        <div class="fromDate clr-666">{{data.leaveFrom}} -</div>
-                        <div class="toDate clr-666">{{data.leaveTo}}</div>
+                        <div class="fromDate">{{data.leaveFrom}} &nbsp; -</div>
+                        <div class="toDate">{{data.leaveTo}}</div>
                     </div>
                 </div>
                 <div class="leave-info-body">
                     <div class="leave-personal-details">
                         <div class="profile">
-                            <div class="profile-name clr-333">
+                            <div class="profile-name clr-999">
                                 {{data.reasonForLeave}}
                             </div>
-                            <div class="employee-id">
-                                Employee ID: 001
+                            <div class="employee-department clr-999">
+                                Department:{{data.department}}
                             </div>
                         </div>
-                        <div class="days-left">
+                        <div class="duration">
                             <div class="days-text clr-333">
                                 {{data.totalLeaveDuration}} Days
                             </div>
@@ -43,8 +51,9 @@
                     </div>
                 </div>
                 <div class="leave-info-button">
-                    <button mat-raised-button>Approve</button>
-                    <button mat-raised-button>Reject</button>
+                    <button mat-raised-button (click)="approve(data.id)">Approve</button>
+                    <button mat-raised-button class matRipple matRippleColor="rgb(255, 196, 196);"
+                        (click)="reject(data.id)">Reject</button>
                 </div>
             </div>
         </div>
