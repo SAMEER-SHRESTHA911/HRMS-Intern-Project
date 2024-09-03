@@ -1,9 +1,11 @@
-<div *ngIf="loading$ | async">Loading...</div>
+<div class="z-50" *ngIf="loading$ | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
 <div class="grid grid-col-1 p-5 mt-2 gap-6">
   <div class="p-10 flex justify-between pattern">
     <div class="flex items-center gap-14">
       <img
-        class="w-40 h-40 rounded-full border border-3 border-white"
+        class="w-40 h-40 rounded-full"
         mat-card-image
         src="avatar.png"
         alt=""
@@ -12,13 +14,11 @@
         *ngIf="profileDetails$ | async as profileDetails"
         class="flex flex-col"
       >
-        <!-- @for (employee of profileDetails; track employee.id) { -->
         <p class="text-2xl">
-          {{ profileDetails[0].firstName }}
+          {{ profileDetails.firstName }} {{ profileDetails.middleName }}
+          {{ profileDetails.lastName }}
         </p>
-        <p>{{ profileDetails[0].departmentId }}</p>
-        <p>Joined Date</p>
-        <!-- } -->
+        <p>Joined Date : {{ profileDetails.startDate | date }}</p>
       </div>
     </div>
     <div>
@@ -47,32 +47,28 @@
     </div>
   </div>
   <div *ngIf="profileDetails$ | async as profileDetails">
-    @for (employee of profileDetails; track employee.id) {
     <div class="details p-10">
-      <p>First Name: {{ employee.firstName }}</p>
+      <p>First Name: {{ profileDetails.firstName }}</p>
       <mat-divider></mat-divider>
-      @if(employee.middleName){
-      <p>Middle Name: {{ employee.middleName }}</p>
+      @if(profileDetails.middleName){
+      <p>Middle Name: {{ profileDetails.middleName }}</p>
       <mat-divider></mat-divider>
       }
-      <p>Last Name: {{ employee.lastName }}</p>
+      <p>Last Name: {{ profileDetails.lastName }}</p>
       <mat-divider></mat-divider>
-      <p>Gender: {{ employee.gender }}</p>
+      <p>Role: {{ profileDetails.role }}</p>
       <mat-divider></mat-divider>
-      <p>Email: {{ employee.email }}</p>
+      <p>Department: {{ profileDetails.departmentId }}</p>
       <mat-divider></mat-divider>
-      <p>Address: {{ employee.addressId }}</p>
+      <p>Gender: {{ profileDetails.gender }}</p>
       <mat-divider></mat-divider>
-      <p>Date of Birth: {{ employee.dob }}</p>
+      <p>Email: {{ profileDetails.email }}</p>
       <mat-divider></mat-divider>
-      <p>Citizenship No.: {{ employee.citizenshipNo }}</p>
+      <p>Address: {{ profileDetails.addressId }}</p>
       <mat-divider></mat-divider>
-      <p>Starting Date: {{ employee.startDate }}</p>
+      <p>Date of Birth: {{ profileDetails.dob | date }}</p>
       <mat-divider></mat-divider>
-      <p>Department: {{ employee.departmentId }}</p>
-      <mat-divider></mat-divider>
-      <p>Role: {{ employee.role }}</p>
+      <p>Citizenship No.: {{ profileDetails.citizenshipNo }}</p>
     </div>
-    }
   </div>
 </div>
