@@ -16,7 +16,7 @@ import { FETCH_LEAVE_REQUESTS } from '../../store/leave-summary/leave-summary.ac
   styleUrl: './leave-stats.component.scss',
 })
 export class LeaveStatsComponent {
-  userRole = 'admin';
+  userRole: string = 'admin';
   pendingLeaveRequestData$: Observable<LeaveRequests[]> = of([]);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);

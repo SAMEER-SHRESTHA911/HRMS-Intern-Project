@@ -1,25 +1,26 @@
-import {
-  postCheckInAction,
-  postCheckInFailure,
-  postCheckInSuccess,
-} from './checkin-in.actions';
-import { initialState } from './checkin-in.state';
 import { createReducer, on } from '@ngrx/store';
+import { initialCheckedInStatusState } from './checkin-in.state';
+import {
+  FETCH_CHECKED_IN_STATUS,
+  FETCH_CHECKED_IN_STATUS_FAILURE,
+  FETCH_CHECKED_IN_STATUS_SUCCESS,
+} from './checkin-in.actions';
 
-export const postCheckInReducer = createReducer(
-  initialState,
-  on(postCheckInAction, (state) => ({
-    ...state,
+export const checkCheckedInStatusReducer = createReducer(
+  initialCheckedInStatusState,
+  on(FETCH_CHECKED_IN_STATUS, (prevState) => ({
+    ...prevState,
     loading: true,
-    error: '',
+    error: null,
   })),
-  on(postCheckInSuccess, (state, { data }) => ({
-    ...state,
+  on(FETCH_CHECKED_IN_STATUS_SUCCESS, (prevState, { checkedInStatus }) => ({
+    ...prevState,
+    checkedInStatus,
     loading: false,
-    data,
+    error: null,
   })),
-  on(postCheckInFailure, (state, { error }) => ({
-    ...state,
+  on(FETCH_CHECKED_IN_STATUS_FAILURE, (prevState, { error }) => ({
+    ...prevState,
     loading: false,
     error,
   }))
