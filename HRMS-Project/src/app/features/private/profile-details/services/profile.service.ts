@@ -13,9 +13,10 @@ export class ProfileDetailsService {
 
   getProfileDetailsById(
     profileId: string
-  ): Observable<ResponseType<ProfileDetails[]>> {
-    return this.http.get<ResponseType<ProfileDetails[]>>(
+  ): Observable<ResponseType<ProfileDetails>> {
+    return this.http.get<ResponseType<ProfileDetails>>(
       `${baseUrl}${apiConstants.employeeDetails.getEmployeeDetailById}?id=${profileId}`
+      // `http://0.0.0.0:14650/api/HttpUser/GetRegisterEmployeeDetailById?id=${profileId}`
     );
   }
 
