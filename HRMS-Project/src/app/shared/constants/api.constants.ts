@@ -12,8 +12,7 @@ export const apiConstants = Object.freeze({
     getTodaysAttendanceSummary:
       '/api/Attendance/GetCurrentDayAttendanceSummary',
     getEmployeePendingLeaveRequests:
-      // '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestListWithoutFilter',
-      '/api/LeaveRequest/GetEmployeeLeaveRequestListWithoutFilter',
+      '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestListWithoutFilter',
     getEmployeeAllLeaveRequestList:
       '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
   }),
