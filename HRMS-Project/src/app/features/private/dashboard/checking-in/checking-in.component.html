@@ -4,11 +4,10 @@
     <button
       class="flex-1"
       mat-flat-button
-      [color]="!checkedIn ? 'primary' : 'warn'"
+      [color]="!checkedIn ? 'mat-primary' : 'mat-warn'"
       (click)="openCheckInDialog()"
     >
       {{ !checkedIn ? "Check-In" : "Check-Out" }}
     </button>
   </div>
 </div>
-

@@ -72,7 +72,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTableModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule, MatMenuModule,
   ],
 })
-export class MaterialsModule {}
+export class MaterialsModule { }

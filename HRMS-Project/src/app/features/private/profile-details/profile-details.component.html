@@ -14,18 +14,14 @@
       <p>Email: {{ profileDetails.email }}</p>
       <p>Address: {{ profileDetails.address }}</p>
       <p>Date of Birth: {{ profileDetails.dob }}</p>
-      <p>Citizenship No.: {{ profileDetails.citizenshipNumber }}</p>
+      <p>Citizenship No.: {{ profileDetails.citizenshipNo }}</p>
       <p>Starting Date: {{ profileDetails.startDate }}</p>
       <p>Department: {{ profileDetails.department }}</p>
       <p>Role: {{ profileDetails.role }}</p>
     </mat-card>
   </div>
   <div class="action-btn">
-    <button
-      mat-flat-button
-      color="primary"
-      (click)="onEditProfileDetails(825)"
-    >
+    <button mat-flat-button color="primary" (click)="onEditProfileDetails(825)">
       Edit Profile
     </button>
   </div>

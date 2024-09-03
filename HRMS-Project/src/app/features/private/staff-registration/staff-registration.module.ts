@@ -18,6 +18,12 @@ import { countryReducer } from '../../../shared/store/add-staff-dropdowns/countr
 import { CountryEffects } from '../../../shared/store/add-staff-dropdowns/country/country.effects';
 import { DepartmentEffects } from '../../../shared/store/add-staff-dropdowns/department/department.effects';
 import { departmentReducer } from '../../../shared/store/add-staff-dropdowns/department/department.reducer';
+import { CityEffects } from '../../../shared/store/add-staff-dropdowns/city/city.effect';
+import { cityReducer } from '../../../shared/store/add-staff-dropdowns/city/city.reducer';
+import { RolesEffects } from '../../../shared/store/add-staff-dropdowns/role/role.effect';
+import { roleReducer } from '../../../shared/store/add-staff-dropdowns/role/role.reducer';
+import { deleteStaffEffects } from './staff-list/store/delete-store/delete-staff.effect';
+import { deleteEmployeeReducer } from './staff-list/store/delete-store/delete-staff.reducer';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,6 @@ import { departmentReducer } from '../../../shared/store/add-staff-dropdowns/dep
     MaterialsModule,
     ReactiveFormsModule,
     FormsModule,
-    // ProfileDetailsModule,
     StoreModule.forFeature('staff', staffReducer),
     StoreModule.forFeature('staffList', staffListReducer),
     EffectsModule.forFeature([
@@ -40,9 +45,16 @@ import { departmentReducer } from '../../../shared/store/add-staff-dropdowns/dep
       StaffListEffects,
       CountryEffects,
       DepartmentEffects,
+      CityEffects,
+      RolesEffects,
+      deleteStaffEffects
+
     ]),
     StoreModule.forFeature('country', countryReducer),
     StoreModule.forFeature('department', departmentReducer),
+    StoreModule.forFeature('city', cityReducer),
+    StoreModule.forFeature('roles', roleReducer),
+    StoreModule.forFeature('deleteStaff', deleteEmployeeReducer)
   ],
 })
-export class StaffRegistrationModule {}
+export class StaffRegistrationModule { }

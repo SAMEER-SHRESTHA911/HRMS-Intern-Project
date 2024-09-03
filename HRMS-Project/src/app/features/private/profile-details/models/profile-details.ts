@@ -3,11 +3,11 @@ export interface ProfileDetails {
   firstName: string;
   midName: string | undefined;
   lastName: string;
-  gender: string;
+  gender: number;
   dob: string;
   address: string;
   nationality: string;
-  citizenshipNumber: string;
+  citizenshipNo: string;
   startDate: string;
   department: string;
   role: string;

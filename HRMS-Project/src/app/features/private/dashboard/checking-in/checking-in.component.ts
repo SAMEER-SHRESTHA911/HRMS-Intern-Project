@@ -10,7 +10,7 @@ import { DialogData } from '../../../../shared/components/model/dialog.interface
 })
 export class CheckingInComponent {
   checkedIn: boolean = true;
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog) { }
 
   openCheckInDialog() {
     const dialogData: DialogData = {
@@ -18,7 +18,7 @@ export class CheckingInComponent {
       buttonArray: [
         {
           label: 'Cancel',
-          type: 'warning',
+          type: 'mat-warn',
           action: () => {
             return;
           },

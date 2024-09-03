@@ -10,7 +10,7 @@ export interface LeaveTableData {
   employeeName?: string;
   departmentId?: number;
   department?: string;
-  phoneNumber?: string;
+  mobileNo?: string;
   totalLeaveDuration?: number;
 }
 

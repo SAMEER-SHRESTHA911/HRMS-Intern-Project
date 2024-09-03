@@ -1,25 +1,26 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { StaffDetails } from '../../model/add-staff';
 import { Observable } from 'rxjs';
-import { StaffState } from '../../store/add-staff.state';
-import { Store } from '@ngrx/store';
-import { Route, Router } from '@angular/router';
-import { ResponseType } from '../../../../../../shared/models/response.model';
 import { apiConstants } from '../../../../../../shared/constants/api.constants';
 import { baseUrl } from '../../../../../../shared/constants/global.constants';
+import { ResponseType } from '../../../../../../shared/models/response.model';
+import { RegisterStaffPayload } from '../../model/add-staff';
+
+
 @Injectable({
   providedIn: 'root',
 })
 export class AddStaffService {
   private apiUrl = `${baseUrl}${apiConstants.registerEmployee}`;
+  private getEmployeeByIdUrl = `${baseUrl}${apiConstants.getEmployeeById}`
   constructor(
     private http: HttpClient,
-    private store: Store<StaffState>,
-    private route: Router
-  ) {}
-  postStaff(staff: StaffDetails): Observable<ResponseType<StaffDetails>> {
-    this.route.navigate(['/admin/staff-registration/staff-list']);
-    return this.http.post<ResponseType<StaffDetails>>(this.apiUrl, staff);
+  ) { }
+
+  postStaff(staff: RegisterStaffPayload): Observable<ResponseType<boolean>> {
+    return this.http.post<ResponseType<boolean>>(this.apiUrl, staff);
+  }
+  getEmployeeData(employeeId: number): Observable<ResponseType<RegisterStaffPayload>> {
+    return this.http.get<ResponseType<RegisterStaffPayload>>(`${this.getEmployeeByIdUrl}/${employeeId}`);
   }
 }

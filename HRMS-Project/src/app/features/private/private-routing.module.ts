@@ -41,7 +41,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'staff_management',
+    path: 'staff-management',
     loadChildren: () =>
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
@@ -53,9 +53,9 @@ const routes: Routes = [
       import('./policies/policies.module').then((m) => m.PoliciesModule),
   },
   {
-    path: 'policies',
+    path: 'attendance',
     loadChildren: () =>
-      import('./policies/policies.module').then((m) => m.PoliciesModule),
+      import('./attendance/attendance.module').then((m) => m.AttendanceModule),
   },
 ];
 

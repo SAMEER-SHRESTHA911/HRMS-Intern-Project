@@ -1,7 +1,10 @@
 export const apiConstants = {
   registerEmployee: '/user/Employee/RegisterEmployee',
-  getEmployeeList: '/user/HttpUser/GetRegisterEmployeeList',
   getCountryList: '/user/Country/GetCountryList',
-  getCityList: '/user/City/GetCityList',
-  getDepartmentList: '/user/HttpUser/GetDepartmentList',
+  getCityListByCountryId: '/user/City/GetCityByCountryId',
+  getDepartmentList: '/user/Department/GetDepartmentList',
+  getEmployeeList: '/user/Employee/GetRegisterEmployeeList',
+  getEmployeeById: '/user/Employee/GetRegisterEmployeeDetailById',
+  getRolesList: '/user/Employee/GetAllRoles',
+  deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee'
 };

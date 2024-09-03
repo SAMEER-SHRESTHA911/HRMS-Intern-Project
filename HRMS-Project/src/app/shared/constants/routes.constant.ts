@@ -1,13 +1,13 @@
-export const ROUTE_CONSTANT = {
-  'add-employee': 'staff_management/add-staff',
-  'apply-leave': 'apply_for_leave',
+export const ROUTE_CONSTANT = Object.freeze({
+  addEmployee: 'staff-management/add-staff',
+  applyLeave: 'apply-for-leave',
   attendance: 'attendance',
-  'employee-details': 'employee_details',
+  employeeDetails: 'employee-details',
   policies: 'policies',
-  emplpoyee_details: 'employee_details',
+  emplpoyeeDetails: 'employee-details',
   dashboard: 'dashboard',
-  'staff-management': 'staff_management',
-  'leave-management': 'leave-management',
-  'leave-apply': 'leave-apply',
-  'attendance-details': 'attendance/attendance-details',
-};
+  staffManagement: 'staff-management',
+  leaveManagement: 'leave-management',
+  leaveApply: 'leave-apply',
+  attendanceDetails: 'attendance',
+});
