@@ -25,7 +25,7 @@ export class LeaveEditEffect {
       switchMap((action) =>
         this.leaveEditService.fetchEditLeaveData(action.id).pipe(
           map((editLeaveData: LeaveApplyBody) => {
-            this.snackBar.open('You have edited your leave application', 'Close', { duration: 3000 });
+            this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
             return GET_EDIT_LEAVE_DATA_SUCCESS({ editLeaveData });
           }),
           catchError((error) => of(GET_EDIT_LEAVE_DATA_FAILURE({ error })))

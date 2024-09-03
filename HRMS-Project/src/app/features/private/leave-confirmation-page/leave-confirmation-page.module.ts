@@ -10,20 +10,26 @@ import { EffectsModule } from '@ngrx/effects';
 import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confirmation.effects';
 import { LeaveManagementModule } from '../leave-management/leave-management.module';
 import { LeaveApproveCardComponent } from './components/leave-approve-card/leave-approve-card.component';
-
+import { ImageReducer } from './store/profile-image/profile-image.reducer';
+import { ImageEffects } from './store/profile-image/profile-image.effects';
+import { LeaveAcceptRejectEffects } from './store/leave-card-approve/leave-card.effects';
+import { leaveAcceptRejectReducer } from './store/leave-card-approve/leave-card.reducer';
 
 @NgModule({
-  declarations: [
-    LeaveConfirmationPageComponent,
-    LeaveApproveCardComponent
-  ],
+  declarations: [LeaveConfirmationPageComponent, LeaveApproveCardComponent],
   imports: [
     CommonModule,
     LeaveConfirmationPageRoutingModule,
     MaterialsModule,
     LeaveManagementModule,
-    StoreModule.forFeature('leaveRequestList',LeaveConfirmationReducer),
-    EffectsModule.forFeature([LeaveConfirmationEffects])  
-  ]
+
+    StoreModule.forFeature('leaveRequestList', LeaveConfirmationReducer),
+    StoreModule.forFeature('image', ImageReducer),
+    StoreModule.forFeature('leaveAcceptRejectState', leaveAcceptRejectReducer),
+
+    EffectsModule.forFeature([LeaveConfirmationEffects]),
+    EffectsModule.forFeature([ImageEffects]),
+    EffectsModule.forFeature([LeaveAcceptRejectEffects]),
+  ],
 })
-export class LeaveConfirmationPageModule { }
+export class LeaveConfirmationPageModule {}
