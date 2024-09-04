@@ -40,14 +40,14 @@ export class AttendanceDetailsComponent implements OnInit {
   ];
   ngOnInit(): void {
     this.selectorInitializer();
-    // this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator;
     this.store.dispatch(loadAttendanceRecords());
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-  onViewAttendanceDetails() {}
+  onViewAttendanceDetails() { }
   applyFilter(event: Event) {
     if (this.dataSource) {
       const filterValue = (event.target as HTMLInputElement).value;
@@ -57,7 +57,7 @@ export class AttendanceDetailsComponent implements OnInit {
   constructor(
     private store: Store<AttendanceRecord>,
     private dialog: MatDialog
-  ) {}
+  ) { }
   selectorInitializer(): void {
     this.records$ = this.store.pipe(select(selectAttendanceRecords));
     this.records$.subscribe((data) => {

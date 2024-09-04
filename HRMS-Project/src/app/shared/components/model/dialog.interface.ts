@@ -1,6 +1,6 @@
 export interface DialogButton {
   label: string;
-  type: 'primary' | 'warning';
+  type: 'mat-primary' | 'mat-warn';
   action: () => void;
 }
 export interface DialogData {

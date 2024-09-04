@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { StaffList } from '../model/staff-list';
-import { StaffDetails } from '../../add-staff/model/add-staff';
+import { RegisterStaffPayload } from '../../add-staff/model/add-staff';
+// import { RegisterStaffPayload } from '../../add-staff/model/add-staff';
 
 export const loadStaffList = createAction('[Staff List] Load StaffList');
 
@@ -13,27 +14,27 @@ export const loadStaffListFailure = createAction(
   '[Staff List] Load StaffList Failure',
   props<{ error: string }>()
 );
-export const deleteStaffDetails = createAction(
-  '[Staff List] delete StaffListDetails',
-  props<{ id: number | string }>()
-);
-export const deleteStaffDetailsSucess = createAction(
-  '[Staff List] delete StaffListDetails Sucess',
-  props<{ id: number | string }>()
-);
-export const deleteStaffDetailsFailure = createAction(
-  '[Staff List] delete StaffListDetails Failure',
-  props<{ error: string }>()
-);
-export const editStaffDetails = createAction(
+
+export const getStaffDetailsById = createAction(
   '[Staff List] edit StaffListDetails',
-  props<{ id: string | number; staff: StaffDetails }>()
+  props<{ id: string | number; }>()
 );
-export const editStaffDetailsSucess = createAction(
+export const getStaffDetailsByIdSucess = createAction(
   '[Staff List] edit StaffListDetails Sucess',
-  props<{ id: string | number }>()
+  props<{ staff: RegisterStaffPayload }>()
 );
-export const editStaffDetailsFailure = createAction(
+export const getStaffDetailsByIdFailure = createAction(
   '[Staff List] edit StaffListDetails Failure',
   props<{ error: string }>()
 );
+// export const updateStaffDetails = createAction('[Staff List] update StaffListDetails',
+//   props<{ id: number; staff: RegisterStaffPayload }>()
+// );
+// export const updateStaffDetailsSucess = createAction('[staff List]update StaffDetails Sucess',
+//   props<{ sucess: boolean }>()
+// );
+// export const updateStaffDetailsFailure = createAction('[staff List]update StaffDetails Failure',
+//   props<{ error: string }>()
+// );
+
+

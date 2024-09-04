@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import { DialogButton, DialogData } from '../model/dialog.interface';
+import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DialogData } from '../model/dialog.interface';
 
 @Component({
   selector: 'app-dialog',
@@ -16,6 +16,7 @@ export class DialogComponent {
   }
 
   onButtonClick(action: () => void) {
+    console.log('hu')
     action();
     this.dialogRef.close();
   }
