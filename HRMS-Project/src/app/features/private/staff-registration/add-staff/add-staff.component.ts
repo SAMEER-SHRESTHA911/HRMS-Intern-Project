@@ -9,18 +9,11 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, of, switchMap } from 'rxjs';
-import { CountryData } from '../../../../shared/models/country.interface';
-import { DepartmentData } from '../../../../shared/models/department.interface';
 import { RoleData } from '../../../../shared/models/role.interface';
 import { loadCities } from '../../../../shared/store/add-staff-dropdowns/city/city.actions';
 import { selectAllCities } from '../../../../shared/store/add-staff-dropdowns/city/city.selector';
-import { loadCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.actions';
-import { selectAllCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.selector';
-import { loadDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.actions';
-import { selectAllDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.selector';
 import { loadRoles } from '../../../../shared/store/add-staff-dropdowns/role/role.actions';
 import { selectAllRoles } from '../../../../shared/store/add-staff-dropdowns/role/role.selctor';
-import { StaffListService } from '../staff-list/service/staff-list.service';
 import { } from '../staff-list/store/staff-list.actions';
 import { StaffDetailsFormValue } from './model/add-staff';
 import { FormService } from './service/form/form.service';

@@ -63,11 +63,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatInputModule,
     MatMenuModule,
     MatNativeDateModule,
     MatNativeDateModule,
-    MatPaginatorModule,
     MatPaginatorModule,
     MatRadioModule,
     MatSelectModule,
@@ -76,9 +74,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatTableModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule, , MatMenuModule,
+    MatProgressBarModule,
+    MatSnackBarModule, MatMenuModule,
   ],
 })
 export class MaterialsModule { }

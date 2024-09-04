@@ -7,7 +7,7 @@ export const apiConstants = Object.freeze({
   getEmployeeById: '/user/Employee/GetRegisterEmployeeDetailById',
   updateEmployee: '/user/Employee/UpdateRegisterEmployee',
   getRolesList: '/user/Employee/GetAllRoles',
-  deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee'
+  deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee',
 
 
   attendance: Object.freeze({
