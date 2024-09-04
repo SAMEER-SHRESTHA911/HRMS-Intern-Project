@@ -14,10 +14,10 @@ const routes: Routes = [
             (m) => m.PrivateModule
           ),
       },
-      
+
+
     ],
   },
-  
 ];
 
 @NgModule({

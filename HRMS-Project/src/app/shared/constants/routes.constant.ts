@@ -13,6 +13,8 @@ export const ROUTE_CONSTANT = Object.freeze({
   attendanceDetails: 'attendance/attendance-details',
   profileDetails: 'profile-details',
   staffRegistration: 'staff-registration',
-  leaveConfirmationPage: 'leave-confirmation-page'
+  leaveConfirmationPage: 'leave-confirmation-page',
+  changePassword : 'change-password'
 });
 
+Object.freeze(ROUTE_CONSTANT);
