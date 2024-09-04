@@ -2,26 +2,34 @@
   <mat-drawer mode="side" opened class="sidebar">
     <nav>
       <ul>
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a [routerLink]="route_constant.dashboard">
-            <span [ngClass]="{'sidebar-row' : true }">
+            <span [ngClass]="{ 'sidebar-row': true }">
               <mat-icon>dashboard</mat-icon>
               Dashboard
             </span>
           </a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-          
-          <a [routerLink]=" route_constant.staffManagement">
-          <span class="sidebar-row">
-            <mat-icon>folder_shared</mat-icon>
-            Staff Management
-          </span>
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a [routerLink]="route_constant.staffManagement">
+            <span class="sidebar-row">
+              <mat-icon>folder_shared</mat-icon>
+              Staff Management
+            </span>
           </a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a [routerLink]="route_constant.leaveManagement">
             <span class="sidebar-row">
               <mat-icon>settings_applications</mat-icon>
@@ -30,7 +38,10 @@
           </a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a [routerLink]="route_constant.applicationStatus">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
@@ -39,7 +50,10 @@
           </a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a [routerLink]="route_constant.attendanceDetails">
             <span class="sidebar-row">
               <mat-icon>list_alt</mat-icon>
@@ -48,7 +62,10 @@
           </a>
         </li>
 
-        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <a [routerLink]="route_constant.policies">
             <span class="sidebar-row">
               <mat-icon>policy</mat-icon>

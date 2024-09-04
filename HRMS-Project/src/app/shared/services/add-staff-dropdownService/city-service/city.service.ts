@@ -10,9 +10,13 @@ import { CityData } from '../../../models/city.interface';
   providedIn: 'root',
 })
 export class CityService {
-  private apiUrl = `${baseUrl}${apiConstants.getCityList}`;
+  private apiUrl = `${baseUrl}${apiConstants.getCityListByCountryId}`;
   constructor(private http: HttpClient) {}
-  // getCityListBYCountryID(): Observable<ResponseType<CityData[]>> {
-  //   return this.http.get<ResponseType<CityData[]>>(`${this.apiUrl}?countryId=${countryId}`);
-  // }
+  getCityListByCountryId(
+    countryId: number
+  ): Observable<ResponseType<CityData[]>> {
+    return this.http.get<ResponseType<CityData[]>>(
+      `${this.apiUrl}?countryId=${countryId}`
+    );
+  }
 }

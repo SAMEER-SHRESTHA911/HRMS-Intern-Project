@@ -1,27 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  AbstractControl,
-  FormGroup,
-  ValidationErrors,
-  ValidatorFn,
+  FormGroup
 } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
-import { Observable, of, switchMap } from 'rxjs';
-import { StaffDetails } from './model/add-staff';
-import { FormService } from './service/form/form.service';
 import {
   MatDatepickerControl,
   MatDatepickerPanel,
 } from '@angular/material/datepicker';
-import { addStaff } from './store/add-staff.actions';
+import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable, of, switchMap } from 'rxjs';
+import { CountryData } from '../../../../shared/models/country.interface';
+import { DepartmentData } from '../../../../shared/models/department.interface';
+import { RoleData } from '../../../../shared/models/role.interface';
+import { loadCities } from '../../../../shared/store/add-staff-dropdowns/city/city.actions';
+import { selectAllCities } from '../../../../shared/store/add-staff-dropdowns/city/city.selector';
+import { loadCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.actions';
+import { selectAllCountries } from '../../../../shared/store/add-staff-dropdowns/country/country.selector';
+import { loadDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.actions';
+import { selectAllDepartments } from '../../../../shared/store/add-staff-dropdowns/department/department.selector';
+import { loadRoles } from '../../../../shared/store/add-staff-dropdowns/role/role.actions';
+import { selectAllRoles } from '../../../../shared/store/add-staff-dropdowns/role/role.selctor';
+import { StaffListService } from '../staff-list/service/staff-list.service';
+import { } from '../staff-list/store/staff-list.actions';
+import { StaffDetailsFormValue } from './model/add-staff';
+import { FormService } from './service/form/form.service';
+import { addStaff, fetchEmployeeData } from './store/add-staff.actions';
 import {
-  selectAllStaff,
   selectStaffError,
   selectStaffLoading,
 } from './store/add-staff.selector';
 import { StaffState } from './store/add-staff.state';
-import { editStaffDetails } from '../staff-list/store/staff-list.actions';
-import { ActivatedRoute, Router } from '@angular/router';
+import { convertToStaffPayload } from './transformer/staff-register-payload.transformer';
+import { updateEmployee } from './store/update-staff/update-staff.action';
 import { StaffListService } from '../staff-list/service/staff-list.service';
 import { CountryData } from '@shared/models/country.interface';
 import { selectAllCountries } from '@shared/store/add-staff-dropdowns/country/country.selector';
@@ -39,33 +49,40 @@ export class AddStaffComponent implements OnInit {
   passwordHide = true;
   confirmPasswordHide = true;
   isEditMode: boolean = false;
-  staffId: number | string | null = null;
+  staffId: number | null = null;
   maxDate!: Date;
   maxStartDate!: Date;
 
-  picker1!: MatDatepickerPanel<MatDatepickerControl<any>, any, any>;
-  staff$: Observable<StaffDetails[]> = of([]);
+  picker1!: MatDatepickerPanel<MatDatepickerControl<unknown>, unknown, unknown>;
+  staff$: Observable<StaffDetailsFormValue[]> = of([]);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   countries$: Observable<CountryData[]> = of([]);
   departments$: Observable<DepartmentData[]> = of([]);
+  cities$: Observable<DepartmentData[]> = of([]);
+  roles$: Observable<RoleData[]> = of([])
 
-  selectedCountry!: string;
+  selectedCountry!: CountryData;
+  selectedCity!: string;
   selectedDepartments!: string;
+
+
   get registrationForm(): FormGroup {
     return this.formService.registrationForm;
   }
+
   set registrationForm(form: FormGroup) {
     this.formService.registrationForm = form;
   }
+
   constructor(
     private formService: FormService,
     private staffListService: StaffListService,
     private store: Store<StaffState>,
-
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
+
   ngOnInit(): void {
     this.formService.initializeForm();
     this.selectorInitializer();
@@ -74,7 +91,9 @@ export class AddStaffComponent implements OnInit {
     this.setMaxStartDate();
     this.getCountryList();
     this.getDeparmentList();
+    this.getRoleList();
   }
+
   setMaxDateForDob(): void {
     const today = new Date();
     this.maxDate = new Date(
@@ -83,14 +102,25 @@ export class AddStaffComponent implements OnInit {
       today.getDate()
     );
   }
+
   setMaxStartDate(): void {
     this.maxStartDate = new Date();
   }
+
   getDeparmentList(): void {
     this.store.dispatch(loadDepartments());
   }
+  getRoleList(): void {
+    this.store.dispatch(loadRoles());
+  }
+
   getCountryList(): void {
     this.store.dispatch(loadCountries());
+  }
+
+  getCityListByCountryId(countryId: CountryData): void {
+    this.selectedCountry = countryId;
+    this.store.dispatch(loadCities({ countryId: this.selectedCountry.id }));
   }
 
   private initializeEditMode(): void {
@@ -109,42 +139,44 @@ export class AddStaffComponent implements OnInit {
       )
       .subscribe();
   }
-  private loadStaffList(id: number): void {
-    this.staffListService.editStaff(id).subscribe((data) => {
-      if (data) {
-        this.registrationForm.patchValue(data);
-      }
-    });
-  }
 
   onSubmit(): void {
-    if (this.registrationForm.valid) {
-      const staffDetails: StaffDetails = {
-        ...this.registrationForm.value,
-        id: this.staffId,
-      };
+    console.log("Hellooo");
 
-      if (this.isEditMode && this.staffId !== null) {
-        this.store.dispatch(
-          editStaffDetails({ id: this.staffId, staff: staffDetails })
-        );
-      } else {
-        this.store.dispatch(addStaff({ staff: staffDetails }));
-      }
-
-      this.router.navigate(['/admin/staff-registration/staff-list']);
-    } else {
+    if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
+      return;
     }
+
+    const updatedData = convertToStaffPayload(this.registrationForm.value);
+
+    if (this.isEditMode && this.staffId !== null) {
+      this.store.dispatch(
+        updateEmployee({ employeeId: this.staffId, updatedData })
+      );
+    } else {
+      this.store.dispatch(addStaff({ staff: updatedData }));
+    }
+
   }
+
   onCancelEdit(): void {
     this.router.navigate(['/admin/staff-registration/staff-list']);
   }
+
   selectorInitializer(): void {
-    this.staff$ = this.store.pipe(select(selectAllStaff));
     this.loading$ = this.store.pipe(select(selectStaffLoading));
     this.error$ = this.store.pipe(select(selectStaffError));
     this.countries$ = this.store.select(selectAllCountries);
     this.departments$ = this.store.select(selectAllDepartments);
+    this.cities$ = this.store.select(selectAllCities);
+    this.roles$ = this.store.select(selectAllRoles)
+
+
+  }
+
+  private loadStaffList(id: number): void {
+
+    this.store.dispatch(fetchEmployeeData({ staffId: id }))
   }
 }

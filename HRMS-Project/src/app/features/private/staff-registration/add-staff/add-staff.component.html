@@ -6,7 +6,7 @@
 <div class="form-container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter First Name</mat-label>
         <input
           matInput
@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter Mid Name</mat-label>
         <input
           matInput
@@ -39,7 +39,7 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter Last Name</mat-label>
         <input
           matInput
@@ -59,19 +59,19 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter phone Number</mat-label>
         <input
           matInput
           type="number"
-          formControlName="phoneNumber"
+          formControlName="mobileNo"
           placeholder="Enter phoneNumber"
         />
         <mat-error
           *ngIf="
-            (registrationForm.get('phoneNumber')?.touched ||
-              registrationForm.get('phoneNumber')?.dirty) &&
-            registrationForm.get('phoneNumber')?.hasError('required')
+            (registrationForm.get('mobileNo')?.touched ||
+              registrationForm.get('mobileNo')?.dirty) &&
+            registrationForm.get('mobileNo')?.hasError('required')
           "
         >
           Enter valid phoneNumber
@@ -80,28 +80,38 @@
     </div>
 
     <div>
-      <mat-radio-group aria-label="Select Gender" formControlName="gender">
-        <mat-radio-button value="1">Male</mat-radio-button>
-        <mat-radio-button value="2">Female</mat-radio-button>
-        <mat-radio-button value="3">Others</mat-radio-button>
-      </mat-radio-group>
-      <mat-error
-        *ngIf="
-          (registrationForm.get('gender')?.touched ||
-            registrationForm.get('gender')?.dirty) &&
-          registrationForm.get('gender')?.hasError('required')
-        "
-      >
-        Gender is required.
-      </mat-error>
+      <mat-form-field appearance="outline" class="my-input">
+        <mat-label>Gender</mat-label>
+        <mat-select placeholder="Gender" formControlName="gender" name="gender">
+          <mat-option value="1">Male</mat-option>
+          <mat-option value="2">Female</mat-option>
+          <mat-option value="3">Others</mat-option>
+        </mat-select>
+
+        <mat-error
+          *ngIf="
+            (registrationForm.get('gender')?.touched ||
+              registrationForm.get('gender')?.dirty) &&
+            registrationForm.get('gender')?.hasError('required')
+          "
+        >
+          Gender is required.
+        </mat-error>
+      </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field class="example-full-width" appearance="outline">
+      <mat-form-field
+        class="example-full-width"
+        appearance="outline"
+        class="my-input"
+      >
         <mat-label>Enter DOB</mat-label>
         <input
           matInput
           formControlName="dob"
+          placeholder="MM/DD/YYYY
+          "
           [matDatepicker]="picker"
           [max]="maxDate"
         />
@@ -124,7 +134,7 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter Address</mat-label>
         <input matInput formControlName="address" placeholder="Address*" />
         <mat-error
@@ -139,31 +149,54 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Country</mat-label>
-        <mat-select [(ngModel)]="selectedCountry" name="country">
+        <mat-select
+          placeholder="Country"
+          formControlName="country"
+          (selectionChange)="getCityListByCountryId($event.value)"
+          name="country"
+        >
           <mat-option
             *ngFor="let country of countries$ | async"
-            [value]="country.code"
+            [value]="country"
           >
             {{ country.name }}
           </mat-option>
         </mat-select>
+        <mat-error
+          *ngIf="
+            (registrationForm.get('country')?.touched ||
+              registrationForm.get('country')?.dirty) &&
+            registrationForm.get('country')?.hasError('required')
+          "
+        >
+          Country is required.
+        </mat-error>
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>City</mat-label>
-        <mat-select>
-          <mat-option value="option">Kathmandu</mat-option>
-          <mat-option value="option">Chicago</mat-option>
-          <mat-option value="option">NewYork</mat-option>
+        <mat-select formControlName="city" name="city">
+          <mat-option *ngFor="let city of cities$ | async" [value]="city.id">
+            {{ city.name }}</mat-option
+          >
         </mat-select>
+        <mat-error
+          *ngIf="
+            (registrationForm.get('city')?.touched ||
+              registrationForm.get('city')?.dirty) &&
+            registrationForm.get('city')?.hasError('required')
+          "
+        >
+          City is required.
+        </mat-error>
       </mat-form-field>
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter Nationality</mat-label>
         <input
           matInput
@@ -183,18 +216,18 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter Citizenship Number</mat-label>
         <input
           matInput
-          formControlName="citizenshipNumber"
+          formControlName="citizenshipNo"
           placeholder="Citizenship Number"
         />
         <mat-error
           *ngIf="
-            (registrationForm.get('citizenshipNumber')?.touched ||
-              registrationForm.get('citizenshipNumber')?.dirty) &&
-            registrationForm.get('citizenshipNumber')?.hasError('required')
+            (registrationForm.get('citizenshipNo')?.touched ||
+              registrationForm.get('citizenshipNo')?.dirty) &&
+            registrationForm.get('citizenshipNo')?.hasError('required')
           "
         >
           Citizenship Number is required.
@@ -203,10 +236,16 @@
     </div>
 
     <div>
-      <mat-form-field class="example-full-width" appearance="outline">
+      <mat-form-field
+        class="example-full-width"
+        appearance="outline"
+        class="my-input"
+      >
         <mat-label>Enter start date</mat-label>
         <input
           matInput
+          placeholder="MM/DD/YYYY
+          "
           formControlName="startDate"
           [matDatepicker]="picker1"
           [max]="maxStartDate"
@@ -230,9 +269,13 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Department</mat-label>
-        <mat-select [(ngModel)]="selectedDepartments" name="department">
+        <mat-select
+          formControlName="department"
+          name="department"
+          placeholder="Department"
+        >
           <mat-option
             *ngFor="let department of departments$ | async"
             [value]="department.id"
@@ -254,13 +297,12 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Role</mat-label>
-        <mat-select formControlName="role">
-          <mat-option value="developer">Developer</mat-option>
-          <mat-option value="tester">Tester</mat-option>
-          <mat-option value="manager">Manager</mat-option>
-          <mat-option value="designer">Designer</mat-option>
+        <mat-select formControlName="role" name="role" placeholder="Role">
+          <mat-option *ngFor="let role of roles$ | async" [value]="role.key">
+            {{ role.value }}
+          </mat-option>
         </mat-select>
         <mat-error
           *ngIf="
@@ -275,7 +317,7 @@
     </div>
 
     <div>
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter your email</mat-label>
         <input
           matInput
@@ -286,8 +328,8 @@
 
         <mat-error
           *ngIf="
-            (registrationForm.get('email')?.touched ||
-              registrationForm.get('email')?.dirty) &&
+            registrationForm.get('email')?.touched ||
+            registrationForm.get('email')?.dirty ||
             registrationForm.get('email')?.hasError('email')
           "
         >
@@ -295,11 +337,13 @@
         </mat-error>
       </mat-form-field>
     </div>
+
     <div *ngIf="!isEditMode">
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter your password</mat-label>
         <input
           matInput
+          placeholder="Password"
           formControlName="password"
           [type]="passwordHide ? 'password' : 'text'"
         />
@@ -336,10 +380,11 @@
       </mat-form-field>
     </div>
     <div *ngIf="!isEditMode">
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" class="my-input">
         <mat-label>Confirm your password</mat-label>
         <input
           matInput
+          placeholder="Confirm Password"
           formControlName="confirmPassword"
           [type]="confirmPasswordHide ? 'password' : 'text'"
         />

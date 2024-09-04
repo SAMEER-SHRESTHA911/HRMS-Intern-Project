@@ -78,7 +78,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatDividerModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule,
+    MatProgressBarModule, , MatMenuModule,
   ],
 })
-export class MaterialsModule {}
+export class MaterialsModule { }

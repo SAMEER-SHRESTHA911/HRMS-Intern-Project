@@ -3,17 +3,18 @@ export interface StaffList {
   firstName?: string;
   middleName?: string;
   lastName?: string;
-  phoneNumber?: string;
-  gender?: string;
+  mobileNo?: string;
+  gender?: number;
   dob?: string;
   address?: string;
   nationality?: string;
-  citizenshipNumber?: string;
+  citizenshipNo?: string;
   startDate?: string;
-  department?: string;
+  // department?: string;
+  departmentId?: number;
   role?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
-  actions?: any;
+  actions?: unknown;
 }
