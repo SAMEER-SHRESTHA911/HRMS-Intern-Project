@@ -7,6 +7,7 @@ import { Observable } from "rxjs";
 })
 export class AuthService{
   private apiUrl ='https://s40x83tv-1595.inc1.devtunnels.ms/apigateway/user/Login/ChangePassword';
+
   constructor(private http:HttpClient){}
 
   changePassword(currentPassword:string,newPassword:string):Observable<void>{
