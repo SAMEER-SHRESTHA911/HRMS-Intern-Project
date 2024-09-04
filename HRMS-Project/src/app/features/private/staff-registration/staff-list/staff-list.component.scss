@@ -37,6 +37,8 @@
 
     .example-button-row {
       button.mat-flat-button {
+        display: block;
+
         background-color: transparent;
         color: #0e2294;
         border: 1px solid #3f51b5;
@@ -44,8 +46,13 @@
           background-color: rgba(63, 81, 181, 0.1);
         }
       }
+
+      button.mat-icon-button {
+        display: none;
+      }
     }
   }
+
   .mat-form-field {
     display: flex;
     align-items: center;
@@ -68,14 +75,9 @@
       font-size: 16px;
     }
   }
+
   .mat-mdc-table-wrapper {
     overflow-x: auto;
-  }
-  .mat-mdc-table {
-    max-width: 50px;
-    max-height: 500px;
-    white-space: nowrap;
-    overflow: scroll;
   }
 
   .table-data-container {
@@ -117,6 +119,7 @@
     margin-top: 20px;
   }
 }
+
 @media (max-width: 1500px) {
   .Employee-list-header {
     padding: 6px 10px;
@@ -125,9 +128,15 @@
       font-size: 20px;
     }
 
-    .example-button-row button.mat-flat-button {
-      font-size: 14px;
-      padding: 6px 10px;
+    .example-button-row {
+      button.mat-flat-button {
+        font-size: 14px;
+        padding: 6px 10px;
+        display: inline-block;
+      }
+      button.mat-icon-button {
+        display: none;
+      }
     }
   }
 
@@ -159,40 +168,13 @@
 
 @media (max-width: 768px) {
   .Employee-list-header {
-    padding: 6px 10px;
-    margin-left: 150px;
-
-    .form-title h4 {
-      font-size: 18px;
-    }
-
-    .example-button-row button.mat-flat-button {
-      font-size: 12px;
-      padding: 4px 8px;
-    }
-  }
-  .table-container {
-    margin-left: 150px;
-    padding: 6px;
-    .mat-form-field {
-      margin-bottom: 15px;
-
-      input {
-        padding: 8px;
-        font-size: 14px;
+    .example-button-row {
+      button.mat-flat-button {
+        display: block;
       }
-    }
-
-    table {
-      th.mat-header-cell,
-      td.mat-cell {
-        padding: 8px;
-        font-size: 12px;
+      button.mat-icon-button {
+        display: none;
       }
-    }
-
-    .mat-paginator {
-      font-size: 12px;
     }
   }
 }
@@ -200,38 +182,19 @@
 @media (max-width: 480px) {
   .Employee-list-header {
     padding: 4px 8px;
-    margin-left: 100px;
 
     .form-title h4 {
       font-size: 16px;
     }
 
-    .example-button-row button.mat-flat-button {
-      font-size: 11px;
-      padding: 3px 6px;
-    }
-  }
-  .table-container {
-    .mat-form-field {
-      width: 100px;
-      margin-bottom: 10px;
-
-      input {
-        padding: 6px;
-        font-size: 12px;
+    .example-button-row {
+      button.mat-flat-button {
+        display: none;
       }
-    }
-
-    table {
-      th.mat-header-cell,
-      td.mat-cell {
-        padding: 4px;
-        font-size: 10px;
+      button.mat-icon-button {
+        display: block;
+        font-size: 14px;
       }
-    }
-
-    .mat-paginator {
-      font-size: 10px;
     }
   }
 }

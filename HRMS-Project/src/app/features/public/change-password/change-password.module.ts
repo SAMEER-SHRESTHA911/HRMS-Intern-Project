@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ChangePasswordRoutingModule } from './change-password-routing.module';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +13,10 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   ],
   imports: [
     CommonModule,
-    ChangePasswordRoutingModule
+    ChangePasswordRoutingModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    
   ]
 })
 export class ChangePasswordModule { }

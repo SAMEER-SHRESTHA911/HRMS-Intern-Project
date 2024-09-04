@@ -12,8 +12,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { StoreModule } from '@ngrx/store';
-import { policyReducer } from '../private/policies/store/policy-list/policy-list.reducer';
 import { OTPComponent } from './otp/otp.component';
 @NgModule({
   declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent, NotFoundComponent, OTPComponent],

@@ -47,4 +47,7 @@ export class ProfileDetailsComponent implements OnInit {
   onEditProfileDetails(id: string | number): void {
     this.router.navigate(['/admin/profile-details/edit-profile', id]);
   }
+  onChangePassword(){
+    this.router.navigate(['/change-password'])
+  }
 }

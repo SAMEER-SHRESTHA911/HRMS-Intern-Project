@@ -6,6 +6,7 @@
   </div>
   <div class="buttons-container">
     <button
+      mat-flat-button
       *ngFor="let button of data.buttonArray"
       [ngClass]="button.type"
       (click)="onButtonClick(button.action)"
