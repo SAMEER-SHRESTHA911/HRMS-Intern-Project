@@ -49,6 +49,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: ROUTE_CONSTANT.attendance,
+    loadChildren: () =>
+      import('./attendance/attendance.module').then(
+        (m) => m.AttendanceModule
+      ),
+  },
+  {
     path: ROUTE_CONSTANT.policies,
     loadChildren: () =>
       import('./policies/policies.module').then((m) => m.PoliciesModule),
