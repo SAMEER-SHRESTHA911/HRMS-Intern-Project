@@ -1,6 +1,6 @@
 <div class="flex w-full justify-between mb-4">
   <p class="hidden sm:block">
-    Welcome {{ (profileDetails$ | async)?.firstName }}!
+    Welcome {{ (profileDetails$ | async)?.firstName ?? "to TechnoFex" }}!
   </p>
   <div class="flex flex-1 sm:flex-none">
     <button

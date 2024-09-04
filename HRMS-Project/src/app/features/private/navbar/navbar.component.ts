@@ -7,9 +7,9 @@ import { loggedInUser } from '@shared/constants/global.constants';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  userId: string | number = loggedInUser.id;
+  loggedInUser = loggedInUser.id;
 
-  logOut(){
-    localStorage.clear()
+  logOut() {
+    localStorage.clear();
   }
 }
