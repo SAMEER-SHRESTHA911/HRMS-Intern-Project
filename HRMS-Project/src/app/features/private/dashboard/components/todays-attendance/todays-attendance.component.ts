@@ -16,10 +16,9 @@ import { FETCH_TODAY_ATTENDANCE_SUMMARY } from '../../store/todays-attendance/to
   styleUrl: './todays-attendance.component.scss',
 })
 export class TodaysAttendanceComponent implements OnInit {
-  attendanceSummary$: Observable<TodayAttendanceSummary[]> = of([]);
+  attendanceSummary$: Observable<TodayAttendanceSummary | null> = of(null);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
-  attendanceSummary: TodayAttendanceSummary[] = [];
 
   selectorInitilizer(): void {
     this.attendanceSummary$ = this.store.select(selectAttendanceSummaryData);
@@ -31,8 +30,6 @@ export class TodaysAttendanceComponent implements OnInit {
   ngOnInit(): void {
     this.selectorInitilizer();
     this.store.dispatch(FETCH_TODAY_ATTENDANCE_SUMMARY());
-    this.attendanceSummary$.subscribe((data) => {
-      console.log('Attendance Summary in Component:', data);
-    });
+    this.attendanceSummary$.subscribe((data) => {});
   }
 }
