@@ -7,7 +7,7 @@ export const FETCH_TODAY_ATTENDANCE_SUMMARY = createAction(
 
 export const FETCH_TODAY_ATTENDANCE_SUMMARY_SUCCESS = createAction(
   '[Today Attendance Summary] Today Attendance Summary Success',
-  props<{ attendanceData: TodayAttendanceSummary[] }>()
+  props<{ attendanceData: TodayAttendanceSummary }>()
 );
 
 export const FETCH_TODAY_ATTENDANCE_SUMMARY_FAILURE = createAction(

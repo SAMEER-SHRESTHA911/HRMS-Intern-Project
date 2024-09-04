@@ -1,13 +1,13 @@
 import { TodayAttendanceSummary } from '../../types/todays-attendance.interface';
 
 export interface TodayAttendanceSummaryState {
-  attendanceData: TodayAttendanceSummary[];
+  attendanceData: TodayAttendanceSummary | null;
   loading: boolean;
   error: string | null;
 }
 
 export const initialTodayAttendanceSummaryState: TodayAttendanceSummaryState = {
-  attendanceData: [],
+  attendanceData: null,
   loading: false,
   error: null,
 };
