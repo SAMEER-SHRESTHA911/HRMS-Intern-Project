@@ -1,13 +1,13 @@
-import { StaffDetails } from '../model/add-staff';
+import { RegisterStaffPayload } from "../model/add-staff";
 
 export interface StaffState {
-  staff: StaffDetails[];
   loading: boolean;
   error: string | null;
+  staff: RegisterStaffPayload | null;
 }
 
 export const initialState: StaffState = {
-  staff: [],
   loading: false,
   error: null,
+  staff: null,
 };

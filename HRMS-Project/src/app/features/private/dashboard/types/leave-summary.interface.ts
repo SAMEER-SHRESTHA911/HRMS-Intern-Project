@@ -24,3 +24,22 @@ export interface LeaveRequests {
   leaveRequestStatus: string;
   totalLeaveDuration: number;
 }
+
+export interface EmployeeLeaveListResponse {
+  skip: number;
+  take: number;
+  count: number;
+  employeeLeaveRequestResponse: LeaveRequests[];
+}
+
+export interface LeaveStatus {
+  id: number;
+  employeeId: number;
+  employeeName: string;
+  leaveFrom: string;
+  leaveTo: string;
+  leaveType: number;
+  dayLeave: number;
+  reasonForLeave: string;
+  leaveRequestStatus: number;
+}

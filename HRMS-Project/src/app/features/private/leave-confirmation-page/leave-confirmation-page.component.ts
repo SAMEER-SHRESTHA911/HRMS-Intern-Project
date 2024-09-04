@@ -54,7 +54,7 @@ export class LeaveConfirmationPageComponent implements OnInit{
       })
   }
 
-  onView(id:string|number){
+  onView(id:string|number):void{
     this.store.select(selectLeaveRequestList).subscribe(leaveRequestList => {
       const leaveRequest = leaveRequestList.find(item => item.id === id);
       console.log(leaveRequest)

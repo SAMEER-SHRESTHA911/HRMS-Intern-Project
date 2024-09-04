@@ -36,3 +36,8 @@ export interface ImageData{
   imageName: string;
   imageDataBase64: string;
 }
+export interface LeaveAcceptRejectResponse{
+  message: string,
+  result: number,
+  data : boolean
+}

@@ -1,38 +1,74 @@
-<div *ngIf="loading$ | async">Loading...</div>
-<div class="profile-grid">
-  <mat-card class="profile-img">
-    <img mat-card-image src="avatar.png" alt="Photo of a Shiba Inu" />
-    <mat-card-content class="font-bold">Full Name</mat-card-content>
-    <mat-card-content class="font-medium"> Department </mat-card-content>
-  </mat-card>
-  <div *ngIf="profileDetails$ | async as profileDetails">
-    <mat-card class="profile-detial">
-      <p>First Name: {{ profileDetails.firstName }}</p>
-      <p>Middle Name: {{ profileDetails.midName }}</p>
-      <p>Last Name: {{ profileDetails.lastName }}</p>
-      <p>Gender: {{ profileDetails.gender }}</p>
-      <p>Email: {{ profileDetails.email }}</p>
-      <p>Address: {{ profileDetails.address }}</p>
-      <p>Date of Birth: {{ profileDetails.dob }}</p>
-      <p>Citizenship No.: {{ profileDetails.citizenshipNumber }}</p>
-      <p>Starting Date: {{ profileDetails.startDate }}</p>
-      <p>Department: {{ profileDetails.department }}</p>
-      <p>Role: {{ profileDetails.role }}</p>
-    </mat-card>
+<div class="z-50" *ngIf="loading$ | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
+<div class="grid grid-col-1 p-5 mt-2 gap-6">
+  <div class="p-10 flex justify-between pattern">
+    <div class="flex items-center gap-14">
+      <img
+        class="w-40 h-40 rounded-full"
+        mat-card-image
+        src="avatar.png"
+        alt=""
+      />
+      <div
+        *ngIf="profileDetails$ | async as profileDetails"
+        class="flex flex-col"
+      >
+        <p class="text-2xl">
+          {{ profileDetails.firstName }} {{ profileDetails.middleName }}
+          {{ profileDetails.lastName }}
+        </p>
+        <p>Joined Date : {{ profileDetails.startDate | date }}</p>
+      </div>
+    </div>
+    <div>
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+      >
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu class="bg-blue-100 custom-menu" #menu="matMenu">
+        <button mat-menu-item (click)="onEditProfileDetails(825)">
+          <mat-icon>account_circle</mat-icon>
+          <span>Edit Profile</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>camera_alt</mat-icon>
+          <span>Change Picture</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>edit</mat-icon>
+          <!-- (click)="onChangePassword"> -->
+          <span>Change Password</span>
+        </button>
+      </mat-menu>
+    </div>
   </div>
-  <div class="action-btn">
-    <button
-      mat-flat-button
-      color="primary"
-      (click)="onEditProfileDetails(825)"
-    >
-      Edit Profile
-    </button>
-    <button
-    mat-flat-button
-    color="primary"
-    (click)="onChangePassword()">
-      Change Password
-  </button>
+  <div *ngIf="profileDetails$ | async as profileDetails">
+    <div class="details p-10">
+      <p>First Name: {{ profileDetails.firstName }}</p>
+      <mat-divider></mat-divider>
+      @if(profileDetails.middleName){
+      <p>Middle Name: {{ profileDetails.middleName }}</p>
+      <mat-divider></mat-divider>
+      }
+      <p>Last Name: {{ profileDetails.lastName }}</p>
+      <mat-divider></mat-divider>
+      <p>Role: {{ profileDetails.role }}</p>
+      <mat-divider></mat-divider>
+      <p>Department: {{ profileDetails.departmentId }}</p>
+      <mat-divider></mat-divider>
+      <p>Gender: {{ profileDetails.gender }}</p>
+      <mat-divider></mat-divider>
+      <p>Email: {{ profileDetails.email }}</p>
+      <mat-divider></mat-divider>
+      <p>Address: {{ profileDetails.addressId }}</p>
+      <mat-divider></mat-divider>
+      <p>Date of Birth: {{ profileDetails.dob | date }}</p>
+      <mat-divider></mat-divider>
+      <p>Citizenship No.: {{ profileDetails.citizenshipNo }}</p>
+    </div>
   </div>
 </div>

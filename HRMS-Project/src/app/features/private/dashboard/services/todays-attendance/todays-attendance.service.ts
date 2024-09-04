@@ -13,9 +13,9 @@ export class TodaysAttendanceService {
   constructor(private http: HttpClient) {}
 
   getTodaysAttendanceSummary(): Observable<
-    ResponseType<TodayAttendanceSummary[]>
+    ResponseType<TodayAttendanceSummary>
   > {
-    return this.http.get<ResponseType<TodayAttendanceSummary[]>>(
+    return this.http.get<ResponseType<TodayAttendanceSummary>>(
       baseUrl + apiConstants.attendance.getTodaysAttendanceSummary
     );
   }

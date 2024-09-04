@@ -1,25 +1,25 @@
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './profile-details.state';
+import { initialProfileDetailsState } from './profile-details.state';
 import {
-  loadProfileDetailsAction,
-  loadProfileDetailsActionFailure,
-  loadProfileDetailsActionSuccess,
+  FETCH_PROFILE_DETAILS_ACTION,
+  FETCH_PROFILE_DETAILS_FAILURE,
+  FETCH_PROFILE_DETAILS_SUCCESS,
 } from './profile-details.action';
 
 export const profileDetailsReducer = createReducer(
-  initialState,
-  on(loadProfileDetailsAction, (state) => ({
-    ...state,
+  initialProfileDetailsState,
+  on(FETCH_PROFILE_DETAILS_ACTION, (prevState) => ({
+    ...prevState,
     loading: true,
     error: null,
   })),
-  on(loadProfileDetailsActionSuccess, (state, { profileDetails }) => ({
-    ...state,
+  on(FETCH_PROFILE_DETAILS_SUCCESS, (prevState, { profileDetails }) => ({
+    ...prevState,
     profileDetails,
     loading: false,
   })),
-  on(loadProfileDetailsActionFailure, (state, { error }) => ({
-    ...state,
+  on(FETCH_PROFILE_DETAILS_FAILURE, (prevState, { error }) => ({
+    ...prevState,
     error,
     loading: false,
   }))

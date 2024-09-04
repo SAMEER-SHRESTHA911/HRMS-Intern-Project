@@ -1,13 +1,13 @@
 import { ProfileDetails } from '../models/profile-details';
 
 export interface ProfileDetailsState {
-  profileDetails: ProfileDetails;
+  profileDetails: ProfileDetails | null;
   loading: boolean;
   error: string | null;
 }
 
-export const initialState: ProfileDetailsState = {
-  profileDetails: <ProfileDetails>{},
+export const initialProfileDetailsState: ProfileDetailsState = {
+  profileDetails: null,
   loading: false,
   error: null,
 };

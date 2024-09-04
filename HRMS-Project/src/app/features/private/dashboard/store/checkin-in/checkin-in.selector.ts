@@ -1,20 +1,20 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { CheckInState } from './checkin-in.state';
+import { CheckedInStatusState } from './checkin-in.state';
 
-export const selectCheckInState =
-  createFeatureSelector<CheckInState>('checkIn');
+export const selectCheckCheckedInStatusStore =
+  createFeatureSelector<CheckedInStatusState>('checkedInStatus');
 
-export const selectCheckInData = createSelector(
-  selectCheckInState,
-  (state: CheckInState) => state.checkInData
+export const selectCheckCheckedInStatusData = createSelector(
+  selectCheckCheckedInStatusStore,
+  (state: CheckedInStatusState) => state.checkedInStatus
 );
 
-export const selectLoading = createSelector(
-  selectCheckInState,
-  (state: CheckInState) => state.loading
+export const selectCheckCheckedInStatusDataLoading = createSelector(
+  selectCheckCheckedInStatusStore,
+  (state: CheckedInStatusState) => state.loading
 );
 
-export const selectError = createSelector(
-  selectCheckInState,
-  (state: CheckInState) => state.error
+export const selectCheckCheckedInStatusDataError = createSelector(
+  selectCheckCheckedInStatusStore,
+  (state: CheckedInStatusState) => state.error
 );
