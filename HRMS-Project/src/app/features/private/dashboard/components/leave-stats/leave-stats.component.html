@@ -10,6 +10,7 @@
             <p>Pending Leave Requests ({{ pendingLeaveCount$ | async }})</p>
             <a [routerLink]="['/admin/leave-management']">View All</a>
           </div>
+          <mat-divider class="mat-d"></mat-divider>
           @if(pendingLeaveCount$ | async; as data > 0 ){
           <div class="bg-[#eef2f5] p-3 m-4 rounded-lg">
             @for(data of pendingLeaveRequestData; track data.id){
