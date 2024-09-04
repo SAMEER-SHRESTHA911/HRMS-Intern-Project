@@ -25,15 +25,14 @@ export class LeaveEditEffect {
       switchMap((action) =>
         this.leaveEditService.fetchEditLeaveData(action.id).pipe(
           map((editLeaveData: LeaveApplyResponse) => {
-            this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
             return GET_EDIT_LEAVE_DATA_SUCCESS({ editLeaveData });
           }),
           catchError((error) => of(GET_EDIT_LEAVE_DATA_FAILURE({ error })))
         )
       )
-    )
+    ) 
   );
-
+  
   onSucess$ = createEffect(
     () =>
       this.action$.pipe(
@@ -43,7 +42,9 @@ export class LeaveEditEffect {
             this.leaveEditService.buildForm(),
             action.editLeaveData.data
           );
-        })
+          // this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
+        }
+      )
       ),
     { dispatch: false }
   );

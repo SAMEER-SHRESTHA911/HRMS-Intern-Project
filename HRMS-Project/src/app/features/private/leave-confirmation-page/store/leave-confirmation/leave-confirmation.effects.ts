@@ -17,7 +17,7 @@ export class LeaveConfirmationEffects {
       mergeMap(() =>
         this.leaveRequestListService.fetchRequestList().pipe(
           map((leaveRequestList : LeaveRequestList[]) =>{
-            console.log(leaveRequestList)
+            // console.log(leaveRequestList)
             return FETCH_LEAVE_REQUEST_lIST_SUCCESS({ leaveRequestList })
           }
           ),

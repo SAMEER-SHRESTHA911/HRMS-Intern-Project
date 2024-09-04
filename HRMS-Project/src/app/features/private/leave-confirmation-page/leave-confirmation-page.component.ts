@@ -44,7 +44,7 @@ export class LeaveConfirmationPageComponent implements OnInit{
     this.store.select(selectLeaveRequestList).subscribe((leaveRequestList) => 
       {
         this.dataSource = new MatTableDataSource(leaveRequestList)
-        console.log('From ts',leaveRequestList);
+        // console.log('From ts',leaveRequestList);
         if(this.paginator){
           this.dataSource.paginator = this.paginator;
         }

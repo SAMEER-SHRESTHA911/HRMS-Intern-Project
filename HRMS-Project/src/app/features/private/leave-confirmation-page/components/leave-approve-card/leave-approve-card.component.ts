@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ImageData, LeaveRequestList } from '../../types/types';
-import { LeaveConfirmationService } from '../../service/leave-confirmation.service';
 import { Store } from '@ngrx/store';
 import { LEAVE_ACCEPT_REJECT } from '../../store/leave-card-approve/leave-card.action';
 import { FETCH_IMAGE } from '../../store/profile-image/profile-image.action';
@@ -17,11 +16,10 @@ import { ROUTE_CONSTANT } from '@shared/constants/routes.constant';
 })
 export class LeaveApproveCardComponent implements OnInit {
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: LeaveRequestList,
-    private service: LeaveConfirmationService,
-    private store:Store
+    private store:Store,
+    private dialogRef: MatDialogRef<LeaveApproveCardComponent>
   ) {}
 
   imageData$:Observable<ImageData|null> = of();
@@ -37,6 +35,7 @@ export class LeaveApproveCardComponent implements OnInit {
     this.store.dispatch(FETCH_IMAGE({ id:  this.data.employeeId }));
     this.imageData$ = this.store.select(selectImageData);
   }
+
   approve(id:string|number):void{
     this.store.dispatch(LEAVE_ACCEPT_REJECT({id, option:2}));   
     this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]) ;
@@ -44,5 +43,8 @@ export class LeaveApproveCardComponent implements OnInit {
   reject(id:string|number): void{
     this.store.dispatch(LEAVE_ACCEPT_REJECT({id, option:2}));
     this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]) ;
+  }
+  resetDialog(){
+    this.dialogRef.close(false);
   }
 }
