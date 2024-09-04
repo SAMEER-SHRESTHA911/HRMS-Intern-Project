@@ -13,10 +13,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable()
 export class LeaveEditEffect {
   constructor(
-    private leaveEditService: LeaveFormService,
     private action$: Actions,
-    private snackBar: MatSnackBar
-
+    private snackBar: MatSnackBar,
+    private leaveEditService: LeaveFormService,
   ) {}
 
   fetchEditLeaveData$ = createEffect(() =>
@@ -25,25 +24,26 @@ export class LeaveEditEffect {
       switchMap((action) =>
         this.leaveEditService.fetchEditLeaveData(action.id).pipe(
           map((editLeaveData: LeaveApplyResponse) => {
-            this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
             return GET_EDIT_LEAVE_DATA_SUCCESS({ editLeaveData });
           }),
           catchError((error) => of(GET_EDIT_LEAVE_DATA_FAILURE({ error })))
         )
       )
-    )
+    ) 
   );
-
+  
   onSucess$ = createEffect(
     () =>
       this.action$.pipe(
         ofType(GET_EDIT_LEAVE_DATA_SUCCESS),
         map((action) => {
-          this.leaveEditService.patchData(
-            this.leaveEditService.buildForm(),
+          console.log('edit leave')
+          this.leaveEditService.patchForm(
             action.editLeaveData.data
           );
-        })
+          // this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
+        }
+      )
       ),
     { dispatch: false }
   );

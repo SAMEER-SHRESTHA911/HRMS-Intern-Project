@@ -26,10 +26,7 @@
           </a>
         </li>
 
-        <li
-          [routerLinkActive]="['active']"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
+        <li [routerLinkActive]="['active']">
           <a [routerLink]="route_constant.leaveManagement">
             <span class="sidebar-row">
               <mat-icon>settings_applications</mat-icon>
@@ -50,11 +47,8 @@
           </a>
         </li>
 
-        <li
-          [routerLinkActive]="['active']"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          <a [routerLink]="route_constant.attendanceDetails">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a [routerLink]="route_constant.attendance">
             <span class="sidebar-row">
               <mat-icon>list_alt</mat-icon>
               Attendance Details

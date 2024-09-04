@@ -8,4 +8,8 @@ import { loggedInUser } from '@shared/constants/global.constants';
 })
 export class NavbarComponent {
   userId: string | number = loggedInUser.id;
+
+  logOut(){
+    localStorage.clear()
+  }
 }

@@ -19,7 +19,7 @@ export class LeaveConfirmationService {
   fetchRequestList(): Observable<LeaveRequestList[]> {
     return this.http.post<LeaveRequestListResponse>(this.apiUrl,{}).pipe(
       map((response) => {
-        console.log('API response', response);
+        // console.log('API response', response);
         if (response && response.data && response.data.employeeLeaveRequestResponse) {
           return response.data.employeeLeaveRequestResponse;
         }
