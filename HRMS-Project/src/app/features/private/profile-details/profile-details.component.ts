@@ -39,7 +39,6 @@ export class ProfileDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.selectorInitializer();
     this.paramProfileId = this.route.snapshot.params['id'];
-    console.log(this.paramProfileId);
     this.store.dispatch(
       FETCH_PROFILE_DETAILS_ACTION({ profileId: this.paramProfileId ?? '' })
     );
