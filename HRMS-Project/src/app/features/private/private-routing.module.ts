@@ -60,6 +60,13 @@ const routes: Routes = [
         (m) => m.LeaveConfirmationPageModule
       ),
   },
+  // {
+  //   path: ROUTE_CONSTANT.changePassword,
+  //   loadChildren: () =>
+  //     import('./change-password/change-password.module').then(
+  //       (m)=> m.ChangePasswordModule
+  //     ),
+  // },
 ];
 
 @NgModule({
