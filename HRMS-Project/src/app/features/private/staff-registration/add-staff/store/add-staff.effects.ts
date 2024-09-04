@@ -12,6 +12,7 @@ import {
   fetchEmployeeDataFailure,
   fetchEmployeeDataSuccess,
 } from './add-staff.actions';
+import { convertToStaffFormDetails } from '../transformer/staff-register-payload.transformer';
 
 @Injectable()
 export class StaffEffects {
@@ -49,8 +50,8 @@ export class StaffEffects {
       ofType(fetchEmployeeData),
       switchMap(({ staffId }) =>
         this.addStaffService.getEmployeeData(staffId).pipe(
-          map(() =>
-            fetchEmployeeDataSuccess()
+          map((data) =>
+            fetchEmployeeDataSuccess({ staffDetails: data.data })
           ),
           catchError((error) =>
             of(fetchEmployeeDataFailure({ error: error.message }))
@@ -59,4 +60,13 @@ export class StaffEffects {
       )
     )
   );
+  fetchEmployeeDataSucess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fetchEmployeeDataSuccess),
+      map(({ staffDetails }) => {
+        this.formService.registrationForm.patchValue(convertToStaffFormDetails(staffDetails))
+      })
+    ),
+    { dispatch: false }
+  )
 }

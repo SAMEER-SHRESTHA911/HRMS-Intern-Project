@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { RegisterStaffPayload } from '../model/add-staff';
+import { GetEmployeeDetails, RegisterStaffPayload } from '../model/add-staff';
 
 export const addStaff = createAction(
   '[Staff] Add Staff',
@@ -22,6 +22,7 @@ export const fetchEmployeeData = createAction(
 );
 export const fetchEmployeeDataSuccess = createAction(
   '[Staff] Fetch Staff Data Sucess',
+  props<{ staffDetails: GetEmployeeDetails }>()
 );
 export const fetchEmployeeDataFailure = createAction(
   '[Staff] Fetch Staff Data Failure',

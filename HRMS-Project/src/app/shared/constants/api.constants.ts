@@ -5,6 +5,8 @@ export const apiConstants = {
   getDepartmentList: '/user/Department/GetDepartmentList',
   getEmployeeList: '/user/Employee/GetRegisterEmployeeList',
   getEmployeeById: '/user/Employee/GetRegisterEmployeeDetailById',
+  updateEmployee: '/user/Employee/UpdateRegisterEmployee',
   getRolesList: '/user/Employee/GetAllRoles',
   deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee'
+
 };

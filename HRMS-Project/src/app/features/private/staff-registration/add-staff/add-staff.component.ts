@@ -24,13 +24,14 @@ import { StaffListService } from '../staff-list/service/staff-list.service';
 import { } from '../staff-list/store/staff-list.actions';
 import { StaffDetailsFormValue } from './model/add-staff';
 import { FormService } from './service/form/form.service';
-import { addStaff } from './store/add-staff.actions';
+import { addStaff, fetchEmployeeData } from './store/add-staff.actions';
 import {
   selectStaffError,
   selectStaffLoading,
 } from './store/add-staff.selector';
 import { StaffState } from './store/add-staff.state';
 import { convertToStaffPayload } from './transformer/staff-register-payload.transformer';
+import { updateEmployee } from './store/update-staff/update-staff.action';
 
 @Component({
   selector: 'app-add-staff',
@@ -133,17 +134,23 @@ export class AddStaffComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log("Hellooo");
+
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
       return;
     }
+
+    const updatedData = convertToStaffPayload(this.registrationForm.value);
+
     if (this.isEditMode && this.staffId !== null) {
-      // this.store.dispatch(
-      //   editStaffDetails({ id: this.staffId, staff: convertToStaffPayload(this.registrationForm.value) })
-      // );
+      this.store.dispatch(
+        updateEmployee({ employeeId: this.staffId, updatedData })
+      );
     } else {
-      this.store.dispatch(addStaff({ staff: convertToStaffPayload(this.registrationForm.value) }));
+      this.store.dispatch(addStaff({ staff: updatedData }));
     }
+
   }
 
   onCancelEdit(): void {
@@ -163,12 +170,6 @@ export class AddStaffComponent implements OnInit {
 
   private loadStaffList(id: number): void {
 
-    this.staffListService.getStaffDetailsById(id).subscribe((data) => {
-      if (data) {
-        console.log(data);
-
-        this.registrationForm.patchValue(data.data);
-      }
-    });
+    this.store.dispatch(fetchEmployeeData({ staffId: id }))
   }
 }
