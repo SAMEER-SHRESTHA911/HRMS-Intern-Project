@@ -28,7 +28,6 @@ import { selectLeaveEditData } from './store/leave-apply-form/leave-edit.selecto
   styleUrl: './leave-apply.component.scss',
 })
 export class LeaveApplyComponent implements OnInit, OnDestroy {
-  leaveApplyForm?: FormGroup;
   leaveId: string | number | null = null;
 
   minDate: Date = new Date();
@@ -50,6 +49,18 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     private leaveFormService: LeaveFormService
   ) {}
 
+  get leaveApplyForm(): FormGroup | undefined {
+    return this.leaveFormService.form;
+  }
+
+  get editId(): string | undefined {
+    return this.route.snapshot.params[' id'];
+  }
+
+  get isEditMode(): boolean {
+    return this.leaveFormService.getEditMode();
+  }
+
   ngOnInit(): void {
     this.#buildForm();
     this.loadEditData(this.editId);
@@ -61,14 +72,6 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     this.#destroy$.complete();
     this.resetForm();
     this.leaveFormService.resetEditMode();
-  }
-
-  get editId(): string | undefined {
-    return this.route.snapshot.params[' id'];
-  }
-
-  get isEditMode(): boolean {
-    return this.leaveFormService.getEditMode();
   }
 
   getDropDown() {
@@ -145,7 +148,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
           this.leaveEditService.patchData(this.leaveApplyForm, editLeaveData);
           console.log(editLeaveData);
           console.log(editLeaveData.reasonForLeave);
-          console.log(this.leaveApplyForm?.value);
+          console.log(this.leaveApplyForm);
         }
       });
 
@@ -170,7 +173,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   #buildForm(): void {
-    this.leaveApplyForm = this.leaveEditService.buildForm();
+    this.leaveEditService.buildForm();
     this.leaveApplyForm
       ?.get('leaveFrom')
       ?.valueChanges.pipe(takeUntil(this.#destroy$))

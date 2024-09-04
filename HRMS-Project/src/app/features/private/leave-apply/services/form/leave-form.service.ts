@@ -1,20 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
-import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaveFormService {
-  private  editLeaveApplyStatus = 'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById?id=';
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  private editLeaveApplyStatus =
+    'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById?id=';
 
   isEditMode: boolean = false;
 
-  buildForm(): FormGroup {
-    return this.fb.group({    
+  #form?: FormGroup;
+
+  constructor(private http: HttpClient, private fb: FormBuilder) {}
+
+  get form(): FormGroup | undefined {
+    return this.#form;
+  }
+
+  set form(form: FormGroup | undefined) {
+    this.#form = form;
+  }
+
+  buildForm(): void {
+    this.form = this.fb.group({
       reasonForLeave: ['', [Validators.required, Validators.maxLength(50)]],
       leaveType: ['', Validators.required],
       leaveFrom: ['', Validators.required],
@@ -23,23 +35,36 @@ export class LeaveFormService {
     });
   }
 
-  changeEditMode():void{
+  changeEditMode(): void {
     this.isEditMode = true;
   }
-  getEditMode() : boolean{
+
+  getEditMode(): boolean {
     return this.isEditMode;
   }
-  resetEditMode():void{
+
+  resetEditMode(): void {
     this.isEditMode = false;
   }
 
-
   fetchEditLeaveData(id: string | number): Observable<LeaveApplyResponse> {
-    return this.http.get<LeaveApplyResponse>(`${this.editLeaveApplyStatus}${id}`);
+    return this.http.get<LeaveApplyResponse>(
+      `${this.editLeaveApplyStatus}${id}`
+    );
+  }
+
+  patchForm(data: LeaveApplyBody): void {
+    this.form?.patchValue({
+      reasonForLeave: data.reasonForLeave,
+      leaveType: data.leaveType,
+      leaveFrom: new Date(data.leaveFrom),
+      leaveTo: new Date(data.leaveTo),
+      dayLeave: data.dayLeave,
+    });
   }
 
   patchData(form: FormGroup, data: LeaveApplyBody): void {
-    console.log(data)
+    console.log(data);
     form.patchValue({
       reasonForLeave: data.reasonForLeave,
       leaveType: data.leaveType,

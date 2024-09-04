@@ -16,7 +16,7 @@ export class ForgetPasswordComponent implements OnInit {
   forgetPasswordForm!: FormGroup;
   loading$!: Observable<boolean>;
   success$!: Observable<boolean>;
-  error$!: Observable<any>;
+  error$!: Observable<string>;
 
   constructor(private fb: FormBuilder, private store: Store, private router:Router) {}
 

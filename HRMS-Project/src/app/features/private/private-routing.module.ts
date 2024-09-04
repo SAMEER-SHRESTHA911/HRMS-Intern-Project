@@ -49,6 +49,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: ROUTE_CONSTANT.attendance,
+    loadChildren: () =>
+      import('./attendance/attendance.module').then(
+        (m) => m.AttendanceModule
+      ),
+  },
+  {
     path: ROUTE_CONSTANT.policies,
     loadChildren: () =>
       import('./policies/policies.module').then((m) => m.PoliciesModule),
@@ -60,10 +67,17 @@ const routes: Routes = [
         (m) => m.LeaveConfirmationPageModule
       ),
   },
+  // {
+  //   path: ROUTE_CONSTANT.changePassword,
+  //   loadChildren: () =>
+  //     import('./change-password/change-password.module').then(
+  //       (m)=> m.ChangePasswordModule
+  //     ),
+  // },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PrivateRoutingModule {}
+export class PrivateRoutingModule { }
