@@ -12,15 +12,13 @@ import {
   DayLeaveDropDownData,
   DayLeaveDropDownLoading,
 } from '@shared/store/day-leave-dropdown/day-leave.selectors';
-import { FETCH_LEAVE_TYPE_DROPDOWN } from '@shared/store/leave-type-dropdown/leave-type.action';
-import {
-  LeaveTypeDropDownData,
-  leaveTypeDropDownLoading,
-} from '@shared/store/leave-type-dropdown/leave-type.selector';
-import { LeaveTypeDropdown } from '@shared/store/leave-type-dropdown/leave-type.state';
+
 import { loggedInUser } from '@shared/constants/global.constants';
 import { formatDate } from '@shared/utils/date-utils';
 import { selectLeaveEditData } from './store/leave-apply-form/leave-edit.selector';
+import { LeaveTypeDropdown } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.state';
+import { LeaveTypeDropDownData } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.selector';
+import { FETCH_LEAVE_TYPE_DROPDOWN } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.action';
 
 @Component({
   selector: 'app-leave-apply',
