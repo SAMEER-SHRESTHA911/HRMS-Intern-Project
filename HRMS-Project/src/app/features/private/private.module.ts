@@ -8,14 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 
-
-
-
 @NgModule({
-  declarations: [
-    PrivateComponent,
-
-  ],
+  declarations: [PrivateComponent],
   imports: [
     CommonModule,
     PrivateRoutingModule,
@@ -23,8 +17,6 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatButtonModule,
     MatCardModule,
-    
-
-  ]
+  ],
 })
-export class PrivateModule { }
+export class PrivateModule {}

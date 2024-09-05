@@ -1,4 +1,4 @@
-import { loggedInUser } from './../../../../../shared/constants/global.constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FETCH_PROFILE_DETAILS_ACTION } from './../../../profile-details/store/profile-details.action';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,8 +9,10 @@ import { Store } from '@ngrx/store';
 import { selectCheckCheckedInStatusData } from '../../store/checkin-in/checkin-in.selector';
 import { ProfileDetailsState } from '../../../profile-details/store/profile-details.state';
 import { ProfileDetails } from '../../../profile-details/models/profile-details';
-import { selectProfileDetails } from '../../../profile-details/store/profile-details.selector';
 
+import { selectProfileDetails } from '../../../profile-details/store/profile-details.selector';
+import { MaterialsModule } from 'src/app/materials/materials.module';
+import { FETCH_CHECKED_IN_STATUS } from '../../store/checkin-in/checkin-in.actions';
 @Component({
   selector: 'app-checking-in',
   templateUrl: './checking-in.component.html',
@@ -27,12 +29,21 @@ export class CheckingInComponent {
   constructor(
     private dialog: MatDialog,
     private store: Store<CheckedInStatusState>,
-    private profileStore: Store<ProfileDetailsState>
+    private profileStore: Store<ProfileDetailsState>,
+    private snackBar: MatSnackBar
   ) {}
   selectorInitializer(): void {
+    this.store.dispatch(FETCH_CHECKED_IN_STATUS());
     this.checkedInStatus$ = this.store.select(selectCheckCheckedInStatusData);
+    this.profileStore.dispatch(
+      FETCH_PROFILE_DETAILS_ACTION({ profileId: this.loggedInUserId ?? '' })
+    );
     this.profileDetails$ = this.profileStore.select(selectProfileDetails);
-    this.profileDetails$.subscribe((data) => console.log(data));
+    // this.profileDetails$.subscribe((data) => console.log(data));
+    this.checkedInStatus$.subscribe((data) => {
+      this.isCheckedIn = data;
+      console.log('are you checkedIn: ', data);
+    });
   }
 
   openCheckInDialog(): void {
@@ -51,11 +62,19 @@ export class CheckingInComponent {
   }
   ngOnInit(): void {
     this.selectorInitializer();
-    this.profileStore.dispatch(
-      FETCH_PROFILE_DETAILS_ACTION({ profileId: this.loggedInUserId ?? '' })
-    );
-    if (this.isCheckedIn) {
-      // this.openCheckInDialog();
+
+    if (!this.isCheckedIn) {
+      setTimeout(() => {
+        this.snackBar.open(
+          'You are not Checked In, Please check-in!',
+          'Close',
+          {
+            duration: 8000,
+            horizontalPosition: 'right',
+            verticalPosition: 'bottom',
+          }
+        );
+      }, 5000);
     }
   }
 }
