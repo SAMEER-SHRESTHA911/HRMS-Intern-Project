@@ -6,14 +6,7 @@
     <form [formGroup]="otpForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline">
         <mat-label>OTP</mat-label>
-        <input
-          matInput
-          placeholder="Enter OTP"
-          formControlName="otp"
-          required
-          maxlength="4"
-          (keypress)="validateInput($event)"
-        />
+        <input matInput placeholder="Enter OTP" formControlName="otp" required maxlength="6" (keypress)="validateInput($event)" />
         <mat-error *ngIf="otpForm.get('otp')?.hasError('pattern')">
           Enter a valid OTP
         </mat-error>

@@ -12,8 +12,8 @@ import { leaveReducer } from './store/leave-apply-submit/leave.reducer';
 import { LeaveEditReducer } from './store/leave-apply-form/leave-edit.reducer';
 import { DayLeaveDropdownEffects } from '@shared/store/day-leave-dropdown/day-leave.effects';
 import { FetchDayLeaveReducer } from '@shared/store/day-leave-dropdown/day-leave.reducer';
-import { LeaveTypeDropdownEffects } from '@shared/store/leave-type-dropdown/leave-type.effects';
-import { FetchLeaveTypeReducer } from '@shared/store/leave-type-dropdown/leave-type.reducer';
+import { LeaveTypeDropdownEffects } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.effects';
+import { FetchLeaveTypeReducer } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.reducer';
 
 
 @NgModule({
