@@ -20,6 +20,8 @@ import { todayAttendanceSummaryReducer } from './store/todays-attendance/today-a
 import { TodayAttendanceSummaryEffect } from './store/todays-attendance/today-attendance.effects';
 import { allUsersPendingLeaveRequestsReducer } from './store/leave-summary/leave-summary.reducer';
 import { allUsersPendingLeaveRequestEffects } from './store/leave-summary/leave -summary.effects';
+import { ProfileDetailsEffect } from '../profile-details/store/profile-details.effect';
+import { profileDetailsReducer } from '../profile-details/store/profile-details.reducer';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { allUsersPendingLeaveRequestEffects } from './store/leave-summary/leave 
       allUsersPendingLeaveRequestsReducer
     ),
     EffectsModule.forFeature([allUsersPendingLeaveRequestEffects]),
+    StoreModule.forFeature('profileDetails', profileDetailsReducer),
+    EffectsModule.forFeature([ProfileDetailsEffect]),
   ],
 })
 export class DashboardModule {}

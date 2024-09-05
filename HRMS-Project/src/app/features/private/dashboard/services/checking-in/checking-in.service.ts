@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  CheckInMessage,
+  CheckInOutMessageResponse,
+} from '../../types/check-in.interface';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CheckingInService {
   checkInForm!: FormGroup;
-  // private apiUrl = 'http://localhost:3000/checkInDetails';
+  checkOutForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.initializeCheckInForm();
@@ -16,13 +21,15 @@ export class CheckingInService {
 
   initializeCheckInForm(): void {
     this.checkInForm = this.fb.group({
-      remarks: ['', [Validators.required]],
+      remarks: ['', Validators.required],
       workLocation: ['', Validators.required],
     });
   }
 
-  resetForm(): void {
-    this.checkInForm.reset();
+  initializeCheckOutForm(): void {
+    this.checkOutForm = this.fb.group({
+      remarks: ['', Validators.required],
+    });
   }
 
   //-----For Check-In-Status----------
@@ -32,7 +39,27 @@ export class CheckingInService {
     data: boolean;
   }> {
     return this.http.get<{ result: number; message: string; data: boolean }>(
-      'http://0.0.0.0:2209/api/Attendance/CheckCheckInStatus'
+      apiConstants.attendance.getCheckInStatus
+    );
+  }
+
+  //------For Check-In Message
+  postCheckedInMessage(
+    message: CheckInMessage
+  ): Observable<CheckInOutMessageResponse> {
+    return this.http.post<CheckInOutMessageResponse>(
+      apiConstants.attendance.postCheckIn,
+      message
+    );
+  }
+
+  //-----For Check-Out Message
+  postCheckOutMessage(message: {
+    checkOutReason: string;
+  }): Observable<CheckInOutMessageResponse> {
+    return this.http.post<CheckInOutMessageResponse>(
+      apiConstants.attendance.postCheckOut,
+      message
     );
   }
 }
