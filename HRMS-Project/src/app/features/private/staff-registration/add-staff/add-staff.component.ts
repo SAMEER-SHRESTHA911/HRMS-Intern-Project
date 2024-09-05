@@ -142,6 +142,8 @@ export class AddStaffComponent implements OnInit {
     }
 
     const updatedData = convertToStaffPayload(this.registrationForm.value);
+    console.log(this.registrationForm)
+    console.log(updatedData)
 
     if (this.isEditMode && this.staffId !== null) {
       this.store.dispatch(

@@ -34,8 +34,8 @@ export interface RegisterStaffPayload {
   gender: number;
   nationality: string;
   startDate: string;
-  password: string;
-  confirmPassword: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 export interface Address {

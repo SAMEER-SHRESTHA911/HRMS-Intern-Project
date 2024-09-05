@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AttendanceRecord } from '../../model/attendance-details.interface';
 import { Observable } from 'rxjs';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
+import { ResponseType } from '@shared/models/response.model';
+import { AttendanceRequestPayload, EmployeeAttendanceRecord } from '../../model/attendance-details.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AttendanceDetailsService {
-  private apiUrl = 'http://localhost:3000/AttandanceList';
+  private apiUrl = `${baseUrl}${apiConstants.attendance.getAttandanceList}`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getAttendanceRecords(): Observable<AttendanceRecord[]> {
-    return this.http.get<AttendanceRecord[]>(this.apiUrl);
+  getAttendanceList(payload: AttendanceRequestPayload): Observable<ResponseType<EmployeeAttendanceRecord[]>> {
+    return this.http.post<ResponseType<EmployeeAttendanceRecord[]>>(this.apiUrl, payload);
   }
 }

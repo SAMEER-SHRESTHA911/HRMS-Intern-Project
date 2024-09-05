@@ -4,17 +4,75 @@
       <h4>Attendance Details</h4>
     </div>
   </div>
+  <div class="search-container">
+    <div class="filter-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Search <mat-icon>search</mat-icon></mat-label>
+        <input
+          matInput
+          (keyup)="applyFilter($event)"
+          placeholder="Enter name"
+          #input
+        />
+      </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Search <mat-icon>search</mat-icon></mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="Enter name"
-      #input
-    />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Department ID</mat-label>
 
+        <mat-select placeholder="Department">
+          <mat-option>Clear</mat-option>
+          <mat-option value="0">All Departments</mat-option>
+          <mat-option value="1">Software</mat-option>
+          <mat-option value="1">It</mat-option>
+          <mat-option value="1">QA</mat-option>
+          <mat-option value="1">Flutter</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Employee ID</mat-label>
+        <input matInput placeholder="Enter employee ID" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Start Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="startDatePicker"
+          placeholder="Choose start date"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="startDatePicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #startDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>End Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="endDatePicker"
+          placeholder="Choose end date"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="endDatePicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #endDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Work Location</mat-label>
+        <mat-select placeholder="Enter Work Location">
+          <mat-option value="1">WFO</mat-option>
+          <mat-option value="2">WFH</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button><mat-icon>filter_list</mat-icon>Filter</button>
+    </div>
+  </div>
   <div class="table-data-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="SN">
