@@ -24,14 +24,16 @@ import { FetchLeaveTypeReducer } from '@shared/store/add-staff-dropdowns/leave-t
     CommonModule,
     LeaveApplyRoutingModule,
     MaterialsModule,
-    EffectsModule.forFeature([LeaveEffects]),
-    EffectsModule.forFeature([LeaveEditEffect]),
-    EffectsModule.forFeature([DayLeaveDropdownEffects]),
-    EffectsModule.forFeature([LeaveTypeDropdownEffects]),
     StoreModule.forFeature('leaveApply', leaveReducer),
     StoreModule.forFeature('leaveEdit', LeaveEditReducer),
     StoreModule.forFeature('leaveTypeDropDown', FetchLeaveTypeReducer),
-    StoreModule.forFeature('dayLeaveDropdown', FetchDayLeaveReducer)
+    StoreModule.forFeature('dayLeaveDropdown', FetchDayLeaveReducer),
+    EffectsModule.forFeature([
+      LeaveEffects,
+      LeaveEditEffect,
+      DayLeaveDropdownEffects,
+      LeaveTypeDropdownEffects,
+    ]),
   ]
 })
 export class LeaveApplyModule { }

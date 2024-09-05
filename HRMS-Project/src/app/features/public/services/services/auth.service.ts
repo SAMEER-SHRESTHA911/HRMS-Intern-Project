@@ -14,25 +14,39 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  setToken(token: string): void {
+  setToken(token: string, ): void {
+    console.log('I am lost',token)
     localStorage.setItem('token', token);
+  }
+  
+  setEmployeeId(employeeId:string){
+    localStorage.setItem('employeeId', employeeId)
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
   }
+  getEmployeeId(){
+    return localStorage.getItem('employeeId');
+  }
 
   isLoggedIn(): boolean {
-    return this.getToken() !== null;
+    const token = this.getToken();
+    console.log(token);
+    return token ? true: false;
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(`${this.apiUrl}Login/Login`, credentials, { headers }).pipe(
+      
       map((response: any) => {
-        const token = response.token;
+        console.log(response)
+        const token = response.data.token;
+        const employeeId = response.data.employeeId;
         this.setToken(token);
+        this.setEmployeeId(employeeId);
         return response;
       }),
       catchError(error => {

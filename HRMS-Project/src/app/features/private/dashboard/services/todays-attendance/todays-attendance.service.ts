@@ -19,4 +19,11 @@ export class TodaysAttendanceService {
       baseUrl + apiConstants.attendance.getTodaysAttendanceSummary
     );
   }
+
+  //Count of Total Leave Today
+  fetchTotalLeaveToday(): Observable<number> {
+    return this.http.get<number>(
+      baseUrl + apiConstants.attendance.getTotalLeaveToday
+    );
+  }
 }
