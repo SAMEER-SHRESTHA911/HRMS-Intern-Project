@@ -45,15 +45,15 @@
       <label class="block mb-2 font-medium">Remarks</label>
       <input
         type="text"
-        formControlName="remarks"
+        formControlName="checkInReason"
         placeholder="Remarks"
         class="w-full px-3 py-2 border border-gray-300 rounded-md"
       />
       <p
         *ngIf="
-          (checkInForm.get('remarks')?.touched ||
-            checkInForm.get('remarks')?.dirty) &&
-          checkInForm.get('remarks')?.hasError('required')
+          (checkInForm.get('checkInReason')?.touched ||
+            checkInForm.get('checkInReason')?.dirty) &&
+          checkInForm.get('checkInReason')?.hasError('required')
         "
         class="text-red-500 text-sm pt-4"
       >
@@ -78,20 +78,20 @@
     </div>
   </form>
   }@else{
-  <form [formGroup]="checkInForm" (ngSubmit)="onCheckOutSubmit()">
+  <form [formGroup]="checkOutForm" (ngSubmit)="onCheckOutSubmit()">
     <div class="mb-2 h-24">
       <label class="block mb-2 font-medium">Remarks</label>
       <input
         type="text"
-        formControlName="remarks"
+        formControlName="checkOutReason"
         placeholder="Remarks"
         class="w-full px-3 py-2 border border-gray-300 rounded-md"
       />
       <p
         *ngIf="
-          (checkInForm.get('remarks')?.touched ||
-            checkInForm.get('remarks')?.dirty) &&
-          checkInForm.get('remarks')?.hasError('required')
+          (checkOutForm.get('checkOutReason')?.touched ||
+            checkOutForm.get('checkOutReason')?.dirty) &&
+          checkOutForm.get('checkOutReason')?.hasError('required')
         "
         class="text-red-500 text-sm pt-4"
       >

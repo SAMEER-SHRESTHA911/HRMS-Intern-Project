@@ -1,3 +1,4 @@
+import { TodayAttendanceSummary } from './../../types/todays-attendance.interface';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CheckingInService } from '../../services/checking-in/checking-in.service';
@@ -9,6 +10,7 @@ import {
   FETCH_CHECKED_IN_STATUS,
   FETCH_CHECKED_IN_STATUS_SUCCESS,
 } from '../../store/checkin-in/checkin-in.actions';
+import { FETCH_TODAY_ATTENDANCE_SUMMARY } from '../../store/todays-attendance/today-attendance.actions';
 @Component({
   selector: 'app-checking-in-dialog',
   templateUrl: './checking-in-dialog.component.html',
@@ -23,7 +25,8 @@ export class CheckingInDialogComponent {
     public dialogRef: MatDialogRef<CheckingInDialogComponent>,
     private checkInService: CheckingInService,
     private snackBar: MatSnackBar,
-    private checkInStatusStore: Store<CheckedInStatusState>
+    private checkInStatusStore: Store<CheckedInStatusState>,
+    private todayAttendanceSummary: Store<TodayAttendanceSummary>
   ) {
     this.isCheckedIn = data.isCheckedIn;
   }
@@ -67,6 +70,8 @@ export class CheckingInDialogComponent {
             this.checkInStatusStore.dispatch(
               FETCH_CHECKED_IN_STATUS_SUCCESS({ checkedInStatus: true })
             );
+            this.checkInStatusStore.dispatch(FETCH_TODAY_ATTENDANCE_SUMMARY());
+
             this.snackBar.open(
               'Successfully Checked-In, Attendance Created',
               'Close',
@@ -104,7 +109,7 @@ export class CheckingInDialogComponent {
     } else {
       this.isCheckOutLoading = true;
       this.checkInService
-        .postCheckedInMessage(this.checkOutForm.value)
+        .postCheckOutMessage(this.checkOutForm.value)
         .subscribe({
           next: (res) => {
             console.log(res);
