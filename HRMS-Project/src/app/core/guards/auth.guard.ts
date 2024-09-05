@@ -10,14 +10,14 @@ export const publicGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : true;
+  return authService.isLoggedIn() ? router.createUrlTree(['/', 'admin']) : true;
 };
 
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const authService = inject(AuthService);
   console.log(authService.isLoggedIn())
-  return authService.isLoggedIn() ? router.createUrlTree(['/', 'admin']) : true;
+  return authService.isLoggedIn() ? true : router.createUrlTree(['/', 'login']);
 };
 
 /**
@@ -25,9 +25,10 @@ export const authGuard: CanActivateFn = () => {
  * @param state 
  * @returns 
  */
-export const deGuard: CanDeactivateFn<unknown> = (...state) => {
-  console.log({ state })
-  const router = inject(Router);
-  const authService = inject(AuthService);
-  return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : false;
-};
+
+// export const deGuard: CanDeactivateFn<unknown> = (...state) => {
+//   console.log({ state })
+//   const router = inject(Router);
+//   const authService = inject(AuthService);
+//   return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : false;
+// };
