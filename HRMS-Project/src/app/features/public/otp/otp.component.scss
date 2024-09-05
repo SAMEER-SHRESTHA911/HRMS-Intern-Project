@@ -17,7 +17,6 @@
       font-size: 1.5rem;
       margin-bottom: 10px;
       text-align: center;
-      // font-family: 'Roboto', sans-serif;
     }
 
     p {
@@ -25,7 +24,6 @@
       margin-bottom: 20px;
       text-align: center;
       color: #666666;
-      // font-family: 'Roboto', sans-serif;
     }
 
     form {
@@ -40,12 +38,10 @@
           text-align: left;
           letter-spacing: 3px;
           font-size: 1.2rem;
-          // font-family: 'Roboto', sans-serif;
         }
 
         mat-error {
           color: #f44336;
-          // font-family: 'Roboto', sans-serif;
           font-size: 0.9rem;
           margin-top: 5px;
           text-align:start;
@@ -56,7 +52,6 @@
         align-self: center;
         background-color: #007bff;
         color: #ffffff;
-        // font-family: 'Roboto', sans-serif;
 
         &:hover {
           background-color: #0056b3;
@@ -64,7 +59,7 @@
 
         &:disabled {
           background-color: #cccccc;
-          color: #666666;
+          color: #0056b3;
         }
       }
     }

@@ -5,6 +5,7 @@ import { ChangePasswordRoutingModule } from './change-password-routing.module';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ChangePasswordRoutingModule,
     MatInputModule,
     ReactiveFormsModule,
-    
+    MatIconModule,
+
   ]
 })
 export class ChangePasswordModule { }
