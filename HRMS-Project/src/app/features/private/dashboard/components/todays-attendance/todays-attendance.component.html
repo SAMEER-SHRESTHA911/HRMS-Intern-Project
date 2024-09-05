@@ -29,8 +29,8 @@
             <div class="header-number green-background">
               <mat-card-title
                 >{{
-                  (attendanceSummary$ | async)
-                    ?.totalEmployeeWorkingFromOffice ?? 0
+                  (attendanceSummary$ | async)?.totalEmployeeWorkingFromHome ??
+                    0
                 }}
                 <br />
                 <span class="size-600 padl5">STAFFS</span>
@@ -51,8 +51,8 @@
             <div class="header-number green-background">
               <mat-card-title
                 >{{
-                  (attendanceSummary$ | async)?.totalEmployeeWorkingFromHome ??
-                    0
+                  (attendanceSummary$ | async)
+                    ?.totalEmployeeWorkingFromOffice ?? 0
                 }}
                 <br />
                 <span class="size-600 padl5">STAFFS</span>
