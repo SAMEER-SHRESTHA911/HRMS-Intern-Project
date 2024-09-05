@@ -1,5 +1,5 @@
 <div class="table-container">
-  <div class="Employee-list-header">
+  <div class="employee-list-header">
     <div class="form-title">
       <h4>Employee Details</h4>
     </div>
@@ -118,7 +118,7 @@
         </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>

@@ -9,7 +9,7 @@
   max-width: calc(100% - 40px);
   overflow: hidden;
 
-  .Employee-list-header {
+  .employee-list-header {
     display: flex;
     justify-content: space-between;
     background-color: #f5f5f5;
@@ -82,7 +82,7 @@
 
   .table-data-container {
     overflow-x: auto;
-    max-height: 500px;
+    max-height: 50vh;
     white-space: nowrap;
 
     table {
@@ -121,7 +121,10 @@
 }
 
 @media (max-width: 1500px) {
-  .Employee-list-header {
+  .table-data-container {
+    max-height: 70vh;
+  }
+  .employee-list-header {
     padding: 6px 10px;
 
     .form-title h4 {
@@ -167,7 +170,10 @@
 }
 
 @media (max-width: 768px) {
-  .Employee-list-header {
+  .table-data-container {
+    max-height: 40vh;
+  }
+  .employee-list-header {
     .example-button-row {
       button.mat-flat-button {
         display: block;
@@ -180,7 +186,10 @@
 }
 
 @media (max-width: 480px) {
-  .Employee-list-header {
+  .table-data-container {
+    max-height: 30vh;
+  }
+  .employee-list-header {
     padding: 4px 8px;
 
     .form-title h4 {

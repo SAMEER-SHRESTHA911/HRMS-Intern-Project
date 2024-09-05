@@ -22,6 +22,7 @@ export const apiConstants = Object.freeze({
       '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
     getEmployeeLeaveRequestAccordingToDateAndStatus:
       '/attendanceLeave/LeaveRequest/GetLeaveRequestAccordingToDateAndStatus',
+    getAttandanceList: '/attendanceLeave/Attendance/ListAllAttendance',
   }),
 
   employeeDetails: Object.freeze({

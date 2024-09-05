@@ -134,7 +134,6 @@ export class AddStaffComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("Hellooo");
 
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();

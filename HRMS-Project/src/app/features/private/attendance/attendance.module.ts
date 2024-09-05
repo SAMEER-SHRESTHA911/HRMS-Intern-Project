@@ -8,6 +8,8 @@ import { attendanceReducer } from './attendance-details/store/attendance-details
 import { AttendanceEffects } from './attendance-details/store/attendance-details.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { DepartmentEffects } from '@shared/store/add-staff-dropdowns/department/department.effects';
+import { departmentReducer } from '@shared/store/add-staff-dropdowns/department/department.reducer';
 
 @NgModule({
   declarations: [AttendanceDetailsComponent, AttendanceCalanderComponent],
@@ -16,8 +18,14 @@ import { EffectsModule } from '@ngrx/effects';
     MaterialsModule,
     AttendanceRoutingModule,
     StoreModule.forFeature('attendance', attendanceReducer),
-    EffectsModule.forFeature([AttendanceEffects]),
+    StoreModule.forFeature('department', departmentReducer),
+
+
+    EffectsModule.forFeature([
+      AttendanceEffects,
+      DepartmentEffects,
+    ]),
   ],
   exports: [AttendanceDetailsComponent, AttendanceCalanderComponent],
 })
-export class AttendanceModule {}
+export class AttendanceModule { }

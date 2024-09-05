@@ -1,13 +1,13 @@
-import { AttendanceRecord } from '../../model/attendance-details.interface';
+import { EmployeeAttendanceRecord } from "../../model/attendance-details.interface";
 
-export interface AttendanceState {
-  records: AttendanceRecord[];
+export interface AttendanceRequestPayload {
+  record: EmployeeAttendanceRecord[];
   loading: boolean;
   error: string | null;
 }
 
-export const initialAttendanceState: AttendanceState = {
-  records: [],
+export const initialAttendanceState: AttendanceRequestPayload = {
+  record: [],
   loading: false,
   error: null,
 };

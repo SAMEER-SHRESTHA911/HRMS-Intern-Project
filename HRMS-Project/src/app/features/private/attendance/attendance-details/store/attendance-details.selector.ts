@@ -1,20 +1,20 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AttendanceState } from './attendance-details.state';
+import { AttendanceRequestPayload } from './attendance-details.state';
 
 export const selectAttendanceState =
-  createFeatureSelector<AttendanceState>('attendance');
+  createFeatureSelector<AttendanceRequestPayload>('attendance');
 
 export const selectAttendanceRecords = createSelector(
   selectAttendanceState,
-  (state: AttendanceState) => state.records
+  (state: AttendanceRequestPayload) => state.record
 );
 
 export const selectAttendanceLoading = createSelector(
   selectAttendanceState,
-  (state: AttendanceState) => state.loading
+  (state: AttendanceRequestPayload) => state.loading
 );
 
 export const selectAttendanceError = createSelector(
   selectAttendanceState,
-  (state: AttendanceState) => state.error
+  (state: AttendanceRequestPayload) => state.error
 );

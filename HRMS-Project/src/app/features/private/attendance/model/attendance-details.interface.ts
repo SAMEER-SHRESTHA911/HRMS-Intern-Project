@@ -1,12 +1,35 @@
-export interface AttendanceRecord {
-  SN: number;
-  Name: string;
-  CheckedInTime: string;
-  CheckedInStatus: string;
-  CheckedOutTime: string;
-  CheckedOutStatus: string;
-  PresentAbsent: string;
-  WorkedHours: number;
-  Actions: string;
+
+export interface AttendanceRequestPayload {
+  departmentId: number;
+  employeeId: number;
+  startDate: string;
+  endDate: string;
+  workLocation: number;
+  skip: number;
+  take: number;
+  sort: {
+    key: string;
+    sortBy: string;
+  }
 }
-// make the test camelCase
+export interface EmployeeAttendanceRecord {
+  id: number;
+  employeeId: number;
+  departmentId: number;
+  checkIn: string;
+  checkInReason: string;
+  checkOut: string;
+  checkOutReason: string;
+  workingHour: number;
+  workLocation: number;
+  employeeName: string;
+  departmentName: string;
+}
+
+
+export interface AttendanceData {
+  count: number;
+  take: number;
+  skip: number;
+  data: EmployeeAttendanceRecord[];
+}

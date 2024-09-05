@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class FormService {
   registrationForm!: FormGroup;
   constructor(private fb: FormBuilder, private router: Router) { }
+
   initializeForm(): void {
     this.registrationForm = this.fb.group(
       {
