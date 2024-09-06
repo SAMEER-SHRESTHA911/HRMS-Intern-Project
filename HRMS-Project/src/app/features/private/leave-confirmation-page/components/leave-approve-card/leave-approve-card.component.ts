@@ -38,11 +38,11 @@ export class LeaveApproveCardComponent implements OnInit {
 
   approve(id: string | number): void {
     this.store.dispatch(LEAVE_ACCEPT_REJECT({ id, option: 2 }));
-    this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]);
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveConfirmationPage}`]);
   }
   reject(id: string | number): void {
     this.store.dispatch(LEAVE_ACCEPT_REJECT({ id, option: 2 }));
-    this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]);
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveConfirmationPage}`]);
   }
   resetDialog(): void {
     this.dialogRef.close(false);

@@ -178,7 +178,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .subscribe((leaveFromDate) => {
         if (leaveFromDate) {
           this.minDateForLeaveTo = new Date(leaveFromDate);
-          this.leaveApplyForm?.get('leaveTo')?.updateValueAndValidity();
+          this.leaveApplyForm?.get('leaveFrom')?.updateValueAndValidity();
         }
       });
   }

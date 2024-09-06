@@ -15,14 +15,14 @@ export class LeaveTableService {
     'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId?id=';
   // private fetchEmployeeLeaveRequestResponse = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
 
-  private fetchLeaveDataStatus = 'http://localhost:3000/leaveAvailableData';
+  // private fetchLeaveDataStatus = 'http://localhost:3000/leaveAvailableData';
 
   constructor(private http: HttpClient) {}
   editLeaveApplyStatus() {}
 
-  getLeaveAvailableData(): Observable<LeaveAvailableData[]> {
-    return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
-  }
+  // getLeaveAvailableData(): Observable<LeaveAvailableData[]> {
+  //   return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
+  // }
 
   getLeaveTableData(
     id: string | null
