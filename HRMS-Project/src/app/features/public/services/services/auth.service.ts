@@ -31,7 +31,9 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.getToken() !== null;
+    const token = this.getToken();
+    console.log(token);
+    return token ? true: false;
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {

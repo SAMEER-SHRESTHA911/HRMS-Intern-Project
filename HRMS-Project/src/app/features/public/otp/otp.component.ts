@@ -16,7 +16,7 @@ constructor(private fb: FormBuilder, private store: Store) {}
 
   ngOnInit(): void {
     this.otpForm = this.fb.group({
-      otp: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
+      otp: ['', [Validators.required, Validators.pattern('^[0-9]{6}$')]],
     });
   }
 

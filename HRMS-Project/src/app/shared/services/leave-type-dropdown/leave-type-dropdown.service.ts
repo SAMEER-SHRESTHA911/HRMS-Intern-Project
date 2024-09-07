@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LeaveTypeDropDownResponse } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.state';
 import { Observable } from 'rxjs';
-import { LeaveTypeDropDownResponse } from '../../store/leave-type-dropdown/leave-type.state';
+
 
 @Injectable({
   providedIn: 'root',

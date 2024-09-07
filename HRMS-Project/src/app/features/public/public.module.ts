@@ -13,6 +13,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { OTPComponent } from './otp/otp.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent, NotFoundComponent, OTPComponent],
   imports: [
@@ -25,6 +27,8 @@ import { OTPComponent } from './otp/otp.component';
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatSnackBarModule
 
   ],
 })
