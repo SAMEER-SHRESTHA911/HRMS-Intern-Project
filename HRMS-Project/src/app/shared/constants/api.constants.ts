@@ -9,7 +9,6 @@ export const apiConstants = Object.freeze({
   getRolesList: '/user/Employee/GetAllRoles',
   deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee',
 
-
   attendance: Object.freeze({
     getCheckInStatus: '/attendanceLeave/Attendance/CheckCheckInStatus',
     postCheckIn: '/attendanceLeave/Attendance/CheckIn',

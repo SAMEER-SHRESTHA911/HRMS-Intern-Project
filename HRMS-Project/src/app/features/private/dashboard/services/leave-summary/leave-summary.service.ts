@@ -1,18 +1,11 @@
-import { apiConstants } from './../../../../../shared/constants/api.constants';
+import { Observable } from 'rxjs';
+import { apiConstants } from '@shared/constants/api.constants';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ResponseType } from '../../../../../shared/models/response.model';
-import {
-  EmployeeLeaveListResponse,
-  LeaveRequests,
-} from '../../types/leave-summary.interface';
-import { baseUrl } from '../../../../../shared/constants/global.constants';
-import {
-  DAY_DATA,
-  DayData,
-  getTodayDate,
-} from '../../../../../shared/utils/date-today';
+import { ResponseType } from '@shared/models/response.model';
+import { LeaveRequests } from '../../types/leave-summary.interface';
+baseUrl;
+import { baseUrl } from '@shared/constants/global.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -20,38 +13,9 @@ import {
 export class LeaveSummaryService {
   constructor(private http: HttpClient) {}
 
-  today = DAY_DATA;
-
-  tomorrow = {
-    ...DAY_DATA,
-    toDate: getTodayDate(1),
-  };
-
   getAllUsersPendingLeaveRequests(): Observable<ResponseType<LeaveRequests[]>> {
     return this.http.get<ResponseType<LeaveRequests[]>>(
       baseUrl + apiConstants.attendance.getEmployeePendingLeaveRequests
-    );
-  }
-
-  //TODO
-  getStaffsOnLeaveToday(
-    today: DayData
-  ): Observable<ResponseType<EmployeeLeaveListResponse[]>> {
-    return this.http.post<ResponseType<EmployeeLeaveListResponse[]>>(
-      baseUrl +
-        apiConstants.attendance.getEmployeeLeaveRequestAccordingToDateAndStatus,
-      today
-    );
-  }
-
-  //TODO
-  getStaffsOnLeaveTomorrow(
-    tomorrow: DayData
-  ): Observable<ResponseType<EmployeeLeaveListResponse[]>> {
-    return this.http.post<ResponseType<EmployeeLeaveListResponse[]>>(
-      baseUrl +
-        apiConstants.attendance.getEmployeeLeaveRequestAccordingToDateAndStatus,
-      tomorrow
     );
   }
 }
