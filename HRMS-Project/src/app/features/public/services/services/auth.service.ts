@@ -14,19 +14,19 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  setToken(token: string, ): void {
-    console.log('I am lost',token)
+  setToken(token: string): void {
+    console.log('I am lost', token);
     localStorage.setItem('token', token);
   }
-  
-  setEmployeeId(employeeId:string){
-    localStorage.setItem('employeeId', employeeId)
+
+  setEmployeeId(employeeId: string) {
+    localStorage.setItem('employeeId', employeeId);
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
   }
-  getEmployeeId(){
+  getEmployeeId() {
     return localStorage.getItem('employeeId');
   }
 
@@ -37,49 +37,57 @@ export class AuthService {
   login(credentials: { email: string; password: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post(`${this.apiUrl}Login/Login`, credentials, { headers }).pipe(
-      
-      map((response: any) => {
-        console.log(response)
-        const token = response.data.token;
-        const employeeId = response.data.employeeId;
-        this.setToken(token);
-        this.setEmployeeId(employeeId);
-        return response;
-      }),
-      catchError(error => {
-        return throwError(() => new Error('Failed to login'));
-      })
-    );
+    return this.http
+      .post(`${this.apiUrl}Login/Login`, credentials, { headers })
+      .pipe(
+        map((response: any) => {
+          console.log(response);
+          const token = response.data.token;
+          const employeeId = response.data.employeeId;
+          this.setToken(token);
+          this.setEmployeeId(employeeId);
+          return response;
+        }),
+        catchError((error) => {
+          return throwError(() => new Error('Failed to login'));
+        })
+      );
   }
 
   requestOTP(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}requestOTP`, { email }).pipe(
-      catchError(error => {
+      catchError((error) => {
         return throwError(() => new Error('Failed to request OTP'));
       })
     );
   }
 
   resetPassword(token: string, newPassword: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}resetPassword`, { token, newPassword }).pipe(
-      catchError(error => {
-        return throwError(() => new Error('Failed to reset password'));
-      })
-    );
+    return this.http
+      .post(`${this.apiUrl}resetPassword`, { token, newPassword })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => new Error('Failed to reset password'));
+        })
+      );
   }
 
-  changePassword(currentPassword: string, newPassword: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}changePassword`, { currentPassword, newPassword }).pipe(
-      catchError(error => {
-        return throwError(() => new Error('Failed to change password'));
-      })
-    );
+  changePassword(
+    currentPassword: string,
+    newPassword: string
+  ): Observable<any> {
+    return this.http
+      .post(`${this.apiUrl}changePassword`, { currentPassword, newPassword })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => new Error('Failed to change password'));
+        })
+      );
   }
 
   getUserDetailsFromToken(): Observable<any> {
     return this.http.get(`${this.apiUrl}getUserDetails`).pipe(
-      catchError(error => {
+      catchError((error) => {
         return throwError(() => new Error('Failed to get user details'));
       })
     );
