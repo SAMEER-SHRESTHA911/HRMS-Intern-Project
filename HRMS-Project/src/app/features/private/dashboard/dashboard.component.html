@@ -1,5 +1,9 @@
 <div class="main-container">
   <app-checking-in></app-checking-in>
   <app-todays-attendance></app-todays-attendance>
-  <app-leave-stats></app-leave-stats>
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <app-leave-stats></app-leave-stats>
+    <app-on-leave-today></app-on-leave-today>
+    <app-on-leave-tomorrow></app-on-leave-tomorrow>
+  </div>
 </div>

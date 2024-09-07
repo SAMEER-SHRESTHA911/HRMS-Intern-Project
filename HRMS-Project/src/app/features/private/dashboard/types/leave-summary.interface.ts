@@ -25,13 +25,6 @@ export interface LeaveRequests {
   totalLeaveDuration: number;
 }
 
-export interface EmployeeLeaveListResponse {
-  skip: number;
-  take: number;
-  count: number;
-  employeeLeaveRequestResponse: LeaveRequests[];
-}
-
 export interface LeaveStatus {
   id: number;
   employeeId: number;
