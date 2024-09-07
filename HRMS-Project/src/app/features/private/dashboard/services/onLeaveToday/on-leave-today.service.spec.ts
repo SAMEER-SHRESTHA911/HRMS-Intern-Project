@@ -1,12 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { LeaveSummaryService } from './leave-summary.service';
 
-describe('LeaveSummaryService', () => {
-  let service: LeaveSummaryService;
+import { OnLeaveTodayService } from './on-leave-today.service';
+
+describe('OnLeaveTodayService', () => {
+  let service: OnLeaveTodayService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LeaveSummaryService);
+    service = TestBed.inject(OnLeaveTodayService);
   });
 
   it('should be created', () => {
