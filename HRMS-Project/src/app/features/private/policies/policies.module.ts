@@ -20,8 +20,6 @@ import { MatListModule } from '@angular/material/list';
     PoliciesComponent,
     PolicyListComponent,
     PolicyFormComponent,
-
-
   ],
   imports: [
     CommonModule,
