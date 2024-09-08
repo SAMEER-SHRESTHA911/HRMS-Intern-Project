@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
+  // private apiUrl = 'http://192.168.1.21:5000/apigateway/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,7 +34,7 @@ export class AuthService {
   isLoggedIn(): boolean {
     const token = this.getToken();
     console.log(token);
-    return token ? true: false;
+    return token ? true : false;
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {

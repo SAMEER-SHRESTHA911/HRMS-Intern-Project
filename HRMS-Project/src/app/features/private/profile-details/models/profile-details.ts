@@ -14,3 +14,9 @@ export interface ProfileDetails {
   nationality: string;
   startDate: string;
 }
+
+export interface ProfilePicture {
+  employeeId: number;
+  imageName: string;
+  imageDataBase64: string;
+}
