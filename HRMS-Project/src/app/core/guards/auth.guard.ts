@@ -18,11 +18,6 @@ export const authGuard: CanActivateFn = () => {
   return authService.isLoggedIn() ? true : router.createUrlTree(['/', 'login']);
 };
 
-/**
- * Fixme: Its an example
- * @param state
- * @returns
- */
 
 // export const deGuard: CanDeactivateFn<unknown> = (...state) => {
 //   console.log({ state })

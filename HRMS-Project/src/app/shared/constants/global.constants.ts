@@ -14,3 +14,14 @@ export const loggedInUser: ILoggedInUser = {
   id: localStorage.getItem('employeeId'),
   isCheckedIn: false,
 };
+
+export const userRole = {
+  role: "",
+}; 
+
+export function updateRole(role:string):void{
+  userRole.role = role;
+}
+export function getRole():string{
+  return userRole.role;
+}

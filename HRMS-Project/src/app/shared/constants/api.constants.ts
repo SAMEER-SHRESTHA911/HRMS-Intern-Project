@@ -31,6 +31,8 @@ export const apiConstants = Object.freeze({
 
   employeeDetails: Object.freeze({
     getEmployeeDetailById: '/user/Employee/GetRegisterEmployeeDetailById',
+    addDocumentOfEmployee: '/user/Document/AddDocumentOfEmp',
+    getProfilePictureofEmployee: '/user/Document/GetProfilePictureOfEmp',
   }),
 
   login: Object.freeze({
@@ -45,6 +47,6 @@ export const apiConstants = Object.freeze({
     getEmployeeLeaveRequestList: '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
     approveRejectLeaveRequest: '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
     getLeaveBalanceofEmp: '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
-    getLeaveRequestByEmpId: 'attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+    getLeaveRequestByEmpId: '/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
   }),
 });
