@@ -38,10 +38,8 @@ export const apiConstants = Object.freeze({
 
   login: Object.freeze({
     login: '/user/Login/Login',
-    login: '/user/Login/Login',
     requestOTP: '/user/Login/RequestOTP',
     resetPassword: '/user/Login/ResetPassword ',
-    changePassword: '/user/Login/ChangePassword',
     changePassword: '/user/Login/ChangePassword',
   }),
   leave: Object.freeze({
