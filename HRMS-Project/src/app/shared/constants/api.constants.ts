@@ -11,6 +11,7 @@ export const apiConstants = Object.freeze({
   getAddressDetailsById: '/user/Address/GetAddressDetailById',
   getProfilePictureOfEmp: '/user/Document/GetProfilePictureOfEmp?empId=',
   policy: '/attendanceLeave/Policy/CreatePolicy',
+  calender:'/attendanceLeave/Attendance/GetAllAttendanceByEmployeeId',
 
   attendance: Object.freeze({
     getCheckInStatus: '/attendanceLeave/Attendance/CheckCheckInStatus',
