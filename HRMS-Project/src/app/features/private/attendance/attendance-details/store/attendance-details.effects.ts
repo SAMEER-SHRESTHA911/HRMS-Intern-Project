@@ -1,25 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AttendanceDetailsService } from '../service/attendance-details.service';
+import { ResponseType } from '@shared/models/response.model';
+
 import {
-  loadAttendanceRecords,
-  loadAttendanceRecordsSuccess,
-  loadAttendanceRecordsFailure,
+  loadAttendanceList,
+  loadAttendanceListSuccess,
+  loadAttendanceListFailure,
 } from './attendance-details.actions';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { EmployeeAttendanceRecord } from '../../model/attendance-details.interface';
 
 @Injectable()
 export class AttendanceEffects {
-  loadAttendanceRecords$ = createEffect(() =>
+  loadAttendanceList$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadAttendanceRecords),
-      mergeMap(() =>
-        this.attendanceService.getAttendanceRecords().pipe(
-          map((records) => loadAttendanceRecordsSuccess({ records })),
-          catchError((error) =>
-            of(loadAttendanceRecordsFailure({ error: error.message }))
-          )
+      ofType(loadAttendanceList),
+      mergeMap(({ payload }) =>
+        this.attendanceService.getAttendanceList(payload).pipe(
+          map(response => loadAttendanceListSuccess({ response: response.data })),
+          catchError(error => of(loadAttendanceListFailure({ error: error.message })))
         )
       )
     )
@@ -28,5 +29,5 @@ export class AttendanceEffects {
   constructor(
     private actions$: Actions,
     private attendanceService: AttendanceDetailsService
-  ) {}
+  ) { }
 }

@@ -28,3 +28,7 @@ export const fetchEmployeeDataFailure = createAction(
   '[Staff] Fetch Staff Data Failure',
   props<{ error: string }>()
 );
+
+export const staffReadyToPatch = createAction(
+  '[Staff] Ready To Patch',
+);

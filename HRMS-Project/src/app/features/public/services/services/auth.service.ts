@@ -15,7 +15,7 @@ export class AuthService {
   private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
   // private apiUrl = 'http://192.168.1.21:5000/apigateway/user/';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   setToken(token: string): void {
     // console.log('I am lost', token);
@@ -50,10 +50,9 @@ export class AuthService {
       .post(`${baseUrl}${apiConstants.login.login}`, credentials, { headers })
       .pipe(
         map((response: any) => {
-          console.log(response);
           const token = response.data.token;
           const employeeId = response.data.employeeId;
-          if(response.data.role !== null){
+          if (response.data.role !== null) {
             userRole.role = response.data.role;
           }
           this.setToken(token);

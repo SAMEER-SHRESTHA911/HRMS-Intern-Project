@@ -6,7 +6,6 @@ import { AuthService } from '../../features/public/services/services/auth.servic
 // createUrlTree
 
 export const publicGuard: CanActivateFn = (route, state) => {
-  console.log({ route, state })
   const router = inject(Router);
   const authService = inject(AuthService);
 
@@ -16,7 +15,6 @@ export const publicGuard: CanActivateFn = (route, state) => {
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const authService = inject(AuthService);
-  console.log(authService.isLoggedIn())
   return authService.isLoggedIn() ? true : router.createUrlTree(['/', 'login']);
 };
 
