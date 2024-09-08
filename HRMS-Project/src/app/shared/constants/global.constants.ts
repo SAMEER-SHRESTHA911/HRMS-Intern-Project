@@ -15,6 +15,6 @@ export const loggedInUser: ILoggedInUser = {
   isCheckedIn: false,
 };
 
-export function getRole():string|null{
+export function getRole(): string | null {
   return localStorage.getItem('role');
 }

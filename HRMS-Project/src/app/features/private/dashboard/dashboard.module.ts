@@ -28,6 +28,10 @@ import { employeeOnLeaveTodayReducer } from './store/onLeaveToday/onLeaveToday.r
 import { onLeaveTodayEffect } from './store/onLeaveToday/onLeaveToday.effect';
 import { employeeOnLeaveTomorrowReducer } from './store/onLeaveTomorrow/onLeaveTomorrow.reducers';
 import { onLeaveTomorrowEffect } from './store/onLeaveTomorrow/onLeaveTomorrow.effect';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { calenderReducer } from './store/calender/calender.reducer';
+import { CalenderEffects } from './store/calender/calender.effects';
 
 @NgModule({
   declarations: [
@@ -38,12 +42,14 @@ import { onLeaveTomorrowEffect } from './store/onLeaveTomorrow/onLeaveTomorrow.e
     TodaysAttendanceComponent,
     OnLeaveTomorrowComponent,
     OnLeaveTodayComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MatCardModule,
     MaterialsModule,
+    FullCalendarModule,
     HttpClientModule,
     StoreModule.forFeature('dashboard', dashboardReducer),
     EffectsModule.forFeature([DashboardEffect]),
@@ -68,6 +74,8 @@ import { onLeaveTomorrowEffect } from './store/onLeaveTomorrow/onLeaveTomorrow.e
       employeeOnLeaveTomorrowReducer
     ),
     EffectsModule.forFeature([onLeaveTomorrowEffect]),
+    StoreModule.forFeature('calendar', calenderReducer),
+    EffectsModule.forFeature([CalenderEffects]),
   ],
 })
 export class DashboardModule {}
