@@ -72,7 +72,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     this.leaveFormService.resetEditMode();
   }
 
-  getDropDown() {
+  getDropDown() :void{
     console.log(this.leaveApplyForm?.value);
     this.store.dispatch(FETCH_DAY_LEAVE_DROPDOWN());
 
@@ -166,7 +166,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     //   });
   }
 
-  resetForm() {
+  resetForm() :void{
     this.leaveApplyForm?.reset();
   }
 
@@ -178,7 +178,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .subscribe((leaveFromDate) => {
         if (leaveFromDate) {
           this.minDateForLeaveTo = new Date(leaveFromDate);
-          this.leaveApplyForm?.get('leaveTo')?.updateValueAndValidity();
+          this.leaveApplyForm?.get('leaveFrom')?.updateValueAndValidity();
         }
       });
   }
