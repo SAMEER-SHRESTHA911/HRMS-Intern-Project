@@ -52,3 +52,9 @@ export interface  LeaveBalanceData {
   totalCount: number,
   leaveTypeEnum : string
 }
+
+export enum LeaveRequestStatus {
+  Accept = 'Accept',
+  Reject = 'Reject',
+  Pending = 'Pending'
+}
