@@ -5,6 +5,7 @@
   padding: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  position: relative;
   border-radius: 8px;
   max-width: calc(100% - 40px);
   overflow: hidden;
@@ -13,7 +14,13 @@
     align-items: center;
     gap: 0.5rem;
   }
-
+  .sticky-paginator {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1;
+    width: 100%;
+  }
   .attendance-list-header {
     display: flex;
     justify-content: space-between;

@@ -53,7 +53,8 @@ export class AddStaffComponent implements OnInit {
   countries$: Observable<CountryData[]> = of([]);
   departments$: Observable<DepartmentData[]> = of([]);
   cities$: Observable<DepartmentData[]> = of([]);
-  roles$: Observable<RoleData[]> = of([])
+  roles$: Observable<RoleData[]> = of([]);
+
 
   selectedCountry!: CountryData;
   selectedCity!: string;
@@ -70,7 +71,6 @@ export class AddStaffComponent implements OnInit {
 
   constructor(
     private formService: FormService,
-    private staffListService: StaffListService,
     private store: Store<StaffState>,
     private route: ActivatedRoute,
     private router: Router
@@ -82,9 +82,7 @@ export class AddStaffComponent implements OnInit {
     this.initializeEditMode();
     this.setMaxDateForDob();
     this.setMaxStartDate();
-    this.getCountryList();
-    this.getDeparmentList();
-    this.getRoleList();
+
   }
 
   setMaxDateForDob(): void {
@@ -127,6 +125,11 @@ export class AddStaffComponent implements OnInit {
           if (this.isEditMode && this.staffId !== null) {
             this.loadStaffList(this.staffId);
           }
+          else {
+            this.getCountryList();
+            this.getDeparmentList();
+            this.getRoleList();
+          }
           return of(null);
         })
       )
@@ -134,17 +137,14 @@ export class AddStaffComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     if (this.registrationForm.invalid) {
       this.registrationForm.markAllAsTouched();
       return;
     }
 
     const updatedData = convertToStaffPayload(this.registrationForm.value);
-    console.log(this.registrationForm)
-    console.log(updatedData)
-
     if (this.isEditMode && this.staffId !== null) {
+
       this.store.dispatch(
         updateEmployee({ employeeId: this.staffId, updatedData })
       );
@@ -170,7 +170,10 @@ export class AddStaffComponent implements OnInit {
   }
 
   private loadStaffList(id: number): void {
-
+    this.registrationForm.controls['password'].clearValidators();
+    this.registrationForm.controls['password'].updateValueAndValidity();
+    this.registrationForm.controls['confirmPassword'].clearValidators();
+    this.registrationForm.controls['confirmPassword'].updateValueAndValidity();
     this.store.dispatch(fetchEmployeeData({ staffId: id }))
   }
 }

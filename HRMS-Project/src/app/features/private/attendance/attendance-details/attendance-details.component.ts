@@ -1,22 +1,22 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { EmployeeAttendanceRecord } from '../model/attendance-details.interface';
+import { FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { select, Store } from '@ngrx/store';
+import { DepartmentData } from '@shared/models/department.interface';
+import { loadDepartments } from '@shared/store/add-staff-dropdowns/department/department.actions';
+import { selectAllDepartments } from '@shared/store/add-staff-dropdowns/department/department.selector';
+import { Observable, of } from 'rxjs';
+import { AttendanceData, AttendanceRequestPayload, EmployeeAttendanceRecord, EmployeeAttendanceRecordForTable } from '../model/attendance-details.interface';
+import { FormService } from './service/form/form.service';
+import { loadAttendanceList } from './store/attendance-details.actions';
 import {
   selectAttendanceError,
   selectAttendanceLoading,
   selectAttendanceRecords,
 } from './store/attendance-details.selector';
-import { MatDialog } from '@angular/material/dialog';
-import { DepartmentData } from '@shared/models/department.interface';
-import { loadDepartments } from '@shared/store/add-staff-dropdowns/department/department.actions';
-import { selectAllDepartments } from '@shared/store/add-staff-dropdowns/department/department.selector';
-import { FormGroup } from '@angular/forms';
-import { FormService } from './service/form/form.service';
-import { loadAttendanceList } from './store/attendance-details.actions';
 
 @Component({
   selector: 'app-attendance-details',
@@ -25,7 +25,7 @@ import { loadAttendanceList } from './store/attendance-details.actions';
 })
 export class AttendanceDetailsComponent implements OnInit {
   maxDate!: Date;
-  records$: Observable<EmployeeAttendanceRecord[]> = of([]);
+  records$: Observable<AttendanceData | undefined> = of(undefined);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   departments$: Observable<DepartmentData[]> = of([]);
@@ -34,8 +34,8 @@ export class AttendanceDetailsComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  displayedColumns: (keyof EmployeeAttendanceRecord)[] = [
-    'id',
+  displayedColumns: (keyof EmployeeAttendanceRecordForTable)[] = [
+    'SN',
     'employeeName',
     'employeeId',
     'departmentName',
@@ -46,6 +46,7 @@ export class AttendanceDetailsComponent implements OnInit {
     'checkOutReason',
     'workingHour',
     'workLocation',
+    'actions'
   ];
 
   get attendanceFilterForm(): FormGroup {
@@ -62,15 +63,19 @@ export class AttendanceDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.formService.initializeForm()
+    this.formService.initializeForm();
+    this.store.dispatch(loadAttendanceList({ payload: {} }))
     this.selectorInitializer();
     this.getDeparmentList();
+    this.setMaxDate()
     this.dataSource.paginator = this.paginator;
 
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator.page.subscribe(() => this.onSubmit());
+
   }
   getDeparmentList(): void {
     this.store.dispatch(loadDepartments());
@@ -78,6 +83,7 @@ export class AttendanceDetailsComponent implements OnInit {
   }
 
   onViewAttendanceDetails() { }
+
   applyFilter(event: Event) {
     if (this.dataSource) {
       const filterValue = (event.target as HTMLInputElement).value;
@@ -89,16 +95,31 @@ export class AttendanceDetailsComponent implements OnInit {
   }
   onSubmit() {
     const formValue = this.formService.getFormValue();
-    this.store.dispatch(loadAttendanceList({ payload: formValue }));
+    const skip = (this.dataSource?.paginator?.pageIndex ?? 0) * (this.dataSource?.paginator?.pageSize ?? 10);
+    const take = this.dataSource?.paginator?.pageSize ?? 10;
+
+    const payload: AttendanceRequestPayload = {
+      ...formValue,
+      skip,
+      take
+    };
+
+    this.store.dispatch(loadAttendanceList({ payload }));
   }
   selectorInitializer(): void {
     this.records$ = this.store.pipe(select(selectAttendanceRecords));
     this.records$.subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(data?.data);
     });
     this.loading$ = this.store.pipe(select(selectAttendanceLoading));
     this.error$ = this.store.pipe(select(selectAttendanceError));
     this.departments$ = this.store.select(selectAllDepartments);
-
   }
+  resetFilter(): void {
+    this.store.dispatch(loadAttendanceList({ payload: {} }))
+    this.attendanceFilterForm.reset()
+  }
+
+
+
 }

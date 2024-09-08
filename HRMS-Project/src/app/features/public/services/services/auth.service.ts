@@ -12,35 +12,34 @@ import { Router } from '@angular/router';
 export class AuthService {
   private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
-  setToken(token: string, ): void {
-    console.log('I am lost',token)
+  setToken(token: string,): void {
     localStorage.setItem('token', token);
   }
-  
-  setEmployeeId(employeeId:string){
+
+  setEmployeeId(employeeId: string) {
     localStorage.setItem('employeeId', employeeId)
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
   }
-  getEmployeeId(){
+  getEmployeeId() {
     return localStorage.getItem('employeeId');
   }
 
   isLoggedIn(): boolean {
-    return this.getToken() !== null;
+    const token = this.getToken();
+    return token ? true : false;
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(`${this.apiUrl}Login/Login`, credentials, { headers }).pipe(
-      
+
       map((response: any) => {
-        console.log(response)
         const token = response.data.token;
         const employeeId = response.data.employeeId;
         this.setToken(token);

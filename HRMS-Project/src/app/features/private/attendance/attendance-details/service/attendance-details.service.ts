@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { baseUrl } from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
 import { ResponseType } from '@shared/models/response.model';
-import { AttendanceRequestPayload, EmployeeAttendanceRecord } from '../../model/attendance-details.interface';
+import { AttendanceData, AttendanceRequestPayload, EmployeeAttendanceRecord } from '../../model/attendance-details.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class AttendanceDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  getAttendanceList(payload: AttendanceRequestPayload): Observable<ResponseType<EmployeeAttendanceRecord[]>> {
-    return this.http.post<ResponseType<EmployeeAttendanceRecord[]>>(this.apiUrl, payload);
+  getAttendanceList(payload: AttendanceRequestPayload | {}): Observable<ResponseType<AttendanceData>> {
+    return this.http.post<ResponseType<AttendanceData>>(this.apiUrl, payload);
   }
 }

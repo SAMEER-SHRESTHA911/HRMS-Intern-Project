@@ -38,7 +38,6 @@
         padding: 5px;
       }
 
-
       form {
         display: flex;
         flex-direction: column;
@@ -49,7 +48,6 @@
           color: #ffffff;
           font-weight: bold;
           text-transform: uppercase;
-
 
           &:hover {
             background-color: #115293;
@@ -87,6 +85,33 @@
     .login-form {
       width: 100%;
       max-width: none;
+    }
+  }
+}
+
+mat-form-field {
+  position: relative;
+
+  input {
+    padding-right: 40px;
+  }
+
+  .eye-button-container {
+    position: absolute;
+    top: 60%;
+    right:0;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    mat-icon {
+      font-size: 20px;
+      opacity: 0.5;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
     }
   }
 }

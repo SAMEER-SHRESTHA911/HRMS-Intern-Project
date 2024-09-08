@@ -6,28 +6,27 @@ import { AuthService } from '../../features/public/services/services/auth.servic
 // createUrlTree
 
 export const publicGuard: CanActivateFn = (route, state) => {
-  console.log({ route, state })
   const router = inject(Router);
   const authService = inject(AuthService);
 
-  return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : true;
+  return authService.isLoggedIn() ? router.createUrlTree(['/', 'admin']) : true;
 };
 
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const authService = inject(AuthService);
-  console.log(authService.isLoggedIn())
-  return authService.isLoggedIn() ? router.createUrlTree(['/', 'admin']) : true;
+  return authService.isLoggedIn() ? true : router.createUrlTree(['/', 'login']);
 };
 
 /**
  * Fixme: Its an example
- * @param state 
- * @returns 
+ * @param state
+ * @returns
  */
-export const deGuard: CanDeactivateFn<unknown> = (...state) => {
-  console.log({ state })
-  const router = inject(Router);
-  const authService = inject(AuthService);
-  return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : false;
-};
+
+// export const deGuard: CanDeactivateFn<unknown> = (...state) => {
+//   console.log({ state })
+//   const router = inject(Router);
+//   const authService = inject(AuthService);
+//   return !authService.isLoggedIn() ? router.createUrlTree(['/', 'login']) : false;
+// };

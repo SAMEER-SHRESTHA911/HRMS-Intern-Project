@@ -496,73 +496,6 @@
       "title": " Company leave Policies",
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
-    },
-    {
-      "id": "0fc2",
-      "remarks": "sdsdsdsds",
-      "workLocation": "2"
-    }
-  ],
-  "requestList": [
-    {
-      "id": "123",
-      "reason": "Trip",
-      "leaveFrom": "2024-08-17",
-      "leaveTo": "2024-08-20",
-      "status": "Pending",
-      "name": "Sameer Shrestha",
-      "daysLeft": "12/21",
-      "employeeId": "AN007"
-    },
-    {
-      "id": "456",
-      "reason": "Fever",
-      "leaveFrom": "2024-07-17",
-      "leaveTo": "2024-08-18",
-      "status": "Pending",
-      "name": "Siddhartha Shakya",
-      "daysLeft": "2/21",
-      "employeeId": "AN002"
-    },
-    {
-      "id": "789",
-      "reason": "Puja",
-      "leaveFrom": "2024-08-20",
-      "leaveTo": "2024-08-22",
-      "status": "Pending",
-      "name": "Aaditya Jha",
-      "daysLeft": "10/21",
-      "employeeId": "AN006"
-    },
-    {
-      "id": "0",
-      "title": "dfs",
-      "category": "sdfsf",
-      "content": "sdfsdfsdfsdf"
-    },
-    {
-      "id": "0",
-      "title": "yuiui",
-      "category": "tyuyujk",
-      "content": "yi6olrkjfkjk"
-    },
-    {
-      "id": "0",
-      "title": "djfnsdfgnsd",
-      "category": "skngeofgnefn",
-      "content": "sjdifkdmnbdfgsfgm "
-    },
-    {
-      "id": "0",
-      "title": "terggdfg",
-      "category": "dfgdfg",
-      "content": "dfgdfgdfg"
-    },
-    {
-      "id": "0",
-      "title": "were",
-      "category": "rere",
-      "content": "erer"
     }
   ],
   "requestList": {
@@ -581,11 +514,9 @@
           "departmentId": 1,
           "department": "Angular",
           "phoneNumber": "984574648",
-          "leaveFrom": "2024-8-10",
-          "leaveTo": "2024-8-12",
-          "MobileNo": "9846765553",
           "leaveFrom": "2024-6-6",
           "leaveTo": "2024-6-9",
+          "MobileNo": "9846765553",
           "dayLeave": "Full Day",
           "reasonForLeave": "Sick with fever",
           "leaveRequestStatus": "Pending",

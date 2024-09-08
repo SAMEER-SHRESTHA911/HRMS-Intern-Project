@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormValue } from '../../../model/attendance-details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,20 @@ export class FormService {
       }
     );
   }
-  getFormValue() {
-    return this.attendanceFilterForm.value;
+  getFormValue(): FormValue {
+    return {
+      ...(this.attendanceFilterForm.value),
+      endDate: this.formatDateToYYYYMMDD(this.attendanceFilterForm.value.endDate),
+      startDate: this.formatDateToYYYYMMDD(this.attendanceFilterForm.value.startDate),
+    }
+  }
+
+  formatDateToYYYYMMDD(dateStr: string): string {
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
   }
 }

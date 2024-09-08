@@ -27,7 +27,7 @@ export class FormService {
         nationality: ['', [Validators.required]],
         citizenshipNo: ['', [Validators.required]],
         startDate: ['', [Validators.required]],
-        department: ['', [Validators.required]],
+        departmentId: ['', [Validators.required]],
         role: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
