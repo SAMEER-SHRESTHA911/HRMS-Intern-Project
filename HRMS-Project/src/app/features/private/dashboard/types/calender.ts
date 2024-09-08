@@ -20,13 +20,13 @@ export interface ICalenderResponseData {
   workLocation: number;
 }
 export interface ICalenderPayload {
-  startingCheckInDate: 'string';
-  endCheckInDate: 'string';
-  employeeStartingDate: 'string';
-  skip: 0;
-  take: 0;
+  startingCheckInDate: string;
+  endCheckInDate: string;
+  employeeStartingDate?: string;
+  skip: number;
+  take: number;
   sort: {
-    key: 'string';
-    sortBy: 'string';
+    key?: string;
+    sortBy: string;
   };
 }

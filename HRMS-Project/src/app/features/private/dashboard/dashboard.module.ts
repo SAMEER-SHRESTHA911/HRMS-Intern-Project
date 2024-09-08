@@ -30,6 +30,8 @@ import { employeeOnLeaveTomorrowReducer } from './store/onLeaveTomorrow/onLeaveT
 import { onLeaveTomorrowEffect } from './store/onLeaveTomorrow/onLeaveTomorrow.effect';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { calenderReducer } from './store/calender/calender.reducer';
+import { CalenderEffects } from './store/calender/calender.effects';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
       employeeOnLeaveTomorrowReducer
     ),
     EffectsModule.forFeature([onLeaveTomorrowEffect]),
+    StoreModule.forFeature('calendar', calenderReducer),
+    EffectsModule.forFeature([CalenderEffects]),
   ],
 })
 export class DashboardModule {}

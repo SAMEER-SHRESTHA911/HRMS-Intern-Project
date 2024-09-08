@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { Store } from '@ngrx/store';
+import { CalenderState } from '../../store/calender/calender.reducer';
+import { Observable, of } from 'rxjs';
+import { ICalenderResponseData } from '../../types/calender';
+import { fetchCalenderData } from '../../store/calender/calender.actions';
+import { formatDate } from '@shared/utils/date-utils';
+import { selectCalenderData } from '../../store/calender/calender.selector';
 
 @Component({
   selector: 'app-calendar',
@@ -9,6 +16,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
   styleUrl: './calendar.component.scss',
 })
 export class CalendarComponent {
+  profileId = localStorage.getItem('employeeId');
   employeeData = [
     {
       date: '2024-09-10',
@@ -66,5 +74,33 @@ export class CalendarComponent {
     const checkoutDate = new Date(`1970-01-01T${checkoutTime}`);
     const limit = new Date(`1970-01-01T18:00:00`);
     return checkoutDate < limit ? 'checkout-early' : 'checkout-on-time';
+  }
+  calandarData$: Observable<ICalenderResponseData[]> = of([]);
+  loading$: Observable<boolean> = of(false);
+  error$: Observable<string | null> = of(null);
+
+  constructor(private store: Store<CalenderState>) {}
+
+  ngOnInit(): void {
+    this.calandarData$ = this.store.select(selectCalenderData);
+    this.store.dispatch(
+      fetchCalenderData({
+        id: this.profileId,
+        data: {
+          startingCheckInDate: '2024-08-01',
+          endCheckInDate: formatDate(new Date()),
+          skip: 0,
+          take: 100,
+          sort: {
+            sortBy: 'Asc',
+          },
+        },
+      })
+    );
+    this.calandarData$.subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
   }
 }
