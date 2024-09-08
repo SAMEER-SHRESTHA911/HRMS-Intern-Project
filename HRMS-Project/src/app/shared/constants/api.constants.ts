@@ -42,10 +42,15 @@ export const apiConstants = Object.freeze({
   }),
   leave: Object.freeze({
     addLeaveRequest: '/attendanceLeave/LeaveRequest/AddLeaveRequest',
-    getLeaveRequestDetailById: '/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById',
-    getEmployeeLeaveRequestList: '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
-    approveRejectLeaveRequest: '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
+    getLeaveRequestDetailById:
+      '/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById',
+    getEmployeeLeaveRequestList:
+      '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
+    approveRejectLeaveRequest:
+      '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
     getLeaveBalanceofEmp: '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
-    getLeaveRequestByEmpId: '/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+    getLeaveRequestByEmpId:
+      '/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+    getAllLeaveBalance: '/attendanceLeave/LeaveBalance/GetLeaveBalanceList',
   }),
 });

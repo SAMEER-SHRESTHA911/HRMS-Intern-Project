@@ -5,7 +5,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { baseUrl, userRole } from '@shared/constants/global.constants';
+import {
+  baseUrl,
+} from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
@@ -15,31 +17,36 @@ export class AuthService {
   private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
   // private apiUrl = 'http://192.168.1.21:5000/apigateway/user/';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   setToken(token: string): void {
-    // console.log('I am lost', token);
     if (token !== null) {
       localStorage.setItem('token', token);
     }
   }
 
-  setEmployeeId(employeeId: string) {
+  setEmployeeId(employeeId: string): void {
     if (Number(employeeId) !== 0) {
       localStorage.setItem('employeeId', employeeId);
+    }
+  }
+
+  setRole(role: string): void {
+    if (role !== null) {
+      localStorage.setItem('role', role);
     }
   }
 
   getToken(): string | null {
     return localStorage.getItem('token');
   }
-  getEmployeeId() {
+
+  getEmployeeId(): string | null {
     return localStorage.getItem('employeeId');
   }
 
   isLoggedIn(): boolean {
     const token = this.getToken();
-    console.log(token);
     return token ? true : false;
   }
 
@@ -50,14 +57,9 @@ export class AuthService {
       .post(`${baseUrl}${apiConstants.login.login}`, credentials, { headers })
       .pipe(
         map((response: any) => {
-          const token = response.data.token;
-          const employeeId = response.data.employeeId;
-          if (response.data.role !== null) {
-            userRole.role = response.data.role;
-            console.log(userRole.role);
-          }
-          this.setToken(token);
-          this.setEmployeeId(employeeId);
+          this.setToken(response.data.token);
+          this.setEmployeeId(response.data.employeeId);
+          this.setRole(response.data.role);
           return response;
         }),
         catchError((error) => {
@@ -115,6 +117,8 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('employeeId');
+    localStorage.removeItem('role');
     this.router.navigate(['login']);
   }
 }

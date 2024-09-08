@@ -18,4 +18,5 @@ export const ROUTE_CONSTANT = Object.freeze({
   login: 'login',
   forgotPassword: 'forgot-password',
   otp: 'otp',
+  employeeLeaveManagement: 'employee-leave-details',
 });
