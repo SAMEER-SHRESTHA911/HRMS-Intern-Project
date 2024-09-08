@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/services/auth.service'
@@ -29,7 +28,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid && this.loginForm.valid) {
       this.auth.login(this.loginForm.value as {email:string,password:string}).subscribe(
         (result) =>
-        {
+        { 
+          console.log(result)
           this.router.navigate(['admin/dashboard']);
           this.openSnackBar('LogIn Successfully')
         },
@@ -53,4 +53,3 @@ export class LoginComponent implements OnInit {
 
 }
 }
-

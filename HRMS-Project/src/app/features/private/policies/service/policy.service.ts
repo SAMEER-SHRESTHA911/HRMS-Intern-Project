@@ -12,6 +12,7 @@ export class PolicyService {
   constructor(private http: HttpClient) {}
 
   getPolicies(): Observable<Policy[]> {
+    // return this.http.get<Policy[]>(`${this.apiUrl}/policies`);
     return this.http.get<Policy[]>(`${this.apiUrl}/policies`);
   }
 

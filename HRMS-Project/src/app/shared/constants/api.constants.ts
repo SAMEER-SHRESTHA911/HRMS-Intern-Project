@@ -8,6 +8,8 @@ export const apiConstants = Object.freeze({
   updateEmployee: '/user/Employee/UpdateRegisterEmployee',
   getRolesList: '/user/Employee/GetAllRoles',
   deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee',
+  getProfilePictureOfEmp : 'user/Document/GetProfilePictureOfEmp?empId=',
+  policy : '/attendanceLeave/Policy/CreatePolicy',
 
   attendance: Object.freeze({
     getCheckInStatus: '/attendanceLeave/Attendance/CheckCheckInStatus',
@@ -27,4 +29,19 @@ export const apiConstants = Object.freeze({
   employeeDetails: Object.freeze({
     getEmployeeDetailById: '/user/Employee/GetRegisterEmployeeDetailById',
   }),
+
+  login: Object.freeze({
+    login:  '/user/Login/Login',
+    requestOTP: '/user/Login/RequestOTP',
+    resetPassword: '/user/Login/ResetPassword ',
+    changePassword : '/user/Login/ChangePassword',
+  }),
+  leave: Object.freeze({
+    addLeaveRequest : '/attendanceLeave/LeaveRequest/AddLeaveRequest',
+    getLeaveRequestDetailById : '/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById',
+    getEmployeeLeaveRequestList : '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
+    approveRejectLeaveRequest : '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
+    getLeaveBalanceofEmp : '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
+    getLeaveRequestByEmpId : 'attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+  }),  
 });
