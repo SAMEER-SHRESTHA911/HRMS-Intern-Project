@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class FormService {
   registrationForm!: FormGroup;
   constructor(private fb: FormBuilder, private router: Router) { }
+
   initializeForm(): void {
     this.registrationForm = this.fb.group(
       {
@@ -26,7 +27,7 @@ export class FormService {
         nationality: ['', [Validators.required]],
         citizenshipNo: ['', [Validators.required]],
         startDate: ['', [Validators.required]],
-        department: ['', [Validators.required]],
+        departmentId: ['', [Validators.required]],
         role: ['', [Validators.required]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
@@ -44,5 +45,10 @@ export class FormService {
   nagivateTo(): void {
     this.router.navigate(['/admin/staff-registration/staff-list']);
 
+  }
+  getFormValueToPatch(value: any): void {
+    console.log(value)
+    this.registrationForm.patchValue(value);
+    this.registrationForm.updateValueAndValidity()
   }
 }

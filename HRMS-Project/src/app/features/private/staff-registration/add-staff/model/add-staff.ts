@@ -1,22 +1,25 @@
+import { CityData } from "@shared/models/city.interface";
 import { CountryData } from "../../../../../shared/models/country.interface";
+import { RoleData } from "@shared/models/role.interface";
+import { DepartmentData } from "@shared/models/department.interface";
 
 export interface StaffDetailsFormValue {
   mobileNo: string;
   address: string;
   citizenshipNo: string;
-  city: number;
+  city: CityData;
   confirmPassword: string;
   country: CountryData;
-  departmentId: number;
+  departmentId: DepartmentData;
   dob: string;
   email: string;
   firstName: string;
-  gender: number;
+  gender: number | string;
   lastName: string;
   middleName: string;
   nationality: string;
   password: string;
-  role: number;
+  role: RoleData;
   startDate: string;
 }
 
@@ -34,8 +37,8 @@ export interface RegisterStaffPayload {
   gender: number;
   nationality: string;
   startDate: string;
-  password: string;
-  confirmPassword: string;
+  password?: string;
+  confirmPassword?: string;
 }
 
 export interface Address {
@@ -59,3 +62,5 @@ export interface GetEmployeeDetails {
   nationality: string;
   startDate: string;
 }
+
+

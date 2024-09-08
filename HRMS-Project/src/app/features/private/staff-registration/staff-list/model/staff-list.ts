@@ -10,11 +10,14 @@ export interface StaffList {
   nationality?: string;
   citizenshipNo?: string;
   startDate?: string;
-  // department?: string;
   departmentId?: number;
   role?: string;
   email?: string;
   password?: string;
   confirmPassword?: string;
   actions?: unknown;
+}
+
+export interface StaffListForTable extends StaffList {
+  SN: string
 }

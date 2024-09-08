@@ -13,7 +13,7 @@ export class UpdateStaffService {
   private updateEmployeeUrl = `${baseUrl}${apiConstants.updateEmployee}`
 
   updateEmployeeData(employeeId: number, updatedData: RegisterStaffPayload): Observable<ResponseType<boolean>> {
-    return this.http.put<ResponseType<boolean>>(`${this.updateEmployeeUrl}/${employeeId}`, updatedData);
+    return this.http.put<ResponseType<boolean>>(`${this.updateEmployeeUrl}`, updatedData);
   }
   constructor(private http: HttpClient) { }
 

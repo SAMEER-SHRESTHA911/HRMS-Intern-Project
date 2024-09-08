@@ -13,8 +13,13 @@ import { ProfileDetailsEffect } from './store/profile-details.effect';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { UploadPictureDialogComponent } from './components/upload-picture-dialog/upload-picture-dialog.component';
 @NgModule({
-  declarations: [ProfileDetailsComponent, ProfileEditComponent],
+  declarations: [
+    ProfileDetailsComponent,
+    ProfileEditComponent,
+    UploadPictureDialogComponent,
+  ],
   imports: [
     MatIconModule,
     MatMenu,

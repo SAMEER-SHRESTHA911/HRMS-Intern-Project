@@ -12,20 +12,20 @@ import { apiConstants } from '@shared/constants/api.constants';
   providedIn: 'root',
 })
 export class AuthService {
-  // private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
+  private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
+  // private apiUrl = 'http://192.168.1.21:5000/apigateway/user/';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   setToken(token: string): void {
     // console.log('I am lost', token);
-    if(token !== null)
-    {
+    if (token !== null) {
       localStorage.setItem('token', token);
     }
   }
 
   setEmployeeId(employeeId: string) {
-    if(Number(employeeId) !== 0){
+    if (Number(employeeId) !== 0) {
       localStorage.setItem('employeeId', employeeId);
     }
   }
@@ -39,9 +39,8 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const token = this.getToken();
-    if(token !== null )
-    return true;
-    else return false;
+    console.log(token);
+    return token ? true : false;
   }
 
   login(credentials: { email: string; password: string }): Observable<any> {
@@ -51,10 +50,9 @@ export class AuthService {
       .post(`${baseUrl}${apiConstants.login.login}`, credentials, { headers })
       .pipe(
         map((response: any) => {
-          console.log(response);
           const token = response.data.token;
           const employeeId = response.data.employeeId;
-          if(response.data.role !== null){
+          if (response.data.role !== null) {
             userRole.role = response.data.role;
             console.log(userRole.role);
           }
@@ -69,16 +67,21 @@ export class AuthService {
   }
 
   requestOTP(email: string): Observable<any> {
-    return this.http.post(`${baseUrl}${apiConstants.login.requestOTP}`, { email }).pipe(
-      catchError((error) => {
-        return throwError(() => new Error('Failed to request OTP'));
-      })
-    );
+    return this.http
+      .post(`${baseUrl}${apiConstants.login.requestOTP}`, { email })
+      .pipe(
+        catchError((error) => {
+          return throwError(() => new Error('Failed to request OTP'));
+        })
+      );
   }
 
   resetPassword(token: string, newPassword: string): Observable<any> {
     return this.http
-      .post(`${baseUrl}${apiConstants.login.resetPassword}`, { token, newPassword })
+      .post(`${baseUrl}${apiConstants.login.resetPassword}`, {
+        token,
+        newPassword,
+      })
       .pipe(
         catchError((error) => {
           return throwError(() => new Error('Failed to reset password'));
@@ -91,7 +94,10 @@ export class AuthService {
     newPassword: string
   ): Observable<any> {
     return this.http
-      .post(`${baseUrl}${apiConstants.login.changePassword}`, { currentPassword, newPassword })
+      .post(`${baseUrl}${apiConstants.login.changePassword}`, {
+        currentPassword,
+        newPassword,
+      })
       .pipe(
         catchError((error) => {
           return throwError(() => new Error('Failed to change password'));
