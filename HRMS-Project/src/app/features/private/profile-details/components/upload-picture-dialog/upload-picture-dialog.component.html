@@ -1,5 +1,5 @@
 <p class="bg-blue-400 text-white p-5 text-xl font-bold !m-0">
-  Upload Profile Picture
+  {{ !!imageName ? "Update " : "Upload" }}Profile Picture
 </p>
 <div class="p-6 rounded-md shadow-lg border border-t-4 border-blue-400">
   <form [formGroup]="uploadPictureForm" (ngSubmit)="onSubmit()">

@@ -17,6 +17,6 @@ export interface ProfileDetails {
 
 export interface ProfilePicture {
   employeeId: number;
-  imageName: string;
-  imageDataBase64: string;
+  imageName: string | null;
+  imageDataBase64: string | null;
 }

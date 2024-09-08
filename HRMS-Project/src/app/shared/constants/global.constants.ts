@@ -1,8 +1,8 @@
 // export const baseUrl = 'http://localhost:3000';
-// export const baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway';
+export const baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway';
 // export const baseUrl = 'http://192.168.1.21:5000/apigateway';
 
-// export const baseUrl = `http://localhost:5262/apigateway`;
+// // export const baseUrl = `http://localhost:5262/apigateway`;
 export const baseUrl = `http://localhost:1595/apigateway`;
 
 interface ILoggedInUser {
@@ -16,12 +16,12 @@ export const loggedInUser: ILoggedInUser = {
 };
 
 export const userRole = {
-  role: "",
-}; 
+  role: '',
+};
 
-export function updateRole(role:string):void{
+export function updateRole(role: string): void {
   userRole.role = role;
 }
-export function getRole():string{
+export function getRole(): string {
   return userRole.role;
 }

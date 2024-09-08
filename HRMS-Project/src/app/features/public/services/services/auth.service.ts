@@ -12,8 +12,7 @@ import { apiConstants } from '@shared/constants/api.constants';
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
-  // private apiUrl = 'http://192.168.1.21:5000/apigateway/user/';
+  // private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
 
   constructor(private http: HttpClient, private router: Router) { }
 
