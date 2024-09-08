@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaveFormService {
-  private editLeaveApplyStatus =
-    'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById?id=';
+  // private editLeaveApplyStatus =
+  //   'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById?id=';
 
   isEditMode: boolean = false;
 
@@ -49,7 +51,7 @@ export class LeaveFormService {
 
   fetchEditLeaveData(id: string | number): Observable<LeaveApplyResponse> {
     return this.http.get<LeaveApplyResponse>(
-      `${this.editLeaveApplyStatus}${id}`
+      `${baseUrl}/${apiConstants.leave.getLeaveRequestDetailById}?id=${id}`
     );
   }
 

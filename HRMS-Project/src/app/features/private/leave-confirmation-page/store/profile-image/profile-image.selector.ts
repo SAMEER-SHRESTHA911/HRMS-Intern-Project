@@ -1,4 +1,3 @@
-// image.selectors.ts
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { ImageState } from './profile-image.reducer';
 

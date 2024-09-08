@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
       this.auth.login(this.loginForm.value as {email:string,password:string}).subscribe(
         (response) =>
         { 
-          if(response.result === 2){
+          if(response.data.token !== null){
             this.router.navigate(['admin/dashboard']);
             this.openSnackBar('LogIn Successfully')
           }
