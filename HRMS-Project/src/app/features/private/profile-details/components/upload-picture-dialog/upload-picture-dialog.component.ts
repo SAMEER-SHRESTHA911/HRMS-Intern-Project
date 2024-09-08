@@ -11,14 +11,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UploadPictureDialogComponent {
   selectedFile: File | null = null;
-  profileImage64: string | null = null;
+  imageName: string | null = null;
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { profileImage64: string | null },
+    @Inject(MAT_DIALOG_DATA) public data: { imageName: string | null },
     public dialogRef: MatDialogRef<UploadPictureDialogComponent>,
     private uploadPictureService: UploadPictureService,
     private snackBar: MatSnackBar
   ) {
-    this.profileImage64 = data.profileImage64;
+    this.imageName = data.imageName;
   }
 
   get uploadPictureForm(): FormGroup {
@@ -71,7 +71,7 @@ export class UploadPictureDialogComponent {
     const edit = this.uploadPictureService.editEmployeePicture(
       this.selectedFile
     );
-    (this.profileImage64 ? edit : upload).subscribe({
+    (!!this.imageName ? edit : upload).subscribe({
       next: (res) => {
         this.dialogRef.close(true);
         this.snackBar.open(res.message, 'Close', {
