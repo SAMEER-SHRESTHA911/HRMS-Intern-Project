@@ -42,7 +42,7 @@ export class TodaysAttendanceComponent implements OnInit {
     this.todayDetails.fetchTotalLeaveToday().subscribe(
       (res: number) => {
         this.totalEmployeeOnLeaveTodayCount = res;
-        console.log(this.totalEmployeeOnLeaveTodayCount);
+        // console.log(this.totalEmployeeOnLeaveTodayCount);
       },
       (error) => {
         console.error('Error on fetching total leave today: ', error);

@@ -28,6 +28,8 @@ export const apiConstants = Object.freeze({
 
   employeeDetails: Object.freeze({
     getEmployeeDetailById: '/user/Employee/GetRegisterEmployeeDetailById',
+    addDocumentOfEmployee: '/user/Document/AddDocumentOfEmp',
+    getProfilePictureofEmployee: '/user/Document/GetProfilePictureOfEmp',
   }),
 
   login: Object.freeze({

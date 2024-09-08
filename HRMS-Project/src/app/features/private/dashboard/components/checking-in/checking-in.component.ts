@@ -42,7 +42,7 @@ export class CheckingInComponent {
     // this.profileDetails$.subscribe((data) => console.log(data));
     this.checkedInStatus$.subscribe((data) => {
       this.isCheckedIn = data;
-      console.log('are you checkedIn: ', data);
+      // console.log('are you checkedIn: ', data);
     });
   }
 

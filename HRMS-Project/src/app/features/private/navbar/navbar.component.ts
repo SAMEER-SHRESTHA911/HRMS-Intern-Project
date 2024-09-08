@@ -7,7 +7,7 @@ import { loggedInUser } from '@shared/constants/global.constants';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  loggedInUser = loggedInUser.id;
+  loggedInUser = localStorage.getItem('employeeId');
 
   logOut() {
     localStorage.clear();
