@@ -16,13 +16,19 @@ export class SidebarComponent {
   readonly panelOpenState = signal(false);
   
   route_constant = ROUTE_CONSTANT;
-  role = getRole();
-  id = localStorage.getItem('employeeId')
-
+  role?: string|null;
+  id?:string|null;
+  
   constructor(private router:Router){}
-
+  
   isActiveUrl(url:string):boolean{
     return  this.router.url === url;
-
+  }
+  
+  ngOnInit(): void {
+    this.role = getRole();
+    this.id = localStorage.getItem('employeeId');
+    console.log(this.role);
+    console.log(this.id);
   }
 }
