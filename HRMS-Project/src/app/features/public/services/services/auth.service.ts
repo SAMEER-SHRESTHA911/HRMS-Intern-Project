@@ -56,6 +56,7 @@ export class AuthService {
           const employeeId = response.data.employeeId;
           if(response.data.role !== null){
             userRole.role = response.data.role;
+            console.log(userRole.role);
           }
           this.setToken(token);
           this.setEmployeeId(employeeId);
