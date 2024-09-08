@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { baseUrl } from '@shared/constants/global.constants';
+import { baseUrl, userRole } from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
@@ -54,7 +54,9 @@ export class AuthService {
           console.log(response);
           const token = response.data.token;
           const employeeId = response.data.employeeId;
-
+          if(response.data.role !== null){
+            userRole.role = response.data.role;
+          }
           this.setToken(token);
           this.setEmployeeId(employeeId);
           return response;

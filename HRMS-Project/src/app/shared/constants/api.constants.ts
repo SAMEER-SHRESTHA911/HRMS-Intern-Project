@@ -42,6 +42,6 @@ export const apiConstants = Object.freeze({
     getEmployeeLeaveRequestList : '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
     approveRejectLeaveRequest : '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
     getLeaveBalanceofEmp : '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
-    getLeaveRequestByEmpId : 'attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+    getLeaveRequestByEmpId : '/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
   }),  
 });
