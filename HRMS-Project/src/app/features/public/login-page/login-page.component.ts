@@ -13,7 +13,6 @@ export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
   hide: boolean=true;
 
-
   constructor(private auth: AuthService, private router: Router, private fb: FormBuilder, private snackBar :MatSnackBar) {}
 
   ngOnInit(): void {

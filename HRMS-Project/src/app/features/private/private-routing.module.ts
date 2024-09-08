@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ROUTE_CONSTANT } from '@shared/constants/routes.constant';
+import { adminRoleGuard } from 'src/app/core/guards/admin-role.guard';
 
 const routes: Routes = [
   {
@@ -47,6 +48,7 @@ const routes: Routes = [
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
       ),
+      canActivate: [adminRoleGuard],
   },
   {
     path: ROUTE_CONSTANT.attendance,

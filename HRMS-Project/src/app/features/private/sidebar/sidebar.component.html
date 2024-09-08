@@ -14,10 +14,11 @@
           </a>
         </li>
 
-        <li
+        @if (role === "Admin") {
+          <li
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
-        >
+          >
           <a [routerLink]="route_constant.staffManagement">
             <span class="sidebar-row">
               <mat-icon>folder_shared</mat-icon>
@@ -25,7 +26,8 @@
             </span>
           </a>
         </li>
-
+      }
+        
         <li [routerLinkActive]="['active']">
           <a [routerLink]="route_constant.leaveManagement">
             <span class="sidebar-row">
