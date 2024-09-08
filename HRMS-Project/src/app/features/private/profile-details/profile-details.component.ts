@@ -54,6 +54,7 @@ export class ProfileDetailsComponent implements OnInit {
         next: (res) =>
           (this.profileImage64 = `data:image/jpeg;base64,${res.data.imageDataBase64}`),
       });
+    console.log(this.profileImage64);
   }
 
   onEditProfileDetails(id: string | number): void {
@@ -63,6 +64,7 @@ export class ProfileDetailsComponent implements OnInit {
   onChangePicture(): void {
     const dialogRef = this.dialog.open(UploadPictureDialogComponent, {
       width: '600px',
+      data: { profileImage64: this.profileImage64 },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

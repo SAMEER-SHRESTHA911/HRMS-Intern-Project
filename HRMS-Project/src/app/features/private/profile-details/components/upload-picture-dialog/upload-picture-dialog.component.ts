@@ -1,5 +1,5 @@
-import { MatDialogRef } from '@angular/material/dialog';
-import { Component } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
 import { UploadPictureService } from '../../services/upload-picture/upload-picture.service';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,11 +11,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UploadPictureDialogComponent {
   selectedFile: File | null = null;
+  profileImage64: string | null = null;
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: { profileImage64: string | null },
     public dialogRef: MatDialogRef<UploadPictureDialogComponent>,
     private uploadPictureService: UploadPictureService,
     private snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.profileImage64 = data.profileImage64;
+  }
 
   get uploadPictureForm(): FormGroup {
     return this.uploadPictureService.uploadPictureForm;
@@ -61,7 +65,13 @@ export class UploadPictureDialogComponent {
       });
       return;
     }
-    this.uploadPictureService.uploadFile(this.selectedFile).subscribe({
+    const upload = this.uploadPictureService.uploadEmployeePicture(
+      this.selectedFile
+    );
+    const edit = this.uploadPictureService.editEmployeePicture(
+      this.selectedFile
+    );
+    (this.profileImage64 ? edit : upload).subscribe({
       next: (res) => {
         this.dialogRef.close(true);
         this.snackBar.open(res.message, 'Close', {
@@ -80,7 +90,7 @@ export class UploadPictureDialogComponent {
         console.error('Upload failed', error);
       },
       complete: () => {
-        window.location.reload();
+        // window.location.reload();
       },
     });
   }

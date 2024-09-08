@@ -8,8 +8,8 @@ export const apiConstants = Object.freeze({
   updateEmployee: '/user/Employee/UpdateRegisterEmployee',
   getRolesList: '/user/Employee/GetAllRoles',
   deleteEmployeeDetails: '/user/Employee/DeleteRegisterEmployee',
-  getProfilePictureOfEmp : 'user/Document/GetProfilePictureOfEmp?empId=',
-  policy : '/attendanceLeave/Policy/CreatePolicy',
+  getProfilePictureOfEmp: 'user/Document/GetProfilePictureOfEmp?empId=',
+  policy: '/attendanceLeave/Policy/CreatePolicy',
 
   attendance: Object.freeze({
     getCheckInStatus: '/attendanceLeave/Attendance/CheckCheckInStatus',
@@ -30,20 +30,25 @@ export const apiConstants = Object.freeze({
     getEmployeeDetailById: '/user/Employee/GetRegisterEmployeeDetailById',
     addDocumentOfEmployee: '/user/Document/AddDocumentOfEmp',
     getProfilePictureofEmployee: '/user/Document/GetProfilePictureOfEmp',
+    patchProfilePictureofEmployee: '/user/Document/UpdateDocumentOfEmp',
   }),
 
   login: Object.freeze({
-    login:  '/user/Login/Login',
+    login: '/user/Login/Login',
     requestOTP: '/user/Login/RequestOTP',
     resetPassword: '/user/Login/ResetPassword ',
-    changePassword : '/user/Login/ChangePassword',
+    changePassword: '/user/Login/ChangePassword',
   }),
   leave: Object.freeze({
-    addLeaveRequest : '/attendanceLeave/LeaveRequest/AddLeaveRequest',
-    getLeaveRequestDetailById : '/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById',
-    getEmployeeLeaveRequestList : '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
-    approveRejectLeaveRequest : '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
-    getLeaveBalanceofEmp : '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
-    getLeaveRequestByEmpId : 'attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
-  }),  
+    addLeaveRequest: '/attendanceLeave/LeaveRequest/AddLeaveRequest',
+    getLeaveRequestDetailById:
+      '/attendanceLeave/LeaveRequest/GetLeaveRequestDetailById',
+    getEmployeeLeaveRequestList:
+      '/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList',
+    approveRejectLeaveRequest:
+      '/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest',
+    getLeaveBalanceofEmp: '/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp',
+    getLeaveRequestByEmpId:
+      'attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId',
+  }),
 });
