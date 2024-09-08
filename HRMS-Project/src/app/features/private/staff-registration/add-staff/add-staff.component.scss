@@ -45,37 +45,38 @@ form {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  gap: 10px;
+  column-gap: 8px;
+  row-gap: 1px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.575);
+
   .my-input {
     width: 100%;
   }
+
   .buttons {
     grid-column: span 3;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
   }
+
   .mat-form-field,
   .mat-select,
   .mat-radio-group {
     width: 100%;
     font-size: 14px;
   }
-  .mat-select .mat-form-field {
-    margin-bottom: 10px;
-  }
 
+  .mat-select .mat-form-field,
   .mat-radio-group {
-    display: flex;
-    flex-direction: row;
     margin-bottom: 10px;
   }
 
   .mat-radio-button {
     margin-right: 8px;
   }
+
   .mat-mdc-form-field-infix {
     height: 36px;
     display: flex;
@@ -143,19 +144,20 @@ form {
 @media (max-width: 1500px) {
   .form-header {
     padding: 6px 10px;
+
     .form-title h4 {
       font-size: 20px;
     }
+
     .example-button-row button.mat-flat-button {
       font-size: 14px;
       padding: 6px 10px;
     }
   }
-  form {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
 
-    gap: 8px;
+  form {
+    column-gap: 8px;
+    row-gap: 1px;
     padding: 12px;
 
     .mat-form-field,
@@ -182,21 +184,22 @@ form {
     padding: 6px 10px;
     margin-left: 150px;
     width: calc(100% - 150px);
+
     .form-title h4 {
       font-size: 18px;
     }
+
     .example-button-row button.mat-flat-button {
       font-size: 12px;
       padding: 4px 8px;
     }
   }
+
   form {
-    display: grid;
     grid-template-columns: 1fr;
-    padding: 12px;
     gap: 6px;
-    width: 100%;
     padding: 12px;
+
     .mat-form-field,
     .mat-select,
     .mat-radio-group {
@@ -221,20 +224,23 @@ form {
     padding: 4px 8px;
     margin-left: 100px;
     width: calc(100% - 100px);
+
     .form-title h4 {
       font-size: 16px;
     }
+
     .example-button-row button.mat-flat-button {
       font-size: 11px;
       padding: 3px 6px;
     }
   }
+
   .form-container {
     padding: 8px;
     width: calc(100% - 100px);
   }
+
   form {
-    // grid-template-columns: 1fr;
     gap: 6px;
     padding: 8px;
 

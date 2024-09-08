@@ -1,28 +1,28 @@
 import { createReducer, on } from '@ngrx/store';
 import { initialAttendanceState } from './attendance-details.state';
 import {
-  loadAttendanceRecords,
-  loadAttendanceRecordsSuccess,
-  loadAttendanceRecordsFailure,
+  loadAttendanceList,
+  loadAttendanceListSuccess,
+  loadAttendanceListFailure,
 } from './attendance-details.actions';
 
 export const attendanceReducer = createReducer(
   initialAttendanceState,
 
-  on(loadAttendanceRecords, (state) => ({
+  on(loadAttendanceList, (state) => ({
     ...state,
     loading: true,
     error: null,
   })),
 
-  on(loadAttendanceRecordsSuccess, (state, { records }) => ({
+  on(loadAttendanceListSuccess, (state, { response }) => ({
     ...state,
-    records,
+    record: response,
     loading: false,
     error: null,
   })),
 
-  on(loadAttendanceRecordsFailure, (state, { error }) => ({
+  on(loadAttendanceListFailure, (state, { error }) => ({
     ...state,
     loading: false,
     error,

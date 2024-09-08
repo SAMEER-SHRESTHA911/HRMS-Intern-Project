@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { apiConstants } from '@shared/constants/api.constants';
 import { baseUrl } from '@shared/constants/global.constants';
 import { ResponseType } from '@shared/models/response.model';
-// import { RegisterStaffPayload } from '../../add-staff/model/add-staff';
 import { StaffList } from '../model/staff-list';
 @Injectable({
   providedIn: 'root',
@@ -20,7 +19,5 @@ export class StaffListService {
   getStaffDetailsById(id: string | number): Observable<ResponseType<StaffList>> {
     return this.http.get<ResponseType<StaffList>>(`${this.apiUrlForGetDetails}?id=${id}`);
   }
-  // updateStaff(id: number | string, staff: RegisterStaffPayload): Observable<boolean> {
-  //   return this.http.put<boolean>(`${this.apiUrl}/${id}`, staff);
-  // }
+
 }

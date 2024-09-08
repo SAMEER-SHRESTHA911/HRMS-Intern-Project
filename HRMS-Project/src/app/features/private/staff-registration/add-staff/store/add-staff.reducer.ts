@@ -8,18 +8,21 @@ import {
 import { StaffState, initialState } from './add-staff.state';
 
 
-export const staffReducer = createReducer(
+export const addAndFetchStaffReducer = createReducer(
   initialState,
   on(addStaff, (state): StaffState => ({
     ...state,
     loading: true,
     error: null,
   })),
-  on(addStaffSuccess, (state): StaffState => ({
-    ...state,
-    loading: false,
-    error: null,
-  })),
+  on(addStaffSuccess, (state): StaffState => {
+    return ({
+      ...state,
+      staff: state.staff,
+      loading: false,
+      error: null,
+    })
+  }),
   on(addStaffFailure, (state, { error }): StaffState => ({
     ...state,
     loading: false,
@@ -31,10 +34,14 @@ export const staffReducer = createReducer(
     loading: true,
     error: null,
   })),
-  on(EmployeeActions.fetchEmployeeDataSuccess, (state) => ({
-    ...state,
-    loading: false,
-  })),
+  on(EmployeeActions.fetchEmployeeDataSuccess, (state, { staffDetails }) => {
+    return ({
+      ...state,
+      staff: state.staff,
+      loading: false,
+      staffDetails
+    })
+  }),
   on(EmployeeActions.fetchEmployeeDataFailure, (state, { error }) => ({
     ...state,
     error,
