@@ -51,7 +51,7 @@ export class LeaveFormService {
 
   fetchEditLeaveData(id: string | number): Observable<LeaveApplyResponse> {
     return this.http.get<LeaveApplyResponse>(
-      `${baseUrl}/${apiConstants.leave.getLeaveRequestDetailById}?id=${id}`
+      `${baseUrl}${apiConstants.leave.getLeaveRequestDetailById}?id=${id}`
     );
   }
 
