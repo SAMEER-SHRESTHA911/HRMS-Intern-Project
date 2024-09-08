@@ -3,6 +3,9 @@
     <h4>Registration Form</h4>
   </div>
 </div>
+<div class="z-50" *ngIf="loading$ | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
 <div class="form-container">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-5">
     <div>

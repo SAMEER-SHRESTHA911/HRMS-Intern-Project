@@ -11,10 +11,12 @@ export class RolesEffects {
             ofType(RolesAction.loadRoles),
             mergeMap(() =>
                 this.roleService.getRoleList().pipe(
-                    map((roles) =>
-                        RolesAction.loadRolesSucess({
+                    map((roles) => {
+                        console.log(roles)
+                        return RolesAction.loadRolesSucess({
                             roles: roles.data,
-                        })),
+                        })
+                    }),
                     catchError((error) =>
                         of(RolesAction.loadRolesFailure({ error: error.message })))
                 ))

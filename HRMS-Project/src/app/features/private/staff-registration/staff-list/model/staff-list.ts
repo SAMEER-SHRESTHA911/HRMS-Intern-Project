@@ -17,3 +17,7 @@ export interface StaffList {
   confirmPassword?: string;
   actions?: unknown;
 }
+
+export interface StaffListForTable extends StaffList {
+  SN: string
+}

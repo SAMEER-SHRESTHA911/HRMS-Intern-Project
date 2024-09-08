@@ -26,19 +26,18 @@ export const selectStaffError = createSelector(
 
 export const selectToPatchStaffData = createSelector(
   selectStaffDetails,
+  selectAddress,
   selectCountryState,
   selectAllCities,
   selectAllDepartments,
-  selectAddress,
   selectAllRoles,
-  (staff, countries, cities, deparments, address, roles) => {
-    console.log(countries, deparments.find(deparment => deparment.id === staff?.departmentId))
-    console.log({
+  (staff, address, countries, cities, deparments, roles) => {
+    return {
       firstName: staff?.firstName,
       middleName: staff?.middleName,
       lastName: staff?.lastName,
       mobileNo: staff?.mobileNo,
-      gender: staff?.gender,
+      gender: staff?.gender.toString(),
       dob: getDate(staff?.dob ?? ''),
       address: address?.name,
       nationality: staff?.nationality,
@@ -46,24 +45,6 @@ export const selectToPatchStaffData = createSelector(
       startDate: getDate(staff?.startDate ?? ''),
       departmentId: deparments.find(deparment => deparment.id === staff?.departmentId),
       role: roles.find(role => role.value === staff?.role),
-      email: staff?.email,
-      city: cities.find(city => city.id === address?.cityId)?.name,
-      country: countries.countries.find(country => country.id === address?.countryId),
-    })
-    debugger
-    return {
-      firstName: staff?.firstName,
-      middleName: staff?.middleName,
-      lastName: staff?.lastName,
-      mobileNo: staff?.mobileNo,
-      gender: staff?.gender,
-      dob: staff?.dob,
-      address: address?.name,
-      nationality: staff?.nationality,
-      citizenshipNo: staff?.citizenshipNo,
-      startDate: staff?.startDate,
-      department: deparments.find(deparment => deparment.id === staff?.departmentId),
-      role: staff?.role,
       email: staff?.email,
       city: cities.find(city => city.id === address?.cityId),
       country: countries.countries.find(country => country.id === address?.countryId),

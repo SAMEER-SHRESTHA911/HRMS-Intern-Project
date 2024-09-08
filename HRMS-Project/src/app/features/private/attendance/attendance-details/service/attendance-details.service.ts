@@ -17,4 +17,7 @@ export class AttendanceDetailsService {
   getAttendanceList(payload: AttendanceRequestPayload | {}): Observable<ResponseType<AttendanceData>> {
     return this.http.post<ResponseType<AttendanceData>>(this.apiUrl, payload);
   }
+  getAttendanceListById(payload: any): Observable<ResponseType<AttendanceData>> {
+    return this.http.post<ResponseType<AttendanceData>>(this.apiUrl, payload);
+  }
 }

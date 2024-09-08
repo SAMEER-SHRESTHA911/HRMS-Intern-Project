@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { DepartmentData } from '@shared/models/department.interface';
 import { loadDepartments } from '@shared/store/add-staff-dropdowns/department/department.actions';
@@ -59,7 +60,8 @@ export class AttendanceDetailsComponent implements OnInit {
   constructor(
     private formService: FormService,
     private store: Store<EmployeeAttendanceRecord>,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -82,7 +84,9 @@ export class AttendanceDetailsComponent implements OnInit {
 
   }
 
-  onViewAttendanceDetails() { }
+  onViewAttendanceDetails(id: string) {
+    this.router.navigate(['admin', 'attendance', id])
+  }
 
   applyFilter(event: Event) {
     if (this.dataSource) {

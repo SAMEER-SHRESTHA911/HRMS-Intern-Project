@@ -46,4 +46,9 @@ export class FormService {
     this.router.navigate(['/admin/staff-registration/staff-list']);
 
   }
+  getFormValueToPatch(value: any): void {
+    console.log(value)
+    this.registrationForm.patchValue(value);
+    this.registrationForm.updateValueAndValidity()
+  }
 }

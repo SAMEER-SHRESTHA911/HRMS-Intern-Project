@@ -34,6 +34,10 @@
   </mat-form-field>
   <div class="table-data-container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+      <ng-container matColumnDef="SN">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>SN</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>

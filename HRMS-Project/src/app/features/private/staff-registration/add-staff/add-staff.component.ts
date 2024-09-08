@@ -155,7 +155,7 @@ export class AddStaffComponent implements OnInit {
   }
 
   onCancelEdit(): void {
-    this.router.navigate(['/admin/staff-registration/staff-list']);
+    this.router.navigate(['admin', 'staff-registration', 'staff-list']);
   }
 
   selectorInitializer(): void {

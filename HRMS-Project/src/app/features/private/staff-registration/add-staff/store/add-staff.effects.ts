@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { concatLatestFrom } from '@ngrx/operators';
 import { select, Store } from '@ngrx/store';
-import { loadCities } from '@shared/store/add-staff-dropdowns/city/city.actions';
+import { loadCities, loadCitiesSuccess } from '@shared/store/add-staff-dropdowns/city/city.actions';
 import { loadCountries } from '@shared/store/add-staff-dropdowns/country/country.actions';
 import { loadDepartments, loadDepartmentsSucess } from '@shared/store/add-staff-dropdowns/department/department.actions';
+import { loadRoles, loadRolesSucess } from '@shared/store/add-staff-dropdowns/role/role.actions';
 import { loadAddressById, loadAddressByIdSuccess } from '@shared/store/address-by-Id/address.actions';
-import { of } from 'rxjs';
-import { catchError, concatMap, delay, map, switchMap } from 'rxjs/operators';
+import { of, catchError } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { AddStaffService } from '../service/api/add-staff.service';
 import { FormService } from '../service/form/form.service';
 import {
@@ -19,9 +22,6 @@ import {
   staffReadyToPatch,
 } from './add-staff.actions';
 import { selectToPatchStaffData } from './add-staff.selector';
-import { concatLatestFrom } from '@ngrx/operators';
-import { convertToStaffFormDetails } from '../transformer/staff-register-payload.transformer';
-import { loadRoles } from '@shared/store/add-staff-dropdowns/role/role.actions';
 
 @Injectable()
 export class StaffEffects {
@@ -29,7 +29,9 @@ export class StaffEffects {
     private actions$: Actions,
     private addStaffService: AddStaffService,
     private formService: FormService,
-    private store: Store
+    private store: Store,
+    private snackBar: MatSnackBar
+
   ) { }
 
   addStaff$ = createEffect(() =>
@@ -60,24 +62,22 @@ export class StaffEffects {
       ofType(fetchEmployeeData),
       switchMap(({ staffId }) =>
         this.addStaffService.getEmployeeData(staffId).pipe(
-          map((data) => {
-            return fetchEmployeeDataSuccess({ staffDetails: data.data })
-          }
-          ),
-          catchError((error) =>
-            of(fetchEmployeeDataFailure({ error: error.message }))
-          )
+          map((data) => fetchEmployeeDataSuccess({ staffDetails: data.data })),
+          catchError((error) => {
+            console.error('Error fetching employee data:', error);
+            return of(fetchEmployeeDataFailure({ error: error.message }));
+          })
         )
       )
     )
   );
+
 
   fetchEmployeeDataSucess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fetchEmployeeDataSuccess),
       map(({ staffDetails }) => {
         console.log(staffDetails)
-        // this.formService.registrationForm.patchValue(convertToStaffFormDetails(staffDetails))
         return (loadAddressById({ addressId: staffDetails.addressId }))
       })
     ),
@@ -90,7 +90,7 @@ export class StaffEffects {
       })
     ),
   )
-  loadDepartments$ = createEffect(() =>
+  loadCities$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadAddressByIdSuccess),
       map(({ address }) => {
@@ -98,26 +98,27 @@ export class StaffEffects {
       })
     ),
   )
-  loadCities$ = createEffect(() =>
+  loadDepartments$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadAddressByIdSuccess),
-      map(({ address }) => {
+      ofType(loadCitiesSuccess),
+      map(({ }) => {
         return loadDepartments()
       })
     ),
   )
   loadRoles$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadAddressByIdSuccess),
-      map(({ address }) => {
+      ofType(loadDepartmentsSucess),
+      map(({ }) => {
         return loadRoles()
       })
     ),
   )
   staffReadyToPatch$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadAddressByIdSuccess),
-      map(({ address }) => {
+      ofType(loadRolesSucess),
+      map(({ roles }) => {
+        console.log(roles)
         return staffReadyToPatch()
       })
     ),
@@ -126,14 +127,30 @@ export class StaffEffects {
   patch$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(loadDepartmentsSucess),
+        ofType(staffReadyToPatch),
         concatLatestFrom(() => this.store.pipe(select(selectToPatchStaffData))),
-        delay(10000),
         map(([_, value]) => {
-          debugger
-          this.formService.registrationForm.patchValue(value);
-          this.formService.registrationForm.updateValueAndValidity()
-          console.log(this.formService.registrationForm)
+          this.formService.getFormValueToPatch(value)
+        })
+      ),
+    { dispatch: false }
+  );
+
+  fetchEmployeeDataFailure$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(fetchEmployeeDataFailure),
+        map((error) => {
+          console.log(error)
+          this.snackBar.open(
+            'You are not Checked In, Please check-in!',
+            'Close',
+            {
+              duration: 8000,
+              horizontalPosition: 'right',
+              verticalPosition: 'bottom',
+            }
+          );
         })
       ),
     { dispatch: false }

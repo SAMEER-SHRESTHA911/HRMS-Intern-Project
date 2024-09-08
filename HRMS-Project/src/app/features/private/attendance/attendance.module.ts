@@ -10,9 +10,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { DepartmentEffects } from '@shared/store/add-staff-dropdowns/department/department.effects';
 import { departmentReducer } from '@shared/store/add-staff-dropdowns/department/department.reducer';
+import { AttendanceByIdComponent } from './attendance-by-id/attendance-by-id.component';
 
 @NgModule({
-  declarations: [AttendanceDetailsComponent, AttendanceCalanderComponent],
+  declarations: [AttendanceDetailsComponent, AttendanceCalanderComponent, AttendanceByIdComponent],
   imports: [
     CommonModule,
     MaterialsModule,
