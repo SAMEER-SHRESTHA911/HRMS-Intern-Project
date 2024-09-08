@@ -53,7 +53,7 @@ export class CheckingInDialogComponent {
     this.checkInForm.reset();
     this.checkOutForm.reset();
   }
-  onCheckInSubmit() {
+  onCheckInSubmit(): void {
     if (this.checkInForm.invalid) {
       this.checkInForm.markAllAsTouched();
       return;
@@ -102,7 +102,7 @@ export class CheckingInDialogComponent {
     }
   }
 
-  onCheckOutSubmit() {
+  onCheckOutSubmit(): void {
     if (this.checkOutForm.invalid) {
       this.checkOutForm.markAllAsTouched();
       return;

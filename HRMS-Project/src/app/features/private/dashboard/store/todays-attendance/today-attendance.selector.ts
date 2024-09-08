@@ -6,15 +6,15 @@ export const selectAttendanceSummary =
 
 export const selectAttendanceSummaryData = createSelector(
   selectAttendanceSummary,
-  (state) => state.attendanceData
+  (state: TodayAttendanceSummaryState) => state.attendanceData
 );
 
 export const selectAttendanceSummaryLoading = createSelector(
   selectAttendanceSummary,
-  (state) => state.loading
+  (state: TodayAttendanceSummaryState) => state.loading
 );
 
 export const selectAttendanceSummaryError = createSelector(
   selectAttendanceSummary,
-  (state) => state.error
+  (state: TodayAttendanceSummaryState) => state.error
 );
