@@ -18,3 +18,9 @@ export const selectAttendanceByIdError = createSelector(
   selectAttendanceState,
   (state: AttendanceDetailsById) => state.error
 );
+
+// calander view
+export const selectCalendarViewData = createSelector(
+  selectAttendanceState,
+  (state: AttendanceDetailsById) => state.calendarData
+);

@@ -37,7 +37,7 @@ export class LeaveEditEffect {
       this.action$.pipe(
         ofType(GET_EDIT_LEAVE_DATA_SUCCESS),
         map((action) => {
-          console.log('edit leave')
+          // console.log('edit leave')
           this.leaveEditService.patchForm(
             action.editLeaveData.data
           );

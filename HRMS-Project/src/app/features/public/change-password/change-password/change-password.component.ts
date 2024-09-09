@@ -42,7 +42,7 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('hi i am here');
+    // console.log('hi i am here');
     if (this.changePasswordForm.valid && !this.confirmPasswordMismatch) {
       const { currentPassword, newPassword } = this.changePasswordForm.value;
       this.store.dispatch(changePassword({ currentPassword, newPassword }));

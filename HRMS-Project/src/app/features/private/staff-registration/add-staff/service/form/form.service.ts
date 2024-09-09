@@ -47,7 +47,7 @@ export class FormService {
 
   }
   getFormValueToPatch(value: any): void {
-    console.log(value)
+    // console.log(value)
     this.registrationForm.patchValue(value);
     this.registrationForm.updateValueAndValidity()
   }
