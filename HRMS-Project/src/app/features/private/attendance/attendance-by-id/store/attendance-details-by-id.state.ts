@@ -1,7 +1,7 @@
-import { AttendanceData, EmployeeAttendanceRecord } from "../../model/attendance-details.interface";
+import { EmployeeByIdData } from "../../model/attendance-details.interface";
 
 export interface AttendanceDetailsById {
-  record: AttendanceData | undefined;
+  record: EmployeeByIdData | undefined;
   loading: boolean;
   error: string | null;
 }
