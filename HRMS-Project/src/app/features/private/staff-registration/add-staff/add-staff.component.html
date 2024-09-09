@@ -1,21 +1,28 @@
 <div class="form-header">
-  <div class="form-title">
+  <div class="form-title" *ngIf="!isEditMode">
     <h4>Registration Form</h4>
+  </div>
+  <div class="form-title" *ngIf="isEditMode">
+    <h4>Edit Registration Form</h4>
   </div>
 </div>
 <div class="z-50" *ngIf="loading$ | async">
   <mat-progress-bar mode="query"></mat-progress-bar>
 </div>
 <div class="form-container">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-5">
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+    class="my-grid p-5"
+  >
     <div>
       <mat-form-field appearance="outline" class="my-input">
-        <mat-label>Enter First Name</mat-label>
+        <mat-label>First Name</mat-label>
         <input
           matInput
           type="text"
           formControlName="firstName"
-          placeholder="Firstname"
+          placeholder="Enter First Name"
         />
         <mat-error
           *ngIf="
@@ -31,24 +38,24 @@
 
     <div>
       <mat-form-field appearance="outline" class="my-input">
-        <mat-label>Enter Mid Name</mat-label>
+        <mat-label>Middle Name</mat-label>
         <input
           matInput
           type="text"
           formControlName="middleName"
-          placeholder="MiddleName"
+          placeholder="Enter Mid Name"
         />
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field appearance="outline" class="my-input">
-        <mat-label>Enter Last Name</mat-label>
+        <mat-label>Last Name</mat-label>
         <input
           matInput
           type="text"
           formControlName="lastName"
-          placeholder="Lastname"
+          placeholder="Enter Last Name"
         />
         <mat-error
           *ngIf="
@@ -63,7 +70,7 @@
     </div>
     <div>
       <mat-form-field appearance="outline" class="my-input">
-        <mat-label>Enter phone Number</mat-label>
+        <mat-label> Phone Number</mat-label>
         <input
           matInput
           type="number"

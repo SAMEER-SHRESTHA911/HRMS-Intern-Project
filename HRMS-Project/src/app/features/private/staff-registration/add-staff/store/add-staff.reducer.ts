@@ -46,5 +46,14 @@ export const addAndFetchStaffReducer = createReducer(
     ...state,
     error,
     loading: false,
+  })),
+
+  on(EmployeeActions.staffReadyToPatch, (state, { status }) => ({
+    ...state,
+    status,
+    loading: false,
+  })),
+  on(EmployeeActions.restForm, (state) => ({
+    ...initialState
   }))
 );
