@@ -23,10 +23,16 @@ export const convertToStaffPayload = (staff: StaffDetailsFormValue): RegisterSta
 });
 
 
-export function getDate(date: string): string {
+export function getDate(date: string = '  '): string {
+    if (!date || !date.includes('/')) {
+        return '';
+    }
 
     const [month, day, year] = date.split(" ")[0].split("/");
 
-    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+    if (!month || !day || !year) {
+        return '';
+    }
 
+    return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }
