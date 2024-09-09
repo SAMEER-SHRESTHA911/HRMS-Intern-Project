@@ -44,8 +44,7 @@ export class AttendanceByIdComponent implements OnInit {
 
   ngOnInit(): void {
     this.getIdFromRoute();
-    this.store.dispatch(loadAttendanceListById({ payload: {} }));
-    // this.dataSource.paginator = this.paginator;
+    this.store.dispatch(loadAttendanceListById({ payload: { sort: { sortBy: 'Asc' } } }));
 
   }
   selectorInitializer(): void {
