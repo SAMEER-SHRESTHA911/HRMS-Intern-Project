@@ -24,6 +24,6 @@ export class ProfileEditComponent {
   });
 
   onSubmit(): void {
-    console.log('submitted form', this.editProfileForm.value);
+    // console.log('submitted form', this.editProfileForm.value);
   }
 }

@@ -33,14 +33,14 @@ export class LeaveManagementComponent implements OnInit{
   constructor(private router:Router, private store:Store, private route:ActivatedRoute, private service:LeaveAvailableService){}
 
   ngOnInit(): void {
-    this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
+    this.employeeId = Number(this.route.snapshot.paramMap.get('id')) || Number(loggedInUser.id);
     this.initializer();
-    this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA({employeeId: this.employeeId ?? loggedInUser.id}));
+    this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA({employeeId: this.employeeId}));
     this.filterLeaveDataInit();
     this.role = localStorage.getItem('role');
 
     this.leaveTypeDropDown.valueChanges.subscribe(value => {
-      console.log('Dropdown Value Changed:', value);
+      // console.log('Dropdown Value Changed:', value);
     });
   }
 

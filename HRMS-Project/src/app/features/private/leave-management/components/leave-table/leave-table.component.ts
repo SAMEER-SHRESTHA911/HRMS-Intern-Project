@@ -28,7 +28,7 @@ export class LeaveTableComponent implements OnInit {
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   dataSource = new MatTableDataSource<LeaveTableData>();
-  employeeId: number | undefined = undefined ;
+  employeeId?: number;
 
   displayedColumns: string[] = [
     'id',
@@ -49,7 +49,6 @@ export class LeaveTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
     this.selectorInitializer();
   }
   
@@ -57,7 +56,8 @@ export class LeaveTableComponent implements OnInit {
   @ViewChild(MatSort) sort?: MatSort;
   
   selectorInitializer(): void {
-    this.store.dispatch(LEAVE_TABLE_DATA({ employeeId : this.employeeId ?? Number(loggedInUser.id) }));
+    this.employeeId = Number(this.route.snapshot.paramMap.get('id')) || Number(loggedInUser.id);
+    this.store.dispatch(LEAVE_TABLE_DATA({ employeeId : this.employeeId }));
     this.store
       .pipe(select(selectLeaveData))
       .subscribe((data) => {

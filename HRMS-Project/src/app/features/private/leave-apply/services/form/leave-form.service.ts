@@ -66,7 +66,7 @@ export class LeaveFormService {
   }
 
   patchData(form: FormGroup, data: LeaveApplyBody): void {
-    console.log(data);
+    // console.log(data);
     form.patchValue({
       reasonForLeave: data.reasonForLeave,
       leaveType: data.leaveType,

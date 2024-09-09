@@ -73,7 +73,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   getDropDown() :void{
-    console.log(this.leaveApplyForm?.value);
+    // console.log(this.leaveApplyForm?.value);
     this.store.dispatch(FETCH_DAY_LEAVE_DROPDOWN());
 
     this.store
@@ -107,8 +107,8 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     )?.key;
     const formattedLeaveFrom = formatDateToString(formValue.leaveFrom);
     
-    console.log(formValue.leaveFrom)
-    console.log(formattedLeaveFrom)
+    // console.log(formValue.leaveFrom)
+    // console.log(formattedLeaveFrom)
     const formattedLeaveTo = formatDateToString(formValue.leaveTo);
 
     const formValueSubmit = {
@@ -131,7 +131,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   private loadEditData(leaveId?: string): void {
-    console.log(leaveId);
+    // console.log(leaveId);
     if (!leaveId) {
       return;
     }
@@ -147,9 +147,9 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .subscribe((editLeaveData) => {
         if (this.leaveApplyForm && editLeaveData) {
           this.leaveEditService.patchData(this.leaveApplyForm, editLeaveData);
-          console.log(editLeaveData);
-          console.log(editLeaveData.reasonForLeave);
-          console.log(this.leaveApplyForm);
+          // console.log(editLeaveData);
+          // console.log(editLeaveData.reasonForLeave);
+          // console.log(this.leaveApplyForm);
         }
       });
 
