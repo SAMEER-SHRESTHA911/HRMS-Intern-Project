@@ -20,11 +20,11 @@ export class AttendanceByIdEffects {
         this.attendanceService.getAttendanceListById(payload).pipe(
           map((response) => {
             // console.log('effects', response);
-            // const calendarData = calendarViewUtils(response.data.data);
+            const calendarData = calendarViewUtils(response.data.data);
             // console.log(calendarData, 'effects');
             return loadAttendanceListByIdSuccess({
               response: response.data,
-              calendarData: []
+              calendarData,
             });
           }),
           catchError((error) =>
@@ -38,5 +38,5 @@ export class AttendanceByIdEffects {
   constructor(
     private actions$: Actions,
     private attendanceService: AttendanceDetailsService
-  ) { }
+  ) {}
 }
