@@ -49,4 +49,7 @@ export class LeaveApproveCardComponent implements OnInit {
   resetDialog(): void {
     this.dialogRef.close(false);
   }
+  navigate():void{
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveManagement}/${this.data.employeeId}`]);
+  }
 }

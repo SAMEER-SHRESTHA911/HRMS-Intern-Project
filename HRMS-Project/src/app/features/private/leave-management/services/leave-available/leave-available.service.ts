@@ -17,12 +17,14 @@ export class LeaveAvailableService {
 
   constructor(private http: HttpClient) {}
 
-  getLeaveAvailableData(): Observable<{
+  parameter? : string;
+
+  getLeaveAvailableData(employeeId: number): Observable<{
     message: string;
     leaveBalanceData: LeaveBalanceData[];
   }> {
     return this.http
-      .get<LeaveBalanceResponse>(`${baseUrl}${apiConstants.leave.getLeaveBalanceofEmp}?empId=${loggedInUser.id}`)
+      .get<LeaveBalanceResponse>(`${baseUrl}${apiConstants.leave.getLeaveBalanceofEmp}?empId=${employeeId}`)
       .pipe(
         map((response) => ({
           message: response.message,

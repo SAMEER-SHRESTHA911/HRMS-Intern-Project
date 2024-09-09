@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { LeaveBalanceData } from './types/leave-table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { FETCH_AVAILABLE_LEAVE_DATA } from './store/leave-available/leave-available.actions';
 import { map, Observable, of, startWith, switchMap } from 'rxjs';
 import { selectAvailableLeave, selectAvailableLeaveError, selectAvailableLeaveLoading } from './store/leave-available/leave-available.selector';
 import { LeaveFormService } from '../leave-apply/services/form/leave-form.service';
 import { FormControl } from '@angular/forms';
+import { LeaveAvailableService } from './services/leave-available/leave-available.service';
+import { ROUTE_CONSTANT } from '@shared/constants/routes.constant';
+import { loggedInUser } from '@shared/constants/global.constants';
 
 @Component({
   selector: 'app-leave-management',
@@ -18,6 +21,8 @@ export class LeaveManagementComponent implements OnInit{
   availableLeaveData$ : Observable<LeaveBalanceData[]> = of([]);
   loading$ : Observable<boolean> = of(false);
   error$ : Observable<string|null> =of(null);
+  role?: string|null;
+  employeeId?: number;
   
   leaveType : number = 0;
 
@@ -25,12 +30,14 @@ export class LeaveManagementComponent implements OnInit{
 
   filteredLeaveData$: Observable<LeaveBalanceData | undefined> = of(undefined)
  
-  constructor(private router:Router, private store:Store, private leaveFormService: LeaveFormService){}
+  constructor(private router:Router, private store:Store, private route:ActivatedRoute, private service:LeaveAvailableService){}
 
   ngOnInit(): void {
+    this.employeeId = Number(this.route.snapshot.paramMap.get('id'));
     this.initializer();
-    this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA());
+    this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA({employeeId: this.employeeId ?? loggedInUser.id}));
     this.filterLeaveDataInit();
+    this.role = localStorage.getItem('role');
 
     this.leaveTypeDropDown.valueChanges.subscribe(value => {
       console.log('Dropdown Value Changed:', value);

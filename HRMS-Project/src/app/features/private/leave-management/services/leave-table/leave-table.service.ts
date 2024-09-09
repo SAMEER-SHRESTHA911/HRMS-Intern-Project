@@ -28,7 +28,7 @@ export class LeaveTableService {
   // }
 
   getLeaveTableData(
-    id: string | null
+    id: number
   ): Observable<{ message: string; leaveData: LeaveTableData[] }> {
     return this.http
       .get<LeaveTableResponse>(
