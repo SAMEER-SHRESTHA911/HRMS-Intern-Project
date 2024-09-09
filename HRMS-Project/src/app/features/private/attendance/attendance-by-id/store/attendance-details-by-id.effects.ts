@@ -19,9 +19,9 @@ export class AttendanceByIdEffects {
       mergeMap(({ payload }) =>
         this.attendanceService.getAttendanceListById(payload).pipe(
           map((response) => {
-            console.log('effects', response);
+            // console.log('effects', response);
             const calendarData = calendarViewUtils(response.data.data);
-            console.log(calendarData, 'effects');
+            // console.log(calendarData, 'effects');
             return loadAttendanceListByIdSuccess({
               response: response.data,
               calendarData,
