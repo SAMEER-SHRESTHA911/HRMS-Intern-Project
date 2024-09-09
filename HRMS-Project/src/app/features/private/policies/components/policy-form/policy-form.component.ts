@@ -22,7 +22,7 @@ export class PolicyFormComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.isEditMode = true;
-      this.policyService.getPolicy(id).subscribe((data: any) => {
+      this.policyService.getPolicy(id).subscribe((data) => {
         this.policy = data;
       });
     }
@@ -30,7 +30,7 @@ export class PolicyFormComponent implements OnInit {
 
   savePolicy(): void {
     if (this.isEditMode) {
-      this.policyService.updatePolicy(this.policy.id.toString(), this.policy).subscribe(() => {
+      this.policyService.editPolicy(this.policy.id.toString(), this.policy).subscribe(() => {
         this.router.navigate(['admin/policies/policy-list']);
       });
     } else {

@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrl: './profile-edit.component.scss',
 })
 export class ProfileEditComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   editProfileForm = this.fb.group({
     firstName: ['', Validators.required],
@@ -18,7 +18,7 @@ export class ProfileEditComponent {
     address: ['', Validators.required],
     nationality: ['', Validators.required],
     email: ['', Validators.required, Validators.email],
-    // citizenshipNumber: ['',Validators.required],
+    // citizenshipNo: ['',Validators.required],
     // department: ['',Validators.required],
     // role: ['',Validators.required],
   });

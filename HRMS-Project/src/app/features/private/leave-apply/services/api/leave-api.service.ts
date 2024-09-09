@@ -1,20 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { LeaveApplyBody } from '../../types/leave-apply';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaveApplyApiService {
-  private leaveApplyApiUrl = 'http://localhost:3000/leaveApply';
 
-  constructor(private http: HttpClient) {}
+  // private leaveApplyUrl = `http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/AddLeaveRequest`;
 
-  addLeaveRequest(body: LeaveApplyBody): Observable<LeaveApplyBody> {
-    return this.http.post<LeaveApplyBody>(this.leaveApplyApiUrl, body);
+  constructor(private http: HttpClient){}
+
+  addLeaveRequest(body: LeaveApplyBody): Observable<{message: string, leaveData: LeaveApplyBody}> {
+    return this.http.post<{message: string, leaveData: LeaveApplyBody}>(`${baseUrl}${apiConstants.leave.addLeaveRequest}`, body).pipe(
+      map(response => ({
+        message: response.message,
+        leaveData: response.leaveData
+      }))
+    );
   }
   fetchEditLeaveData(id: string | number): Observable<LeaveApplyBody> {
-    return this.http.get<LeaveApplyBody>(`${this.leaveApplyApiUrl}/${id}`);
+    return this.http.get<LeaveApplyBody>(`${baseUrl}/${id}`);
   }
 }

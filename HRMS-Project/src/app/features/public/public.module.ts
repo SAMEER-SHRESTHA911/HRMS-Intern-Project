@@ -12,9 +12,11 @@ import { MatCardModule } from '@angular/material/card';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
-
+import { OTPComponent } from './otp/otp.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
-  declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent, NotFoundComponent],
+  declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent, NotFoundComponent, OTPComponent],
   imports: [
     CommonModule,
     PublicRoutingModule,
@@ -25,6 +27,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatSnackBarModule
 
   ],
 })

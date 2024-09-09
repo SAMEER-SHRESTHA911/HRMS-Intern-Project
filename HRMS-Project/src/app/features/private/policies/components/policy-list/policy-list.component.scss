@@ -13,15 +13,28 @@
 
     h6 {
       margin: 0;
-      font-size: 1.25rem;
+      // font-size: 1.25rem;
     }
 
     .button-container {
+      display: flex;
+      align-items: center;
+      
       button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 20px;
+        background-color: #005cbb;
+        color: white;
+  
+        &:hover {
+          background-color: #1565c0;
+        }
+  
+        &:active {
+          background-color: #0d47a1;
+        }
+  
+        mat-icon {
+          color: white;
+        }
       }
     }
   }
@@ -101,7 +114,7 @@
 
     h6 {
       font-size: 1rem;
-      margin-bottom: 10px; 
+      margin-bottom: 10px;
     }
 
     .button-container {

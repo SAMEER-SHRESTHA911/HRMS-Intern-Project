@@ -4,12 +4,12 @@
       "firstName": "Siddhartha",
       "middleName": "",
       "lastName": "Sakya",
-      "phoneNumber": 9866887711,
+      "MobileNo": 9866887711,
       "gender": "male",
       "dob": "2024-08-13T18:15:00.000Z",
       "address": "America",
       "nationality": "American",
-      "citizenshipNumber": "9727",
+      "citizenshipNo": "9727",
       "startDate": "2005-11-01T18:15:00.000Z",
       "department": "angular",
       "role": "tester",
@@ -22,12 +22,12 @@
       "firstName": "Hedley",
       "middleName": "Graiden Burks",
       "lastName": "Cervantes",
-      "phoneNumber": 587,
+      "MobileNo": 587,
       "gender": "male",
       "dob": "2024-08-12T18:15:00.000Z",
       "address": "Est recusandae Aut ",
       "nationality": "Duis qui autem dolor",
-      "citizenshipNumber": "76",
+      "citizenshipNo": "76",
       "startDate": "2019-12-21T18:15:00.000Z",
       "department": "dotnet",
       "role": "tester",
@@ -39,12 +39,12 @@
       "firstName": "Aidan",
       "middleName": "Hyatt Kelly",
       "lastName": "Mcknight",
-      "phoneNumber": 302,
+      "MobileNo": 302,
       "gender": "female",
       "dob": "2024-08-12T18:15:00.000Z",
       "address": "Velit sint sequi sit",
       "nationality": "Consectetur sit fu",
-      "citizenshipNumber": "719",
+      "citizenshipNo": "719",
       "startDate": "1986-04-01T18:15:00.000Z",
       "department": "flutter",
       "role": "tester",
@@ -56,12 +56,12 @@
       "firstName": "Amshu",
       "middleName": "Eaton Carver",
       "lastName": "Putali",
-      "phoneNumber": 408,
+      "MobileNo": 408,
       "gender": "male",
       "dob": "2047-11-18T18:15:00.000Z",
       "address": "Nesciunt cumque omn",
       "nationality": "Ad id aperiam fugiat",
-      "citizenshipNumber": "35",
+      "citizenshipNo": "35",
       "startDate": "2017-10-18T18:15:00.000Z",
       "department": "dotnet",
       "role": "manager",
@@ -73,12 +73,12 @@
       "firstName": "Dane",
       "middleName": "Rina Johnson",
       "lastName": "Mosley",
-      "phoneNumber": 508,
+      "MobileNo": 508,
       "gender": "female",
       "dob": "2024-08-12T18:15:00.000Z",
       "address": "Harum quas adipisci ",
       "nationality": "Nisi eu neque culpa",
-      "citizenshipNumber": "953",
+      "citizenshipNo": "953",
       "startDate": "1984-08-26T18:30:00.000Z",
       "department": "dotnet",
       "role": "tester",
@@ -90,12 +90,12 @@
       "firstName": "Willa",
       "middleName": "Colton Sanford",
       "lastName": "Maxwell",
-      "phoneNumber": 259,
+      "MobileNo": 259,
       "gender": "others",
       "dob": "2024-08-13T18:15:00.000Z",
       "address": "Dolore totam sed dol",
       "nationality": "Consequatur dolor au",
-      "citizenshipNumber": "618",
+      "citizenshipNo": "618",
       "startDate": "2020-08-11T18:15:00.000Z",
       "department": "dotnet",
       "role": "tester",
@@ -108,12 +108,12 @@
       "firstName": "Sameer",
       "middleName": "Phoebe Murphy",
       "lastName": "Patterson",
-      "phoneNumber": 315,
+      "MobileNo": 315,
       "gender": "male",
       "dob": "2006-08-08T18:15:00.000Z",
       "address": "Dolores debitis elig",
       "nationality": "Quasi nostrum omnis ",
-      "citizenshipNumber": "335",
+      "citizenshipNo": "335",
       "startDate": "1997-06-29T18:15:00.000Z",
       "department": "dotnet",
       "role": "manager",
@@ -126,12 +126,12 @@
       "firstName": "Emi",
       "middleName": "Indigo Glenn",
       "lastName": "Mcfadden",
-      "phoneNumber": 419,
+      "MobileNo": 419,
       "gender": "female",
       "dob": "2006-08-07T18:15:00.000Z",
       "address": "Ex consequatur sed ",
       "nationality": "Quia enim modi quis ",
-      "citizenshipNumber": "143",
+      "citizenshipNo": "143",
       "startDate": "2016-07-30T18:15:00.000Z",
       "department": "flutter",
       "role": "manager",
@@ -144,18 +144,92 @@
       "firstName": "Nadine",
       "middleName": "Murphy Peck",
       "lastName": "Walls",
-      "phoneNumber": 888,
+      "MobileNo": 888,
       "gender": "male",
       "dob": "2006-08-07T18:15:00.000Z",
       "address": "Natus harum doloribu",
       "nationality": "Excepturi id conseq",
-      "citizenshipNumber": "360",
+      "citizenshipNo": "360",
       "startDate": "1977-09-21T18:30:00.000Z",
       "department": "qa",
       "role": "tester",
       "email": "pybawyke@mailinator.com",
       "password": "Pa$$w0rd!",
       "confirmPassword": "Pa$$w0rd!"
+    }
+  ],
+  "AttandanceList": [
+    {
+      "SN": 1,
+      "Name": "John Doe",
+      "CheckedInTime": "2024-08-28T09:15:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:45:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "fd5c"
+    },
+    {
+      "SN": 2,
+      "Name": "Jane Smith",
+      "CheckedInTime": "2024-08-28T09:05:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:35:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "fd12"
+    },
+    {
+      "SN": 3,
+      "Name": "Michael Johnson",
+      "CheckedInTime": "2024-08-28T09:30:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8,
+      "Actions": "View",
+      "id": "2d6e"
+    },
+    {
+      "SN": 4,
+      "Name": "Emily Davis",
+      "CheckedInTime": "2024-08-28T08:55:00",
+      "CheckedInStatus": "On Time",
+      "CheckedOutTime": "2024-08-28T17:25:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "3e1e"
+    },
+    {
+      "SN": 5,
+      "Name": "William Brown",
+      "CheckedInTime": "2024-08-28T09:20:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T18:00:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Present",
+      "WorkedHours": 8.5,
+      "Actions": "View",
+      "id": "e8a3"
+    },
+    {
+      "SN": 6,
+      "Name": "Sophia Wilson",
+      "CheckedInTime": "2024-08-28T10:00:00",
+      "CheckedInStatus": "Late",
+      "CheckedOutTime": "2024-08-28T17:50:00",
+      "CheckedOutStatus": "On Time",
+      "PresentAbsent": "Absent",
+      "WorkedHours": 0,
+      "Actions": "View",
+      "id": "7bcd"
     }
   ],
   "leaveApply": [
@@ -213,6 +287,94 @@
       "leaveTo": "2024-08-26T18:15:00.000Z",
       "department": "Angular",
       "dayLeave": "First Half"
+    },
+    {
+      "id": "ac68",
+      "reasonForLeave": "asdas",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-28T18:15:00.000Z",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "0304",
+      "reasonForLeave": "dasdsad",
+      "leaveType": "Sick",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": "First Half"
+    },
+    {
+      "id": "36f0",
+      "reasonForLeave": "SNACKBAR TEST",
+      "leaveType": "Other",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": "Second Half"
+    },
+    {
+      "id": "c232",
+      "reasonForLeave": "Sad",
+      "leaveType": "Annual",
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": "Full Day"
+    },
+    {
+      "id": "8395",
+      "reasonForLeave": "Sick",
+      "leaveType": {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      "leaveFrom": "2024-08-28T18:15:00.000Z",
+      "leaveTo": "2024-08-29T18:15:00.000Z",
+      "dayLeave": {
+        "key": 1,
+        "value": "FirstHalf"
+      }
+    },
+    {
+      "id": "648e",
+      "reasonForLeave": "samerer",
+      "leaveType": {
+        "key": 1,
+        "value": "FirstHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 1,
+        "value": "FirstHalf"
+      }
+    },
+    {
+      "id": "169c",
+      "reasonForLeave": "sameer",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
+    },
+    {
+      "id": "685d",
+      "reasonForLeave": "dasdas",
+      "leaveType": {
+        "key": 2,
+        "value": "SecondHalf"
+      },
+      "leaveFrom": "2024-08-29T18:15:00.000Z",
+      "leaveTo": "2024-08-30T18:15:00.000Z",
+      "dayLeave": {
+        "key": 2,
+        "value": "SecondHalf"
+      }
     }
   ],
   "loggedInUser": [
@@ -221,12 +383,12 @@
       "firstName": "Celeste",
       "midName": "Harding Norton",
       "lastName": "Wiley",
-      "phoneNumber": "9866787740",
+      "MobileNo": "9866787740",
       "gender": "male",
       "dob": "2024-08-13T18:15:00.000Z",
       "address": "Nulla incididunt id ",
       "nationality": "Reprehenderit id p",
-      "citizenshipNumber": "972",
+      "citizenshipNo": "972",
       "startDate": "2005-11-01T18:15:00.000Z",
       "department": "flutter",
       "role": "manager",
@@ -335,5 +497,62 @@
       "category": "Sick-Leave",
       "content": "Employees are granted 10 days of paid sick leave annually. This leave is meant to be used when an employee is unwell or needs to attend medical appointments. Sick leave is crucial for ensuring that employees can recover fully without the stress of work."
     }
-  ]
+  ],
+  "requestList": {
+    "result": 1,
+    "message": "string",
+    "data": {
+      "skip": 0,
+      "take": 0,
+      "count": 0,
+      "employeeLeaveRequestResponse": [
+        {
+          "id": 1,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "phoneNumber": "984574648",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "MobileNo": "9846765553",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 3
+        },
+        {
+          "id": 2,
+          "employeeId": 1,
+          "employeeName": "Sameer",
+          "leaveType": "Sick",
+          "departmentId": 1,
+          "department": "Angular",
+          "MobileNo": "9846765553",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Sick with fever",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 6
+        },
+        {
+          "id": 129,
+          "employeeId": 127,
+          "employeeName": "Sameer Shrestha",
+          "leaveType": "Sick",
+          "departmentId": 2,
+          "department": "Angular",
+          "MobileNo": "9846765553",
+          "leaveFrom": "2024-6-6",
+          "leaveTo": "2024-6-9",
+          "dayLeave": "Full Day",
+          "reasonForLeave": "Trip",
+          "leaveRequestStatus": "Pending",
+          "totalLeaveDuration": 6
+        }
+      ]
+    }
+  }
 }

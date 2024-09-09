@@ -1,22 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { StaffListService } from './service/staff-list.service';
-import { StaffList } from './model/staff-list';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { StaffListState } from './store/staff-list.state';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { DialogData } from '@shared/components/model/dialog.interface';
 import { Observable, of } from 'rxjs';
+import { StaffList, StaffListForTable } from './model/staff-list';
+import { deleteEmployee } from './store/delete-store/delete-staff.actions';
+import { loadStaffList } from './store/staff-list.actions';
 import {
   selectStaffList,
   selectStaffListError,
   selectStaffListLoading,
 } from './store/staff-list.selector';
-import { deleteStaffDetails, loadStaffList } from './store/staff-list.actions';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { DialogData } from '../../../../shared/components/model/dialog.interface';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../../../../shared/components/dialog/dialog.component';
+import { StaffListState } from './store/staff-list.state';
 
 @Component({
   selector: 'app-staff-list',
@@ -27,24 +27,21 @@ export class StaffListComponent implements OnInit {
   staff$: Observable<StaffList[]> = of([]);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
+  isSmallScreen: boolean = false;
   dataSource!: MatTableDataSource<StaffList>;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  displayedColumns: (keyof StaffList)[] = [
+  displayedColumns: (keyof StaffListForTable)[] = [
+    'SN',
     'id',
     'firstName',
-    // 'middleName',
     'lastName',
-    'phoneNumber',
-    // 'gender',
-    // 'dob',
+    'mobileNo',
     'address',
     'nationality',
-    // 'citizenshipNumber',
-    // 'startDate',
-    'department',
+    'departmentId',
     'role',
     'email',
 
@@ -52,19 +49,23 @@ export class StaffListComponent implements OnInit {
   ];
 
   constructor(
-    // private staffListService: StaffListService,
     private router: Router,
     private store: Store<StaffListState>,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.selectorInitializer();
     this.store.dispatch(loadStaffList());
+    this.isSmallScreen = window.innerWidth <= 480;
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(): void {
+    this.isSmallScreen = window.innerWidth <= 480;
   }
 
   onEditStaffDetails(id: number): void {
@@ -77,22 +78,24 @@ export class StaffListComponent implements OnInit {
     this.router.navigate(['/admin/staff-registration/add-staff']);
   }
 
+
   onDeleteStaffDetails(id: number): void {
     const dialogData: DialogData = {
       titleArray: ['Are you sure you want to delete?'],
       buttonArray: [
+
         {
-          label: 'Cancel',
-          type: 'warning',
+          label: 'Confirm',
+          type: 'mat-primary',
           action: () => {
-            return;
+            this.store.dispatch(deleteEmployee({ id }));
           },
         },
         {
-          label: 'Confirm',
-          type: 'primary',
+          label: 'Cancel',
+          type: 'mat-warn',
           action: () => {
-            this.store.dispatch(deleteStaffDetails({ id }));
+            return;
           },
         },
       ],

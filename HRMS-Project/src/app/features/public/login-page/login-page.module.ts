@@ -5,6 +5,7 @@ import { LoginPageRoutingModule } from './login-page-routing.module';
 import { LoginPageComponent } from './login-page.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MaterialsModule } from 'src/app/materials/materials.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     LoginPageRoutingModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MaterialsModule
   ]
 })
 export class LoginPageModule { }

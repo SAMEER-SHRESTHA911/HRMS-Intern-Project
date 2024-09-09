@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { provideHttpClient } from '@angular/common/http';
+import { withInterceptors } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { provideHttpClient } from '@angular/common/http';
-import { DialogComponent } from './shared/components/dialog/dialog.component';
+import { authInterceptor } from './core/interceptors/auth.interceptor';
 import { AuthService } from './features/public/services/services/auth.service';
-import { AuthGuard } from './features/public/guards/guards/auth.guard';
 import { MaterialsModule } from './materials/materials.module';
+import { AuthGuard } from './features/public/guards/guards/auth.guard';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,10 +21,14 @@ import { MaterialsModule } from './materials/materials.module';
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     MaterialsModule,
+    StoreDevtoolsModule.instrument({
+      logOnly: !isDevMode(), // Restrict extension to log-only mode
+    }),
   ],
   providers: [
     provideAnimationsAsync(),
-    provideHttpClient(),
+    // withInterceptors([authInterceptor])
+    provideHttpClient(withInterceptors([authInterceptor])),
     AuthService,
     AuthGuard,
   ],

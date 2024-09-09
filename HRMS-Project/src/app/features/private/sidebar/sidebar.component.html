@@ -2,77 +2,113 @@
   <mat-drawer mode="side" opened class="sidebar">
     <nav>
       <ul>
-
-        <li><a [routerLink]="route_constant.dashboard">
-            <span class="sidebar-row">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a [routerLink]="route_constant.dashboard">
+            <span [ngClass]="{ 'sidebar-row': true }">
               <mat-icon>dashboard</mat-icon>
               Dashboard
             </span>
-            
-            <!-- <mat-accordion>
-              <mat-expansion-panel hideToggle>
-                <p>This is the primary content of the panel.</p>
-              </mat-expansion-panel>
-              <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-                <mat-expansion-panel-header>
-                  <mat-panel-title> <span class="sidebar-row">
-                    <mat-icon>dashboard</mat-icon>
-                    Dashboard
-                  </span> </mat-panel-title>
-                  
-                </mat-expansion-panel-header>
-                <div>
-                  <ul>
-                    <li><a [routerLink]="route_constant['leave-management']">Leave Management</a></li>
-                    <li><a [routerLink]="route_constant['leave-apply']">Apply Leave</a></li>
-                  </ul>
-                </div>
-              </mat-expansion-panel>
-            </mat-accordion> -->
-
           </a>
         </li>
+        
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="[route_constant.profileDetails, id]">
+            <span class="sidebar-row">
+              <mat-icon>person</mat-icon>
+              Profile
+            </span>
+          </a>   
+        </li>
 
-        <li><a [routerLink]="route_constant['staff-management']">
+        @if(role === "Admin") {
+          <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >
+          <a [routerLink]="route_constant.staffManagement">
             <span class="sidebar-row">
               <mat-icon>folder_shared</mat-icon>
               Staff Management
             </span>
           </a>
         </li>
+      }
 
-        <li><a [routerLink]="route_constant['leave-management']">
+
+        @if(role === "Employee"){
+
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="route_constant.leaveManagement">
+              <span class="sidebar-row">
+                <mat-icon>settings_applications</mat-icon>
+                Leave Management
+              </span>
+            </a>   
+          </li>
+        }
+        
+        @if(role === "Employee"){
+
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="route_constant.leaveApply">
+              <span class="sidebar-row">
+                <mat-icon>settings_applications</mat-icon>
+                Apply Leave
+              </span>
+            </a>   
+          </li>
+        }
+
+
+        
+        <!-- <li [routerLinkActive]="['active']">
+          <a [routerLink]="route_constant.employeeLeaveManagement">
             <span class="sidebar-row">
-              <mat-icon>settings_applications</mat-icon>
-              Leave Management
+              <mat-icon>fact_check</mat-icon>
+              Leave Details
             </span>
           </a>
-        </li>
+        </li> -->
 
-        <li><a [routerLink]="route_constant['leave-apply']">
+        @if(role === "Admin"){
+          <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >
+          <a [routerLink]="route_constant.applicationStatus">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
-                Application Status
+              Leave Requests
             </span>
           </a>
         </li>
-
-        <li><a [routerLink]="route_constant['add-employee']">
+      }
+        
+      @if(role === "Admin"){
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a [routerLink]="route_constant.attendance">
             <span class="sidebar-row">
-              <mat-icon>person_add</mat-icon>
-              Add New Employee
+              <mat-icon>list_alt</mat-icon>
+              Attendance Details
             </span>
           </a>
         </li>
+      }
 
-        <li><a [routerLink]="route_constant['policies']">
+        <li
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a [routerLink]="route_constant.policies">
             <span class="sidebar-row">
               <mat-icon>policy</mat-icon>
               Policies
             </span>
           </a>
         </li>
-
       </ul>
     </nav>
   </mat-drawer>

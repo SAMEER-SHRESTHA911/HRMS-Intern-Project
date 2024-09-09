@@ -1,17 +1,34 @@
 import { createAction, props } from '@ngrx/store';
-import { StaffDetails } from '../model/add-staff';
+import { GetEmployeeDetails, RegisterStaffPayload } from '../model/add-staff';
 
 export const addStaff = createAction(
   '[Staff] Add Staff',
-  props<{ staff: StaffDetails }>()
+  props<{ staff: RegisterStaffPayload }>()
 );
 
 export const addStaffSuccess = createAction(
   '[Staff] Add Staff Success',
-  props<{ staff: StaffDetails }>()
 );
 
 export const addStaffFailure = createAction(
   '[Staff] Add Staff Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
+);
+
+
+export const fetchEmployeeData = createAction(
+  '[Staff]Fetch Staff Data',
+  props<{ staffId: number; }>()
+);
+export const fetchEmployeeDataSuccess = createAction(
+  '[Staff] Fetch Staff Data Sucess',
+  props<{ staffDetails: GetEmployeeDetails }>()
+);
+export const fetchEmployeeDataFailure = createAction(
+  '[Staff] Fetch Staff Data Failure',
+  props<{ error: string }>()
+);
+
+export const staffReadyToPatch = createAction(
+  '[Staff] Ready To Patch',
 );

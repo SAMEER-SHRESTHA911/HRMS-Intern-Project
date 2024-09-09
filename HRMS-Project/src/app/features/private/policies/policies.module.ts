@@ -7,12 +7,12 @@ import { PolicyListComponent } from './components/policy-list/policy-list.compon
 import { PolicyFormComponent } from './components/policy-form/policy-form.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { BrowserModule } from '@angular/platform-browser';
 import {  HttpClientModule } from '@angular/common/http';
-import { MatInput } from '@angular/material/input';
+import {  MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -20,21 +20,18 @@ import { MatIcon } from '@angular/material/icon';
     PoliciesComponent,
     PolicyListComponent,
     PolicyFormComponent,
-
-
   ],
   imports: [
     CommonModule,
     PoliciesRoutingModule,
     MatExpansionModule,
     FormsModule,
-    MatLabel,
-    MatFormField,
-    // BrowserModule,
     HttpClientModule,
-    MatInput,
     MatButtonModule,
-    MatIcon
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatListModule,
 
   ]
 })

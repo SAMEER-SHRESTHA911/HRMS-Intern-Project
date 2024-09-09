@@ -1,25 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { apiConstants } from '@shared/constants/api.constants';
+import { baseUrl } from '@shared/constants/global.constants';
+import { ResponseType } from '@shared/models/response.model';
 import { StaffList } from '../model/staff-list';
-import { StaffDetails } from '../../add-staff/model/add-staff';
-
 @Injectable({
   providedIn: 'root',
 })
 export class StaffListService {
-  private apiUrl = 'http://localhost:3000/users';
-  constructor(private http: HttpClient) {}
-  getStaffList(): Observable<StaffList[]> {
-    return this.http.get<StaffList[]>(this.apiUrl);
+  private apiUrl = `${baseUrl}${apiConstants.getEmployeeList}`;
+  private apiUrlForGetDetails = `${baseUrl}${apiConstants.getEmployeeById}`;
+  constructor(private http: HttpClient) { }
+  getStaffList(): Observable<ResponseType<StaffList[]>> {
+    return this.http.get<ResponseType<StaffList[]>>(this.apiUrl);
   }
-  deleteStaff(id: number | string): Observable<StaffList> {
-    return this.http.delete<StaffList>(`${this.apiUrl}/${id}`);
+
+  getStaffDetailsById(id: string | number): Observable<ResponseType<StaffList>> {
+    return this.http.get<ResponseType<StaffList>>(`${this.apiUrlForGetDetails}?id=${id}`);
   }
-  editStaff(id: string | number): Observable<StaffList> {
-    return this.http.get<StaffList>(`${this.apiUrl}/${id}`);
-  }
-  updateStaff(id: number | string, staff: StaffDetails): Observable<boolean> {
-    return this.http.put<boolean>(`${this.apiUrl}/${id}`, staff);
-  }
+
 }

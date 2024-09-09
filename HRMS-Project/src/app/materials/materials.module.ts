@@ -19,10 +19,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -42,6 +45,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatToolbarModule,
     MatExpansionModule,
     MatDividerModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   providers: [provideNativeDateAdapter()],
   exports: [
@@ -57,11 +63,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatInputModule,
     MatMenuModule,
     MatNativeDateModule,
     MatNativeDateModule,
-    MatPaginatorModule,
     MatPaginatorModule,
     MatRadioModule,
     MatSelectModule,
@@ -70,6 +74,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTableModule,
     ReactiveFormsModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatSnackBarModule, MatMenuModule,
   ],
 })
-export class MaterialsModule {}
+export class MaterialsModule { }

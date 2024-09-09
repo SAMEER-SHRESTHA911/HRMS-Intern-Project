@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
-  loadProfileDetailsAction,
-  loadProfileDetailsActionFailure,
-  loadProfileDetailsActionSuccess,
+  FETCH_PROFILE_DETAILS_ACTION,
+  FETCH_PROFILE_DETAILS_FAILURE,
+  FETCH_PROFILE_DETAILS_SUCCESS,
 } from './profile-details.action';
-import { ProfileDetiailsService } from '../services/profile.service';
 import { catchError, map, mergeMap, of } from 'rxjs';
+import { ProfileDetailsService } from '../services/profile.service';
 
 @Injectable()
 export class ProfileDetailsEffect {
-  loadProfileDetails$ = createEffect(() =>
+  fetchProfileDetails = createEffect(() =>
     this.action$.pipe(
-      ofType(loadProfileDetailsAction),
+      ofType(FETCH_PROFILE_DETAILS_ACTION),
       mergeMap(({ profileId }) =>
-        this.profileDetailsService.getProfileDetails(profileId).pipe(
-          map((profileDetails) =>
-            loadProfileDetailsActionSuccess({ profileDetails })
-          ),
+        this.profileDetailsService.getProfileDetailsById(profileId).pipe(
+          map((response) => {
+            console.log(response.data);
+            return FETCH_PROFILE_DETAILS_SUCCESS({
+              profileDetails: response.data,
+            });
+          }),
           catchError((error) =>
-            of(loadProfileDetailsActionFailure({ error: error.message }))
+            of(FETCH_PROFILE_DETAILS_FAILURE({ error: error.message }))
           )
         )
       )
@@ -27,6 +30,6 @@ export class ProfileDetailsEffect {
   );
   constructor(
     private action$: Actions,
-    private profileDetailsService: ProfileDetiailsService
+    private profileDetailsService: ProfileDetailsService
   ) {}
 }

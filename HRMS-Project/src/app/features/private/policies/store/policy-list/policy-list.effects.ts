@@ -5,7 +5,9 @@ import * as PolicyActions from './policy-list.action';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class PolicyEffects {
 
   loadPolicies$ = createEffect(() =>
@@ -34,11 +36,11 @@ export class PolicyEffects {
 
   updatePolicy$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(PolicyActions.updatePolicy),
+      ofType(PolicyActions.editPolicy),
       mergeMap(action =>
-        this.policyService.updatePolicy(action.id, action.policy).pipe(
-          map(policy => PolicyActions.updatePolicySuccess({ policy })),
-          catchError(error => of(PolicyActions.updatePolicyFailure({ error })))
+        this.policyService.editPolicy(action.id, action.policy).pipe(
+          map(policy => PolicyActions.editPolicySuccess({ policy })),
+          catchError(error => of(PolicyActions.editPolicyFailure({ error })))
         )
       )
     )

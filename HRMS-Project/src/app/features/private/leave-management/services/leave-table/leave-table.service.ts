@@ -1,26 +1,44 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { LeaveAvailableData, LeaveTableData } from '../../types/leave-table';
+import { map, Observable } from 'rxjs';
+import {
+  LeaveAvailableData,
+  LeaveTableData,
+  LeaveTableResponse,
+} from '../../types/leave-table';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LeaveTableService {
+  // private fetchEmployeeLeaveRequestResponse =
+  //   'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId?id=';
 
-  private fetchLeaveApiUrl = "http://localhost:3000/leaveTable";
-  private fetchLeaveDataStatus = "http://localhost:3000/leaveAvailableData";
-  
+  // private fetchEmployeeLeaveRequestResponse = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
 
-  constructor(private http:HttpClient) { 
-  }
-  editLeaveApplyStatus(){}
+  // private fetchLeaveDataStatus = 'http://localhost:3000/leaveAvailableData';
 
-  getLeaveAvailableData():Observable<LeaveAvailableData[]>{
-    return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
-  }
+  constructor(private http: HttpClient) {}
+  editLeaveApplyStatus() {}
 
-  getLeaveTableData():Observable<LeaveTableData[]>{
-    return this.http.get<LeaveTableData[]>(this.fetchLeaveApiUrl);
+  // getLeaveAvailableData(): Observable<LeaveAvailableData[]> {
+  //   return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
+  // }
+
+  getLeaveTableData(
+    id: string | null
+  ): Observable<{ message: string; leaveData: LeaveTableData[] }> {
+    return this.http
+      .get<LeaveTableResponse>(
+        `${baseUrl}${apiConstants.leave.getLeaveRequestByEmpId}?id=${id}`
+      )
+      .pipe(
+        map((response) => ({
+          message: response.message,
+          leaveData: response.data,
+        }))
+      );
   }
 }
