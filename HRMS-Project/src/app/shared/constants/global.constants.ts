@@ -22,6 +22,6 @@ export const userRole = {
 export function updateRole(role: string): void {
   userRole.role = role;
 }
-export function getRole(): string {
-  return userRole.role;
+export function getRole(): string | null {
+  return localStorage.getItem('role');
 }
