@@ -99,7 +99,7 @@ export class CalendarComponent {
     );
     this.calandarData$.subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
       },
     });
   }

@@ -18,6 +18,7 @@ export class LeaveManagementComponent implements OnInit{
   availableLeaveData$ : Observable<LeaveBalanceData[]> = of([]);
   loading$ : Observable<boolean> = of(false);
   error$ : Observable<string|null> =of(null);
+  role?: string|null;
   
   leaveType : number = 0;
 
@@ -31,6 +32,7 @@ export class LeaveManagementComponent implements OnInit{
     this.initializer();
     this.store.dispatch(FETCH_AVAILABLE_LEAVE_DATA());
     this.filterLeaveDataInit();
+    this.role = localStorage.getItem('role');
 
     this.leaveTypeDropDown.valueChanges.subscribe(value => {
       console.log('Dropdown Value Changed:', value);

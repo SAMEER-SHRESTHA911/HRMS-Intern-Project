@@ -5,7 +5,7 @@ import { LeaveApproveRejectComponent } from './components/leave-approve-reject/l
 
 const routes: Routes = [
   { path: '', component: LeaveManagementComponent },
-  { path: 'leave-confirmation', component: LeaveApproveRejectComponent}
+  // { path: 'leave-confirmation', component: LeaveApproveRejectComponent}
 ];
 
 @NgModule({
