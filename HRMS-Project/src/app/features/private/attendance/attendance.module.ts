@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { DepartmentEffects } from '@shared/store/add-staff-dropdowns/department/department.effects';
 import { departmentReducer } from '@shared/store/add-staff-dropdowns/department/department.reducer';
 import { AttendanceByIdComponent } from './attendance-by-id/attendance-by-id.component';
+import { attendanceReducerById } from './attendance-by-id/store/attendance-details-by-id.reducer';
+import { AttendanceByIdEffects } from './attendance-by-id/store/attendance-details-by-id.effects';
 
 @NgModule({
   declarations: [AttendanceDetailsComponent, AttendanceCalanderComponent, AttendanceByIdComponent],
@@ -20,11 +22,13 @@ import { AttendanceByIdComponent } from './attendance-by-id/attendance-by-id.com
     AttendanceRoutingModule,
     StoreModule.forFeature('attendance', attendanceReducer),
     StoreModule.forFeature('department', departmentReducer),
+    StoreModule.forFeature('attendanceById', attendanceReducerById),
 
 
     EffectsModule.forFeature([
       AttendanceEffects,
       DepartmentEffects,
+      AttendanceByIdEffects
     ]),
   ],
   exports: [AttendanceDetailsComponent, AttendanceCalanderComponent],

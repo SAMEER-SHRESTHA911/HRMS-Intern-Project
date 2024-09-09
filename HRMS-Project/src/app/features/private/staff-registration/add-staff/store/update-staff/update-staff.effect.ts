@@ -18,7 +18,15 @@ export class UpdateEmployeeEffects {
             )
         )
     );
-
+    updateEmployeeSuccess$ = createEffect(() => this.actions$.pipe(
+        ofType(updateEmployeeSuccess), map(() => {
+            this.updateStaffService.nagivateTo();
+        })
+    ),
+        {
+            dispatch: false,
+        }
+    )
     constructor(
         private actions$: Actions,
         private updateStaffService: UpdateStaffService
