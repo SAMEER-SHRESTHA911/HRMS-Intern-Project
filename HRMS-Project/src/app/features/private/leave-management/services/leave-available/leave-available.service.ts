@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { loggedInUser } from '@shared/constants/global.constants';
+import { baseUrl, loggedInUser } from '@shared/constants/global.constants';
 import { map, Observable } from 'rxjs';
 import {
   LeaveBalanceData,
   LeaveBalanceResponse,
 } from '../../types/leave-table';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaveAvailableService {
-  private apiUrl =
-    'http://localhost:5262/apigateway/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp?empId=';
+  // private apiUrl =
+  //   'http://localhost:5262/apigateway/attendanceLeave/LeaveBalance/GetLeaveBalanceofEmp?empId=';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +22,7 @@ export class LeaveAvailableService {
     leaveBalanceData: LeaveBalanceData[];
   }> {
     return this.http
-      .get<LeaveBalanceResponse>(`${this.apiUrl}${loggedInUser.id}`)
+      .get<LeaveBalanceResponse>(`${baseUrl}${apiConstants.leave.getLeaveBalanceofEmp}?empId=${loggedInUser.id}`)
       .pipe(
         map((response) => ({
           message: response.message,

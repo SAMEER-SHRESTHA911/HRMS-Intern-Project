@@ -37,6 +37,7 @@ export class LeaveTableComponent implements OnInit {
     'reasonForLeave',
     'leaveRequestStatus',
   ];
+  
 
   constructor(
     private store: Store,

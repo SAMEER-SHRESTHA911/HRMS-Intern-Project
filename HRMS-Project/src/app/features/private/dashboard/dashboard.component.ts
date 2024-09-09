@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import {
-  Dashboard,
-  EmployeeLeaveListResponse,
-} from './types/leave-summary.interface';
+import { Dashboard } from './types/leave-summary.interface';
 import { Store } from '@ngrx/store';
 import { DashboardState } from './store/dashboard/dashboard.state';
 import { loadDashboard } from './store/dashboard/dashboard.actions';
-import { LeaveSummaryService } from './services/leave-summary/leave-summary.service';
-import { DAY_DATA } from '../../../shared/utils/date-today';
-import { ResponseType } from '../../../shared/models/response.model';
+import { DAY_DATA } from '@shared/utils/date-utils';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,25 +16,15 @@ export class DashboardComponent implements OnInit {
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
   today = DAY_DATA;
-  constructor(
-    private leaveServiceSid: LeaveSummaryService,
-    private store: Store<DashboardState>
-  ) {}
+  userRole: string | null = localStorage.getItem('role');
+  //"Admin" , "Employee"
+
+  constructor(private store: Store<DashboardState>) {}
 
   selectorInitilizer(): void {}
 
   ngOnInit(): void {
     this.store.dispatch(loadDashboard());
     this.selectorInitilizer();
-    this.leaveServiceSid.getStaffsOnLeaveToday(this.today).subscribe({
-      next: (response: ResponseType<EmployeeLeaveListResponse[]>) => {
-        // Handle successful response
-        console.log('Data received:', response);
-      },
-      error: (error) => {
-        // Handle error response
-        console.error('Error fetching data:', error);
-      },
-    });
   }
 }

@@ -16,11 +16,11 @@ export const todayAttendanceSummaryReducer = createReducer(
   on(
     FETCH_TODAY_ATTENDANCE_SUMMARY_SUCCESS,
     (prevState, { attendanceData }) => {
-      console.log('Updated State:', {
-        ...prevState,
-        attendanceData,
-        loading: false,
-      });
+      // console.log('Updated State:', {
+      //   ...prevState,
+      //   attendanceData,
+      //   loading: false,
+      // });
       return {
         ...prevState,
         attendanceData,

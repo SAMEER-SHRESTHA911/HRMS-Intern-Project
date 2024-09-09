@@ -72,7 +72,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     this.leaveFormService.resetEditMode();
   }
 
-  getDropDown() {
+  getDropDown() :void{
     console.log(this.leaveApplyForm?.value);
     this.store.dispatch(FETCH_DAY_LEAVE_DROPDOWN());
 
@@ -166,7 +166,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     //   });
   }
 
-  resetForm() {
+  resetForm() :void{
     this.leaveApplyForm?.reset();
   }
 

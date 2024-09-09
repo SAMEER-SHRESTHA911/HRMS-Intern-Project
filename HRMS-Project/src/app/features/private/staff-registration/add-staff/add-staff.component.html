@@ -3,8 +3,11 @@
     <h4>Registration Form</h4>
   </div>
 </div>
+<div class="z-50" *ngIf="loading$ | async">
+  <mat-progress-bar mode="query"></mat-progress-bar>
+</div>
 <div class="form-container">
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="p-5">
     <div>
       <mat-form-field appearance="outline" class="my-input">
         <mat-label>Enter First Name</mat-label>
@@ -179,7 +182,7 @@
       <mat-form-field appearance="outline" class="my-input">
         <mat-label>City</mat-label>
         <mat-select formControlName="city" name="city">
-          <mat-option *ngFor="let city of cities$ | async" [value]="city.id">
+          <mat-option *ngFor="let city of cities$ | async" [value]="city">
             {{ city.name }}</mat-option
           >
         </mat-select>
@@ -272,13 +275,13 @@
       <mat-form-field appearance="outline" class="my-input">
         <mat-label>Department</mat-label>
         <mat-select
-          formControlName="department"
-          name="department"
+          formControlName="departmentId"
+          name="departmentId"
           placeholder="Department"
         >
           <mat-option
             *ngFor="let department of departments$ | async"
-            [value]="department.id"
+            [value]="department"
           >
             {{ department.name }}
           </mat-option>
@@ -286,9 +289,9 @@
 
         <mat-error
           *ngIf="
-            (registrationForm.get('department')?.touched ||
-              registrationForm.get('department')?.dirty) &&
-            registrationForm.get('department')?.hasError('required')
+            (registrationForm.get('departmentId')?.touched ||
+              registrationForm.get('departmentId')?.dirty) &&
+            registrationForm.get('departmentId')?.hasError('required')
           "
         >
           Department is required.
@@ -300,7 +303,7 @@
       <mat-form-field appearance="outline" class="my-input">
         <mat-label>Role</mat-label>
         <mat-select formControlName="role" name="role" placeholder="Role">
-          <mat-option *ngFor="let role of roles$ | async" [value]="role.key">
+          <mat-option *ngFor="let role of roles$ | async" [value]="role">
             {{ role.value }}
           </mat-option>
         </mat-select>

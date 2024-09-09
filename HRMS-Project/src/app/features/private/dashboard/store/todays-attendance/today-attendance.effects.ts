@@ -16,8 +16,6 @@ export class TodayAttendanceSummaryEffect {
       mergeMap(() =>
         this.todayAttendanceSummaryService.getTodaysAttendanceSummary().pipe(
           map((res) => {
-            console.log(res.data);
-
             return FETCH_TODAY_ATTENDANCE_SUMMARY_SUCCESS({
               attendanceData: res.data,
             });

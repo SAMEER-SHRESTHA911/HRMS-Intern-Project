@@ -22,6 +22,16 @@ import { allUsersPendingLeaveRequestsReducer } from './store/leave-summary/leave
 import { allUsersPendingLeaveRequestEffects } from './store/leave-summary/leave -summary.effects';
 import { ProfileDetailsEffect } from '../profile-details/store/profile-details.effect';
 import { profileDetailsReducer } from '../profile-details/store/profile-details.reducer';
+import { OnLeaveTomorrowComponent } from './components/on-leave-tomorrow/on-leave-tomorrow.component';
+import { OnLeaveTodayComponent } from './components/on-leave-today/on-leave-today.component';
+import { employeeOnLeaveTodayReducer } from './store/onLeaveToday/onLeaveToday.reducers';
+import { onLeaveTodayEffect } from './store/onLeaveToday/onLeaveToday.effect';
+import { employeeOnLeaveTomorrowReducer } from './store/onLeaveTomorrow/onLeaveTomorrow.reducers';
+import { onLeaveTomorrowEffect } from './store/onLeaveTomorrow/onLeaveTomorrow.effect';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { calenderReducer } from './store/calender/calender.reducer';
+import { CalenderEffects } from './store/calender/calender.effects';
 
 @NgModule({
   declarations: [
@@ -30,12 +40,16 @@ import { profileDetailsReducer } from '../profile-details/store/profile-details.
     CheckingInComponent,
     CheckingInDialogComponent,
     TodaysAttendanceComponent,
+    OnLeaveTomorrowComponent,
+    OnLeaveTodayComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MatCardModule,
     MaterialsModule,
+    FullCalendarModule,
     HttpClientModule,
     StoreModule.forFeature('dashboard', dashboardReducer),
     EffectsModule.forFeature([DashboardEffect]),
@@ -53,6 +67,15 @@ import { profileDetailsReducer } from '../profile-details/store/profile-details.
     EffectsModule.forFeature([allUsersPendingLeaveRequestEffects]),
     StoreModule.forFeature('profileDetails', profileDetailsReducer),
     EffectsModule.forFeature([ProfileDetailsEffect]),
+    StoreModule.forFeature('employeeOnLeaveToday', employeeOnLeaveTodayReducer),
+    EffectsModule.forFeature([onLeaveTodayEffect]),
+    StoreModule.forFeature(
+      'employeeOnLeaveTomorrow',
+      employeeOnLeaveTomorrowReducer
+    ),
+    EffectsModule.forFeature([onLeaveTomorrowEffect]),
+    StoreModule.forFeature('calendar', calenderReducer),
+    EffectsModule.forFeature([CalenderEffects]),
   ],
 })
 export class DashboardModule {}

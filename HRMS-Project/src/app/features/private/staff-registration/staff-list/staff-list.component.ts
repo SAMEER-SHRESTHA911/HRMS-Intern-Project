@@ -1,22 +1,22 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { StaffList } from './model/staff-list';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { StaffListState } from './store/staff-list.state';
+import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { DialogData } from '@shared/components/model/dialog.interface';
 import { Observable, of } from 'rxjs';
+import { StaffList, StaffListForTable } from './model/staff-list';
+import { deleteEmployee } from './store/delete-store/delete-staff.actions';
+import { loadStaffList } from './store/staff-list.actions';
 import {
   selectStaffList,
   selectStaffListError,
   selectStaffListLoading,
 } from './store/staff-list.selector';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatDialog } from '@angular/material/dialog';
-import { loadStaffList } from './store/staff-list.actions';
-import { DialogData } from '@shared/components/model/dialog.interface';
-import { deleteEmployee } from './store/delete-store/delete-staff.actions';
-import { DialogComponent } from '@shared/components/dialog/dialog.component';
+import { StaffListState } from './store/staff-list.state';
 
 @Component({
   selector: 'app-staff-list',
@@ -33,7 +33,8 @@ export class StaffListComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  displayedColumns: (keyof StaffList)[] = [
+  displayedColumns: (keyof StaffListForTable)[] = [
+    'SN',
     'id',
     'firstName',
     'lastName',

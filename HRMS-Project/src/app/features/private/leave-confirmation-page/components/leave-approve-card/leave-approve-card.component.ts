@@ -18,11 +18,11 @@ export class LeaveApproveCardComponent implements OnInit {
   constructor(
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: LeaveRequestList,
-    private store:Store,
+    private store: Store,
     private dialogRef: MatDialogRef<LeaveApproveCardComponent>
   ) {}
 
-  imageData$:Observable<ImageData|null> = of();
+  imageData$: Observable<ImageData | null> = of();
 
   imageData: ImageData = {
     employeeId: 0,
@@ -32,19 +32,21 @@ export class LeaveApproveCardComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.data);
-    this.store.dispatch(FETCH_IMAGE({ id:  this.data.employeeId }));
+    this.store.dispatch(FETCH_IMAGE({ id: this.data.employeeId }));
     this.imageData$ = this.store.select(selectImageData);
   }
 
-  approve(id:string|number):void{
-    this.store.dispatch(LEAVE_ACCEPT_REJECT({id, option:2}));   
-    this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]) ;
+  approve(id: string | number): void {
+    this.store.dispatch(LEAVE_ACCEPT_REJECT({ id, option: 2 }));
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveConfirmationPage}`]);
+    this.resetDialog();
   }
-  reject(id:string|number): void{
-    this.store.dispatch(LEAVE_ACCEPT_REJECT({id, option:2}));
-    this.router.navigate([ROUTE_CONSTANT.leaveConfirmationPage]) ;
+  reject(id: string | number): void {
+    this.store.dispatch(LEAVE_ACCEPT_REJECT({ id, option: 1 }));
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveConfirmationPage}`]);
+    this.resetDialog();
   }
-  resetDialog(){
+  resetDialog(): void {
     this.dialogRef.close(false);
   }
 }

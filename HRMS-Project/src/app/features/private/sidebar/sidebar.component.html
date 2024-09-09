@@ -13,11 +13,21 @@
             </span>
           </a>
         </li>
+        
+        <li [routerLinkActive]="['active']">
+          <a [routerLink]="[route_constant.profileDetails, id]">
+            <span class="sidebar-row">
+              <mat-icon>person</mat-icon>
+              Profile
+            </span>
+          </a>   
+        </li>
 
-        <li
+        @if(role === "Admin") {
+          <li
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
-        >
+          >
           <a [routerLink]="route_constant.staffManagement">
             <span class="sidebar-row">
               <mat-icon>folder_shared</mat-icon>
@@ -25,28 +35,59 @@
             </span>
           </a>
         </li>
+      }
 
-        <li [routerLinkActive]="['active']">
-          <a [routerLink]="route_constant.leaveManagement">
+
+        @if(role === "Employee"){
+
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="route_constant.leaveManagement">
+              <span class="sidebar-row">
+                <mat-icon>settings_applications</mat-icon>
+                Leave Management
+              </span>
+            </a>   
+          </li>
+        }
+        
+        @if(role === "Employee"){
+
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="route_constant.leaveApply">
+              <span class="sidebar-row">
+                <mat-icon>settings_applications</mat-icon>
+                Apply Leave
+              </span>
+            </a>   
+          </li>
+        }
+
+
+        
+        <!-- <li [routerLinkActive]="['active']">
+          <a [routerLink]="route_constant.employeeLeaveManagement">
             <span class="sidebar-row">
-              <mat-icon>settings_applications</mat-icon>
-              Leave Management
+              <mat-icon>fact_check</mat-icon>
+              Leave Details
             </span>
           </a>
-        </li>
+        </li> -->
 
-        <li
+        @if(role === "Admin"){
+          <li
           [routerLinkActive]="['active']"
           [routerLinkActiveOptions]="{ exact: true }"
-        >
+          >
           <a [routerLink]="route_constant.applicationStatus">
             <span class="sidebar-row">
               <mat-icon>info</mat-icon>
-              Application Status
+              Leave Requests
             </span>
           </a>
         </li>
-
+      }
+        
+      @if(role === "Admin"){
         <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
           <a [routerLink]="route_constant.attendance">
             <span class="sidebar-row">
@@ -55,6 +96,7 @@
             </span>
           </a>
         </li>
+      }
 
         <li
           [routerLinkActive]="['active']"

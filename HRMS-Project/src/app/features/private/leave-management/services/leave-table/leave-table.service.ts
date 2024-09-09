@@ -6,29 +6,34 @@ import {
   LeaveTableData,
   LeaveTableResponse,
 } from '../../types/leave-table';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LeaveTableService {
-  private fetchEmployeeLeaveRequestResponse =
-    'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId?id=';
+  // private fetchEmployeeLeaveRequestResponse =
+  //   'http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestByEmpId?id=';
+
   // private fetchEmployeeLeaveRequestResponse = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetLeaveRequestList";
 
-  private fetchLeaveDataStatus = 'http://localhost:3000/leaveAvailableData';
+  // private fetchLeaveDataStatus = 'http://localhost:3000/leaveAvailableData';
 
   constructor(private http: HttpClient) {}
   editLeaveApplyStatus() {}
 
-  getLeaveAvailableData(): Observable<LeaveAvailableData[]> {
-    return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
-  }
+  // getLeaveAvailableData(): Observable<LeaveAvailableData[]> {
+  //   return this.http.get<LeaveAvailableData[]>(this.fetchLeaveDataStatus);
+  // }
 
   getLeaveTableData(
     id: string | null
   ): Observable<{ message: string; leaveData: LeaveTableData[] }> {
     return this.http
-      .get<LeaveTableResponse>(`${this.fetchEmployeeLeaveRequestResponse}${id}`)
+      .get<LeaveTableResponse>(
+        `${baseUrl}${apiConstants.leave.getLeaveRequestByEmpId}?id=${id}`
+      )
       .pipe(
         map((response) => ({
           message: response.message,

@@ -7,15 +7,15 @@ import { DialogComponent } from '@shared/components/dialog/dialog.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'staff_management', pathMatch:'full' },
-  { path: 'add-staff', component: AddStaffComponent },
   { path: 'staff-list', component: StaffListComponent },
+  { path: 'add-staff', component: AddStaffComponent },
   { path: '', component: StaffListComponent },
   {
     path: 'edit-staff/:id',
     component: AddStaffComponent,
   },
   {
-    path: 'admin/profile-details/:id',
+    path: 'profile-details/:id',
     component: ProfileEditComponent,
   },
   { path: 'shared/components/DialogComponent', component: DialogComponent },
@@ -25,4 +25,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class StaffRegistrationRoutingModule {}
+export class StaffRegistrationRoutingModule { }

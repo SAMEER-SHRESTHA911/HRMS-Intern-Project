@@ -52,7 +52,7 @@ export class LeaveConfirmationPageComponent implements OnInit, OnDestroy {
     this.#destroy$.complete();
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event):void {
     if (this.dataSource) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();
