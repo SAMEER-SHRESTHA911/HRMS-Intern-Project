@@ -32,6 +32,10 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { calenderReducer } from './store/calender/calender.reducer';
 import { CalenderEffects } from './store/calender/calender.effects';
+import { attendanceReducer } from '../attendance/attendance-details/store/attendance-details.reducer';
+import { AttendanceEffects } from '../attendance/attendance-details/store/attendance-details.effects';
+import { AttendanceByIdEffects } from '../attendance/attendance-by-id/store/attendance-details-by-id.effects';
+import { attendanceReducerById } from '../attendance/attendance-by-id/store/attendance-details-by-id.reducer';
 
 @NgModule({
   declarations: [
@@ -74,8 +78,10 @@ import { CalenderEffects } from './store/calender/calender.effects';
       employeeOnLeaveTomorrowReducer
     ),
     EffectsModule.forFeature([onLeaveTomorrowEffect]),
-    StoreModule.forFeature('calendar', calenderReducer),
-    EffectsModule.forFeature([CalenderEffects]),
+    // StoreModule.forFeature('calendar', calenderReducer),
+    // EffectsModule.forFeature([CalenderEffects]),
+    StoreModule.forFeature('attendanceById', attendanceReducerById),
+    EffectsModule.forFeature([AttendanceByIdEffects]),
   ],
 })
 export class DashboardModule {}

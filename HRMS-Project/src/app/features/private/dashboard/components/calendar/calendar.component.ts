@@ -9,6 +9,10 @@ import { ICalenderResponseData } from '../../types/calender';
 import { fetchCalenderData } from '../../store/calender/calender.actions';
 import { formatDate } from '@shared/utils/date-utils';
 import { selectCalenderData } from '../../store/calender/calender.selector';
+import { AttendanceDetailsById } from '../../../attendance/attendance-by-id/store/attendance-details-by-id.state';
+import { selectAttendanceByIdRecords } from '../../../attendance/attendance-by-id/store/attendance-details-by-id.selector';
+import { AttendanceData } from '../../../attendance/model/attendance-details.interface';
+import { loadAttendanceList } from '../../../attendance/attendance-details/store/attendance-details.actions';
 
 @Component({
   selector: 'app-calendar',
@@ -75,32 +79,24 @@ export class CalendarComponent {
     const limit = new Date(`1970-01-01T18:00:00`);
     return checkoutDate < limit ? 'checkout-early' : 'checkout-on-time';
   }
-  calandarData$: Observable<ICalenderResponseData[]> = of([]);
+  attendanceByIdData$: Observable<AttendanceData | undefined> = of(undefined);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
 
-  constructor(private store: Store<CalenderState>) {}
+  constructor(private attendanceByIdStore: Store<AttendanceDetailsById>) {}
 
   ngOnInit(): void {
-    this.calandarData$ = this.store.select(selectCalenderData);
-    this.store.dispatch(
-      fetchCalenderData({
-        id: this.profileId,
-        data: {
-          startingCheckInDate: '2024-08-01',
-          endCheckInDate: formatDate(new Date()),
-          skip: 0,
-          take: 100,
-          sort: {
-            sortBy: 'Asc',
-          },
-        },
-      })
-    );
-    this.calandarData$.subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-    });
+    // this.attendanceByIdData$ = this.store.select(selectAttendanceByIdRecords);
+    // this.store.dispatch(
+    //   loadAttendanceList({
+    //     employeeId: this.profileId,
+    //     data: {
+    //       sort: {
+    //         sortBy: 'Asc',
+    //       },
+    //     },
+    //   })
+    // );
+    // this.attendanceByIdStore.dispatch(loadAttendanceList{emplyoyeeId:this.profileId??"", sort:{sortBy:"Asc"}});
   }
 }

@@ -1,11 +1,10 @@
-
 export interface AttendanceRequestPayload extends FormValue {
   skip: number;
   take: number;
   sort?: {
     key: string;
     sortBy: string;
-  }
+  };
 }
 export interface FormValue {
   departmentId: number;
@@ -28,8 +27,9 @@ export interface EmployeeAttendanceRecord {
   employeeName: string;
   departmentName: string;
 }
-export interface EmployeeAttendanceRecordForTable extends EmployeeAttendanceRecord {
-  actions: unknown
+export interface EmployeeAttendanceRecordForTable
+  extends EmployeeAttendanceRecord {
+  actions: unknown;
   SN: string;
 }
 
