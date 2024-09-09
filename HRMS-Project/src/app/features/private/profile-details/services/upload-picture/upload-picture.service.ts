@@ -21,7 +21,7 @@ export class UploadPictureService {
     });
   }
 
-  uploadFile(file: File): Observable<any> {
+  uploadEmployeePicture(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('ImageFile', file);
 
@@ -29,6 +29,17 @@ export class UploadPictureService {
       `${
         baseUrl + apiConstants.employeeDetails.addDocumentOfEmployee
       }?EmployeeId=${this.employeeId}&DocumentType=1`,
+      formData
+    );
+  }
+  editEmployeePicture(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('ImageFile', file);
+
+    return this.http.put(
+      `${
+        baseUrl + apiConstants.employeeDetails.patchProfilePictureofEmployee
+      }?Id=${this.employeeId}&EmployeeId=${this.employeeId}&DocumentType=1`,
       formData
     );
   }

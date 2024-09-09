@@ -4,7 +4,7 @@ import { getRole } from '@shared/constants/global.constants';
 import { AuthService } from 'src/app/features/public/services/services/auth.service';
 
 export const adminRoleGuard: CanActivateFn = (route, state) => {
-  const role = getRole();
+  const role = localStorage.getItem('role');
   const router = inject(Router);
   if (role === 'Admin') {
     return true;

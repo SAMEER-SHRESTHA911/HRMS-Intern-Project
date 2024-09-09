@@ -5,10 +5,15 @@
   <div class="p-10 flex justify-between pattern">
     <div class="flex items-center gap-14">
       <img
+        *ngIf="profilePicture$ | async as profilePicture"
         class="w-40 h-40 rounded-full"
         mat-card-image
-        [src]="profileImage64 ? profileImage64 : 'avatar.png'"
-        alt=""
+        [src]="
+          profilePicture.imageDataBase64
+            ? 'data:image/jpeg;base64,' + profilePicture.imageDataBase64
+            : 'avatar.png'
+        "
+        alt="Profile Picture"
       />
       <div
         *ngIf="profileDetails$ | async as profileDetails"
@@ -30,13 +35,16 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu class="bg-blue-100 custom-menu" #menu="matMenu">
-        <button mat-menu-item (click)="onEditProfileDetails(825)">
+        <button
+          mat-menu-item
+          (click)="onEditProfileDetails(paramProfileId ?? 0)"
+        >
           <mat-icon>account_circle</mat-icon>
           <span>Edit Profile</span>
         </button>
         <button mat-menu-item (click)="onChangePicture()">
           <mat-icon>camera_alt</mat-icon>
-          <span>Change Picture</span>
+          <span>{{ !!imageName ? "Update " : "Upload " }}Profile Picture</span>
         </button>
         <button mat-menu-item (click)="onChangePassword()">
           <mat-icon>edit</mat-icon>
@@ -87,7 +95,6 @@
       }}</span>
     </div>
     <mat-divider></mat-divider>
-
     <div class="info-row">
       <p>Gender:</p>
       <span>{{
@@ -101,6 +108,12 @@
     <mat-divider></mat-divider>
 
     <div class="info-row">
+      <p>Contact Number:</p>
+      <span>{{ profileDetails.mobileNo }}</span>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="info-row">
       <p>Email:</p>
       <span>{{ profileDetails.email }}</span>
     </div>
@@ -109,6 +122,12 @@
     <div class="info-row">
       <p>Address:</p>
       <span>{{ profileDetails.addressId }}</span>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="info-row">
+      <p>Nationality:</p>
+      <span>{{ profileDetails.nationality }}</span>
     </div>
     <mat-divider></mat-divider>
 

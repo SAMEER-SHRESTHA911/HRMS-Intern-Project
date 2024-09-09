@@ -22,12 +22,14 @@ const routes: Routes = [
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
       ),
+    canActivate: [adminRoleGuard],
   },
   {
     path: ROUTE_CONSTANT.dashboard,
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+
   {
     path: ROUTE_CONSTANT.leaveApply,
     loadChildren: () =>
@@ -48,14 +50,13 @@ const routes: Routes = [
       import('./staff-registration/staff-registration.module').then(
         (m) => m.StaffRegistrationModule
       ),
-      canActivate: [adminRoleGuard],
+    canActivate: [adminRoleGuard],
   },
   {
     path: ROUTE_CONSTANT.attendance,
     loadChildren: () =>
-      import('./attendance/attendance.module').then(
-        (m) => m.AttendanceModule
-      ),
+      import('./attendance/attendance.module').then((m) => m.AttendanceModule),
+
   },
   {
     path: ROUTE_CONSTANT.policies,
@@ -68,12 +69,13 @@ const routes: Routes = [
       import('./leave-confirmation-page/leave-confirmation-page.module').then(
         (m) => m.LeaveConfirmationPageModule
       ),
+    canActivate: [adminRoleGuard],
   },
   // {
-  //   path: ROUTE_CONSTANT.changePassword,
+  //   path: ROUTE_CONSTANT.employeeLeaveManagement,
   //   loadChildren: () =>
-  //     import('./change-password/change-password.module').then(
-  //       (m)=> m.ChangePasswordModule
+  //     import('./employee-leave-details/employee-leave-details.module').then(
+  //       (m) => m.EmployeeLeaveDetailsModule
   //     ),
   // },
 ];
@@ -82,4 +84,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PrivateRoutingModule { }
+export class PrivateRoutingModule {}
