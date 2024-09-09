@@ -39,3 +39,9 @@ export interface AttendanceData {
   skip: number;
   data: EmployeeAttendanceRecord[];
 }
+
+export interface CalenderViewData {
+  date: string;
+  checkin: string;
+  checkout: string;
+}
