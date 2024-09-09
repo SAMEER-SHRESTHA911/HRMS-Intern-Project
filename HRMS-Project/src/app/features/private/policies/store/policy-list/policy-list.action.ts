@@ -9,10 +9,14 @@ export const addPolicy = createAction('[Policy List] Add Policy',props<{ policy:
 export const addPolicySuccess = createAction('[Policy List] Add Policy Success',props<{ policy: Policy }>());
 export const addPolicyFailure = createAction('[Policy List] Add Policy Failure',props<{ error: string }>());
 
-export const editPolicy = createAction('[Policy List] Edit Policy',props<{ policy: Policy }>());
+export const editPolicy = createAction('[Policy List] Edit Policy',props<{ policy: Policy, id:string }>());
 export const editPolicySuccess = createAction('[Policy List] Edit Policy Success',props<{ policy: Policy }>());
 export const editPolicyFailure = createAction('[Policy List] Edit Policy Failure',props<{ error: string }>());
 
-export const deletePolicy = createAction('[Policy List] Delete Policy',props<{ id: number }>());
-export const deletePolicySuccess = createAction('[Policy List] Delete Policy Success',props<{ id: number }>());
+export const deletePolicy = createAction('[Policy List] Delete Policy',props<{ id: string }>());
+export const deletePolicySuccess = createAction('[Policy List] Delete Policy Success',props<{ id: string }>());
 export const deletePolicyFailure = createAction('[Policy List] Delete Policy Failure',props<{ error: string }>());
+
+export function updatePolicy(updatePolicy: any): import("rxjs").OperatorFunction<import("@ngrx/store").Action<string>, any> {
+  throw new Error('Function not implemented.');
+}

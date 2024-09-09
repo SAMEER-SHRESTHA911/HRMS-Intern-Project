@@ -46,7 +46,6 @@ export const policyReducer = createReducer(
   on(editPolicySuccess, (state, { policy }) => ({
     ...state,
     policies: state.policies.map(p =>
-      // Ensure both 'p.id' and 'policy.id' are numbers before comparing
       Number(p.id) === Number(policy.id) ? policy : p
     )
   })),

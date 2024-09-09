@@ -7,24 +7,24 @@ import { Policy } from '../models/policy.model';
   providedIn: 'root'
 })
 export class PolicyService {
-  // private apiUrl = 'http://localhost:3000/policies'
-  private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/Policy/CreatePolicy';
+  private apiUrl = 'http://localhost:3000/policies'
+  // private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/Policy/CreatePolicy';
 
   constructor(private http: HttpClient) {}
 
   getPolicies(): Observable<Policy[]> {
-    return this.http.get<Policy[]>(`${this.apiUrl}/policies`);
+    return this.http.get<Policy[]>(`${this.apiUrl}`);
   }
 
   getPolicy(id: string): Observable<Policy> {
-    return this.http.get<Policy>(`${this.apiUrl}/policies/${id}`);
+    return this.http.get<Policy>(`${this.apiUrl}${id}`);
   }
 
   addPolicy(policy: Policy): Observable<Policy> {
     return this.http.post<Policy>(`${this.apiUrl}/policies`, policy);
   }
 
-  updatePolicy(id: string, policy: Policy): Observable<Policy> {
+  editPolicy(id: string, policy: Policy): Observable<Policy> {
     return this.http.put<Policy>(`${this.apiUrl}/policies/${id}`, policy);
   }
 
