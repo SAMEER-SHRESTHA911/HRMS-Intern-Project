@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/services/auth.service'
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ROUTE_CONSTANT } from '@shared/constants/routes.constant';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
   hide: boolean=true;
+  route_constant = ROUTE_CONSTANT;
 
   constructor(private auth: AuthService, private router: Router, private fb: FormBuilder, private snackBar :MatSnackBar) {}
 

@@ -11,10 +11,12 @@ import { AttendanceData, AttendanceRequestPayload, EmployeeAttendanceRecord, Emp
 })
 export class AttendanceDetailsService {
   private apiUrl = `${baseUrl}${apiConstants.attendance.getAttandanceList}`;
-  private attendanceByIdUrl = `${baseUrl}${apiConstants.attendance.getAttendanceByEmployeeId}`
+  private attendanceByIdUrl = `${baseUrl}${apiConstants.attendance.getAttendanceByEmployeeId}`;
   constructor(private http: HttpClient) { }
 
-  getAttendanceList(payload: AttendanceRequestPayload | {}): Observable<ResponseType<AttendanceData>> {
+  getAttendanceList(
+    payload: AttendanceRequestPayload | {}
+  ): Observable<ResponseType<AttendanceData>> {
     return this.http.post<ResponseType<AttendanceData>>(this.apiUrl, payload);
   }
   getAttendanceListById(payload: AttendanceRequestPayload): Observable<ResponseType<EmployeeByIdData>> {

@@ -1,11 +1,10 @@
-
 export interface AttendanceRequestPayload extends FormValue {
   skip?: number;
   take?: number;
   sort?: {
     key?: string;
     sortBy?: string;
-  }
+  };
 }
 
 export interface FormValue {
@@ -61,4 +60,9 @@ export interface EmployeeByIdData {
   take: number;
   skip: number;
   data: EmployeeAttendanceRecordById[];
+}
+export interface CalenderViewData {
+  date: string;
+  checkin: string;
+  checkout: string;
 }

@@ -2,7 +2,7 @@
   <section class="flex flex-col bg-white rounded-lg min-h-96">
     <div class="flex justify-between pt-4 px-4">
       <p>Pending Leave Requests ({{ pendingLeaveCount$ | async }})</p>
-      <a [routerLink]="['/admin/leave-management']">View All</a>
+      <a [routerLink]="['/admin/leave-confirmation-page']">View All</a>
     </div>
     <mat-divider class="mat-d"></mat-divider>
     @if(pendingLeaveCount$ | async; as data > 0 ){

@@ -143,7 +143,7 @@ export class StaffEffects {
       this.actions$.pipe(
         ofType(fetchEmployeeDataFailure),
         map((error) => {
-          console.log(error)
+          // console.log(error)
           this.snackBar.open(
             'You are not Checked In, Please check-in!',
             'Close',

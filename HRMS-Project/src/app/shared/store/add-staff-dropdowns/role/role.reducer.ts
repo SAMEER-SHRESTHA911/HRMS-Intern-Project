@@ -9,7 +9,7 @@ export const roleReducer = createReducer(
         error: null,
     })),
     on(RoleAction.loadRolesSucess, (state, { roles }) => {
-        console.log(roles)
+        // console.log(roles)
         return ({
             ...state,
             loading: false,

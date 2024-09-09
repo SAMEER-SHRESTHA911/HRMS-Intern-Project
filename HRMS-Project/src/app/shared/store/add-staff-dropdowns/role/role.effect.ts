@@ -12,7 +12,7 @@ export class RolesEffects {
             mergeMap(() =>
                 this.roleService.getRoleList().pipe(
                     map((roles) => {
-                        console.log(roles)
+                        // console.log(roles)
                         return RolesAction.loadRolesSucess({
                             roles: roles.data,
                         })
