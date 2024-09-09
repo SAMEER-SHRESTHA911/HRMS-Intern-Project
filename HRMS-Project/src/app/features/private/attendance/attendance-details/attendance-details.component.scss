@@ -14,6 +14,10 @@
     align-items: center;
     gap: 0.5rem;
   }
+  .spacing {
+    display: inline-flex;
+    margin: 5px;
+  }
   .sticky-paginator {
     position: sticky;
     bottom: 0;
@@ -52,6 +56,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    gap: 10px;
     width: 100%;
     position: sticky;
     top: 56px;
@@ -76,7 +81,7 @@
 
   .table-data-container {
     overflow-x: auto;
-    max-height: 500px;
+    // max-height: 450px;
     white-space: nowrap;
 
     table {
@@ -114,7 +119,7 @@
   }
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 1500px) {
   .attendance-list-header {
     padding: 6px 10px;
 
@@ -134,7 +139,9 @@
         font-size: 14px;
       }
     }
-
+    .table-data-container {
+      max-height: 500px;
+    }
     table {
       th.mat-header-cell,
       td.mat-cell {

@@ -6,7 +6,22 @@ import {
 } from '@angular/forms';
 import { passwordMatchValidator } from '@shared/validators/passwordMatch/password-match.validator';
 import { Router } from '@angular/router';
-
+interface EmployeeDetails {
+  id: number;
+  firstName: string;
+  lastName: string;
+  middleName?: string;
+  mobileNo: string;
+  addressId: number;
+  email: string;
+  citizenshipNo: string;
+  dob: string;
+  departmentId: number;
+  role: string;
+  gender: number;
+  nationality: string;
+  startDate: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -40,15 +55,34 @@ export class FormService {
   }
 
   resetForm(): void {
-    this.registrationForm.reset();
+    this.registrationForm.reset({
+      firstName: '',
+      middleName: '',
+      lastName: '',
+      mobileNo: '',
+      gender: '',
+      dob: '',
+      address: '',
+      nationality: '',
+      citizenshipNo: '',
+      startDate: '',
+      departmentId: '',
+      role: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+      city: '',
+      country: ''
+    });
   }
+
   nagivateTo(): void {
     this.router.navigate(['/admin/staff-registration/staff-list']);
 
   }
   getFormValueToPatch(value: any): void {
     console.log(value)
-    this.registrationForm.patchValue(value);
+    if (value) this.registrationForm.patchValue(value); //TODO: emty value is being patched
     this.registrationForm.updateValueAndValidity()
   }
 }

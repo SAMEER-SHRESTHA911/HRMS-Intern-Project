@@ -5,11 +5,13 @@ export interface StaffState {
   error: string | null;
   staff: RegisterStaffPayload | null;
   staffDetails: GetEmployeeDetails | null;
+  status: boolean
 }
 
 export const initialState: StaffState = {
   loading: false,
   error: null,
   staff: null,
-  staffDetails: null
+  staffDetails: null,
+  status: false
 };
