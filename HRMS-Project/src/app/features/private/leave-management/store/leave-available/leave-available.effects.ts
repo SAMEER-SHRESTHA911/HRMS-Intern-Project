@@ -14,8 +14,8 @@ export class LeaveAvailableEffects {
   loadAvailableLeaveData = createEffect(()=> 
     this.action$.pipe(
         ofType(FETCH_AVAILABLE_LEAVE_DATA),
-        mergeMap(()=> 
-        this.leaveAvailableService.getLeaveAvailableData().pipe(
+        mergeMap(({employeeId})=> 
+        this.leaveAvailableService.getLeaveAvailableData(employeeId).pipe(
             map(({ leaveBalanceData}) => {
                 return FETCH_AVAILABLE_LEAVE_DATA_SUCCESS({ leaveBalanceData });
             }),

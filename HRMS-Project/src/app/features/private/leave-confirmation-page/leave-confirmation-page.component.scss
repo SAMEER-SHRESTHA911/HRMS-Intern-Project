@@ -104,13 +104,13 @@
 .red {
   color: red;
   background-color: rgb(255, 196, 196);
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
 }
 .green {
   color: green;
   background-color: rgb(157, 252, 157);
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
 }
 .blue {
@@ -123,6 +123,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(247, 247, 180);
-    padding: 10px;
+    padding: 0 15px 0 15px;
+    padding-left: 30px;
     border-radius: 10px;
 }

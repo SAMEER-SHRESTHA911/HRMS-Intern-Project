@@ -31,7 +31,7 @@ export class LeaveApproveCardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log(this.data);
+    // console.log(this.data);
     this.store.dispatch(FETCH_IMAGE({ id: this.data.employeeId }));
     this.imageData$ = this.store.select(selectImageData);
   }
@@ -48,5 +48,8 @@ export class LeaveApproveCardComponent implements OnInit {
   }
   resetDialog(): void {
     this.dialogRef.close(false);
+  }
+  navigate():void{
+    this.router.navigate([`admin/${ROUTE_CONSTANT.leaveManagement}/${this.data.employeeId}`]);
   }
 }

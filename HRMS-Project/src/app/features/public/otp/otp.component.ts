@@ -21,7 +21,7 @@ constructor(private fb: FormBuilder, private store: Store) {}
   }
 
   onSubmit() {
-    console.log("hi");
+    // console.log("hi");
     if (this.otpForm.valid) {
       const otp = this.otpForm.get('otp')?.value;
       this.store.dispatch(OtpActions.verifyOtp({ otp }));

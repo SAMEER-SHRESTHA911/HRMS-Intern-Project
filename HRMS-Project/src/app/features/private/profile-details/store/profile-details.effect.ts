@@ -16,7 +16,7 @@ export class ProfileDetailsEffect {
       mergeMap(({ profileId }) =>
         this.profileDetailsService.getProfileDetailsById(profileId).pipe(
           map((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             return FETCH_PROFILE_DETAILS_SUCCESS({
               profileDetails: response.data,
             });

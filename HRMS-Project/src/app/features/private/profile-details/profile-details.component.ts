@@ -48,7 +48,7 @@ export class ProfileDetailsComponent implements OnInit {
     // this.profileDetails$.subscribe((data) => console.log(data));
     this.profilePicture$.subscribe({
       next: (res) => {
-        console.log(res);
+        // console.log(res);
         this.imageName = res?.imageName || null;
       },
     });
@@ -77,9 +77,9 @@ export class ProfileDetailsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result);
+        // console.log(result);
       } else {
-        console.log('closes');
+        // console.log('closes');
       }
     });
   }

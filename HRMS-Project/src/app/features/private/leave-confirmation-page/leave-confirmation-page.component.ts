@@ -79,9 +79,9 @@ export class LeaveConfirmationPageComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.#destroy$))
       .subscribe((leaveRequestList) => {
         const leaveRequest = leaveRequestList.find((item) => item.id === id);
-        console.log(leaveRequest);
+        // console.log(leaveRequest);
         if (leaveRequest) {
-          console.log(leaveRequest);
+          // console.log(leaveRequest);
           this.dialog.open(LeaveApproveCardComponent, {
             data: leaveRequest,
           });

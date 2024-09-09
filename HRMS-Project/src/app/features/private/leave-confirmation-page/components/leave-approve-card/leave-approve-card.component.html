@@ -8,7 +8,7 @@
                         <div class="personal-details">
                             <div class="img">
                                 <img *ngIf="(imageData$ | async)?.imageDataBase64 as imageDataBase64" 
-                                     [src]="imageDataBase64?'data:image/jpeg;base64,' + imageDataBase64:'avatar.png'" alt="pic"/>
+                                     [src]="imageDataBase64?'data:image/jpeg;base64,' + imageDataBase64:'/avatar.png'" alt="pic"/>
                               </div>
                             <div class="employee-details">
                                 <div class="clr-333 font-24">
@@ -33,6 +33,11 @@
                     <div class="second-row">
                         <div class="fromDate">{{data.leaveFrom}} &nbsp; -</div>
                         <div class="toDate">{{data.leaveTo}}</div>
+                        <div class="options">
+                            <button (click)="navigate()">
+                                <mat-icon title="View Employee Leave Balance">more_vert</mat-icon>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="leave-info-body">
