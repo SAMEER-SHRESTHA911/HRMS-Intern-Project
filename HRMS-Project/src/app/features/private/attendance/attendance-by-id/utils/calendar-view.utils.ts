@@ -29,10 +29,8 @@ export const calendarViewUtils = (
     const date = formattedDate.toISOString().split('T')[0];
 
     const checkInTime = formattedDate.toTimeString().split(' ')[0];
-    console.log(checkInTime);
 
     const checkOutTime = formattedCheckoutDate.toTimeString().split(' ')[0];
-    console.log(checkOutTime);
 
     return {
       date: date,

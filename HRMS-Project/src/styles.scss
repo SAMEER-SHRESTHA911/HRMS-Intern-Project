@@ -41,20 +41,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-/* Change the background color of Saturdays */
 .fc-day-sat {
-  background-color: #f0f0f0; /* Light gray */
+  background-color: #f0f0f0;
 }
 
-/* Change the background color of Sundays */
 .fc-day-sun {
-  background-color: #f0f0f0; /* Light gray */
+  background-color: #f0f0f0;
 }
 
-/* Optional: If you want to change the text color too */
 .fc-day-sat,
 .fc-day-sun {
-  color: #ff0000; /* Red text */
+  color: #ff0000;
 }
 
 .fc-day-sat {
