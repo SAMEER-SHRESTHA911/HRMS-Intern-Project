@@ -18,7 +18,7 @@ export class AuthService {
     console.log('I am lost',token)
     localStorage.setItem('token', token);
   }
-  
+
   setEmployeeId(employeeId:string){
     localStorage.setItem('employeeId', employeeId)
   }
@@ -40,7 +40,7 @@ export class AuthService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     return this.http.post(`${this.apiUrl}Login/Login`, credentials, { headers }).pipe(
-      
+
       map((response: any) => {
         console.log(response)
         const token = response.data.token;

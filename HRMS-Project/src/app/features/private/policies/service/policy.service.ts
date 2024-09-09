@@ -7,6 +7,7 @@ import { Policy } from '../models/policy.model';
   providedIn: 'root'
 })
 export class PolicyService {
+  // private apiUrl = 'http://localhost:3000/policies'
   private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/Policy/CreatePolicy';
 
   constructor(private http: HttpClient) {}
@@ -31,3 +32,4 @@ export class PolicyService {
     return this.http.delete<void>(`${this.apiUrl}/policies/${id}`);
   }
 }
+

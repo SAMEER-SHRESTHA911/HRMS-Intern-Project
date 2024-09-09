@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit(): void {
-    if (this.loginForm.valid && this.loginForm.valid) {
+    if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value as {email:string,password:string}).subscribe(
         (result) =>
         {
@@ -38,6 +38,8 @@ export class LoginComponent implements OnInit {
           this.openSnackBar('Failed to Login')
         }
       );
+    }else{
+      this.openSnackBar('Invalid Email or Password')
     }
   }
   togglePasswordVisibility():void{

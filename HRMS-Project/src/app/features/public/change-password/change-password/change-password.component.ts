@@ -61,10 +61,10 @@ export class ChangePasswordComponent implements OnInit {
   }
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
-      duration: 3000, // Duration in milliseconds
-      horizontalPosition: 'left', // Position of the snackbar
-      verticalPosition: 'bottom', // Position of the snackbar
-      panelClass: ['snack-bar'] // Custom class for styling
+      duration: 3000,
+      horizontalPosition: 'left',
+      verticalPosition: 'bottom',
+      panelClass: ['snack-bar'] 
     });
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { PolicyService } from '../../service/policy.service';
 import * as PolicyActions from './policy-list.action';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap } from 'rxjs/operators'; 
 import { of } from 'rxjs';
 
 @Injectable()
