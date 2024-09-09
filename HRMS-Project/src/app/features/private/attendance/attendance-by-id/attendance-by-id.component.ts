@@ -58,7 +58,7 @@ export class AttendanceByIdComponent implements OnInit {
   getIdFromRoute(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') ?? '';
-      console.log(this.id)
+      // console.log(this.id)
     });
   }
 }

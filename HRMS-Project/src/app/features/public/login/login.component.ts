@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.loginForm.value as {email:string,password:string}).subscribe(
         (result) =>
         { 
-          console.log(result)
+          // console.log(result)
           this.router.navigate(['admin/dashboard']);
           this.openSnackBar('LogIn Successfully')
         },
