@@ -164,7 +164,6 @@ export class AddStaffComponent implements OnInit, OnDestroy {
 
     const updatedData = convertToStaffPayload(this.registrationForm.value);
     if (this.isEditMode && this.editId !== null) {
-      console.log('s')
       this.store.dispatch(
         updateEmployee({ employeeId: +this.editId, updatedData })
       );
