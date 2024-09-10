@@ -31,10 +31,6 @@ export interface EmployeeAttendanceRecord {
 
 export interface EmployeeAttendanceRecordForTable extends EmployeeAttendanceRecord {
   actions: unknown
-}
-export interface EmployeeAttendanceRecordForTable
-  extends EmployeeAttendanceRecord {
-  actions: unknown;
   SN: string;
 }
 

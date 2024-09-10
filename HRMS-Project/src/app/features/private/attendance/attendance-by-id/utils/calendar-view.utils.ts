@@ -2,6 +2,7 @@ import { formatDate } from '@shared/utils/date-utils';
 import {
   CalenderViewData,
   EmployeeAttendanceRecord,
+  EmployeeAttendanceRecordById,
 } from '../../model/attendance-details.interface';
 
 // export const calendarViewUtils = (
@@ -19,12 +20,12 @@ import {
 //   return calenderViewData;
 // };
 export const calendarViewUtils = (
-  responseData: EmployeeAttendanceRecord[]
+  responseData: EmployeeAttendanceRecordById[]
 ): CalenderViewData[] => {
   return responseData.map((data) => {
-    const formattedDate = new Date(data.checkIn);
+    const formattedDate = new Date(data.checkIn ?? '');
 
-    const formattedCheckoutDate = new Date(data.checkOut);
+    const formattedCheckoutDate = new Date(data.checkOut ?? '');
 
     const date = formattedDate.toISOString().split('T')[0];
 

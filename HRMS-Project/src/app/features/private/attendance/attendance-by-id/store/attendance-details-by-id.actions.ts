@@ -1,11 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import {
-  AttendanceData,
   AttendanceRequestPayload,
   CalenderViewData,
-  EmployeeAttendanceRecord,
+  EmployeeByIdData,
 } from '../../model/attendance-details.interface';
-import { ResponseType } from '@shared/models/response.model';
 
 export const loadAttendanceListById = createAction(
   '[Attendance] Load Attendance List By Id',
@@ -14,7 +12,7 @@ export const loadAttendanceListById = createAction(
 
 export const loadAttendanceListByIdSuccess = createAction(
   '[Attendance] Load Attendance List By Id Success',
-  props<{ response: AttendanceData; calendarData: CalenderViewData[] }>()
+  props<{ response: EmployeeByIdData; calendarData: CalenderViewData[] }>()
 );
 
 export const loadAttendanceListByIdFailure = createAction(

@@ -137,7 +137,7 @@
   }
 }
 
-@media (max-width: 1500px) {
+@media (min-width: 1500px) {
   .attendance-list-header {
     padding: 6px 10px;
 
@@ -157,7 +157,9 @@
         font-size: 14px;
       }
     }
-
+    .table-data-container {
+      max-height: 500px;
+    }
     table {
       th.mat-header-cell,
       td.mat-cell {

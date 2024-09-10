@@ -1,11 +1,10 @@
 import {
-  AttendanceData,
   CalenderViewData,
-  EmployeeAttendanceRecord,
+  EmployeeByIdData,
 } from '../../model/attendance-details.interface';
 
 export interface AttendanceDetailsById {
-  record: AttendanceData | undefined;
+  record: EmployeeByIdData | undefined;
   calendarData: CalenderViewData[] | null;
   loading: boolean;
   error: string | null;

@@ -30,5 +30,9 @@ export const fetchEmployeeDataFailure = createAction(
 );
 
 export const staffReadyToPatch = createAction(
-  '[Staff] Ready To Patch',
+  '[Staff] Ready To Patch', props<{ status: boolean }>()
+);
+
+export const restForm = createAction(
+  '[Staff] Reset To Patch',
 );
