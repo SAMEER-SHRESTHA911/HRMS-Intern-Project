@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { baseUrl } from "@shared/constants/global.constants";
 import { catchError, Observable, throwError } from "rxjs";
 
 @Injectable({
@@ -13,7 +14,8 @@ export class AuthService {
 
 
   verifyOtp(otp: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/verify-otp`, { otp }).pipe(
+    console.log('nfvdhf')
+    return this.http.post(`${baseUrl}/user/Login/RequestOTP`, { otp }).pipe(
       catchError(error => {
         return throwError(() => new Error('Failed to verify OTP'));
       })

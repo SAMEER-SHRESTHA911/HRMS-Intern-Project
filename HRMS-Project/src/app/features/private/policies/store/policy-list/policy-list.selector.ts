@@ -5,7 +5,7 @@ export const selectPolicyState = createFeatureSelector<PolicyState>('policy');
 
 export const selectAllPolicies = createSelector(
   selectPolicyState,
-  (state: PolicyState) => state.policies
+  (state: PolicyState) => state.policies?.data
 );
 
 export const selectPolicyLoading = createSelector(
@@ -17,4 +17,4 @@ export const selectPolicyError = createSelector(
   selectPolicyState,
   (state: PolicyState) => state.error
 );
-  
+

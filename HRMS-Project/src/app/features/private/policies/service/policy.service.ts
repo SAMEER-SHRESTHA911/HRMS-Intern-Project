@@ -1,35 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Policy } from '../models/policy.model';
+import { baseUrl } from '@shared/constants/global.constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PolicyService {
-  private apiUrl = 'http://localhost:3000/policies'
-  // private apiUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/attendanceLeave/Policy/CreatePolicy';
+private apiUrl = `${baseUrl}/api/policies`;
 
   constructor(private http: HttpClient) {}
 
-  getPolicies(): Observable<Policy[]> {
-    return this.http.get<Policy[]>(`${this.apiUrl}`);
+  getPolicies(): Observable<any> {
+    return this.http.get<any>(`${ baseUrl}/attendanceLeave/Policy/GetAllPolicy`);
   }
 
-  getPolicy(id: string): Observable<Policy> {
-    return this.http.get<Policy>(`${this.apiUrl}${id}`);
+  getPolicy(id: number): Observable<Policy> {
+    return this.http.get<Policy>(`${baseUrl}/attendanceLeave/Policy/GetAllPolicy`);
   }
 
   addPolicy(policy: Policy): Observable<Policy> {
-    return this.http.post<Policy>(`${this.apiUrl}/policies`, policy);
+    return this.http.post<Policy>(`${baseUrl}/attendanceLeave/Policy/CreatePolicy`, policy);
   }
 
-  editPolicy(id: string, policy: Policy): Observable<Policy> {
-    return this.http.put<Policy>(`${this.apiUrl}/policies/${id}`, policy);
+  editPolicy(policy: Policy): Observable<Policy> {
+    return this.http.put<Policy>(`${baseUrl}/attendanceLeave/Policy/UpdatePolicy`, policy);
   }
 
-  deletePolicy(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/policies/${id}`);
+  deletePolicy(id: number): Observable<void> {
+    const params = new HttpParams().set(
+      'id', id
+    )
+    return this.http.delete<void>(`${baseUrl}/attendanceLeave/Policy/DeletePolicy`, {params});
   }
 }
 

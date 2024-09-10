@@ -12,7 +12,7 @@ import { apiConstants } from '@shared/constants/api.constants';
   providedIn: 'root',
 })
 export class AuthService {
-  // private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
+  private baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway/user/';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -41,7 +41,7 @@ export class AuthService {
   login(credentials: { email: string; password: string }): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post(`${baseUrl}Login/Login`, credentials, { headers }).pipe(
+    return this.http.post(`${baseUrl}${apiConstants.login.login}`, credentials, { headers }).pipe(
 
       map((response: any) => {
         console.log(response)

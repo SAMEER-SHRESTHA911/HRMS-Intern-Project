@@ -1,61 +1,54 @@
 import { createReducer, on } from '@ngrx/store';
-import {
-  loadPolicies, loadPoliciesSuccess, loadPoliciesFailure,
-  addPolicySuccess, editPolicySuccess, deletePolicySuccess
-} from './policy-list.action';
-import { Policy } from '../../models/policy.model';
-
-export interface PolicyState {
-  policies: Policy[];
-  error: string | null;
-  loading: boolean;
-}
-
-export const initialState: PolicyState = {
-  policies: [],
-  error: null,
-  loading: false,
-};
+import { initialState, PolicyState } from './policy-list.state';
+import * as PolicyActions from './policy-list.action';
 
 export const policyReducer = createReducer(
   initialState,
+  on(PolicyActions.loadPolicies, (state)=> ({
+    ...state,
+    loading:true,
+    error:null,
+  })),
 
-  // Load Policies
-  on(loadPolicies, state => ({
+  on(PolicyActions.loadPoliciesSuccess, (state, { policies }) => ({
     ...state,
-    loading: true,
-  })),
-  on(loadPoliciesSuccess, (state, { policies }) => ({
-    ...state,
-    loading: false,
     policies,
+
+    error: null,
   })),
-  on(loadPoliciesFailure, (state, { error }) => ({
+  on(PolicyActions.loadPoliciesFailure, (state, { error }) => ({
     ...state,
-    loading: false,
     error,
   })),
 
-  // Add Policy
-  on(addPolicySuccess, (state, { policy }) => ({
+
+  on(PolicyActions.addPolicySuccess, (state, { policy }) => ({
     ...state,
-    policies: [...state.policies, policy]
+    // policies: [...state.policies, policy],
+    error: null,
+  })),
+  on(PolicyActions.addPolicyFailure, (state, { error }) => ({
+    ...state,
+    error,
   })),
 
-  // Edit Policy
-  on(editPolicySuccess, (state, { policy }) => ({
+  on(PolicyActions.editPolicySuccess, (state, { response: policy }) => ({
     ...state,
-    policies: state.policies.map(p =>
-      Number(p.id) === Number(policy.id) ? policy : p
-    )
+    // policies: state.policies.map(p => p.id === policy.id ? policy : p),
+    error: null,
+  })),
+  on(PolicyActions.editPolicyFailure, (state, { error }) => ({
+    ...state,
+    error,
   })),
 
-  // Delete Policy
-  on(deletePolicySuccess, (state, { id }) => ({
+  on(PolicyActions.deletePolicySuccess, (state, { id }) => ({
     ...state,
-    policies: state.policies.filter(p =>
-      // Convert 'p.id' and 'id' to numbers before comparison
-      Number(p.id) !== Number(id)
-    )
+    // policies: state.policies.filter(p => p.id !== id),
+    error: null,
+  })),
+  on(PolicyActions.deletePolicyFailure, (state, { error }) => ({
+    ...state,
+    error,
   }))
 );
