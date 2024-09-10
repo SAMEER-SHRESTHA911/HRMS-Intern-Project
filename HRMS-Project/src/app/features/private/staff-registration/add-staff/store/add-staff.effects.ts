@@ -19,6 +19,7 @@ import {
   fetchEmployeeData,
   fetchEmployeeDataFailure,
   fetchEmployeeDataSuccess,
+  restForm,
   staffReadyToPatch,
 } from './add-staff.actions';
 import { selectToPatchStaffData } from './add-staff.selector';
@@ -49,8 +50,10 @@ export class StaffEffects {
       this.actions$.pipe(
         ofType(addStaffSuccess),
         map(() => {
-          this.formService.resetForm();
+          // this.formService.resetForm();
           this.formService.nagivateTo();
+          this.store.dispatch(restForm())
+
         })
       ),
     {
@@ -76,16 +79,21 @@ export class StaffEffects {
   fetchEmployeeDataSucess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(fetchEmployeeDataSuccess),
-      map(({ staffDetails }) => {
-        console.log(staffDetails)
-        return (loadAddressById({ addressId: staffDetails.addressId }))
-      })
+      map(({ staffDetails }) => (loadAddressById({ addressId: staffDetails.addressId }))),
     ),
   )
+
+  allowToPatch$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fetchEmployeeDataSuccess),
+      map(() => (staffReadyToPatch({ status: true }))),
+    ),
+  )
+
   loadCountries$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadAddressByIdSuccess),
-      map(({ address }) => {
+      map(() => {
         return loadCountries()
       })
     ),
@@ -101,7 +109,7 @@ export class StaffEffects {
   loadDepartments$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadCitiesSuccess),
-      map(({ }) => {
+      map(() => {
         return loadDepartments()
       })
     ),
@@ -109,17 +117,8 @@ export class StaffEffects {
   loadRoles$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadDepartmentsSucess),
-      map(({ }) => {
+      map(() => {
         return loadRoles()
-      })
-    ),
-  )
-  staffReadyToPatch$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(loadRolesSucess),
-      map(({ roles }) => {
-        console.log(roles)
-        return staffReadyToPatch()
       })
     ),
   )
@@ -127,10 +126,13 @@ export class StaffEffects {
   patch$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(staffReadyToPatch),
+        ofType(loadRolesSucess),
         concatLatestFrom(() => this.store.pipe(select(selectToPatchStaffData))),
         map(([_, value]) => {
-          this.formService.getFormValueToPatch(value)
+          if (value) {
+
+            this.formService.getFormValueToPatch(value);
+          }
         })
       ),
     { dispatch: false }
@@ -141,7 +143,7 @@ export class StaffEffects {
       this.actions$.pipe(
         ofType(fetchEmployeeDataFailure),
         map((error) => {
-          console.log(error)
+          // console.log(error)
           this.snackBar.open(
             'You are not Checked In, Please check-in!',
             'Close',

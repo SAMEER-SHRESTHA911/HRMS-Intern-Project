@@ -27,7 +27,5 @@ export class SidebarComponent {
   ngOnInit(): void {
     this.role = localStorage.getItem('role');
     this.id = localStorage.getItem('employeeId');
-    console.log(this.role);
-    console.log(this.id);
   }
 }

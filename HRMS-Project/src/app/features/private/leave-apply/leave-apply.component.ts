@@ -14,7 +14,7 @@ import {
 } from '@shared/store/day-leave-dropdown/day-leave.selectors';
 
 import { loggedInUser } from '@shared/constants/global.constants';
-import { formatDate } from '@shared/utils/date-utils';
+import { DAY_DATA, formatDate, formatDateToString } from '@shared/utils/date-utils';
 import { selectLeaveEditData } from './store/leave-apply-form/leave-edit.selector';
 import { LeaveTypeDropdown } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.state';
 import { LeaveTypeDropDownData } from '@shared/store/add-staff-dropdowns/leave-type-dropdown/leave-type.selector';
@@ -73,7 +73,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   getDropDown() :void{
-    console.log(this.leaveApplyForm?.value);
+    // console.log(this.leaveApplyForm?.value);
     this.store.dispatch(FETCH_DAY_LEAVE_DROPDOWN());
 
     this.store
@@ -105,8 +105,11 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     const selectedLeaveType = this.leaveTypeArray.find(
       (item) => item.value === formValue.leaveType.value
     )?.key;
-    const formattedLeaveFrom = formatDate(formValue.leaveFrom);
-    const formattedLeaveTo = formatDate(formValue.leaveTo);
+    const formattedLeaveFrom = formatDateToString(formValue.leaveFrom);
+    
+    // console.log(formValue.leaveFrom)
+    // console.log(formattedLeaveFrom)
+    const formattedLeaveTo = formatDateToString(formValue.leaveTo);
 
     const formValueSubmit = {
       employeeId: Number(loggedInUser.id),
@@ -128,7 +131,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
   }
 
   private loadEditData(leaveId?: string): void {
-    console.log(leaveId);
+    // console.log(leaveId);
     if (!leaveId) {
       return;
     }
@@ -144,9 +147,9 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .subscribe((editLeaveData) => {
         if (this.leaveApplyForm && editLeaveData) {
           this.leaveEditService.patchData(this.leaveApplyForm, editLeaveData);
-          console.log(editLeaveData);
-          console.log(editLeaveData.reasonForLeave);
-          console.log(this.leaveApplyForm);
+          // console.log(editLeaveData);
+          // console.log(editLeaveData.reasonForLeave);
+          // console.log(this.leaveApplyForm);
         }
       });
 
@@ -177,7 +180,9 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       ?.valueChanges.pipe(takeUntil(this.#destroy$))
       .subscribe((leaveFromDate) => {
         if (leaveFromDate) {
-          this.minDateForLeaveTo = new Date(leaveFromDate);
+          const adjustedDate = new Date(leaveFromDate);
+          adjustedDate.setHours(0,0,0,0);
+          this.minDateForLeaveTo = adjustedDate;
           this.leaveApplyForm?.get('leaveTo')?.updateValueAndValidity();
         }
       });

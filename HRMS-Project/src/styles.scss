@@ -41,34 +41,12 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-/* Change the background color of Saturdays */
-.fc-day-sat {
-  background-color: #f0f0f0; /* Light gray */
-}
-
-/* Change the background color of Sundays */
-.fc-day-sun {
-  background-color: #f0f0f0; /* Light gray */
-}
-
-/* Optional: If you want to change the text color too */
-.fc-day-sat,
-.fc-day-sun {
-  color: #ff0000; /* Red text */
-}
-
-.fc-day-sat {
-  background-color: #f0f0f0;
-}
-
-.fc-day-sun {
-  background-color: #f0f0f0;
-}
-
 .fc-day-sat,
 .fc-day-sun {
   color: #ff0000;
+  background-color: #f0f0f0;
 }
+
 .fc-event-dot {
   display: none !important;
 }

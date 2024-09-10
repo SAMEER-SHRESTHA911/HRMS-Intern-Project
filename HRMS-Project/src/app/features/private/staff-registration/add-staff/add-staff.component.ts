@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormGroup
 } from '@angular/forms';
@@ -17,7 +17,7 @@ import { selectAllRoles } from '../../../../shared/store/add-staff-dropdowns/rol
 import { } from '../staff-list/store/staff-list.actions';
 import { StaffDetailsFormValue } from './model/add-staff';
 import { FormService } from './service/form/form.service';
-import { addStaff, fetchEmployeeData } from './store/add-staff.actions';
+import { addStaff, fetchEmployeeData, restForm } from './store/add-staff.actions';
 import {
   selectStaffError,
   selectStaffLoading,
@@ -25,7 +25,6 @@ import {
 import { StaffState } from './store/add-staff.state';
 import { convertToStaffPayload } from './transformer/staff-register-payload.transformer';
 import { updateEmployee } from './store/update-staff/update-staff.action';
-import { StaffListService } from '../staff-list/service/staff-list.service';
 import { CountryData } from '@shared/models/country.interface';
 import { selectAllCountries } from '@shared/store/add-staff-dropdowns/country/country.selector';
 import { loadCountries } from '@shared/store/add-staff-dropdowns/country/country.actions';
@@ -38,7 +37,7 @@ import { selectAllDepartments } from '@shared/store/add-staff-dropdowns/departme
   templateUrl: './add-staff.component.html',
   styleUrl: './add-staff.component.scss',
 })
-export class AddStaffComponent implements OnInit {
+export class AddStaffComponent implements OnInit, OnDestroy {
   passwordHide = true;
   confirmPasswordHide = true;
   isEditMode: boolean = false;
@@ -69,20 +68,32 @@ export class AddStaffComponent implements OnInit {
     this.formService.registrationForm = form;
   }
 
+  get editId(): string {
+    if (this.route.snapshot.params['id']) {
+      this.isEditMode = true
+    }
+
+    return this.route.snapshot.params['id'];
+  }
+
   constructor(
     private formService: FormService,
     private store: Store<StaffState>,
     private route: ActivatedRoute,
     private router: Router
   ) { }
+  ngOnDestroy(): void {
+    this.store.dispatch(restForm())
+    this.formService.resetForm();
+  }
 
   ngOnInit(): void {
     this.formService.initializeForm();
+    // this.formService.resetForm();
     this.selectorInitializer();
     this.initializeEditMode();
     this.setMaxDateForDob();
     this.setMaxStartDate();
-
   }
 
   setMaxDateForDob(): void {
@@ -110,30 +121,39 @@ export class AddStaffComponent implements OnInit {
   }
 
   getCityListByCountryId(countryId: CountryData): void {
+    console.log(countryId)
     this.selectedCountry = countryId;
     this.store.dispatch(loadCities({ countryId: this.selectedCountry.id }));
   }
 
   private initializeEditMode(): void {
-    this.route.paramMap
-      .pipe(
-        switchMap((params) => {
-          const id = params.get('id');
-          this.isEditMode = !!id;
-          this.staffId = id ? +id : null;
+    // this.route.paramMap
+    //   .pipe(
+    //     switchMap((params) => {
+    //       const id = params.get('id');
+    //       this.isEditMode = !!id;
+    //       this.staffId = id ? +id : null;
 
-          if (this.isEditMode && this.staffId !== null) {
-            this.loadStaffList(this.staffId);
-          }
-          else {
-            this.getCountryList();
-            this.getDeparmentList();
-            this.getRoleList();
-          }
-          return of(null);
-        })
-      )
-      .subscribe();
+    //       if (this.isEditMode && this.staffId !== null) {
+    //         this.loadStaffList(this.staffId);
+    //       }
+    //       else {
+    //         this.getCountryList();
+    //         this.getDeparmentList();
+    //         this.getRoleList();
+    //       }
+    //       return of(null);
+    //     })
+    //   )
+    //   .subscribe();
+
+    if (this.editId) {
+      this.loadStaffList(+this.editId)
+    } else {
+      this.getCountryList();
+      this.getDeparmentList();
+      this.getRoleList();
+    }
   }
 
   onSubmit(): void {
@@ -143,10 +163,9 @@ export class AddStaffComponent implements OnInit {
     }
 
     const updatedData = convertToStaffPayload(this.registrationForm.value);
-    if (this.isEditMode && this.staffId !== null) {
-
+    if (this.isEditMode && this.editId !== null) {
       this.store.dispatch(
-        updateEmployee({ employeeId: this.staffId, updatedData })
+        updateEmployee({ employeeId: +this.editId, updatedData })
       );
     } else {
       this.store.dispatch(addStaff({ staff: updatedData }));

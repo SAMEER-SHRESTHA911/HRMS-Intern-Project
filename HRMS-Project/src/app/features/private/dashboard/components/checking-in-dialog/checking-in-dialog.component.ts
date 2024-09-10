@@ -64,7 +64,7 @@ export class CheckingInDialogComponent {
         .postCheckedInMessage(this.checkInForm.value)
         .subscribe({
           next: (res) => {
-            console.log(res);
+            // console.log(res);
             this.isLoading = true;
             this.dialogRef.close();
             this.checkInStatusStore.dispatch(
@@ -83,7 +83,7 @@ export class CheckingInDialogComponent {
             );
           },
           error: (err) => {
-            console.log(err);
+            // console.log(err);
             this.isLoading = false;
             this.snackBar.open(
               'Could not Check-In, Please Try Again!',
@@ -96,7 +96,7 @@ export class CheckingInDialogComponent {
             );
           },
           complete: () => {
-            console.log('completed');
+            // console.log('completed');
           },
         });
     }
@@ -112,7 +112,7 @@ export class CheckingInDialogComponent {
         .postCheckOutMessage(this.checkOutForm.value)
         .subscribe({
           next: (res) => {
-            console.log(res);
+            // console.log(res);
             this.isCheckOutLoading = true;
             this.dialogRef.close();
             this.checkInStatusStore.dispatch(
@@ -125,7 +125,7 @@ export class CheckingInDialogComponent {
             });
           },
           error: (err) => {
-            console.log(err);
+            // console.log(err);
             this.isCheckOutLoading = false;
             this.snackBar.open(
               'Could not Check-Out, Please Try Again!',
@@ -138,7 +138,7 @@ export class CheckingInDialogComponent {
             );
           },
           complete: () => {
-            console.log('completed');
+            // console.log('completed');
           },
         });
     }

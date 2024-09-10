@@ -3,7 +3,7 @@
 </div>
 <div class="grid grid-col-1 p-5 mt-2 gap-6">
   <div class="p-10 flex justify-between pattern">
-    <div class="flex items-center gap-14">
+    <div class="flex flex-col md:flex-row items-center gap-14">
       <img
         *ngIf="profilePicture$ | async as profilePicture"
         class="w-40 h-40 rounded-full"
@@ -46,10 +46,10 @@
           <mat-icon>camera_alt</mat-icon>
           <span>{{ !!imageName ? "Update " : "Upload " }}Profile Picture</span>
         </button>
-        <button mat-menu-item (click)="onChangePassword()">
+        <!-- <button mat-menu-item (click)="onChangePassword()">
           <mat-icon>edit</mat-icon>
           <span>Change Password</span>
-        </button>
+        </button> -->
       </mat-menu>
     </div>
   </div>

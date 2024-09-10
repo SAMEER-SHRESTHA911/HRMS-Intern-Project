@@ -44,6 +44,10 @@ mat-card {
         align-items: center;
         gap: 10px;
         margin-left: 80px;
+        .options{
+          display: flex;
+          margin-left:auto;
+        }
       }
     }
     .leave-info-body {

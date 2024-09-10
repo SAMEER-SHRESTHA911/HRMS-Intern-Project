@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,ts}",
-  ],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        "max-950px": { max: "950px" },
+      },
+    },
   },
   plugins: [],
-}
-
+};

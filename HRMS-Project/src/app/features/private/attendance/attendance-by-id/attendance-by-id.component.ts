@@ -2,12 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { AttendanceData, EmployeeAttendanceRecord, EmployeeAttendanceRecordForTable } from '../model/attendance-details.interface';
+import { AttendanceData, EmployeeAttendanceRecord, EmployeeAttendanceRecordById, EmployeeAttendanceRecordForTable, EmployeeAttendanceRecordForTableByID, EmployeeByIdData } from '../model/attendance-details.interface';
 import { select, Store } from '@ngrx/store';
 import { loadAttendanceListById } from './store/attendance-details-by-id.actions';
 import { selectAttendanceByIdRecords } from './store/attendance-details-by-id.selector';
 import { Observable, of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { cl } from '@fullcalendar/core/internal-common';
 
 @Component({
   selector: 'app-attendance-by-id',
@@ -16,36 +17,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AttendanceByIdComponent implements OnInit {
 
-  dataSource!: MatTableDataSource<EmployeeAttendanceRecord>;
+  dataSource!: MatTableDataSource<EmployeeAttendanceRecordById>;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  records$: Observable<AttendanceData | undefined> = of(undefined);
+  records$: Observable<EmployeeByIdData | undefined> = of(undefined);
   id: string = ''
-  displayedColumns: (keyof EmployeeAttendanceRecordForTable)[] = [
+  displayedColumns: (keyof EmployeeAttendanceRecordForTableByID)[] = [
     'SN',
-    'employeeName',
     'employeeId',
-    'departmentName',
-    'departmentId',
     'checkIn',
     'checkInReason',
     'checkOut',
-    'checkOutReason',
-    'workingHour',
-    'workLocation',
+    'checkOutReason', 'workLocation',
+    'workingHour'
+
+
   ];
 
   constructor(
     private store: Store,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) { }
-
+  goBack(): void {
+    this.router.navigate(['admin/attendance'])
+  }
   ngOnInit(): void {
     this.getIdFromRoute();
-    this.store.dispatch(loadAttendanceListById({ payload: {} }));
-    // this.dataSource.paginator = this.paginator;
+    this.store.dispatch(loadAttendanceListById({ payload: { employeeId: this.id, sort: { sortBy: 'Asc' } } }));
+    this.selectorInitializer();
 
   }
   selectorInitializer(): void {
@@ -58,7 +60,7 @@ export class AttendanceByIdComponent implements OnInit {
   getIdFromRoute(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id') ?? '';
-      console.log(this.id)
+      // console.log(this.id)
     });
   }
 }

@@ -28,7 +28,8 @@ export class PolicyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(PolicyActions.loadPolicies());
-    this.policies$.subscribe((data) => console.log(data))
+    this.policies$.subscribe((data) => {}
+  )
   }
 
   editPolicy(id: string): void {

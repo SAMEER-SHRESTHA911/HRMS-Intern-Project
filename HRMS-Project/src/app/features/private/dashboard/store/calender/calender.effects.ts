@@ -34,9 +34,9 @@ export class CalenderEffects {
       switchMap((action) =>
         this.calenderService.fetchCalenderData(action.data, action.id).pipe(
           // Log the calendar data
-          tap((calenderData) =>
-            console.log('Fetched Calendar Data:', calenderData)
-          ),
+          // tap((calenderData) =>
+          //   console.log('Fetched Calendar Data:', calenderData)
+          // ),
           map((calenderData) => fetchCalenderDataSuccess({ calenderData })),
           catchError((error) =>
             of(fetchCalenderDataFailure({ error: error.message }))

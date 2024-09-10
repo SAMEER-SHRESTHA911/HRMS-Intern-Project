@@ -1,7 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { initialAttendanceStateById } from './attendance-details-by-id.state';
-import { loadAttendanceListById, loadAttendanceListByIdFailure, loadAttendanceListByIdSuccess } from './attendance-details-by-id.actions';
+import {
+  loadAttendanceListById,
+  loadAttendanceListByIdFailure,
+  loadAttendanceListByIdSuccess,
+} from './attendance-details-by-id.actions';
 
 export const attendanceReducerById = createReducer(
   initialAttendanceStateById,
@@ -12,9 +16,10 @@ export const attendanceReducerById = createReducer(
     error: null,
   })),
 
-  on(loadAttendanceListByIdSuccess, (state, { response }) => ({
+  on(loadAttendanceListByIdSuccess, (state, { response, calendarData }) => ({
     ...state,
     record: response,
+    calendarData: calendarData,
     loading: false,
     error: null,
   })),
