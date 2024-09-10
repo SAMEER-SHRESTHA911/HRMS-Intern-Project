@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { getRole } from '@shared/constants/global.constants';
 // import { ADD_NEW_EMPLOYEES, APPLY_FOR_LEAVE, ATTENDANCE, EDIT_EMPLOYEE_DETAILS, EMPLOYEE_DETAILS, LEAVE_APPLICATION_STATUS, POLICIES, REMOVE_EMPLOYEES } from '../@shared/constants/routes.constant';
 import { ROUTE_CONSTANT } from '@shared/constants/routes.constant';
 
@@ -26,7 +25,7 @@ export class SidebarComponent {
   }
   
   ngOnInit(): void {
-    this.role = getRole();
+    this.role = localStorage.getItem('role');
     this.id = localStorage.getItem('employeeId');
     console.log(this.role);
     console.log(this.id);

@@ -1,22 +1,52 @@
 import { createAction, props } from '@ngrx/store';
-import { Policy } from '../../models/policy.model';
+import { Policy as AddPolicy } from '../../models/policy.model';
+import { PolicyResponse } from './policy-list.state';
 
-export const loadPolicies = createAction('[Policy List] Load Policies');
-export const loadPoliciesSuccess = createAction('[Policy List] Load Policies Success',props<{ policies: Policy[] }>());
-export const loadPoliciesFailure = createAction('[Policy List] Load Policies Failure',props<{ error: string }>());
+export const loadPolicies = createAction('[Policy] Load Policies');
+export const loadPoliciesSuccess = createAction(
+  '[Policy] Load Policies Success',
+  props<{ policies: PolicyResponse }>()
+);
+export const loadPoliciesFailure = createAction(
+  '[Policy] Load Policies Failure',
+  props<{ error: string }>()
+);
 
-export const addPolicy = createAction('[Policy List] Add Policy',props<{ policy: Policy }>());
-export const addPolicySuccess = createAction('[Policy List] Add Policy Success',props<{ policy: Policy }>());
-export const addPolicyFailure = createAction('[Policy List] Add Policy Failure',props<{ error: string }>());
+export const addPolicy = createAction(
+  '[Policy] Add Policy',
+  props<{ policy: AddPolicy }>()
+);
+export const addPolicySuccess = createAction(
+  '[Policy] Add Policy Success',
+  props<{ policy: AddPolicy }>()
+);
+export const addPolicyFailure = createAction(
+  '[Policy] Add Policy Failure',
+  props<{ error: string }>()
+);
 
-export const editPolicy = createAction('[Policy List] Edit Policy',props<{ policy: Policy, id:string }>());
-export const editPolicySuccess = createAction('[Policy List] Edit Policy Success',props<{ policy: Policy }>());
-export const editPolicyFailure = createAction('[Policy List] Edit Policy Failure',props<{ error: string }>());
+export const editPolicy = createAction(
+  '[Policy] Edit Policy',
+  props<{ policy: AddPolicy }>()
+);
+export const editPolicySuccess = createAction(
+  '[Policy] Edit Policy Success',
+  props<{ response: any }>() //successResponseAPI
+);
+export const editPolicyFailure = createAction(
+  '[Policy] Edit Policy Failure',
+  props<{ error: string }>()
+);
 
-export const deletePolicy = createAction('[Policy List] Delete Policy',props<{ id: string }>());
-export const deletePolicySuccess = createAction('[Policy List] Delete Policy Success',props<{ id: string }>());
-export const deletePolicyFailure = createAction('[Policy List] Delete Policy Failure',props<{ error: string }>());
-
-export function updatePolicy(updatePolicy: any): import("rxjs").OperatorFunction<import("@ngrx/store").Action<string>, any> {
-  throw new Error('Function not implemented.');
-}
+export const deletePolicy = createAction(
+  '[Policy] Delete Policy',
+  props<{ id: number }>()
+);
+export const deletePolicySuccess = createAction(
+  '[Policy] Delete Policy Success',
+  props<{ id: number }>()
+);
+export const deletePolicyFailure = createAction(
+  '[Policy] Delete Policy Failure',
+  props<{ error: string }>()
+);

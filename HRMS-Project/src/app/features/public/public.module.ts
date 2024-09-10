@@ -15,6 +15,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { OTPComponent } from './otp/otp.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './otp/Store/OTP.effect';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './otp/Store/OTP.reducer';
 @NgModule({
   declarations: [PublicComponent, LoginComponent, ForgetPasswordComponent, NotFoundComponent, OTPComponent],
   imports: [
@@ -28,7 +32,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    StoreModule.forFeature('OTP',authReducer ),
+    EffectsModule.forFeature([AuthEffects])
 
   ],
 })

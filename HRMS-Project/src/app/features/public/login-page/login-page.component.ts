@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      
+
     });
   }
 
@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.valid && this.loginForm.valid) {
       this.auth.login(this.loginForm.value as {email:string,password:string}).subscribe(
         (response) =>
-        { 
+        {
           if(response.data.token !== null){
             this.router.navigate(['admin/dashboard']);
             this.openSnackBar('LogIn Successfully')
@@ -50,8 +50,8 @@ export class LoginPageComponent implements OnInit {
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
       duration: 3000,
-      horizontalPosition: 'left',
-      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
       panelClass: ['snack-bar']
     });
 
