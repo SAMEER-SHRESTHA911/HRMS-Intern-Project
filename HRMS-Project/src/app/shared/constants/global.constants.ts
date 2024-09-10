@@ -4,6 +4,8 @@ export const baseUrl = 'https://zg0qm2qz-1595.inc1.devtunnels.ms/apigateway';
 // export const baseUrl = 'https://szln22kl-1595.inc1.devtunnels.ms/apigateway';
 
 // export const baseUrl = `http://localhost:5262/apigateway`;
+// Samir's portal
+
 // export const baseUrl = `http://localhost:1595/apigateway`;
 
 interface ILoggedInUser {
