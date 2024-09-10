@@ -6,11 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { AttendanceDetailsById } from '../../../attendance/attendance-by-id/store/attendance-details-by-id.state';
 import { selectCalendarViewData } from '../../../attendance/attendance-by-id/store/attendance-details-by-id.selector';
-import {
-  AttendanceData,
-  CalenderViewData,
-  EmployeeAttendanceRecord,
-} from '../../../attendance/model/attendance-details.interface';
+import { CalenderViewData } from '../../../attendance/model/attendance-details.interface';
 import { loadAttendanceListById } from '../../../attendance/attendance-by-id/store/attendance-details-by-id.actions';
 
 @Component({
@@ -19,15 +15,13 @@ import { loadAttendanceListById } from '../../../attendance/attendance-by-id/sto
   styleUrl: './calendar.component.scss',
 })
 export class CalendarComponent {
-  attendanceByIdData$: Observable<AttendanceData | undefined> = of(undefined);
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
-  constructor(private attendanceByIdStore: Store<AttendanceDetailsById>) {}
-  calanderData: EmployeeAttendanceRecord[] = [];
   calanderViewData: CalenderViewData[] = [];
   profileId = localStorage.getItem('employeeId');
   events: any;
   calendarOptions!: CalendarOptions;
+  constructor(private attendanceByIdStore: Store<AttendanceDetailsById>) {}
 
   ngOnInit(): void {
     this.attendanceByIdStore
