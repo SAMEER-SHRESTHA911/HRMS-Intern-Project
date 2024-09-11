@@ -127,7 +127,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       this.store.dispatch(submitLeaveForm({ leaveData: formValueSubmit }));
     }
 
-    this.router.navigate(['/admin/leave-management']);
+    this.router.navigate(['/admin/dashboard']);
   }
 
   private loadEditData(leaveId?: string): void {

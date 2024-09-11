@@ -47,7 +47,7 @@ export class LeaveManagementComponent implements OnInit{
   initializer(): void{
     this.availableLeaveData$ = this.store.pipe(select(selectAvailableLeave));
     this.availableLeaveData$.subscribe(
-      data => console.log(data)
+      // data => console.log(data)
     );
 
     this.loading$ = this.store.pipe(select(selectAvailableLeaveLoading));

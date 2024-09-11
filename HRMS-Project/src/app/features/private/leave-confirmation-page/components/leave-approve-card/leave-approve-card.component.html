@@ -7,9 +7,11 @@
                     <div class="first-row">
                         <div class="personal-details">
                             <div class="img">
-                                <img *ngIf="(imageData$ | async)?.imageDataBase64 as imageDataBase64" 
-                                     [src]="imageDataBase64?'data:image/jpeg;base64,' + imageDataBase64:'/avatar.png'" alt="pic"/>
-                              </div>
+                                {{(imageData$ | async)?.imageDataBase64}}
+                                <img *ngIf="(imageData$ | async)?.imageDataBase64 as imageDataBase64"
+                                    [src]="imageDataBase64 ? ('data:image/jpeg;base64,' + imageDataBase64):'./avatar.png'"
+                                    alt="pic" />
+                            </div>
                             <div class="employee-details">
                                 <div class="clr-333 font-24">
                                     {{data.employeeName}}

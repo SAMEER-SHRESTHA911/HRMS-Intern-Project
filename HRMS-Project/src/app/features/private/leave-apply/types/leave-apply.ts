@@ -1,10 +1,10 @@
 export interface LeaveApplyBody {
-  employeeId: number;
+  employeeId?: number;
   leaveFrom: string;
   leaveTo: string;
-  leaveType: number;
-  dayLeave: number;
-  leaveRequestStatus: number;
+  leaveType: number|string;
+  dayLeave: number|string;
+  leaveRequestStatus?: number;
   reasonForLeave: string;
 }
 export interface LeaveApplyResponse{

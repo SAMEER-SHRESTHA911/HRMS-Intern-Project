@@ -37,16 +37,18 @@ export class LeaveFormService {
     });
   }
 
-  changeEditMode(): void {
+  changeEditMode(): boolean {
     this.isEditMode = true;
+    return this.isEditMode;
   }
 
   getEditMode(): boolean {
     return this.isEditMode;
   }
 
-  resetEditMode(): void {
+  resetEditMode(): boolean {
     this.isEditMode = false;
+    return this.isEditMode;
   }
 
   fetchEditLeaveData(id: string | number): Observable<LeaveApplyResponse> {
@@ -55,15 +57,15 @@ export class LeaveFormService {
     );
   }
 
-  patchForm(data: LeaveApplyBody): void {
-    this.form?.patchValue({
-      reasonForLeave: data.reasonForLeave,
-      leaveType: data.leaveType,
-      leaveFrom: new Date(data.leaveFrom),
-      leaveTo: new Date(data.leaveTo),
-      dayLeave: data.dayLeave,
-    });
-  }
+  // patchForm(data: LeaveApplyBody): void {
+  //   this.form?.patchValue({
+  //     reasonForLeave: data.reasonForLeave,
+  //     leaveType: data.leaveType,
+  //     leaveFrom: new Date(data.leaveFrom),
+  //     leaveTo: new Date(data.leaveTo),
+  //     dayLeave: data.dayLeave,
+  //   });
+  // }
 
   patchData(form: FormGroup, data: LeaveApplyBody): void {
     // console.log(data);
