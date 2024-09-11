@@ -72,6 +72,7 @@ export class AddStaffComponent implements OnInit, OnDestroy {
     if (this.route.snapshot.params['id']) {
       this.isEditMode = true
     }
+
     return this.route.snapshot.params['id'];
   }
 
@@ -162,10 +163,9 @@ export class AddStaffComponent implements OnInit, OnDestroy {
     }
 
     const updatedData = convertToStaffPayload(this.registrationForm.value);
-    if (this.isEditMode && this.staffId !== null) {
-
+    if (this.isEditMode && this.editId !== null) {
       this.store.dispatch(
-        updateEmployee({ employeeId: this.staffId, updatedData })
+        updateEmployee({ employeeId: +this.editId, updatedData })
       );
     } else {
       this.store.dispatch(addStaff({ staff: updatedData }));

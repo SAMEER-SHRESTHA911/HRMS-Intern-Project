@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { baseUrl } from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
+import { baseUrl } from '@shared/constants/global.constants';
 import { ResponseType } from '@shared/models/response.model';
-import { AttendanceData, AttendanceRequestPayload, EmployeeAttendanceRecord, EmployeeByIdData } from '../../model/attendance-details.interface';
+import { Observable } from 'rxjs';
+import { AttendanceData, AttendanceRequestPayload, EmployeeByIdData } from '../../model/attendance-details.interface';
 
 @Injectable({
   providedIn: 'root',
