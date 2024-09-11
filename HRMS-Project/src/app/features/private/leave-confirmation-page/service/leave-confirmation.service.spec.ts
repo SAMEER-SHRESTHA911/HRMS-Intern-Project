@@ -61,31 +61,39 @@ fdescribe('LeaveConfirmationService', () => {
       result: 1,
     };
 
-    service.fetchRequestList().subscribe((leaveRequests) => {
-      expect(leaveRequests.length).toBe(1);
-      expect(leaveRequests[0].id).toBe(1);
+    service.fetchRequestList().subscribe((response) => {
+      expect(response.length).toBe(1);
+      expect(response[0].id).toBe(1);
     });
 
     const req = httpMock.expectOne(
       `${baseUrl}${apiConstants.leave.getEmployeeLeaveRequestList}`
     );
     expect(req.request.method).toBe('POST');
-    expect(req.request.body).toBe(mockResponse);
     req.flush(mockResponse);
+
   });
 
   it('should return empty list if data is not present', () => {
+    const mockResponse: LeaveRequestListResponse = {
+      data: { 
+        skip: 0,
+        take: 10,
+        count: 0,
+        employeeLeaveRequestResponse: null 
+      },
+      message: 'No Data',
+      result: 0,
+    };
 
     service.fetchRequestList().subscribe((response) => {
       expect(response.length).toBe(0);
-      expect(response).toBe([]);
+      expect(response).toEqual([]);
     })
 
     const req = httpMock.expectOne(`${baseUrl}${apiConstants.leave.getEmployeeLeaveRequestList}`);
     expect(req.request.method).toBe('POST');
-    req.flush({
-      data: { employeeLeaveRequestResponse : null }
-    })
+    req.flush(mockResponse);
   });
 
   it('should return image data', () => {

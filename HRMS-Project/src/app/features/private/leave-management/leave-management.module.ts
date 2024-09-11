@@ -11,7 +11,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { LeaveTableEffects } from './store/leave-table/leave-table-effects';
 import { LeaveAvailableReducer } from './store/leave-available/leave-available.reducer';
 import { LeaveAvailableEffects } from './store/leave-available/leave-available.effects';
-import { LeaveApproveRejectComponent } from './components/leave-approve-reject/leave-approve-reject.component';
 import { LeaveRequestListReducer } from './store/leave-confirmation/leave-confirmation.reducer';
 import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confirmation.effects';
 
@@ -19,7 +18,6 @@ import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confi
   declarations: [
     LeaveManagementComponent,
     LeaveTableComponent,
-    LeaveApproveRejectComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +29,6 @@ import { LeaveConfirmationEffects } from './store/leave-confirmation/leave-confi
     StoreModule.forFeature('leaveRequestList', LeaveRequestListReducer),
     EffectsModule.forFeature([LeaveTableEffects, LeaveAvailableEffects, LeaveConfirmationEffects]),
   ],
-  exports:[LeaveApproveRejectComponent]
+  exports:[]
 })
 export class LeaveManagementModule { }

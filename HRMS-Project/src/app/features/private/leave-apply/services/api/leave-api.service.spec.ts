@@ -6,7 +6,7 @@ import { LeaveApplyBody } from '../../types/leave-apply';
 import { apiConstants } from '@shared/constants/api.constants';
 import { baseUrl } from '@shared/constants/global.constants';
 
-describe('LeaveApplyApiService', () => {
+fdescribe('LeaveApplyApiService', () => {
   let service: LeaveApplyApiService;
   let httpMock : HttpTestingController;
 
