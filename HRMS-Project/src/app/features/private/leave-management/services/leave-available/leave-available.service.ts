@@ -20,14 +20,14 @@ export class LeaveAvailableService {
   parameter? : string;
 
   getLeaveAvailableData(employeeId: number): Observable<{
-    message: string;
+    // message: string;
     leaveBalanceData: LeaveBalanceData[];
   }> {
     return this.http
       .get<LeaveBalanceResponse>(`${baseUrl}${apiConstants.leave.getLeaveBalanceofEmp}?empId=${employeeId}`)
       .pipe(
         map((response) => ({
-          message: response.message,
+          // message: response.message,
           leaveBalanceData: response.data,
         }))
       );

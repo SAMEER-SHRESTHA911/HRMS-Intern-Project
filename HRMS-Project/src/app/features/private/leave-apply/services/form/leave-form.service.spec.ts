@@ -6,11 +6,13 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { LeaveApplyBody } from '../../types/leave-apply';
+import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
+import { baseUrl } from '@shared/constants/global.constants';
+import { apiConstants } from '@shared/constants/api.constants';
 
-describe('LeaveFormService', () => {
+fdescribe('LeaveFormService', () => {
   let service: LeaveFormService;
-  let httpMock: HttpClientTestingModule;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -77,4 +79,28 @@ describe('LeaveFormService', () => {
       dayLeave: mockData.dayLeave.toString(),
     });
   });
+
+  it('should give the leave data using the id', () => {
+    const id =1;
+
+    const mockResponse : LeaveApplyResponse = {
+      result: 1,
+      message: 'success',
+      data : {
+        leaveFrom: '2024-09-10',
+        leaveTo: '2024-09-12',
+        leaveType: 3,
+        dayLeave: 3,
+        reasonForLeave: 'Trip'
+      }
+    }
+
+    service.fetchEditLeaveData(id).subscribe((response) => {
+      expect(response).toBe(mockResponse);
+    })
+
+    const req = httpMock.expectOne(`${baseUrl}${apiConstants.leave.getLeaveRequestDetailById}?id=${id}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockResponse);
+  })
 });

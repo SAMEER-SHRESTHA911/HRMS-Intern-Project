@@ -9,7 +9,7 @@ import {
 } from '../../store/leave-summary/leave-summary.selectors';
 import { of } from 'rxjs';
 
-fdescribe('LeaveStatsComponent', () => {
+describe('LeaveStatsComponent', () => {
   let component: LeaveStatsComponent;
   let fixture: ComponentFixture<LeaveStatsComponent>;
   let store: MockStore;

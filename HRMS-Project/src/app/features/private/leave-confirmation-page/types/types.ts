@@ -24,7 +24,7 @@ export interface LeaveRequestListData{
     skip: number;
     take: number;
     count: number;
-    employeeLeaveRequestResponse:  LeaveRequestList[];
+    employeeLeaveRequestResponse:  LeaveRequestList[]|null;
 }
 export interface ImageResponse{
   result: number;
