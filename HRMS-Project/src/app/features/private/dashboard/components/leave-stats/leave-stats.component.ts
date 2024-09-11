@@ -19,6 +19,11 @@ export class LeaveStatsComponent {
   loading$: Observable<boolean> = of(false);
   error$: Observable<string | null> = of(null);
 
+  ngOnInit(): void {
+    this.selectorInitilizerAllPendingLeaveRequests();
+    this.allPendingLeaveRequestsStore.dispatch(FETCH_LEAVE_REQUESTS());
+  }
+
   get pendingLeaveCount$(): Observable<number> {
     return this.pendingLeaveRequestData$.pipe(
       map(
@@ -38,11 +43,6 @@ export class LeaveStatsComponent {
     this.error$ = this.allPendingLeaveRequestsStore.select(
       selectAllUsersPendingLeaveRequestDataError
     );
-  }
-
-  ngOnInit(): void {
-    this.selectorInitilizerAllPendingLeaveRequests();
-    this.allPendingLeaveRequestsStore.dispatch(FETCH_LEAVE_REQUESTS());
   }
 
   constructor(
