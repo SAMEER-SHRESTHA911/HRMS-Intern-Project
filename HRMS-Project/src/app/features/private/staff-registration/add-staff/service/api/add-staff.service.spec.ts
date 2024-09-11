@@ -5,7 +5,7 @@ import { ResponseType } from '../../../../../../shared/models/response.model';
 import { RegisterStaffPayload } from '../../model/add-staff';
 import { AddStaffService } from './add-staff.service';
 
-fdescribe('AddStaffService', () => {
+describe('AddStaffService', () => {
   let service: AddStaffService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 

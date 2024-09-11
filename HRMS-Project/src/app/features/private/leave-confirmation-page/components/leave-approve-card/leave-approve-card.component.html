@@ -7,8 +7,9 @@
                     <div class="first-row">
                         <div class="personal-details">
                             <div class="img">
+                                {{(imageData$ | async)?.imageDataBase64}}
                                 <img *ngIf="(imageData$ | async)?.imageDataBase64 as imageDataBase64"
-                                    [src]="imageDataBase64?'data:image/jpeg;base64,' + imageDataBase64:'./avatar.png'"
+                                    [src]="imageDataBase64 ? ('data:image/jpeg;base64,' + imageDataBase64):'./avatar.png'"
                                     alt="pic" />
                             </div>
                             <div class="employee-details">

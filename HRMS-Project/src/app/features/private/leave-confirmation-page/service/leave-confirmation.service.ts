@@ -10,18 +10,11 @@ import { apiConstants } from '@shared/constants/api.constants';
 })
 export class LeaveConfirmationService {
 
-  // private apiUrl = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/GetEmployeeLeaveRequestList";
-
-  // private imgUrl = "http://localhost:5262/apigateway/user/Document/GetProfilePictureOfEmp?empId="
-
-  // private approveRejectUrl = "http://localhost:5262/apigateway/attendanceLeave/LeaveRequest/ApproveRejectLeaveRequest?id="
-
   constructor(private http:HttpClient) { }
 
   fetchRequestList(): Observable<LeaveRequestList[]> {
     return this.http.post<LeaveRequestListResponse>(`${baseUrl}${apiConstants.leave.getEmployeeLeaveRequestList}`,{}).pipe(
       map((response) => {
-        // console.log('API response', response);
         if (response && response.data && response.data.employeeLeaveRequestResponse) {
           return response.data.employeeLeaveRequestResponse;
         }
