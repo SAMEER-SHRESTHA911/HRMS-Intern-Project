@@ -2,10 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { ProfileDetailsService } from './profile.service';
 
 
-describe('ProfileDetailsService', () => {
-  type NewType = ProfileDetailsService;
-
-  let service: NewType;
+describe('ProfileDetiailsService', () => {
+  let service: ProfileDetailsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
