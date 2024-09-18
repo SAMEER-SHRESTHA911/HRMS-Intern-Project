@@ -32,19 +32,19 @@ export class LeaveEditEffect {
     ) 
   );
   
-  onSucess$ = createEffect(
-    () =>
-      this.action$.pipe(
-        ofType(GET_EDIT_LEAVE_DATA_SUCCESS),
-        map((action) => {
-          // console.log('edit leave')
-          this.leaveEditService.patchForm(
-            action.editLeaveData.data
-          );
-          // this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
-        }
-      )
-      ),
-    { dispatch: false }
-  );
+  // onSucess$ = createEffect(
+  //   () =>
+  //     this.action$.pipe(
+  //       ofType(GET_EDIT_LEAVE_DATA_SUCCESS),
+  //       map((action) => {
+  //         // console.log('edit leave')
+  //         this.leaveEditService.patchForm(
+  //           action.editLeaveData.data
+  //         );
+  //         // this.snackBar.open('You have edited your leave application', 'Close', { duration: 5000 });
+  //       }
+  //     )
+  //     ),
+  //   { dispatch: false }
+  // );
 }

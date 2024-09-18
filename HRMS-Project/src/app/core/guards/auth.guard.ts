@@ -2,7 +2,6 @@ import { inject } from '@angular/core';
 import { CanActivateFn, CanDeactivateFn, Router } from '@angular/router';
 import { AuthService } from '../../features/public/services/services/auth.service';
 
-
 // createUrlTree
 
 export const publicGuard: CanActivateFn = (route, state) => {
@@ -17,7 +16,6 @@ export const authGuard: CanActivateFn = () => {
   const authService = inject(AuthService);
   return authService.isLoggedIn() ? true : router.createUrlTree(['/', 'login']);
 };
-
 
 // export const deGuard: CanDeactivateFn<unknown> = (...state) => {
 //   console.log({ state })

@@ -7,7 +7,7 @@ import { baseUrl } from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
 import { TmplAstBoundEvent } from '@angular/compiler';
 
-fdescribe('LeaveAvailableService', () => {
+describe('LeaveAvailableService', () => {
   let service: LeaveAvailableService;
   let httpMock:  HttpTestingController;
 

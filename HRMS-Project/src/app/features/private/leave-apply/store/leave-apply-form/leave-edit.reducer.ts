@@ -11,7 +11,7 @@ export const LeaveEditReducer = createReducer(
     })),
     on(GET_EDIT_LEAVE_DATA_SUCCESS, (state, { editLeaveData }) => ({
         ...state,
-        editLeaveData : editLeaveData,
+        leaveEditData : editLeaveData.data,
         loading: false,
         error: null
     })),

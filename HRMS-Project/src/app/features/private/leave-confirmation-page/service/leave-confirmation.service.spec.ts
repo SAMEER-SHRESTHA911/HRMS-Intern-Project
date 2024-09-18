@@ -12,7 +12,7 @@ import {
   LeaveAcceptRejectResponse,
 } from '../types/types';
 
-fdescribe('LeaveConfirmationService', () => {
+describe('LeaveConfirmationService', () => {
   let service: LeaveConfirmationService;
   let httpMock: HttpTestingController;
 

@@ -10,7 +10,7 @@ import { LeaveApplyBody, LeaveApplyResponse } from '../../types/leave-apply';
 import { baseUrl } from '@shared/constants/global.constants';
 import { apiConstants } from '@shared/constants/api.constants';
 
-fdescribe('LeaveFormService', () => {
+describe('LeaveFormService', () => {
   let service: LeaveFormService;
   let httpMock: HttpTestingController;
 
