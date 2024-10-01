@@ -9,7 +9,7 @@ export const selectLeaveEditData = createSelector(
 )
 export const selectLeaveLoading = createSelector(
     selectLeaveEditState,
-    (state: IEditLeaveEdit) => state.loading
+    (state: IEditLeaveEdit):boolean => state.loading
 )
 export const selectLeaveError = createSelector(
     selectLeaveEditState,

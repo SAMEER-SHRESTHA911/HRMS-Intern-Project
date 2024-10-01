@@ -15,15 +15,15 @@ export class LeaveFormService {
 
   isEditMode: boolean = false;
 
-  #form?: FormGroup;
+  #form!: FormGroup;
 
-  constructor(private http: HttpClient, private fb: FormBuilder) {}
+  constructor(private http: HttpClient, private fb: FormBuilder) { }
 
-  get form(): FormGroup | undefined {
+  get form(): FormGroup  {
     return this.#form;
   }
 
-  set form(form: FormGroup | undefined) {
+  set form(form: FormGroup ) {
     this.#form = form;
   }
 
@@ -67,14 +67,13 @@ export class LeaveFormService {
   //   });
   // }
 
-  patchData(form: FormGroup, data: LeaveApplyBody): void {
-    // console.log(data);
-    form.patchValue({
+  patchData(data: LeaveApplyBody): void {
+    this.form?.patchValue({
       reasonForLeave: data.reasonForLeave,
       leaveType: data.leaveType,
       leaveFrom: new Date(data.leaveFrom),
       leaveTo: new Date(data.leaveTo),
       dayLeave: data.dayLeave,
-    });
+    }); 
   }
 }

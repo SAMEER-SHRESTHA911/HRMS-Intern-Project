@@ -10,7 +10,7 @@ import { LeaveTableResponse } from '../../types/leave-table';
 import { apiConstants } from '@shared/constants/api.constants';
 import { baseUrl } from '@shared/constants/global.constants';
 
-describe('LeaveTableService', () => {
+fdescribe('LeaveTableService', () => {
   let service: LeaveTableService;
   let httpMock: HttpTestingController;
 

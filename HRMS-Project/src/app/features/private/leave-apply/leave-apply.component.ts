@@ -45,7 +45,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private leaveEditService: LeaveFormService,
     private leaveFormService: LeaveFormService
-  ) {}
+  ) { }
 
   get leaveApplyForm(): FormGroup | undefined {
     return this.leaveFormService.form;
@@ -72,7 +72,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     this.leaveFormService.resetEditMode();
   }
 
-  getDropDown() :void{
+  getDropDown(): void {
     // console.log(this.leaveApplyForm?.value);
     this.store.dispatch(FETCH_DAY_LEAVE_DROPDOWN());
 
@@ -106,7 +106,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       (item) => item.value === formValue.leaveType.value
     )?.key;
     const formattedLeaveFrom = formatDateToString(formValue.leaveFrom);
-    
+
     // console.log(formValue.leaveFrom)
     // console.log(formattedLeaveFrom)
     const formattedLeaveTo = formatDateToString(formValue.leaveTo);
@@ -122,7 +122,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     };
 
     if (this.isEditMode && this.leaveId !== null) {
-      this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: String(this.leaveId) }));
+      this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: (this.leaveId).toString() }));
     } else {
       this.store.dispatch(submitLeaveForm({ leaveData: formValueSubmit }));
     }
@@ -136,8 +136,6 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: leaveId }));
-
     this.store
       .select(selectLeaveEditData)
       .pipe(
@@ -146,12 +144,13 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       )
       .subscribe((editLeaveData) => {
         if (this.leaveApplyForm && editLeaveData) {
-          this.leaveEditService.patchData(this.leaveApplyForm, editLeaveData);
+          this.leaveEditService.patchData(editLeaveData);
           // console.log(editLeaveData);
           // console.log(editLeaveData.reasonForLeave);
           // console.log(this.leaveApplyForm);
         }
       });
+    this.store.dispatch(GET_EDIT_LEAVE_DATA({ id: leaveId }));
 
     // this.leaveEditService
     //   .fetchEditLeaveData(leaveId)
@@ -169,7 +168,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
     //   });
   }
 
-  resetForm() :void{
+  resetForm(): void {
     this.leaveApplyForm?.reset();
   }
 
@@ -181,7 +180,7 @@ export class LeaveApplyComponent implements OnInit, OnDestroy {
       .subscribe((leaveFromDate) => {
         if (leaveFromDate) {
           const adjustedDate = new Date(leaveFromDate);
-          adjustedDate.setHours(0,0,0,0);
+          adjustedDate.setHours(0, 0, 0, 0);
           this.minDateForLeaveTo = adjustedDate;
           this.leaveApplyForm?.get('leaveTo')?.updateValueAndValidity();
         }
